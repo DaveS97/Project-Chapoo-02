@@ -22,7 +22,7 @@ namespace ChapooUI
             
 
             //HIER WORDT DE LV_WERKNEMERS GEVULD
-            //werknemer service aanmaken
+            //werknemer service aanmaken test 123 dit heeft vuurben even gedaan
             ChapooLogic.Werknemer_Service werknemer_service = new ChapooLogic.Werknemer_Service();
             List<Werknemer> werknemers = werknemer_service.KrijgWerknemers();
             //leeg de kolommen eerst voordat je ze weer vult
