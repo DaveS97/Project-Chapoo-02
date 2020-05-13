@@ -28,12 +28,13 @@ namespace ChapooUI
             //leeg de kolommen eerst voordat je ze weer vult
             lv_Werknemers.Clear();
             //maak kolommen
-            lv_Werknemers.Columns.Add("Werknemer Nummer", 50);
-            lv_Werknemers.Columns.Add("Naam", 75);
+            lv_Werknemers.Columns.Add("Werknemer Nummer", 100);
+            lv_Werknemers.Columns.Add("Naam", 50);
             //vul de listview
             foreach (Werknemer werknemer in werknemers)
             {
                 ListViewItem li = new ListViewItem(werknemer.ID.ToString());
+                li.SubItems.Add(werknemer.Naam.ToString());
                 lv_Werknemers.Items.Add(li);
             }
         }
