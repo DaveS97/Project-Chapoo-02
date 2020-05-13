@@ -16,14 +16,10 @@ namespace ChapooUI
         public Chapoo()
         {
             InitializeComponent();
-            
         }
-        private void homeToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Show();
-        }
+        private void MS1I_Home_Click(object sender, EventArgs e) { Show(); }
 
-        private void werknemersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MS1I_Werknemers_Click(object sender, EventArgs e)
         {
             WerknemersForm werknemersForm = new WerknemersForm();
             werknemersForm.ShowDialog();
