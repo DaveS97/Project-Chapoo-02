@@ -23,7 +23,14 @@ namespace ChapooUI
         {
             WerknemersForm werknemersForm = new WerknemersForm();
             werknemersForm.ShowDialog();
+            
             //als we nog een form hiervan moeten aanmaken, kunnen we de singlepattern misschien toepassen
+        }
+
+        private void MS_KO_Click(object sender, EventArgs e)
+        {
+            KeukenOverzichtForm keukenOverzicht = new KeukenOverzichtForm();
+            keukenOverzicht.ShowDialog();
         }
     }
 }

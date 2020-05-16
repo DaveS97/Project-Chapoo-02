@@ -35,11 +35,11 @@
             this.MS_BO = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_KO = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_Beheer = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbl_Welkom = new System.Windows.Forms.Label();
             this.MS1I_Inkomsten = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Voorraad = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_MenuKaartOpties = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Werknemers = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_Welkom = new System.Windows.Forms.Label();
             this.MS1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +56,7 @@
             this.MS_Beheer});
             this.MS1.Location = new System.Drawing.Point(0, 0);
             this.MS1.Name = "MS1";
-            this.MS1.Size = new System.Drawing.Size(1039, 28);
+            this.MS1.Size = new System.Drawing.Size(1039, 30);
             this.MS1.TabIndex = 0;
             this.MS1.Text = "menuStrip1";
             // 
@@ -67,13 +67,13 @@
             this.MS1I_Home});
             this.HomeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
-            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
             this.HomeToolStripMenuItem.Text = "Home";
             // 
             // MS1I_Home
             // 
             this.MS1I_Home.Name = "MS1I_Home";
-            this.MS1I_Home.Size = new System.Drawing.Size(224, 26);
+            this.MS1I_Home.Size = new System.Drawing.Size(133, 26);
             this.MS1I_Home.Text = "Home";
             this.MS1I_Home.Click += new System.EventHandler(this.MS1I_Home_Click);
             // 
@@ -82,22 +82,23 @@
             this.MS_RO.BackColor = System.Drawing.Color.White;
             this.MS_RO.ForeColor = System.Drawing.Color.Black;
             this.MS_RO.Name = "MS_RO";
-            this.MS_RO.Size = new System.Drawing.Size(159, 24);
+            this.MS_RO.Size = new System.Drawing.Size(159, 26);
             this.MS_RO.Text = "Restaurant Overzicht";
             // 
             // MS_BO
             // 
             this.MS_BO.BackColor = System.Drawing.Color.White;
             this.MS_BO.Name = "MS_BO";
-            this.MS_BO.Size = new System.Drawing.Size(111, 24);
+            this.MS_BO.Size = new System.Drawing.Size(111, 26);
             this.MS_BO.Text = "Bar Overzicht";
             // 
             // MS_KO
             // 
             this.MS_KO.BackColor = System.Drawing.Color.White;
             this.MS_KO.Name = "MS_KO";
-            this.MS_KO.Size = new System.Drawing.Size(137, 24);
+            this.MS_KO.Size = new System.Drawing.Size(137, 26);
             this.MS_KO.Text = "Keuken Overzicht";
+            this.MS_KO.Click += new System.EventHandler(this.MS_KO_Click);
             // 
             // MS_Beheer
             // 
@@ -108,8 +109,33 @@
             this.MS1I_MenuKaartOpties,
             this.MS1I_Werknemers});
             this.MS_Beheer.Name = "MS_Beheer";
-            this.MS_Beheer.Size = new System.Drawing.Size(69, 24);
+            this.MS_Beheer.Size = new System.Drawing.Size(69, 26);
             this.MS_Beheer.Text = "Beheer";
+            // 
+            // MS1I_Inkomsten
+            // 
+            this.MS1I_Inkomsten.Name = "MS1I_Inkomsten";
+            this.MS1I_Inkomsten.Size = new System.Drawing.Size(215, 26);
+            this.MS1I_Inkomsten.Text = "Inkomsten";
+            // 
+            // MS1I_Voorraad
+            // 
+            this.MS1I_Voorraad.Name = "MS1I_Voorraad";
+            this.MS1I_Voorraad.Size = new System.Drawing.Size(215, 26);
+            this.MS1I_Voorraad.Text = "Voorraad";
+            // 
+            // MS1I_MenuKaartOpties
+            // 
+            this.MS1I_MenuKaartOpties.Name = "MS1I_MenuKaartOpties";
+            this.MS1I_MenuKaartOpties.Size = new System.Drawing.Size(215, 26);
+            this.MS1I_MenuKaartOpties.Text = "Menu Kaart Opties";
+            // 
+            // MS1I_Werknemers
+            // 
+            this.MS1I_Werknemers.Name = "MS1I_Werknemers";
+            this.MS1I_Werknemers.Size = new System.Drawing.Size(215, 26);
+            this.MS1I_Werknemers.Text = "Werknemers";
+            this.MS1I_Werknemers.Click += new System.EventHandler(this.MS1I_Werknemers_Click);
             // 
             // lbl_Welkom
             // 
@@ -120,31 +146,6 @@
             this.lbl_Welkom.Size = new System.Drawing.Size(635, 31);
             this.lbl_Welkom.TabIndex = 1;
             this.lbl_Welkom.Text = "Welkom bij het restaurant bestelsysteem van Chapoo.";
-            // 
-            // MS1I_Inkomsten
-            // 
-            this.MS1I_Inkomsten.Name = "MS1I_Inkomsten";
-            this.MS1I_Inkomsten.Size = new System.Drawing.Size(224, 26);
-            this.MS1I_Inkomsten.Text = "Inkomsten";
-            // 
-            // MS1I_Voorraad
-            // 
-            this.MS1I_Voorraad.Name = "MS1I_Voorraad";
-            this.MS1I_Voorraad.Size = new System.Drawing.Size(224, 26);
-            this.MS1I_Voorraad.Text = "Voorraad";
-            // 
-            // MS1I_MenuKaartOpties
-            // 
-            this.MS1I_MenuKaartOpties.Name = "MS1I_MenuKaartOpties";
-            this.MS1I_MenuKaartOpties.Size = new System.Drawing.Size(224, 26);
-            this.MS1I_MenuKaartOpties.Text = "Menu Kaart Opties";
-            // 
-            // MS1I_Werknemers
-            // 
-            this.MS1I_Werknemers.Name = "MS1I_Werknemers";
-            this.MS1I_Werknemers.Size = new System.Drawing.Size(224, 26);
-            this.MS1I_Werknemers.Text = "Werknemers";
-            this.MS1I_Werknemers.Click += new System.EventHandler(this.MS1I_Werknemers_Click);
             // 
             // Chapoo
             // 

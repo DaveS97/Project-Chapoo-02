@@ -13,7 +13,7 @@ namespace ChapooDAL
     {
         public List<Werknemer> DB_Krijg_Alle_Werknemers()
         {
-            string query = "SELECT werknemerID FROM [Werknemers]";
+            string query = "SELECT werknemerID, werknemerType, werknemerNaam FROM [Werknemers]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -25,7 +25,9 @@ namespace ChapooDAL
             {
                 Werknemer werknemer = new Werknemer()
                 {
-                    ID = (int)dr["werknemerId"],
+                    ID = (int)dr["werknemerID"],
+                    Type = (int)dr["werknemerType"],
+                    Naam = (string)dr["werknemerNaam"].ToString()
                 };
                 werknemers.Add(werknemer);
             }
