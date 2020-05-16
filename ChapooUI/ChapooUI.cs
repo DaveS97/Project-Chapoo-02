@@ -25,5 +25,17 @@ namespace ChapooUI
             werknemersForm.ShowDialog();
             //als we nog een form hiervan moeten aanmaken, kunnen we de singlepattern misschien toepassen
         }
+
+        private void MS1I_Inkomsten_Click(object sender, EventArgs e)
+        {
+            InkomstenForm inkomsten = new InkomstenForm();
+            inkomsten.ShowDialog();
+        }
+
+        private void MS1I_Voorraad_Click(object sender, EventArgs e)
+        {
+            VoorraadForm voorraad = new VoorraadForm();
+            voorraad.ShowDialog();
+        }
     }
 }

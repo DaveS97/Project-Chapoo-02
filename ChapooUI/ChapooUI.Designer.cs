@@ -35,11 +35,11 @@
             this.MS_BO = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_KO = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_Beheer = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbl_Welkom = new System.Windows.Forms.Label();
             this.MS1I_Inkomsten = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Voorraad = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_MenuKaartOpties = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Werknemers = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_Welkom = new System.Windows.Forms.Label();
             this.MS1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +56,7 @@
             this.MS_Beheer});
             this.MS1.Location = new System.Drawing.Point(0, 0);
             this.MS1.Name = "MS1";
-            this.MS1.Size = new System.Drawing.Size(1039, 28);
+            this.MS1.Size = new System.Drawing.Size(1039, 30);
             this.MS1.TabIndex = 0;
             this.MS1.Text = "menuStrip1";
             // 
@@ -73,7 +73,7 @@
             // MS1I_Home
             // 
             this.MS1I_Home.Name = "MS1I_Home";
-            this.MS1I_Home.Size = new System.Drawing.Size(224, 26);
+            this.MS1I_Home.Size = new System.Drawing.Size(133, 26);
             this.MS1I_Home.Text = "Home";
             this.MS1I_Home.Click += new System.EventHandler(this.MS1I_Home_Click);
             // 
@@ -111,27 +111,19 @@
             this.MS_Beheer.Size = new System.Drawing.Size(69, 24);
             this.MS_Beheer.Text = "Beheer";
             // 
-            // lbl_Welkom
-            // 
-            this.lbl_Welkom.AutoSize = true;
-            this.lbl_Welkom.Font = new System.Drawing.Font("MV Boli", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Welkom.Location = new System.Drawing.Point(187, 229);
-            this.lbl_Welkom.Name = "lbl_Welkom";
-            this.lbl_Welkom.Size = new System.Drawing.Size(635, 31);
-            this.lbl_Welkom.TabIndex = 1;
-            this.lbl_Welkom.Text = "Welkom bij het restaurant bestelsysteem van Chapoo.";
-            // 
             // MS1I_Inkomsten
             // 
             this.MS1I_Inkomsten.Name = "MS1I_Inkomsten";
             this.MS1I_Inkomsten.Size = new System.Drawing.Size(224, 26);
             this.MS1I_Inkomsten.Text = "Inkomsten";
+            this.MS1I_Inkomsten.Click += new System.EventHandler(this.MS1I_Inkomsten_Click);
             // 
             // MS1I_Voorraad
             // 
             this.MS1I_Voorraad.Name = "MS1I_Voorraad";
             this.MS1I_Voorraad.Size = new System.Drawing.Size(224, 26);
             this.MS1I_Voorraad.Text = "Voorraad";
+            this.MS1I_Voorraad.Click += new System.EventHandler(this.MS1I_Voorraad_Click);
             // 
             // MS1I_MenuKaartOpties
             // 
@@ -145,6 +137,16 @@
             this.MS1I_Werknemers.Size = new System.Drawing.Size(224, 26);
             this.MS1I_Werknemers.Text = "Werknemers";
             this.MS1I_Werknemers.Click += new System.EventHandler(this.MS1I_Werknemers_Click);
+            // 
+            // lbl_Welkom
+            // 
+            this.lbl_Welkom.AutoSize = true;
+            this.lbl_Welkom.Font = new System.Drawing.Font("MV Boli", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Welkom.Location = new System.Drawing.Point(187, 229);
+            this.lbl_Welkom.Name = "lbl_Welkom";
+            this.lbl_Welkom.Size = new System.Drawing.Size(635, 31);
+            this.lbl_Welkom.TabIndex = 1;
+            this.lbl_Welkom.Text = "Welkom bij het restaurant bestelsysteem van Chapoo.";
             // 
             // Chapoo
             // 
