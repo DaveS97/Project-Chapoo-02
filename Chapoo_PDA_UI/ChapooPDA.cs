@@ -16,5 +16,27 @@ namespace Chapoo_PDA_UI
         {
             InitializeComponent();
         }
+
+        private void btnRestaurantOverzicht_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_RestaurantOverzicht overzicht = new ChapooPDA_RestaurantOverzicht();
+            overzicht.Show();
+        }
+
+        private void btnKlaarstaandeBestellingen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBestellingOpnemen_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingOpnemenMenu menu = new ChapooPDA_BestellingOpnemenMenu();
+            menu.ShowDialog();
+        }
+
+        private void btnAfrekenen_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
