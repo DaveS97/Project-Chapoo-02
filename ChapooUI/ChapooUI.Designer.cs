@@ -117,12 +117,14 @@
             this.MS1I_Inkomsten.Name = "MS1I_Inkomsten";
             this.MS1I_Inkomsten.Size = new System.Drawing.Size(215, 26);
             this.MS1I_Inkomsten.Text = "Inkomsten";
+            this.MS1I_Inkomsten.Click += new System.EventHandler(this.MS1I_Inkomsten_Click);
             // 
             // MS1I_Voorraad
             // 
             this.MS1I_Voorraad.Name = "MS1I_Voorraad";
             this.MS1I_Voorraad.Size = new System.Drawing.Size(215, 26);
             this.MS1I_Voorraad.Text = "Voorraad";
+            this.MS1I_Voorraad.Click += new System.EventHandler(this.MS1I_Voorraad_Click);
             // 
             // MS1I_MenuKaartOpties
             // 

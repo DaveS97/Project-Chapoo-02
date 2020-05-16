@@ -52,10 +52,64 @@
     <Compile Include="ChapooPDA.Designer.cs">
       <DependentUpon>ChapooPDA.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChapooPDA_AfrekenenMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChapooPDA_AfrekenenMenu.Designer.cs">
+      <DependentUpon>ChapooPDA_AfrekenenMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChapooPDA_AfrekenenOverzicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChapooPDA_AfrekenenOverzicht.Designer.cs">
+      <DependentUpon>ChapooPDA_AfrekenenOverzicht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChapooPDA_BestellingenOpnemenOverzicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChapooPDA_BestellingenOpnemenOverzicht.Designer.cs">
+      <DependentUpon>ChapooPDA_BestellingenOpnemenOverzicht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChapooPDA_BestellingOpnemenMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChapooPDA_BestellingOpnemenMenu.Designer.cs">
+      <DependentUpon>ChapooPDA_BestellingOpnemenMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChapooPDA_KlaarstaandeBestellingenOverzicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChapooPDA_KlaarstaandeBestellingenOverzicht.Designer.cs">
+      <DependentUpon>ChapooPDA_KlaarstaandeBestellingenOverzicht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChapooPDA_RestaurantOverzicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChapooPDA_RestaurantOverzicht.Designer.cs">
+      <DependentUpon>ChapooPDA_RestaurantOverzicht.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ChapooPDA.resx">
       <DependentUpon>ChapooPDA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChapooPDA_AfrekenenMenu.resx">
+      <DependentUpon>ChapooPDA_AfrekenenMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChapooPDA_AfrekenenOverzicht.resx">
+      <DependentUpon>ChapooPDA_AfrekenenOverzicht.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChapooPDA_BestellingenOpnemenOverzicht.resx">
+      <DependentUpon>ChapooPDA_BestellingenOpnemenOverzicht.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChapooPDA_BestellingOpnemenMenu.resx">
+      <DependentUpon>ChapooPDA_BestellingOpnemenMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChapooPDA_KlaarstaandeBestellingenOverzicht.resx">
+      <DependentUpon>ChapooPDA_KlaarstaandeBestellingenOverzicht.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChapooPDA_RestaurantOverzicht.resx">
+      <DependentUpon>ChapooPDA_RestaurantOverzicht.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,6 +132,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChapooDAL\ChapooDAL.csproj">
+      <Project>{b01bb7a5-8e60-4e63-9dda-4208548e8f45}</Project>
+      <Name>ChapooDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChapooLogic\ChapooLogic.csproj">
+      <Project>{bd105784-8a13-4431-b6f0-944c654df854}</Project>
+      <Name>ChapooLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChapooModel\ChapooModel.csproj">
+      <Project>{a69f100f-9fdc-4b24-89c0-ae6abfd472a4}</Project>
+      <Name>ChapooModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
