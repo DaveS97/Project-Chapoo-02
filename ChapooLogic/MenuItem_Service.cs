@@ -13,13 +13,12 @@ namespace ChapooLogic
     public class MenuItem_Service
     {
         private MenuItem_DAO menuItem_DAO = new MenuItem_DAO();
-        private MenuItem_DAO menuItem = new MenuItem_DAO();
 
         public List<MenuItem> GetMenuItems()
         {
             try
             {
-                List<MenuItem> item = menuItem.GetMenuItems();
+                List<MenuItem> item = menuItem_DAO.GetMenuItems();
                 return item;
             }
             catch (Exception e)
@@ -37,18 +36,18 @@ namespace ChapooLogic
                 return werknemers;
             }
         }
-        public List<ChapooModel.MenuItem> KrijgBeschrijving()
+        public List<MenuItem> KrijgBeschrijving()
         {
             try
             {
-                List<ChapooModel.MenuItem> menuItems = menuItem_DAO.Krijg_Bestelling_Beschrijving();
+                List<MenuItem> menuItems = menuItem_DAO.Krijg_Bestelling_Beschrijving();
                 return menuItems;
             }
             catch (Exception e)
             {
                 MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
                 List<ChapooModel.MenuItem> menuItems = new List<ChapooModel.MenuItem>();
-                ChapooModel.MenuItem menuItem = new ChapooModel.MenuItem();
+                MenuItem menuItem = new MenuItem();
                 menuItem.ID= 1;
                 menuItem.ItemNaam = "Biefstuk";
                 menuItem.Aantal = 3;
