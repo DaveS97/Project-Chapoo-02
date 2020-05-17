@@ -32,6 +32,11 @@ namespace ChapooLogic
                 item.ItemNaam = "menuItem";
                 item.Prijs = 1.0;
 
+        
+                werknemers.Add(item);
+                return werknemers;
+            }
+        }
         public List<ChapooModel.MenuItem> KrijgBeschrijving()
         {
             try
@@ -50,10 +55,6 @@ namespace ChapooLogic
                 menuItem.Prijs = 8.5;
                 menuItems.Add(menuItem);
                 return menuItems;
-            }
-        }
-                werknemers.Add(item);
-                return werknemers;
             }
         }
     }
