@@ -46,7 +46,7 @@ namespace ChapooLogic
             catch (Exception e)
             {
                 MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
-                List<ChapooModel.MenuItem> menuItems = new List<ChapooModel.MenuItem>();
+                List<MenuItem> menuItems = new List<MenuItem>();
                 MenuItem menuItem = new MenuItem();
                 menuItem.ID= 1;
                 menuItem.ItemNaam = "Biefstuk";
