@@ -17,7 +17,14 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        
+
+        public List<MenuItem> Krijg_Bestelling_Beschrijving()
+        {
+            string query = "";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
         private List<MenuItem> ReadTables(DataTable dataTable)
         {
             List<MenuItem> werknemers = new List<MenuItem>();
