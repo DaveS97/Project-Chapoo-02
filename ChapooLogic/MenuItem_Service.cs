@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChapooLogic
 {
-    class MenuItem_Service
+    public class MenuItem_Service
     {
 
     }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ChapooDAL
 {
-    class MenuItem_DAO : Base
+    public class MenuItem_DAO : Base
     {
         public List<MenuItem> GetMenuItems()
         {
