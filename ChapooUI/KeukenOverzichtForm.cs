@@ -53,7 +53,7 @@ namespace ChapooUI
             menuItems = menuItem_Service.KrijgBeschrijving(bestellingNummer);
             foreach (KeyValuePair<Bestelling, ChapooModel.MenuItem> items in menuItems)
             {
-                lbl_Bestelling.Text = items.Key.bestellingID.ToString() + items.Value.ID.ToString() + items.Value.Beschrijving.ToString();
+                lbl_Bestelling.Text +=  $"{items.Value.ID} {items.Value.Beschrijving}\n";
             }
         }
     }
