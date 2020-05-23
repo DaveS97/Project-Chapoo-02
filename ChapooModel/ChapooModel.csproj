@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Bediener.cs" />
     <Compile Include="Bestelling.cs" />
+    <Compile Include="Bevat.cs" />
     <Compile Include="Klant.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

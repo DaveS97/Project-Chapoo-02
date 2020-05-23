@@ -26,14 +26,12 @@ namespace ChapooUI
             lv_Bestellingen.Clear();
             //maak kolommen
             lv_Bestellingen.Columns.Add("Bestelling Id", 50);
-            lv_Bestellingen.Columns.Add("Bediener Id", 50);
-            lv_Bestellingen.Columns.Add("Klant Id", 100);
+            lv_Bestellingen.Columns.Add("Menu item Id", 50);
             //vul de listview
             foreach (Bestelling bestelling in bestellingen)
             {
                 ListViewItem li = new ListViewItem(bestelling.bestellingID.ToString());
                 li.SubItems.Add(bestelling.bedienerID.ToString());
-                li.SubItems.Add(bestelling.klantID.ToString());
                 lv_Bestellingen.Items.Add(li);
             }
 
