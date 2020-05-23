@@ -46,6 +46,7 @@
             this.lbl_opmerkingen = new System.Windows.Forms.Label();
             this.lbl_Bestelling = new System.Windows.Forms.Label();
             this.lv_Bestellingen = new System.Windows.Forms.ListView();
+            this.btn_toonBestelling = new System.Windows.Forms.Button();
             this.MS1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +74,7 @@
             this.MS1I_Home});
             this.HomeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
-            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
             this.HomeToolStripMenuItem.Text = "Home";
             // 
             // MS1I_Home
@@ -87,21 +88,21 @@
             this.MS_RO.BackColor = System.Drawing.Color.White;
             this.MS_RO.ForeColor = System.Drawing.Color.Black;
             this.MS_RO.Name = "MS_RO";
-            this.MS_RO.Size = new System.Drawing.Size(159, 24);
+            this.MS_RO.Size = new System.Drawing.Size(159, 26);
             this.MS_RO.Text = "Restaurant Overzicht";
             // 
             // MS_BO
             // 
             this.MS_BO.BackColor = System.Drawing.Color.White;
             this.MS_BO.Name = "MS_BO";
-            this.MS_BO.Size = new System.Drawing.Size(111, 24);
+            this.MS_BO.Size = new System.Drawing.Size(111, 26);
             this.MS_BO.Text = "Bar Overzicht";
             // 
             // MS_KO
             // 
             this.MS_KO.BackColor = System.Drawing.Color.White;
             this.MS_KO.Name = "MS_KO";
-            this.MS_KO.Size = new System.Drawing.Size(137, 24);
+            this.MS_KO.Size = new System.Drawing.Size(137, 26);
             this.MS_KO.Text = "Keuken Overzicht";
             // 
             // MS_Beheer
@@ -113,7 +114,7 @@
             this.MS1I_MenuKaartOpties,
             this.MS1I_Werknemers});
             this.MS_Beheer.Name = "MS_Beheer";
-            this.MS_Beheer.Size = new System.Drawing.Size(69, 24);
+            this.MS_Beheer.Size = new System.Drawing.Size(69, 26);
             this.MS_Beheer.Text = "Beheer";
             // 
             // MS1I_Inkomsten
@@ -214,12 +215,23 @@
             this.lv_Bestellingen.UseCompatibleStateImageBehavior = false;
             this.lv_Bestellingen.View = System.Windows.Forms.View.Details;
             // 
+            // btn_toonBestelling
+            // 
+            this.btn_toonBestelling.Location = new System.Drawing.Point(55, 489);
+            this.btn_toonBestelling.Name = "btn_toonBestelling";
+            this.btn_toonBestelling.Size = new System.Drawing.Size(104, 49);
+            this.btn_toonBestelling.TabIndex = 13;
+            this.btn_toonBestelling.Text = "Toon bestelling";
+            this.btn_toonBestelling.UseVisualStyleBackColor = true;
+            this.btn_toonBestelling.Click += new System.EventHandler(this.button1_Click);
+            // 
             // KeukenOverzichtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(1039, 550);
+            this.Controls.Add(this.btn_toonBestelling);
             this.Controls.Add(this.lv_Bestellingen);
             this.Controls.Add(this.lbl_Bestelling);
             this.Controls.Add(this.lbl_opmerkingen);
@@ -257,5 +269,6 @@
         private System.Windows.Forms.Label lbl_opmerkingen;
         private System.Windows.Forms.Label lbl_Bestelling;
         private System.Windows.Forms.ListView lv_Bestellingen;
+        private System.Windows.Forms.Button btn_toonBestelling;
     }
 }

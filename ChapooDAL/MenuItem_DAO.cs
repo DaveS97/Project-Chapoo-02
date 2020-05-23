@@ -11,37 +11,41 @@ namespace ChapooDAL
 {
     public class MenuItem_DAO : Base
     {
-        public List<MenuItem> GetMenuItems()
+        /*public List<MenuItem> KrijgIDS()
         {
             string query = "";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }*/
+
+        public Dictionary<Bestelling, MenuItem> Krijg_Bestelling_Beschrijving(string bestellingID)
+        {
+            string query = "SELECT Be.bestellingID, BE.menuItemID, MI.omschrijving FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID WHERE BE.bestellingID = @bestellingID;";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@bestellingID", SqlDbType.Int) { Value = bestellingID}
+            };
+            return ReadTablesBMO(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public List<MenuItem> Krijg_Bestelling_Beschrijving()
+        private Dictionary<Bestelling, MenuItem> ReadTablesBMO(DataTable dataTable)
         {
-            string query = "";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-        }
-
-        private List<MenuItem> ReadTables(DataTable dataTable)
-        {
-            List<MenuItem> werknemers = new List<MenuItem>();
+            Dictionary<Bestelling, MenuItem> bestellingen = new Dictionary<Bestelling, MenuItem>();
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                MenuItem werknemer = new MenuItem()
+                Bestelling bestelling = new Bestelling()
+                {
+                    bestellingID = (int)dr["bestellingID"]
+                };
+                MenuItem menuItem = new MenuItem()
                 {
                     ID = (int)dr["menuItemID"],
-                    ItemNaam = (string)dr["omschrijving"],
-                    Prijs = (double)dr["prijs"],
-                    Aantal = (int)dr["aantal"],
-
+                    Beschrijving = (string)dr["omschrijving"],
                 };
-                werknemers.Add(werknemer);
+                bestellingen.Add(bestelling, menuItem);
             }
-            return werknemers;
+            return bestellingen;
         }
     }
 }

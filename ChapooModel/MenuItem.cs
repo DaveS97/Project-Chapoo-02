@@ -9,7 +9,7 @@ namespace ChapooModel
     public class MenuItem
     {
         public int ID { get; set; }
-        public string ItemNaam { get; set; }
+        public string Beschrijving { get; set; }
         public int Aantal { get; set; }
         public double Prijs { get; set; }
     }
