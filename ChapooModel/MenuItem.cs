@@ -13,5 +13,6 @@ namespace ChapooModel
         public int Aantal { get; set; }
         public decimal Prijs { get; set; }
         public int menu { get; set; }
+        public int typeGerecht { get; set; }
     }
 }
