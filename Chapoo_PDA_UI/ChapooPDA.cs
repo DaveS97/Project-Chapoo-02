@@ -20,12 +20,13 @@ namespace Chapoo_PDA_UI
         private void btnRestaurantOverzicht_Click(object sender, EventArgs e)
         {
             ChapooPDA_RestaurantOverzicht overzicht = new ChapooPDA_RestaurantOverzicht();
-            overzicht.Show();
+            overzicht.ShowDialog();
         }
 
         private void btnKlaarstaandeBestellingen_Click(object sender, EventArgs e)
         {
-
+            ChapooPDA_KlaarstaandeBestellingenOverzicht overzicht = new ChapooPDA_KlaarstaandeBestellingenOverzicht();
+            overzicht.ShowDialog();
         }
 
         private void btnBestellingOpnemen_Click(object sender, EventArgs e)
@@ -36,7 +37,8 @@ namespace Chapoo_PDA_UI
 
         private void btnAfrekenen_Click(object sender, EventArgs e)
         {
-            
+            ChapooPDA_AfrekenenMenu menu = new ChapooPDA_AfrekenenMenu();
+            menu.ShowDialog();
         }
     }
 }

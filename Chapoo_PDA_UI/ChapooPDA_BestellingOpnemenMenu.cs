@@ -16,5 +16,15 @@ namespace Chapoo_PDA_UI
         {
             InitializeComponent();
         }
+
+        private void tbTafelnummerBestellingOpnemen_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNaarBestelling_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
