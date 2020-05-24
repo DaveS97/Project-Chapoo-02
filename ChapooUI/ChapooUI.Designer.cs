@@ -56,7 +56,7 @@
             this.MS_Beheer});
             this.MS1.Location = new System.Drawing.Point(0, 0);
             this.MS1.Name = "MS1";
-            this.MS1.Size = new System.Drawing.Size(1039, 30);
+            this.MS1.Size = new System.Drawing.Size(1039, 28);
             this.MS1.TabIndex = 0;
             this.MS1.Text = "menuStrip1";
             // 

@@ -12,9 +12,16 @@ namespace Chapoo_PDA_UI
 {
     public partial class ChapooPDA_AfrekenenMenu : Form
     {
+        private int tafelnummer;
+
         public ChapooPDA_AfrekenenMenu()
         {
             InitializeComponent();
+        }
+
+        private void btnPresenteerRekening_Click(object sender, EventArgs e)
+        {
+            tafelnummer = int.Parse(lblTafelnummer.Text);
         }
     }
 }

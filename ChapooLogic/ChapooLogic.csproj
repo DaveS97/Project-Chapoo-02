@@ -43,10 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bestelling_Service.cs" />
+    <Compile Include="Bevat_Service.cs" />
     <Compile Include="Klant_Service.cs" />
     <Compile Include="MenuItem2_Service.cs" />
     <Compile Include="MenuItem_Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RekeningService.cs" />
+    <Compile Include="Voorraad_Service.cs" />
     <Compile Include="Werknemer_Service.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +61,9 @@
       <Project>{a69f100f-9fdc-4b24-89c0-ae6abfd472a4}</Project>
       <Name>ChapooModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

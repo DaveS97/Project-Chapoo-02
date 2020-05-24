@@ -40,12 +40,19 @@
             this.MS1I_MenuKaartOpties = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Werknemers = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_bestellingKopje = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_KeukenOverzicht = new System.Windows.Forms.Label();
             this.lbl_opmerkingen = new System.Windows.Forms.Label();
-            this.lbl_Bestelling = new System.Windows.Forms.Label();
+            this.lbl_Voorgerecht = new System.Windows.Forms.Label();
             this.lv_Bestellingen = new System.Windows.Forms.ListView();
+            this.btn_toonBestelling = new System.Windows.Forms.Button();
+            this.lbl_HuidigeBestelling = new System.Windows.Forms.Label();
+            this.barOverzichtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_Hoofdgerecht = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_Nagerecht = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.MS1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +80,7 @@
             this.MS1I_Home});
             this.HomeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
-            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
             this.HomeToolStripMenuItem.Text = "Home";
             // 
             // MS1I_Home
@@ -87,21 +94,23 @@
             this.MS_RO.BackColor = System.Drawing.Color.White;
             this.MS_RO.ForeColor = System.Drawing.Color.Black;
             this.MS_RO.Name = "MS_RO";
-            this.MS_RO.Size = new System.Drawing.Size(159, 24);
+            this.MS_RO.Size = new System.Drawing.Size(159, 26);
             this.MS_RO.Text = "Restaurant Overzicht";
             // 
             // MS_BO
             // 
             this.MS_BO.BackColor = System.Drawing.Color.White;
             this.MS_BO.Name = "MS_BO";
-            this.MS_BO.Size = new System.Drawing.Size(111, 24);
+            this.MS_BO.Size = new System.Drawing.Size(111, 26);
             this.MS_BO.Text = "Bar Overzicht";
             // 
             // MS_KO
             // 
             this.MS_KO.BackColor = System.Drawing.Color.White;
+            this.MS_KO.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.barOverzichtToolStripMenuItem});
             this.MS_KO.Name = "MS_KO";
-            this.MS_KO.Size = new System.Drawing.Size(137, 24);
+            this.MS_KO.Size = new System.Drawing.Size(137, 26);
             this.MS_KO.Text = "Keuken Overzicht";
             // 
             // MS_Beheer
@@ -113,7 +122,7 @@
             this.MS1I_MenuKaartOpties,
             this.MS1I_Werknemers});
             this.MS_Beheer.Name = "MS_Beheer";
-            this.MS_Beheer.Size = new System.Drawing.Size(69, 24);
+            this.MS_Beheer.Size = new System.Drawing.Size(69, 26);
             this.MS_Beheer.Text = "Beheer";
             // 
             // MS1I_Inkomsten
@@ -145,22 +154,22 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(755, 293);
+            this.label3.Location = new System.Drawing.Point(747, 363);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(131, 24);
             this.label3.TabIndex = 9;
             this.label3.Text = "Opmerkingen:";
             // 
-            // label2
+            // lbl_bestellingKopje
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(755, 96);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 24);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Bestelling:\r\n";
+            this.lbl_bestellingKopje.AutoSize = true;
+            this.lbl_bestellingKopje.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_bestellingKopje.ForeColor = System.Drawing.Color.White;
+            this.lbl_bestellingKopje.Location = new System.Drawing.Point(400, 128);
+            this.lbl_bestellingKopje.Name = "lbl_bestellingKopje";
+            this.lbl_bestellingKopje.Size = new System.Drawing.Size(125, 24);
+            this.lbl_bestellingKopje.TabIndex = 8;
+            this.lbl_bestellingKopje.Text = "Voorgerecht: \r\n";
             // 
             // label1
             // 
@@ -188,21 +197,19 @@
             // 
             this.lbl_opmerkingen.AutoSize = true;
             this.lbl_opmerkingen.BackColor = System.Drawing.Color.White;
-            this.lbl_opmerkingen.Location = new System.Drawing.Point(736, 329);
+            this.lbl_opmerkingen.Location = new System.Drawing.Point(666, 399);
             this.lbl_opmerkingen.Name = "lbl_opmerkingen";
-            this.lbl_opmerkingen.Size = new System.Drawing.Size(8, 102);
+            this.lbl_opmerkingen.Size = new System.Drawing.Size(0, 17);
             this.lbl_opmerkingen.TabIndex = 10;
-            this.lbl_opmerkingen.Text = "\r\n\r\n\r\n\r\n\r\n\r\n";
             // 
-            // lbl_Bestelling
+            // lbl_Voorgerecht
             // 
-            this.lbl_Bestelling.AutoSize = true;
-            this.lbl_Bestelling.BackColor = System.Drawing.Color.White;
-            this.lbl_Bestelling.Location = new System.Drawing.Point(736, 128);
-            this.lbl_Bestelling.Name = "lbl_Bestelling";
-            this.lbl_Bestelling.Size = new System.Drawing.Size(8, 102);
-            this.lbl_Bestelling.TabIndex = 11;
-            this.lbl_Bestelling.Text = "\r\n\r\n\r\n\r\n\r\n\r\n";
+            this.lbl_Voorgerecht.AutoSize = true;
+            this.lbl_Voorgerecht.BackColor = System.Drawing.Color.White;
+            this.lbl_Voorgerecht.Location = new System.Drawing.Point(401, 169);
+            this.lbl_Voorgerecht.Name = "lbl_Voorgerecht";
+            this.lbl_Voorgerecht.Size = new System.Drawing.Size(0, 17);
+            this.lbl_Voorgerecht.TabIndex = 11;
             // 
             // lv_Bestellingen
             // 
@@ -214,17 +221,90 @@
             this.lv_Bestellingen.UseCompatibleStateImageBehavior = false;
             this.lv_Bestellingen.View = System.Windows.Forms.View.Details;
             // 
+            // btn_toonBestelling
+            // 
+            this.btn_toonBestelling.Location = new System.Drawing.Point(55, 489);
+            this.btn_toonBestelling.Name = "btn_toonBestelling";
+            this.btn_toonBestelling.Size = new System.Drawing.Size(104, 49);
+            this.btn_toonBestelling.TabIndex = 13;
+            this.btn_toonBestelling.Text = "Toon bestelling";
+            this.btn_toonBestelling.UseVisualStyleBackColor = true;
+            this.btn_toonBestelling.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lbl_HuidigeBestelling
+            // 
+            this.lbl_HuidigeBestelling.AutoSize = true;
+            this.lbl_HuidigeBestelling.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_HuidigeBestelling.ForeColor = System.Drawing.Color.White;
+            this.lbl_HuidigeBestelling.Location = new System.Drawing.Point(400, 82);
+            this.lbl_HuidigeBestelling.Name = "lbl_HuidigeBestelling";
+            this.lbl_HuidigeBestelling.Size = new System.Drawing.Size(91, 24);
+            this.lbl_HuidigeBestelling.TabIndex = 14;
+            this.lbl_HuidigeBestelling.Text = "Bestelling";
+            // 
+            // barOverzichtToolStripMenuItem
+            // 
+            this.barOverzichtToolStripMenuItem.Name = "barOverzichtToolStripMenuItem";
+            this.barOverzichtToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.barOverzichtToolStripMenuItem.Text = "Bar Overzicht";
+            // 
+            // lbl_Hoofdgerecht
+            // 
+            this.lbl_Hoofdgerecht.AutoSize = true;
+            this.lbl_Hoofdgerecht.BackColor = System.Drawing.Color.White;
+            this.lbl_Hoofdgerecht.Location = new System.Drawing.Point(401, 291);
+            this.lbl_Hoofdgerecht.Name = "lbl_Hoofdgerecht";
+            this.lbl_Hoofdgerecht.Size = new System.Drawing.Size(0, 17);
+            this.lbl_Hoofdgerecht.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(400, 241);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(130, 24);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Hoofdgerecht:";
+            // 
+            // lbl_Nagerecht
+            // 
+            this.lbl_Nagerecht.AutoSize = true;
+            this.lbl_Nagerecht.BackColor = System.Drawing.Color.White;
+            this.lbl_Nagerecht.Location = new System.Drawing.Point(401, 410);
+            this.lbl_Nagerecht.Name = "lbl_Nagerecht";
+            this.lbl_Nagerecht.Size = new System.Drawing.Size(0, 17);
+            this.lbl_Nagerecht.TabIndex = 17;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(400, 363);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(103, 24);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Nagerecht:";
+            // 
             // KeukenOverzichtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(1039, 550);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lbl_Nagerecht);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_Hoofdgerecht);
+            this.Controls.Add(this.lbl_HuidigeBestelling);
+            this.Controls.Add(this.btn_toonBestelling);
             this.Controls.Add(this.lv_Bestellingen);
-            this.Controls.Add(this.lbl_Bestelling);
+            this.Controls.Add(this.lbl_Voorgerecht);
             this.Controls.Add(this.lbl_opmerkingen);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_bestellingKopje);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_KeukenOverzicht);
             this.Controls.Add(this.MS1);
@@ -252,11 +332,18 @@
         private System.Windows.Forms.ToolStripMenuItem MS1I_MenuKaartOpties;
         private System.Windows.Forms.ToolStripMenuItem MS1I_Werknemers;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_bestellingKopje;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_KeukenOverzicht;
         private System.Windows.Forms.Label lbl_opmerkingen;
-        private System.Windows.Forms.Label lbl_Bestelling;
+        private System.Windows.Forms.Label lbl_Voorgerecht;
         private System.Windows.Forms.ListView lv_Bestellingen;
+        private System.Windows.Forms.Button btn_toonBestelling;
+        private System.Windows.Forms.Label lbl_HuidigeBestelling;
+        private System.Windows.Forms.ToolStripMenuItem barOverzichtToolStripMenuItem;
+        private System.Windows.Forms.Label lbl_Hoofdgerecht;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_Nagerecht;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -16,5 +16,29 @@ namespace Chapoo_PDA_UI
         {
             InitializeComponent();
         }
+
+        private void ChapooPDA_AfrekenenOverzicht_Load(object sender, EventArgs e)
+        {
+            ToonRekening();
+        }
+
+        private void ToonRekening()
+        {
+            pnlAfrekenenOverzicht.Show();
+            pnlAfrekenenOverzicht.BringToFront();
+
+            //ChapooLogic.RekeningService rekeningService = new ChapooLogic.RekeningService();
+            
+        }
+
+        private void btnVerstuurRekening_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lvRekeningOverzicht_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
