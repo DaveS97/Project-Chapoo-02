@@ -51,13 +51,13 @@
     <Compile Include="Werknemer_DAO.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\ChapooModel\ChapooModel.csproj">
       <Project>{a69f100f-9fdc-4b24-89c0-ae6abfd472a4}</Project>
       <Name>ChapooModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

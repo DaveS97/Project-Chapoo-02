@@ -45,7 +45,7 @@
             this.klantenToolStripMenuItem1});
             this.msp_WerknemersForm.Location = new System.Drawing.Point(0, 0);
             this.msp_WerknemersForm.Name = "msp_WerknemersForm";
-            this.msp_WerknemersForm.Size = new System.Drawing.Size(1039, 28);
+            this.msp_WerknemersForm.Size = new System.Drawing.Size(1039, 30);
             this.msp_WerknemersForm.TabIndex = 1;
             this.msp_WerknemersForm.Text = "menuStrip1";
             // 
@@ -55,13 +55,13 @@
             this.HomeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mts_HomeWerknemersForm});
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
-            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
             this.HomeToolStripMenuItem.Text = "Home";
             // 
             // mts_HomeWerknemersForm
             // 
             this.mts_HomeWerknemersForm.Name = "mts_HomeWerknemersForm";
-            this.mts_HomeWerknemersForm.Size = new System.Drawing.Size(224, 26);
+            this.mts_HomeWerknemersForm.Size = new System.Drawing.Size(133, 26);
             this.mts_HomeWerknemersForm.Text = "Home";
             this.mts_HomeWerknemersForm.Click += new System.EventHandler(this.mts_HomeWerknemersForm_Click);
             // 
@@ -69,7 +69,7 @@
             // 
             this.klantenToolStripMenuItem1.BackColor = System.Drawing.Color.White;
             this.klantenToolStripMenuItem1.Name = "klantenToolStripMenuItem1";
-            this.klantenToolStripMenuItem1.Size = new System.Drawing.Size(159, 24);
+            this.klantenToolStripMenuItem1.Size = new System.Drawing.Size(159, 26);
             this.klantenToolStripMenuItem1.Text = "Restaurant Overzicht";
             // 
             // lv_Werknemers

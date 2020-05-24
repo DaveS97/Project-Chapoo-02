@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChapooDAL;
-using ChapooModel;
 using MenuItem = ChapooModel.MenuItem;
 
 namespace ChapooLogic
@@ -15,6 +14,72 @@ namespace ChapooLogic
         private MenuItem_DAO menuItem_DAO = new MenuItem_DAO();
         private MenuItem_DAO menuItem = new MenuItem_DAO();
 
+        public List<MenuItem> GetDrinkMenu()
+        {
+            try
+            {
+                List<MenuItem> item = menuItem.GetDrinkMenu();
+                return item;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                List<MenuItem> werknemers = new List<MenuItem>();
+                MenuItem item = new MenuItem();
+                item.ID = 1;
+                item.Aantal = 0;
+                item.ItemNaam = "menuItem";
+                item.Prijs = 1.0M;
+                item.menu = 1;
+                werknemers.Add(item);
+                return werknemers;
+            }
+        }
+        public List<MenuItem> GetDinnerMenu()
+        {
+            try
+            {
+                List<MenuItem> item = menuItem.GetDinnerMenu();
+                return item;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                List<MenuItem> werknemers = new List<MenuItem>();
+                MenuItem item = new MenuItem();
+                item.ID = 1;
+                item.Aantal = 0;
+                item.ItemNaam = "menuItem";
+                item.Prijs = 1.0M;
+                item.menu = 1;
+                werknemers.Add(item);
+                return werknemers;
+            }
+        }
+
+        public List<MenuItem> GetLunchMenu()
+        {
+            try
+            {
+                List<MenuItem> item = menuItem.GetLunchMenu();
+                return item;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                List<MenuItem> werknemers = new List<MenuItem>();
+                MenuItem item = new MenuItem();
+                item.ID = 1;
+                item.Aantal = 0;
+                item.ItemNaam = "menuItem";
+                item.Prijs = 1.0M;
+                item.menu = 1;
+
+
+                werknemers.Add(item);
+                return werknemers;
+            }
+        }
         public List<MenuItem> GetMenuItems()
         {
             try
@@ -30,9 +95,8 @@ namespace ChapooLogic
                 item.ID = 1;
                 item.Aantal = 0;
                 item.ItemNaam = "menuItem";
-                item.Prijs = 1.0;
-
-        
+                item.Prijs = 1.0M;
+                item.menu = 1;
                 werknemers.Add(item);
                 return werknemers;
             }
@@ -52,7 +116,8 @@ namespace ChapooLogic
                 menuItem.ID= 1;
                 menuItem.ItemNaam = "Biefstuk";
                 menuItem.Aantal = 3;
-                menuItem.Prijs = 8.5;
+                menuItem.Prijs = 8.5M;
+                menuItem.menu = 1;
                 menuItems.Add(menuItem);
                 return menuItems;
             }

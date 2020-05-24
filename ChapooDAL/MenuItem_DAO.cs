@@ -13,7 +13,25 @@ namespace ChapooDAL
     {
         public List<MenuItem> GetMenuItems()
         {
-            string query = "";
+            string query = "SELECT menuItemID, omschrijving, prijs, menu, aantal FROM MenuItem JOIN Voorraad ON voorraadID = menuItemID";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<MenuItem> GetLunchMenu()
+        {
+            string query = "SELECT menuItemID, omschrijving, prijs, menu, aantal FROM MenuItem JOIN Voorraad ON voorraadID = menuItemID where menu = 1; ";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<MenuItem> GetDinnerMenu()
+        {
+            string query = "SELECT menuItemID, omschrijving, prijs, menu, aantal FROM MenuItem JOIN Voorraad ON voorraadID = menuItemID where menu = 2; ";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<MenuItem> GetDrinkMenu()
+        {
+            string query = "SELECT menuItemID, omschrijving, prijs, menu, aantal FROM MenuItem JOIN Voorraad ON voorraadID = menuItemID where menu = 3;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -35,9 +53,9 @@ namespace ChapooDAL
                 {
                     ID = (int)dr["menuItemID"],
                     ItemNaam = (string)dr["omschrijving"],
-                    Prijs = (double)dr["prijs"],
+                    Prijs = (decimal)dr["prijs"],
                     Aantal = (int)dr["aantal"],
-
+                    menu = (int)dr["menu"],
                 };
                 werknemers.Add(werknemer);
             }

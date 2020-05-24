@@ -51,7 +51,7 @@
             // 
             // MS1
             // 
-            this.MS1.BackColor = System.Drawing.Color.DarkBlue;
+            this.MS1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(79)))), ((int)(((byte)(110)))));
             this.MS1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MS1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MS1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -218,7 +218,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(1039, 550);
             this.Controls.Add(this.lv_Bestellingen);
             this.Controls.Add(this.lbl_Bestelling);
@@ -230,6 +230,7 @@
             this.Controls.Add(this.MS1);
             this.Name = "KeukenOverzichtForm";
             this.Text = "KeukenOverzichtForm";
+            this.Load += new System.EventHandler(this.KeukenOverzichtForm_Load);
             this.MS1.ResumeLayout(false);
             this.MS1.PerformLayout();
             this.ResumeLayout(false);

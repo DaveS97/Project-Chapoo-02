@@ -37,13 +37,16 @@ namespace ChapooUI
                 lv_Bestellingen.Items.Add(li);
             }
 
-
-
             //HIER WORDT DE BESTELLING BESCHRIJVING TOEGEVOEGD
             //eerst de label legen.
             lbl_Bestelling.Text = "";
             //service aanmaken om de beschrijving op te halen
             
+        }
+
+        private void KeukenOverzichtForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
