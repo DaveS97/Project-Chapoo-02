@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChapooLogic;
 using ChapooModel;
-using MenuItem = ChapooModel.MenuItem;
+using MenuItem2 = ChapooModel.MenuItem2;
 using ChapooUI;
 
 namespace ChapooUI
@@ -25,9 +25,9 @@ namespace ChapooUI
         private void lvVoorraad_SelectedIndexChanged(object sender, EventArgs e)
         {
             pnlVoorraad.Show();
-            MenuItem_Service service = new MenuItem_Service();
-            List<MenuItem> items = service.GetMenuItems();
-            foreach (MenuItem item in items)
+            MenuItem2_Service service = new MenuItem2_Service();
+            List<MenuItem2> items = service.GetMenuItems();
+            foreach (MenuItem2 item in items)
             {
 
             }
@@ -47,14 +47,14 @@ namespace ChapooUI
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuItem_Service service = new MenuItem_Service();
+            MenuItem2_Service service = new MenuItem2_Service();
             if (RBLunch.Checked)
             {
                 lvVoorraad.Clear();
                 MaakCollommen();
-                List<MenuItem> lunchItems = service.GetLunchMenu();
+                List<MenuItem2> lunchItems = service.GetLunchMenu();
 
-                foreach (MenuItem menuItem in lunchItems)
+                foreach (MenuItem2 menuItem in lunchItems)
                 {
                     ListViewItem li = new ListViewItem(menuItem.ItemNaam);
                     li.SubItems.Add(menuItem.ID.ToString());
@@ -68,8 +68,8 @@ namespace ChapooUI
             {
                 lvVoorraad.Clear();
                 MaakCollommen();
-                List<MenuItem> dinnerItems = service.GetDinnerMenu();
-                foreach (MenuItem menuItem in dinnerItems)
+                List<MenuItem2> dinnerItems = service.GetDinnerMenu();
+                foreach (MenuItem2 menuItem in dinnerItems)
                 {
                     ListViewItem li = new ListViewItem(menuItem.ItemNaam);
                     li.SubItems.Add(menuItem.ID.ToString());
@@ -83,8 +83,8 @@ namespace ChapooUI
             {
                 lvVoorraad.Clear();
                 MaakCollommen();
-                List<MenuItem> drankItems = service.GetDrinkMenu();
-                foreach (MenuItem menuItem in drankItems)
+                List<MenuItem2> drankItems = service.GetDrinkMenu();
+                foreach (MenuItem2 menuItem in drankItems)
                 {
                     ListViewItem li = new ListViewItem(menuItem.ItemNaam);
                     li.SubItems.Add(menuItem.ID.ToString());
@@ -98,8 +98,8 @@ namespace ChapooUI
             {
                 lvVoorraad.Clear();
                 MaakCollommen();
-                List<MenuItem> allItems = service.GetMenuItems();
-                foreach (MenuItem menuItem in allItems)
+                List<MenuItem2> allItems = service.GetMenuItems();
+                foreach (MenuItem2 menuItem in allItems)
                 {
                     ListViewItem li = new ListViewItem(menuItem.ItemNaam);
                     li.SubItems.Add(menuItem.ID.ToString());
@@ -114,8 +114,8 @@ namespace ChapooUI
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MenuItem item = new MenuItem();
-            lblOmschrijving.Text = lvVoorraad.SelectedItems[0].SubItems[0].Text;
+            MenuItem2 item = new MenuItem2();
+            lblOmschrijving.Text = lvVoorraad.SelectedItems[0].SubItems[0].Text;///trycatch
             tbAantal.Text = lvVoorraad.SelectedItems[0].SubItems[3].Text;
         }
 
