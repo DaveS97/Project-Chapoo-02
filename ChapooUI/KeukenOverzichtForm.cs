@@ -19,8 +19,6 @@ namespace ChapooUI
         {
             InitializeComponent();
             BestellingenVullen();
-            
-            
         }
         private void BestellingenVullen()
         {
@@ -31,8 +29,8 @@ namespace ChapooUI
             //leeg de kolommen eerst voordat je ze weer vult
             lv_Bestellingen.Clear();
             //maak kolommen
-            lv_Bestellingen.Columns.Add("Bestelling Id", 50);
-            lv_Bestellingen.Columns.Add("Menu item Id", 50);
+            lv_Bestellingen.Columns.Add("Bestelling Id", 100);
+            lv_Bestellingen.Columns.Add("Menu item Id", 100);
             //vul de listview
             foreach (Bevat id in ids)
             {
@@ -44,17 +42,35 @@ namespace ChapooUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            lbl_Bestelling.Text = "";
+            lbl_Voorgerecht.Text = "";
+            lbl_Hoofdgerecht.Text = "";
+            lbl_Nagerecht.Text = "";
+            lbl_HuidigeBestelling.Text = "";
             string bestellingNummer = lv_Bestellingen.SelectedItems[0].SubItems[0].Text;
-            Dictionary<Bestelling, ChapooModel.MenuItem> menuItems = new Dictionary<Bestelling, ChapooModel.MenuItem>();
+            lbl_HuidigeBestelling.Text = $"Bestelling: {bestellingNummer}";
+            List<ChapooModel.MenuItem> menuItems = new List<ChapooModel.MenuItem>();
             menuItems.Clear();
             //service aanmaken om de beschrijving op te halen
             MenuItem_Service menuItem_Service = new MenuItem_Service();
             menuItems = menuItem_Service.KrijgBeschrijving(bestellingNummer);
-            foreach (KeyValuePair<Bestelling, ChapooModel.MenuItem> items in menuItems)
+            foreach (ChapooModel.MenuItem item in menuItems)
             {
-                lbl_Bestelling.Text +=  $"{items.Value.ID} {items.Value.Beschrijving}\n";
-            }
-        }
+                switch (item.typeGerecht)
+                {
+                    case 1:
+                        lbl_Voorgerecht.Text +=  $"{item.ID} {item.Beschrijving}\n";                        
+                        break;
+                    case 2:
+                        lbl_Hoofdgerecht.Text += $"{item.ID} {item.Beschrijving}\n";
+                        break;
+                    case 3:
+                        lbl_Nagerecht.Text += $"{item.ID} {item.Beschrijving}\n";
+                        break;
+                    case 4:
+                        lbl_Voorgerecht.Text += $"{item.ID} {item.Beschrijving}\n";
+                        break;
+                }
+            } 
+        }    
     }
 }

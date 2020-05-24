@@ -10,7 +10,8 @@ namespace ChapooModel
     {
         public int ID { get; set; }
         public string Beschrijving { get; set; }
-        public int Aantal { get; set; }
+        public int Menu { get; set; }
         public double Prijs { get; set; }
+        public int typeGerecht { get; set; } //1 = voorgerecht, 2 = hoofdgerecht, 3 = nagerecht, 4 = tussengerecht en 5 = drinken
     }
 }
