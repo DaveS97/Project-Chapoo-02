@@ -18,9 +18,9 @@ namespace ChapooDAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }*/
 
-        public Dictionary<Bestelling, MenuItem> Krijg_Bestelling_Beschrijving(string bestellingID)
+        public List<MenuItem> Krijg_Bestelling_Beschrijving(string bestellingID)
         {
-            string query = "SELECT Be.bestellingID, BE.menuItemID, MI.omschrijving FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID WHERE BE.bestellingID = @bestellingID;";
+            string query = "SELECT BE.menuItemID, MI.omschrijving, MI.typeGerecht FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID WHERE BE.bestellingID = @bestellingID;";
             SqlParameter[] sqlParameters =
             {
                 new SqlParameter("@bestellingID", SqlDbType.Int) { Value = bestellingID}
@@ -28,22 +28,19 @@ namespace ChapooDAL
             return ReadTablesBMO(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        private Dictionary<Bestelling, MenuItem> ReadTablesBMO(DataTable dataTable)
+        private List<MenuItem> ReadTablesBMO(DataTable dataTable)
         {
-            Dictionary<Bestelling, MenuItem> bestellingen = new Dictionary<Bestelling, MenuItem>();
+            List<MenuItem> bestellingen = new List<MenuItem>();
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                Bestelling bestelling = new Bestelling()
-                {
-                    bestellingID = (int)dr["bestellingID"]
-                };
                 MenuItem menuItem = new MenuItem()
                 {
                     ID = (int)dr["menuItemID"],
                     Beschrijving = (string)dr["omschrijving"],
+                    typeGerecht = (int)dr["typeGerecht"]
                 };
-                bestellingen.Add(bestelling, menuItem);
+                bestellingen.Add(menuItem);
             }
             return bestellingen;
         }

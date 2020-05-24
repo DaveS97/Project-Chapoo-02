@@ -19,8 +19,11 @@ namespace ChapooUI
         public WerknemersForm()
         {
             InitializeComponent();
+            WerknemersVullen();
+        }
             
-
+        private void WerknemersVullen()
+        {
             //HIER WORDT DE LV_WERKNEMERS GEVULD
             //werknemer service aanmaken 
             ChapooLogic.Werknemer_Service werknemer_service = new ChapooLogic.Werknemer_Service();
@@ -44,5 +47,6 @@ namespace ChapooUI
         {
             Close();
         }
+
     }
 }

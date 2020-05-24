@@ -45,10 +45,10 @@
     <Compile Include="Bestelling_Service.cs" />
     <Compile Include="Bevat_Service.cs" />
     <Compile Include="Klant_Service.cs" />
+    <Compile Include="MenuItem2_Service.cs" />
     <Compile Include="MenuItem_Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RekeningService.cs" />
-    <Compile Include="Voorraad_Service.cs" />
     <Compile Include="Werknemer_Service.cs" />
   </ItemGroup>
   <ItemGroup>

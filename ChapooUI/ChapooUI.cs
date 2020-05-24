@@ -44,5 +44,15 @@ namespace ChapooUI
             VoorraadForm voorraad = new VoorraadForm();
             voorraad.ShowDialog();
         }
+
+        private void Chapoo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

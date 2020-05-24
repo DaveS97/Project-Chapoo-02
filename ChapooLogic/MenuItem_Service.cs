@@ -37,23 +37,20 @@ namespace ChapooLogic
             }
         }*/
 
-        public Dictionary<Bestelling, MenuItem> KrijgBeschrijving(string bestellingID)
+        public List<MenuItem> KrijgBeschrijving(string bestellingID)
         {
             try
             {
-                Dictionary<Bestelling, MenuItem> menuItems = menuItem_DAO.Krijg_Bestelling_Beschrijving(bestellingID);
+                List<MenuItem> menuItems = menuItem_DAO.Krijg_Bestelling_Beschrijving(bestellingID);
                 return menuItems;
             }
             catch (Exception e)
             {
                 MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
-                Dictionary<Bestelling, MenuItem> menuItems = new Dictionary<Bestelling, MenuItem>();
+                List<MenuItem> menuItems = new List<MenuItem>();
                 MenuItem menuItem = new MenuItem();
                 menuItem.ID= 1;
-                Bestelling bestelling = new Bestelling();
-                bestelling.bestellingID = 1;
-
-                menuItems.Add(bestelling, menuItem);
+                menuItems.Add(menuItem);
                 return menuItems;
             }
         }
