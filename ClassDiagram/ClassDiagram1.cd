@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ChapooDAL.Base" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAACABAAAQQAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Base.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooDAL.Bestelling_DAO">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bestelling_DAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooDAL.Bevat_DAO">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bevat_DAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooDAL.Klant_DAO">
+    <Position X="12.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Klant_DAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooDAL.MenuItem_DAO">
+    <Position X="14.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>MenuItem_DAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooDAL.MenuItem2_DAO">
+    <Position X="17" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEIAAAEAAAAAAAAAAAAAAACAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>MenuItem2_DAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooDAL.Rekening_DAO" Collapsed="true">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Rekening_DAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooDAL.Voorraad_DAO">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Voorraad_DAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooDAL.Werknemer_DAO">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Werknemer_DAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooModel.Bediener">
+    <Position X="10.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Bediener.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooModel.Bestelling">
+    <Position X="3.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAgAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Bestelling.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooModel.Bevat">
+    <Position X="8" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Bevat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooModel.Klant">
+    <Position X="12.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAQAAAAABgAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Klant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooModel.MenuItem">
+    <Position X="14.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAJIAAAAAAAAAEAAAA=</HashCode>
+      <FileName>MenuItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooModel.MenuItem2">
+    <Position X="17" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAgAAAAAAAAAgAAAAAIgAAAAAAAAAAAAA=</HashCode>
+      <FileName>MenuItem2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooModel.Rekening">
+    <Position X="1.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Rekening.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooModel.Voorraad" Collapsed="true">
+    <Position X="5.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Voorraad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooModel.Werknemer">
+    <Position X="10.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAABAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Werknemer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooLogic.Bestelling_Service">
+    <Position X="3.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bestelling_Service.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="bestelling" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChapooLogic.Bevat_Service">
+    <Position X="8" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Bevat_Service.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="bevat_DAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChapooLogic.Klant_Service">
+    <Position X="12.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Klant_Service.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="klant_DAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChapooLogic.MenuItem_Service">
+    <Position X="14.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>MenuItem_Service.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="menuItem_DAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChapooLogic.MenuItem2_Service">
+    <Position X="17" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEIAAAAAAAAAAAAAQAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MenuItem2_Service.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="menuItem" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChapooLogic.RekeningService">
+    <Position X="1.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>RekeningService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="rekening_DAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChapooLogic.Werknemer_Service">
+    <Position X="10.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Werknemer_Service.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="werknemer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ClassDiagram.Program">
+    <Position X="19" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassDiagram.Properties.Resources">
+    <Position X="19" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassDiagram.Properties.Settings">
+    <Position X="19" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

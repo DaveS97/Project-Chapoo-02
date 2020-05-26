@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29920.165
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1145
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChapooUI", "ChapooUI\ChapooUI.csproj", "{831BBFF2-5D2F-4C82-A96D-3F30B3347B30}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChapooModel", "ChapooModel\ChapooModel.csproj", "{A69F100F-9FDC-4B24-89C0-AE6ABFD472A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapoo_PDA_UI", "Chapoo_PDA_UI\Chapoo_PDA_UI.csproj", "{3CF5671B-7CD1-4C62-8A0D-C20576A28F78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassDiagram", "ClassDiagram\ClassDiagram.csproj", "{4F287D97-F2D4-4253-8ACB-FB80FB1BD419}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{3CF5671B-7CD1-4C62-8A0D-C20576A28F78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CF5671B-7CD1-4C62-8A0D-C20576A28F78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CF5671B-7CD1-4C62-8A0D-C20576A28F78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F287D97-F2D4-4253-8ACB-FB80FB1BD419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F287D97-F2D4-4253-8ACB-FB80FB1BD419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F287D97-F2D4-4253-8ACB-FB80FB1BD419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F287D97-F2D4-4253-8ACB-FB80FB1BD419}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
