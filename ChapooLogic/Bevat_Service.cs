@@ -10,22 +10,24 @@ namespace ChapooLogic
     {
         private Bevat_DAO bevat_DAO = new Bevat_DAO();
 
-        public List<Bevat> KrijgBestellingEnMenuItemID()
+        public Dictionary<Bevat, Klant> KrijgBestellingEnMenuItemID()
         {
             try
             {
-                List<Bevat> IDs = bevat_DAO.KrijgIDS();
+                Dictionary<Bevat, Klant> IDs = bevat_DAO.KrijgIDS();
                 return IDs;
             }
             catch (Exception e)
             {
                 MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
-                List<Bevat> IDS = new List<Bevat>();
+                Dictionary<Bevat, Klant> lijst = new Dictionary<Bevat, Klant>();
                 Bevat bevat = new Bevat();
                 bevat.bestellingID = 1;
                 bevat.bestellingID = 8;
-                IDS.Add(bevat);
-                return IDS;
+                Klant klant = new Klant();
+                klant.tafelID = 2;
+                lijst.Add(bevat, klant);
+                return lijst;
             }
         }
     }
