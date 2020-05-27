@@ -32,29 +32,20 @@
             this.lblVoorraad = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.restaurantOverzichtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.barOverzichtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.keukenOverzichtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.afrekenenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.beheerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.voorraadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.voorraadToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menukaartOptiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.werknemersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RBLunch = new System.Windows.Forms.RadioButton();
             this.RBDinner = new System.Windows.Forms.RadioButton();
             this.RBDranken = new System.Windows.Forms.RadioButton();
             this.lblFlter = new System.Windows.Forms.Label();
             this.pnlVoorraad = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tbAantal = new System.Windows.Forms.TextBox();
             this.lblOmschrijving = new System.Windows.Forms.Label();
             this.lvVoorraad = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.lblID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.rbAlles = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.pnlVoorraad.SuspendLayout();
@@ -76,12 +67,7 @@
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(79)))), ((int)(((byte)(110)))));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.homeToolStripMenuItem,
-            this.restaurantOverzichtToolStripMenuItem,
-            this.barOverzichtToolStripMenuItem,
-            this.keukenOverzichtToolStripMenuItem,
-            this.afrekenenToolStripMenuItem,
-            this.beheerToolStripMenuItem});
+            this.homeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1080, 28);
@@ -91,68 +77,9 @@
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.homeToolStripMenuItem.Text = "Home";
-            // 
-            // restaurantOverzichtToolStripMenuItem
-            // 
-            this.restaurantOverzichtToolStripMenuItem.Name = "restaurantOverzichtToolStripMenuItem";
-            this.restaurantOverzichtToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
-            this.restaurantOverzichtToolStripMenuItem.Text = "restaurant overzicht";
-            // 
-            // barOverzichtToolStripMenuItem
-            // 
-            this.barOverzichtToolStripMenuItem.Name = "barOverzichtToolStripMenuItem";
-            this.barOverzichtToolStripMenuItem.Size = new System.Drawing.Size(109, 26);
-            this.barOverzichtToolStripMenuItem.Text = "bar overzicht";
-            // 
-            // keukenOverzichtToolStripMenuItem
-            // 
-            this.keukenOverzichtToolStripMenuItem.Name = "keukenOverzichtToolStripMenuItem";
-            this.keukenOverzichtToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
-            this.keukenOverzichtToolStripMenuItem.Text = "keuken overzicht";
-            this.keukenOverzichtToolStripMenuItem.Click += new System.EventHandler(this.keukenOverzichtToolStripMenuItem_Click);
-            // 
-            // afrekenenToolStripMenuItem
-            // 
-            this.afrekenenToolStripMenuItem.Name = "afrekenenToolStripMenuItem";
-            this.afrekenenToolStripMenuItem.Size = new System.Drawing.Size(88, 26);
-            this.afrekenenToolStripMenuItem.Text = "afrekenen";
-            // 
-            // beheerToolStripMenuItem
-            // 
-            this.beheerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.voorraadToolStripMenuItem,
-            this.voorraadToolStripMenuItem1,
-            this.menukaartOptiesToolStripMenuItem,
-            this.werknemersToolStripMenuItem});
-            this.beheerToolStripMenuItem.Name = "beheerToolStripMenuItem";
-            this.beheerToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
-            this.beheerToolStripMenuItem.Text = "beheer";
-            // 
-            // voorraadToolStripMenuItem
-            // 
-            this.voorraadToolStripMenuItem.Name = "voorraadToolStripMenuItem";
-            this.voorraadToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            this.voorraadToolStripMenuItem.Text = "inkomsten";
-            // 
-            // voorraadToolStripMenuItem1
-            // 
-            this.voorraadToolStripMenuItem1.Name = "voorraadToolStripMenuItem1";
-            this.voorraadToolStripMenuItem1.Size = new System.Drawing.Size(207, 26);
-            this.voorraadToolStripMenuItem1.Text = "voorraad";
-            // 
-            // menukaartOptiesToolStripMenuItem
-            // 
-            this.menukaartOptiesToolStripMenuItem.Name = "menukaartOptiesToolStripMenuItem";
-            this.menukaartOptiesToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            this.menukaartOptiesToolStripMenuItem.Text = "menukaart opties";
-            // 
-            // werknemersToolStripMenuItem
-            // 
-            this.werknemersToolStripMenuItem.Name = "werknemersToolStripMenuItem";
-            this.werknemersToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            this.werknemersToolStripMenuItem.Text = "Werknemers";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // RBLunch
             // 
@@ -210,6 +137,34 @@
             this.pnlVoorraad.Size = new System.Drawing.Size(428, 191);
             this.pnlVoorraad.TabIndex = 10;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(55, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "aantal";
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(342, 43);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(24, 17);
+            this.lblID.TabIndex = 4;
+            this.lblID.Text = "....";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(0, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(99, 33);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "Aanpassen";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(331, 156);
@@ -258,25 +213,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(0, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 33);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Aanpassen";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(342, 43);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(24, 17);
-            this.lblID.TabIndex = 4;
-            this.lblID.Text = "....";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.lvVoorraad);
@@ -284,15 +220,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(542, 474);
             this.panel1.TabIndex = 14;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 17);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "aantal";
             // 
             // rbAlles
             // 
@@ -341,18 +268,9 @@
         private System.Windows.Forms.Label lblVoorraad;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem restaurantOverzichtToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem barOverzichtToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem keukenOverzichtToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem afrekenenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem beheerToolStripMenuItem;
         private System.Windows.Forms.RadioButton RBLunch;
         private System.Windows.Forms.RadioButton RBDinner;
         private System.Windows.Forms.RadioButton RBDranken;
-        private System.Windows.Forms.ToolStripMenuItem voorraadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem voorraadToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem menukaartOptiesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem werknemersToolStripMenuItem;
         private System.Windows.Forms.Label lblFlter;
         private System.Windows.Forms.Panel pnlVoorraad;
         private System.Windows.Forms.ListView lvVoorraad;

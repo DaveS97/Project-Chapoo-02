@@ -131,5 +131,10 @@ namespace ChapooUI
             panel1.Update();
             pnlVoorraad.Hide();
         }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
