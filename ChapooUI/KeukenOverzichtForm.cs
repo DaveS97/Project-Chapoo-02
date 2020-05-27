@@ -15,32 +15,37 @@ namespace ChapooUI
 {
     public partial class KeukenOverzichtForm : Form
     {
+        private List<ChapooModel.MenuItem> menuItems;
         public KeukenOverzichtForm()
         {
+            menuItems = new List<ChapooModel.MenuItem>();
             InitializeComponent();
             BestellingenVullen();
         }
+        
         private void BestellingenVullen()
         {
             //HIER WORDT DE LV_Bestellingen GEVULD
             //bestelling service aanmaken 
             ChapooLogic.Bevat_Service bevat_Service = new ChapooLogic.Bevat_Service();
-            List<Bevat> ids = bevat_Service.KrijgBestellingEnMenuItemID();
+            Dictionary<Bevat, Klant> ids = bevat_Service.KrijgBestellingEnMenuItemID();
             //leeg de kolommen eerst voordat je ze weer vult
             lv_Bestellingen.Clear();
             //maak kolommen
             lv_Bestellingen.Columns.Add("Bestelling Id", 100);
             lv_Bestellingen.Columns.Add("Menu item Id", 100);
+            lv_Bestellingen.Columns.Add("Tafel Id", 75);
             //vul de listview
-            foreach (Bevat id in ids)
+            foreach (KeyValuePair<Bevat, Klant> pair in ids)
             {
-                ListViewItem li = new ListViewItem(id.bestellingID.ToString());
-                li.SubItems.Add(id.menuItemID.ToString());
+                ListViewItem li = new ListViewItem(pair.Key.bestellingID.ToString());
+                li.SubItems.Add(pair.Key.menuItemID.ToString());
+                li.SubItems.Add(pair.Value.tafelID.ToString());
                 lv_Bestellingen.Items.Add(li);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_toonBestelling_Click(object sender, EventArgs e)
         {
             lbl_Voorgerecht.Text = "";
             lbl_Hoofdgerecht.Text = "";
@@ -48,7 +53,6 @@ namespace ChapooUI
             lbl_HuidigeBestelling.Text = "";
             string bestellingNummer = lv_Bestellingen.SelectedItems[0].SubItems[0].Text;
             lbl_HuidigeBestelling.Text = $"Bestelling: {bestellingNummer}";
-            List<ChapooModel.MenuItem> menuItems = new List<ChapooModel.MenuItem>();
             menuItems.Clear();
             //service aanmaken om de beschrijving op te halen
             MenuItem_Service menuItem_Service = new MenuItem_Service();
@@ -71,6 +75,21 @@ namespace ChapooUI
                         break;
                 }
             } 
-        }    
+        }
+
+        private void btn_voorGerechtKlaarzetten_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_hoofdGerechtKlaarzetten_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_naGerechtKlaarzetten_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -12,16 +12,16 @@ namespace ChapooDAL
 {
     public class Bevat_DAO : Base
     {
-        public List<Bevat> KrijgIDS()
+        public Dictionary<Bevat, Klant> KrijgIDS()
         {
-            string query = "SELECT Be.bestellingID, BE.menuItemID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID ORDER BY Be.bestellingID;";
+            string query = "SELECT Be.bestellingID, BE.menuItemID, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID ORDER BY Be.bestellingID;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        private List<Bevat> ReadTables(DataTable dataTable)
+        private Dictionary<Bevat, Klant> ReadTables(DataTable dataTable)
         {
-            List<Bevat> ids = new List<Bevat>();
+            Dictionary<Bevat, Klant> ids = new Dictionary<Bevat, Klant>();
 
             foreach (DataRow dr in dataTable.Rows)
             {
@@ -30,7 +30,11 @@ namespace ChapooDAL
                     bestellingID = (int)dr["bestellingID"],
                     menuItemID = (int)dr["menuItemID"],
                 };
-                ids.Add(bevat);
+                Klant klant = new Klant()
+                {
+                    tafelID = (int)dr["tafelID"]
+                };
+                ids.Add(bevat, klant);
             }
             return ids;
         }
