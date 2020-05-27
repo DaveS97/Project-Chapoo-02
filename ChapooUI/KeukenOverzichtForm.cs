@@ -3,22 +3,28 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChapooLogic;
-using System.Security.Permissions;
+using System.Threading;
 
 namespace ChapooUI
 {
+    
     public partial class KeukenOverzichtForm : Form
     {
+        const int VOORGERECHT = 1;
+        const int HOOFDGERECHT = 2;
+        const int NAGERECHT = 3;
+        const int TUSSENGERECHT = 4;
+        const int DRINKEN = 5;
         private List<ChapooModel.MenuItem> menuItems;
+        private List<ChapooModel.MenuItem> klaargezetteBestellingen;
+
         public KeukenOverzichtForm()
         {
             menuItems = new List<ChapooModel.MenuItem>();
+            klaargezetteBestellingen = new List<ChapooModel.MenuItem>();
             InitializeComponent();
             BestellingenVullen();
         }
@@ -51,9 +57,9 @@ namespace ChapooUI
             lbl_Hoofdgerecht.Text = "";
             lbl_Nagerecht.Text = "";
             lbl_HuidigeBestelling.Text = "";
+            menuItems.Clear();
             string bestellingNummer = lv_Bestellingen.SelectedItems[0].SubItems[0].Text;
             lbl_HuidigeBestelling.Text = $"Bestelling: {bestellingNummer}";
-            menuItems.Clear();
             //service aanmaken om de beschrijving op te halen
             MenuItem_Service menuItem_Service = new MenuItem_Service();
             menuItems = menuItem_Service.KrijgBeschrijving(bestellingNummer);
@@ -79,17 +85,54 @@ namespace ChapooUI
 
         private void btn_voorGerechtKlaarzetten_Click(object sender, EventArgs e)
         {
-            
+            foreach (ChapooModel.MenuItem item in menuItems)
+            {
+                if (item.typeGerecht == VOORGERECHT || item.typeGerecht == TUSSENGERECHT)
+                {
+                    klaargezetteBestellingen.Add(item);
+                    lbl_Voorgerecht.Text = "";
+                }
+            }
+            lv_Bestellingen.SelectedItems.Clear();
         }
 
         private void btn_hoofdGerechtKlaarzetten_Click(object sender, EventArgs e)
         {
-
+            foreach (ChapooModel.MenuItem item in menuItems)
+            {
+                if (item.typeGerecht == HOOFDGERECHT)
+                {
+                    klaargezetteBestellingen.Add(item);
+                    lbl_Hoofdgerecht.Text = "";
+                }
+            } 
         }
 
         private void btn_naGerechtKlaarzetten_Click(object sender, EventArgs e)
         {
+            foreach (ChapooModel.MenuItem item in menuItems)
+            {
+                if (item.typeGerecht == NAGERECHT)
+                {
+                    klaargezetteBestellingen.Add(item);
+                    lbl_Nagerecht.Text = "";
+                }
+            }
+        }
 
+        private void barOverzichtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowPanel("baroverzicht");
+        }
+
+        private void ShowPanel(string panelName)
+        {
+            if (panelName == "baroverzicht")
+            {
+                //panel.show
+                //alle klaarstaande bestellingen in een listview opnemen
+                //DICT met daarin een bevat en misschien klant.
+            }
         }
     }
 }
