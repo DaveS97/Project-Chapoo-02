@@ -21,7 +21,9 @@ namespace Chapoo_PDA_UI
 
         private void btnPresenteerRekening_Click(object sender, EventArgs e)
         {
-            tafelnummer = int.Parse(lblTafelnummer.Text);
+            tafelnummer = int.Parse(tbTafelnummerAfrekenen.Text);
+            ChapooPDA_AfrekenenOverzicht overzicht = new ChapooPDA_AfrekenenOverzicht(tafelnummer);
+            overzicht.Show();
         }
     }
 }

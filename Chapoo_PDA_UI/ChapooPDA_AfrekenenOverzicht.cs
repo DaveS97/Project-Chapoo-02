@@ -12,8 +12,11 @@ namespace Chapoo_PDA_UI
 {
     public partial class ChapooPDA_AfrekenenOverzicht : Form
     {
-        public ChapooPDA_AfrekenenOverzicht()
+        private int tafelnummer;
+
+        public ChapooPDA_AfrekenenOverzicht(int tafelnummer)
         {
+            this.tafelnummer = tafelnummer;
             InitializeComponent();
         }
 

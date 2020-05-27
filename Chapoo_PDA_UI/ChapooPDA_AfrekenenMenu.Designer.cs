@@ -55,9 +55,9 @@
             // btnPresenteerRekening
             // 
             this.btnPresenteerRekening.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPresenteerRekening.Location = new System.Drawing.Point(197, 426);
+            this.btnPresenteerRekening.Location = new System.Drawing.Point(149, 371);
             this.btnPresenteerRekening.Name = "btnPresenteerRekening";
-            this.btnPresenteerRekening.Size = new System.Drawing.Size(300, 100);
+            this.btnPresenteerRekening.Size = new System.Drawing.Size(380, 100);
             this.btnPresenteerRekening.TabIndex = 2;
             this.btnPresenteerRekening.Text = "Presenteer rekening";
             this.btnPresenteerRekening.UseVisualStyleBackColor = true;

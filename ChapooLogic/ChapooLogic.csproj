@@ -49,7 +49,6 @@
     <Compile Include="MenuItem_Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RekeningService.cs" />
-    <Compile Include="Voorraad_Service.cs" />
     <Compile Include="Werknemer_Service.cs" />
   </ItemGroup>
   <ItemGroup>
