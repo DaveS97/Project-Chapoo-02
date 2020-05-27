@@ -28,6 +28,7 @@ namespace ChapooDAL
             return ReadTablesBMO(ExecuteSelectQuery(query, sqlParameters));
         }
 
+       
         private List<MenuItem> ReadTablesBMO(DataTable dataTable)
         {
             List<MenuItem> bestellingen = new List<MenuItem>();
@@ -43,6 +44,43 @@ namespace ChapooDAL
                 bestellingen.Add(menuItem);
             }
             return bestellingen;
+        }
+        //deel van samuel begint hieronder
+        public List<MenuItem> GetDinkMenu()
+        {
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht from MenuItem where menu = 3";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<MenuItem> GetLunchMenu()
+        {
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht from MenuItem where menu = 1";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<MenuItem> GetDinnerMenu()
+        {
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht from MenuItem where menu = 2";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private List<MenuItem> ReadTables(DataTable table)
+        {
+            List<MenuItem> items = new List<MenuItem>();
+
+            foreach (DataRow dr in table.Rows)
+            {
+                MenuItem menuItem = new MenuItem()
+                {
+                    ID = (int)dr["menuItemID"],
+                    Beschrijving = (string)dr["omschrijving"],
+                    Prijs = (decimal)dr["prijs"],
+                    typeGerecht = (int)dr["typeGerecht"]
+                };
+                items.Add(menuItem);
+            }
+            return items;
         }
     }
 }

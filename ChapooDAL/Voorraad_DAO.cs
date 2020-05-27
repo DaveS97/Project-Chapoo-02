@@ -12,11 +12,11 @@ namespace ChapooDAL
     {
         public void Write_To_Db_Voorraad(int id, int aantal)
         {
-            string query = "INSERT [Voorraad] VALUES (@voorraadID, @aantal)";
+            string query = "UPDATE Voorraad SET aantal = @aantal where voorraadID = @voorraadID ";
             SqlParameter[] sqlParameters =
             {
-                new SqlParameter("@voorraadID", SqlDbType.Int) { Value = aantal},
-                new SqlParameter("@aantal", SqlDbType.Int) { Value = id}
+                new SqlParameter("@aantal", SqlDbType.Int) { Value = aantal},
+                new SqlParameter("@voorraadID", SqlDbType.Int) { Value = id}
             };
             ExecuteEditQuery(query, sqlParameters);
         }

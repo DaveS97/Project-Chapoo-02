@@ -116,27 +116,28 @@
             // MS1I_Inkomsten
             // 
             this.MS1I_Inkomsten.Name = "MS1I_Inkomsten";
-            this.MS1I_Inkomsten.Size = new System.Drawing.Size(224, 26);
+            this.MS1I_Inkomsten.Size = new System.Drawing.Size(239, 26);
             this.MS1I_Inkomsten.Text = "Inkomsten";
             this.MS1I_Inkomsten.Click += new System.EventHandler(this.MS1I_Inkomsten_Click);
             // 
             // MS1I_Voorraad
             // 
             this.MS1I_Voorraad.Name = "MS1I_Voorraad";
-            this.MS1I_Voorraad.Size = new System.Drawing.Size(224, 26);
+            this.MS1I_Voorraad.Size = new System.Drawing.Size(239, 26);
             this.MS1I_Voorraad.Text = "Voorraad";
             this.MS1I_Voorraad.Click += new System.EventHandler(this.MS1I_Voorraad_Click);
             // 
             // MS1I_MenuKaartOpties
             // 
             this.MS1I_MenuKaartOpties.Name = "MS1I_MenuKaartOpties";
-            this.MS1I_MenuKaartOpties.Size = new System.Drawing.Size(224, 26);
-            this.MS1I_MenuKaartOpties.Text = "Menu Kaart Opties";
+            this.MS1I_MenuKaartOpties.Size = new System.Drawing.Size(239, 26);
+            this.MS1I_MenuKaartOpties.Text = "Menu kaart aanpassen";
+            this.MS1I_MenuKaartOpties.Click += new System.EventHandler(this.MS1I_MenuKaartOpties_Click);
             // 
             // MS1I_Werknemers
             // 
             this.MS1I_Werknemers.Name = "MS1I_Werknemers";
-            this.MS1I_Werknemers.Size = new System.Drawing.Size(224, 26);
+            this.MS1I_Werknemers.Size = new System.Drawing.Size(239, 26);
             this.MS1I_Werknemers.Text = "Werknemers";
             this.MS1I_Werknemers.Click += new System.EventHandler(this.MS1I_Werknemers_Click);
             // 

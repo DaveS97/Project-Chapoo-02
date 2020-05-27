@@ -19,7 +19,9 @@ namespace ChapooUI
         public WerknemersForm()
         {
             InitializeComponent();
+            panel1.Hide();
             WerknemersVullen();
+
         }
             
         private void WerknemersVullen()
@@ -31,15 +33,17 @@ namespace ChapooUI
             //leeg de kolommen eerst voordat je ze weer vult
             lv_Werknemers.Clear();
             //maak kolommen
-            lv_Werknemers.Columns.Add("Werknemer Nummer", 50);
-            lv_Werknemers.Columns.Add("Type werknemer", 50);
-            lv_Werknemers.Columns.Add("Naam", 100);
+            lv_Werknemers.Columns.Add("Naam", 150);
+            lv_Werknemers.Columns.Add("Werknemer Nummer", 100);
+            lv_Werknemers.Columns.Add("Type werknemer", 100);
+
+
             //vul de listview
             foreach (Werknemer werknemer in werknemers)
             {
-                ListViewItem li = new ListViewItem(werknemer.ID.ToString());
+                ListViewItem li = new ListViewItem(werknemer.Naam.ToString());
+                li.SubItems.Add(werknemer.ID.ToString());
                 li.SubItems.Add(werknemer.Type.ToString());
-                li.SubItems.Add(werknemer.Naam.ToString());
                 lv_Werknemers.Items.Add(li);
             }
         }
@@ -48,5 +52,40 @@ namespace ChapooUI
             Close();
         }
 
+        private void WerknemersForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAanpassen_Click(object sender, EventArgs e)
+        {
+            tbNaam.Text = lv_Werknemers.SelectedItems[0].SubItems[0].Text;
+            lblID.Text = lv_Werknemers.SelectedItems[0].SubItems[1].Text;
+        }
+        private void btnOpslaan_Click(object sender, EventArgs e)
+        {
+            int ID = int.Parse(lblID.Text);
+            string naam = tbNaam.Text;
+
+            Werknemer_Service service = new Werknemer_Service();
+            service.AanpassenWerknemer(ID, naam);
+            panel1.Hide();
+        }
+
+        private void btnVerwijder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            lv_Werknemers.Clear();
+            WerknemersVullen();
+        }
+
+        private void lv_Werknemers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            panel1.Show();
+        }
     }
 }

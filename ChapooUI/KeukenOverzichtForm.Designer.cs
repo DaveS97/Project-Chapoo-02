@@ -34,6 +34,7 @@
             this.MS_RO = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_BO = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_KO = new System.Windows.Forms.ToolStripMenuItem();
+            this.barOverzichtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_Beheer = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Inkomsten = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Voorraad = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,11 +49,13 @@
             this.lv_Bestellingen = new System.Windows.Forms.ListView();
             this.btn_toonBestelling = new System.Windows.Forms.Button();
             this.lbl_HuidigeBestelling = new System.Windows.Forms.Label();
-            this.barOverzichtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_Hoofdgerecht = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_Nagerecht = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btn_voorGerechtKlaarzetten = new System.Windows.Forms.Button();
+            this.btn_hoofdGerechtKlaarzetten = new System.Windows.Forms.Button();
+            this.btn_naGerechtKlaarzetten = new System.Windows.Forms.Button();
             this.MS1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +83,7 @@
             this.MS1I_Home});
             this.HomeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
-            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
+            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.HomeToolStripMenuItem.Text = "Home";
             // 
             // MS1I_Home
@@ -94,14 +97,14 @@
             this.MS_RO.BackColor = System.Drawing.Color.White;
             this.MS_RO.ForeColor = System.Drawing.Color.Black;
             this.MS_RO.Name = "MS_RO";
-            this.MS_RO.Size = new System.Drawing.Size(159, 26);
+            this.MS_RO.Size = new System.Drawing.Size(159, 24);
             this.MS_RO.Text = "Restaurant Overzicht";
             // 
             // MS_BO
             // 
             this.MS_BO.BackColor = System.Drawing.Color.White;
             this.MS_BO.Name = "MS_BO";
-            this.MS_BO.Size = new System.Drawing.Size(111, 26);
+            this.MS_BO.Size = new System.Drawing.Size(111, 24);
             this.MS_BO.Text = "Bar Overzicht";
             // 
             // MS_KO
@@ -110,8 +113,14 @@
             this.MS_KO.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.barOverzichtToolStripMenuItem});
             this.MS_KO.Name = "MS_KO";
-            this.MS_KO.Size = new System.Drawing.Size(137, 26);
+            this.MS_KO.Size = new System.Drawing.Size(137, 24);
             this.MS_KO.Text = "Keuken Overzicht";
+            // 
+            // barOverzichtToolStripMenuItem
+            // 
+            this.barOverzichtToolStripMenuItem.Name = "barOverzichtToolStripMenuItem";
+            this.barOverzichtToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.barOverzichtToolStripMenuItem.Text = "Bar Overzicht";
             // 
             // MS_Beheer
             // 
@@ -122,7 +131,7 @@
             this.MS1I_MenuKaartOpties,
             this.MS1I_Werknemers});
             this.MS_Beheer.Name = "MS_Beheer";
-            this.MS_Beheer.Size = new System.Drawing.Size(69, 26);
+            this.MS_Beheer.Size = new System.Drawing.Size(69, 24);
             this.MS_Beheer.Text = "Beheer";
             // 
             // MS1I_Inkomsten
@@ -154,7 +163,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(747, 363);
+            this.label3.Location = new System.Drawing.Point(757, 128);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(131, 24);
             this.label3.TabIndex = 9;
@@ -229,7 +238,7 @@
             this.btn_toonBestelling.TabIndex = 13;
             this.btn_toonBestelling.Text = "Toon bestelling";
             this.btn_toonBestelling.UseVisualStyleBackColor = true;
-            this.btn_toonBestelling.Click += new System.EventHandler(this.button1_Click);
+            this.btn_toonBestelling.Click += new System.EventHandler(this.btn_toonBestelling_Click);
             // 
             // lbl_HuidigeBestelling
             // 
@@ -241,12 +250,6 @@
             this.lbl_HuidigeBestelling.Size = new System.Drawing.Size(91, 24);
             this.lbl_HuidigeBestelling.TabIndex = 14;
             this.lbl_HuidigeBestelling.Text = "Bestelling";
-            // 
-            // barOverzichtToolStripMenuItem
-            // 
-            this.barOverzichtToolStripMenuItem.Name = "barOverzichtToolStripMenuItem";
-            this.barOverzichtToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.barOverzichtToolStripMenuItem.Text = "Bar Overzicht";
             // 
             // lbl_Hoofdgerecht
             // 
@@ -288,12 +291,45 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "Nagerecht:";
             // 
+            // btn_voorGerechtKlaarzetten
+            // 
+            this.btn_voorGerechtKlaarzetten.Location = new System.Drawing.Point(651, 489);
+            this.btn_voorGerechtKlaarzetten.Name = "btn_voorGerechtKlaarzetten";
+            this.btn_voorGerechtKlaarzetten.Size = new System.Drawing.Size(99, 49);
+            this.btn_voorGerechtKlaarzetten.TabIndex = 19;
+            this.btn_voorGerechtKlaarzetten.Text = "Voorgerecht klaarzetten";
+            this.btn_voorGerechtKlaarzetten.UseVisualStyleBackColor = true;
+            this.btn_voorGerechtKlaarzetten.Click += new System.EventHandler(this.btn_voorGerechtKlaarzetten_Click);
+            // 
+            // btn_hoofdGerechtKlaarzetten
+            // 
+            this.btn_hoofdGerechtKlaarzetten.Location = new System.Drawing.Point(774, 489);
+            this.btn_hoofdGerechtKlaarzetten.Name = "btn_hoofdGerechtKlaarzetten";
+            this.btn_hoofdGerechtKlaarzetten.Size = new System.Drawing.Size(114, 49);
+            this.btn_hoofdGerechtKlaarzetten.TabIndex = 20;
+            this.btn_hoofdGerechtKlaarzetten.Text = "Hoofdgerecht klaarzetten";
+            this.btn_hoofdGerechtKlaarzetten.UseVisualStyleBackColor = true;
+            this.btn_hoofdGerechtKlaarzetten.Click += new System.EventHandler(this.btn_hoofdGerechtKlaarzetten_Click);
+            // 
+            // btn_naGerechtKlaarzetten
+            // 
+            this.btn_naGerechtKlaarzetten.Location = new System.Drawing.Point(916, 489);
+            this.btn_naGerechtKlaarzetten.Name = "btn_naGerechtKlaarzetten";
+            this.btn_naGerechtKlaarzetten.Size = new System.Drawing.Size(99, 49);
+            this.btn_naGerechtKlaarzetten.TabIndex = 21;
+            this.btn_naGerechtKlaarzetten.Text = "Nagerecht klaarzetten";
+            this.btn_naGerechtKlaarzetten.UseVisualStyleBackColor = true;
+            this.btn_naGerechtKlaarzetten.Click += new System.EventHandler(this.btn_naGerechtKlaarzetten_Click);
+            // 
             // KeukenOverzichtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(1039, 550);
+            this.Controls.Add(this.btn_naGerechtKlaarzetten);
+            this.Controls.Add(this.btn_hoofdGerechtKlaarzetten);
+            this.Controls.Add(this.btn_voorGerechtKlaarzetten);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbl_Nagerecht);
             this.Controls.Add(this.label2);
@@ -344,5 +380,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_Nagerecht;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_voorGerechtKlaarzetten;
+        private System.Windows.Forms.Button btn_hoofdGerechtKlaarzetten;
+        private System.Windows.Forms.Button btn_naGerechtKlaarzetten;
     }
 }

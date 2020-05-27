@@ -19,18 +19,14 @@ namespace ChapooUI
         public VoorraadForm()
         {
             InitializeComponent();
+            VulListView();
             pnlVoorraad.Hide();
         }
-       
+
         private void lvVoorraad_SelectedIndexChanged(object sender, EventArgs e)
         {
             pnlVoorraad.Show();
-            MenuItem2_Service service = new MenuItem2_Service();
-            List<MenuItem2> items = service.GetMenuItems();
-            foreach (MenuItem2 item in items)
-            {
 
-            }
         }
         private void keukenOverzichtToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -45,7 +41,7 @@ namespace ChapooUI
             lvVoorraad.Columns.Add("aantal", 50);
             lvVoorraad.Columns.Add("menu kaart", 50);
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void VulListView()
         {
             MenuItem2_Service service = new MenuItem2_Service();
             if (RBLunch.Checked)
@@ -94,7 +90,7 @@ namespace ChapooUI
                     lvVoorraad.Items.Add(li);
                 }
             }
-            else
+            else if (rbAlles.Checked)
             {
                 lvVoorraad.Clear();
                 MaakCollommen();
@@ -110,11 +106,14 @@ namespace ChapooUI
                 }
             }
         }
-
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            VulListView();
+        }
         private void button4_Click(object sender, EventArgs e)
         {
             MenuItem2 item = new MenuItem2();
+            lblID.Text = lvVoorraad.SelectedItems[0].SubItems[1].Text;
             lblOmschrijving.Text = lvVoorraad.SelectedItems[0].SubItems[0].Text;///trycatch
             tbAantal.Text = lvVoorraad.SelectedItems[0].SubItems[3].Text;
         }
@@ -123,10 +122,19 @@ namespace ChapooUI
         {
 
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            //opslaan
+            int ID = int.Parse(lblID.Text);
+            int aantal = int.Parse(tbAantal.Text);
+            Voorraad_Service service = new Voorraad_Service();
+            service.Write_To_Db_Voorraad(ID,aantal);
+            panel1.Update();
+            pnlVoorraad.Hide();
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

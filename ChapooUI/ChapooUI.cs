@@ -54,5 +54,11 @@ namespace ChapooUI
         {
             
         }
+
+        private void MS1I_MenuKaartOpties_Click(object sender, EventArgs e)
+        {
+            MenuKaartAanpassenForm from = new MenuKaartAanpassenForm();
+            from.ShowDialog();
+        }
     }
 }

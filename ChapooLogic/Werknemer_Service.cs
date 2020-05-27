@@ -13,6 +13,17 @@ namespace ChapooLogic
     {
         private Werknemer_DAO werknemer = new Werknemer_DAO();
 
+        public void AanpassenWerknemer(int id, string naam)
+        {
+            try
+            {
+                werknemer.pasWerknemerAan(id, naam);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database" + e.Message);
+            }
+        }
         public List<Werknemer> KrijgWerknemers()
         {
             try
