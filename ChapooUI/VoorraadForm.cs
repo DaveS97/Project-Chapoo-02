@@ -26,11 +26,13 @@ namespace ChapooUI
         private void lvVoorraad_SelectedIndexChanged(object sender, EventArgs e)
         {
             pnlVoorraad.Show();
-
+            lblID.Text = lvVoorraad.SelectedItems[0].SubItems[1].Text;
+            lblOmschrijving.Text = lvVoorraad.SelectedItems[0].SubItems[0].Text;
+            tbAantal.Text = lvVoorraad.SelectedItems[0].SubItems[3].Text;
         }
         private void keukenOverzichtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            KeukenOverzichtForm from = new KeukenOverzichtForm();
+            KeukenOverzichtForm from = KeukenOverzichtForm.GetInstance();
             from.ShowDialog();
         }
         private void MaakCollommen()
@@ -112,10 +114,7 @@ namespace ChapooUI
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            MenuItem2 item = new MenuItem2();
-            lblID.Text = lvVoorraad.SelectedItems[0].SubItems[1].Text;
-            lblOmschrijving.Text = lvVoorraad.SelectedItems[0].SubItems[0].Text;///trycatch
-            tbAantal.Text = lvVoorraad.SelectedItems[0].SubItems[3].Text;
+            
         }
 
         private void VoorraadForm_Load(object sender, EventArgs e)
@@ -126,10 +125,14 @@ namespace ChapooUI
         {
             int ID = int.Parse(lblID.Text);
             int aantal = int.Parse(tbAantal.Text);
+
             Voorraad_Service service = new Voorraad_Service();
             service.Write_To_Db_Voorraad(ID,aantal);
-            panel1.Update();
+
+            VulListView();
             pnlVoorraad.Hide();
+
+            MessageBox.Show("succesvol opgeslagen");
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)

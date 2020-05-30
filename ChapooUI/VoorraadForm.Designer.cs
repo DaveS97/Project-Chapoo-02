@@ -39,7 +39,6 @@
             this.pnlVoorraad = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tbAantal = new System.Windows.Forms.TextBox();
             this.lblOmschrijving = new System.Windows.Forms.Label();
@@ -56,11 +55,11 @@
             // 
             this.lblVoorraad.AutoSize = true;
             this.lblVoorraad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVoorraad.Location = new System.Drawing.Point(327, 37);
+            this.lblVoorraad.Location = new System.Drawing.Point(12, 59);
             this.lblVoorraad.Name = "lblVoorraad";
-            this.lblVoorraad.Size = new System.Drawing.Size(139, 36);
+            this.lblVoorraad.Size = new System.Drawing.Size(292, 36);
             this.lblVoorraad.TabIndex = 1;
-            this.lblVoorraad.Text = "Voorraad";
+            this.lblVoorraad.Text = "Voorraad aanpassen";
             // 
             // menuStrip1
             // 
@@ -70,7 +69,7 @@
             this.homeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1080, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1080, 30);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -128,7 +127,6 @@
             this.pnlVoorraad.BackColor = System.Drawing.Color.White;
             this.pnlVoorraad.Controls.Add(this.label1);
             this.pnlVoorraad.Controls.Add(this.lblID);
-            this.pnlVoorraad.Controls.Add(this.button4);
             this.pnlVoorraad.Controls.Add(this.button2);
             this.pnlVoorraad.Controls.Add(this.tbAantal);
             this.pnlVoorraad.Controls.Add(this.lblOmschrijving);
@@ -155,16 +153,6 @@
             this.lblID.TabIndex = 4;
             this.lblID.Text = "....";
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(0, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 33);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Aanpassen";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(331, 156);
@@ -185,7 +173,7 @@
             // lblOmschrijving
             // 
             this.lblOmschrijving.AutoSize = true;
-            this.lblOmschrijving.Location = new System.Drawing.Point(3, 43);
+            this.lblOmschrijving.Location = new System.Drawing.Point(3, 0);
             this.lblOmschrijving.Name = "lblOmschrijving";
             this.lblOmschrijving.Size = new System.Drawing.Size(24, 17);
             this.lblOmschrijving.TabIndex = 0;
@@ -276,7 +264,6 @@
         private System.Windows.Forms.ListView lvVoorraad;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblOmschrijving;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox tbAantal;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblID;

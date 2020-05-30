@@ -24,6 +24,45 @@ namespace ChapooLogic
                 MessageBox.Show("Chapoo couldn't connect to the database" + e.Message);
             }
         }
+        public void Write_to_db_verwijderenWerknemer(int ID)
+        {
+            try
+            {
+                werknemer.Write_To_db_VerwijderenWerknemer(ID);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database" + e.Message);
+            }
+        }
+        public void Write_To_db_ToevoegenWerknemer(int Type, string naam, int pin, bool actief)
+        {
+            try
+            {
+                werknemer.Write_To_db_toevoegenWerknemer(Type, naam, pin, actief);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database" + e.Message);
+            }
+        }
+        public List<Werknemer> GetWerknemerPins()
+        {
+            try
+            {
+                List<Werknemer> werknemers = werknemer.GetWerknemerPINs();
+                return werknemers;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database" + e.Message);
+                List<Werknemer> werknemers = new List<Werknemer>();
+                Werknemer werknemer = new Werknemer();
+                werknemer.ID = 1;
+                werknemers.Add(werknemer);
+                return werknemers;
+            }
+        }
         public List<Werknemer> KrijgWerknemers()
         {
             try

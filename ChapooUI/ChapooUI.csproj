@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AanmeldenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AanmeldenForm.Designer.cs">
+      <DependentUpon>AanmeldenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChapooUI.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -54,11 +60,11 @@
       <DependentUpon>ChapooUI.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="DrankMenuAanpassenForm.cs">
+    <Compile Include="MenuAanpassenForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DrankMenuAanpassenForm.Designer.cs">
-      <DependentUpon>DrankMenuAanpassenForm.cs</DependentUpon>
+    <Compile Include="MenuAanpassenForm.Designer.cs">
+      <DependentUpon>MenuAanpassenForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InkomstenForm.cs">
       <SubType>Form</SubType>
@@ -71,12 +77,6 @@
     </Compile>
     <Compile Include="KeukenOverzichtForm.Designer.cs">
       <DependentUpon>KeukenOverzichtForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LunchMenuAanpassenForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LunchMenuAanpassenForm.Designer.cs">
-      <DependentUpon>LunchMenuAanpassenForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuKaartAanpassenForm.cs">
       <SubType>Form</SubType>
@@ -98,9 +98,18 @@
     <Compile Include="WerknemersForm.Designer.cs">
       <DependentUpon>WerknemersForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AanmeldenForm.resx">
+      <DependentUpon>AanmeldenForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InkomstenForm.resx">
+      <DependentUpon>InkomstenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuAanpassenForm.resx">
+      <DependentUpon>MenuAanpassenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KeukenOverzichtForm.resx">
       <DependentUpon>KeukenOverzichtForm.cs</DependentUpon>

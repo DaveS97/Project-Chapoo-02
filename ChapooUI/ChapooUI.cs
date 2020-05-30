@@ -29,7 +29,7 @@ namespace ChapooUI
 
         private void MS_KO_Click(object sender, EventArgs e)
         {
-            KeukenOverzichtForm keukenOverzicht = new KeukenOverzichtForm();
+            KeukenOverzichtForm keukenOverzicht = KeukenOverzichtForm.GetInstance();
             keukenOverzicht.ShowDialog();
         }
 
@@ -59,6 +59,12 @@ namespace ChapooUI
         {
             MenuKaartAanpassenForm from = new MenuKaartAanpassenForm();
             from.ShowDialog();
+        }
+
+        private void itemAanpassenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuAanpassenForm form = new MenuAanpassenForm();
+            form.Show();
         }
     }
 }
