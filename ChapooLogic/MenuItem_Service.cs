@@ -36,24 +36,23 @@ namespace ChapooLogic
                 return werknemers;
             }
         }*/
-
-        public List<MenuItem> KrijgBeschrijving(string bestellingID)
-        {
-            try
-            {
-                List<MenuItem> menuItems = menuItem_DAO.Krijg_Bestelling_Beschrijving(bestellingID);
-                return menuItems;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
-                List<MenuItem> menuItems = new List<MenuItem>();
-                MenuItem menuItem = new MenuItem();
-                menuItem.ID= 1;
-                menuItems.Add(menuItem);
-                return menuItems;
-            }
-        }
+        //public List<MenuItem> KrijgBeschrijving(string bestellingID)
+        //{
+        //    try
+        //    {
+        //        List<MenuItem> menuItems = menuItem_DAO.Krijg_Bestelling_Beschrijving(bestellingID);
+        //        return menuItems;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+        //        List<MenuItem> menuItems = new List<MenuItem>();
+        //        MenuItem menuItem = new MenuItem();
+        //        menuItem.ID= 1;
+        //        menuItems.Add(menuItem);
+        //        return menuItems;
+        //    }
+        //}
         //
         public List<MenuItem> GetMenu()
         {
@@ -72,26 +71,26 @@ namespace ChapooLogic
                 return menuItems;
             }
         }
-        //
-        //public Dictionary<Bevat, Klant> KrijgBeschrijving(string bestellingID)
-        //{
-        //    try
-        //    {
-        //        Dictionary<Bevat, Klant> klantenInfo = menuItem_DAO.Krijg_Bestelling_Beschrijving(bestellingID);
-        //        return klantenInfo;
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
-        //        Dictionary<Bevat, Klant> klantenInfo = new Dictionary<Bevat, Klant>();
-        //        Bevat info  = new Bevat();
-        //        info.bestellingID = 1;
-        //        Klant klant = new Klant();
-        //        klant.ID = 1;
-        //        klantenInfo.Add(info, klant);
-        //        return klantenInfo;
-        //    }
-        //}
+
+        public Dictionary<Bevat, Klant> KrijgBeschrijving(string bestellingID)
+        {
+            try
+            {
+                Dictionary<Bevat, Klant> klantenInfo = menuItem_DAO.Krijg_Bestelling_Beschrijving(bestellingID);
+                return klantenInfo;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                Dictionary<Bevat, Klant> klantenInfo = new Dictionary<Bevat, Klant>();
+                Bevat info = new Bevat();
+                info.bestellingID = 1;
+                Klant klant = new Klant();
+                klant.ID = 1;
+                klantenInfo.Add(info, klant);
+                return klantenInfo;
+            }
+        }
         public List<MenuItem> GetLunchMenu()
         {
             try
