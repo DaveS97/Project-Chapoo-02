@@ -76,6 +76,12 @@
     <Compile Include="ChapooPDA_BestellingOpnemenMenu.Designer.cs">
       <DependentUpon>ChapooPDA_BestellingOpnemenMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChapooPDA_BestellingOpnemenRegistreren.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChapooPDA_BestellingOpnemenRegistreren.Designer.cs">
+      <DependentUpon>ChapooPDA_BestellingOpnemenRegistreren.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChapooPDA_KlaarstaandeBestellingenOverzicht.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChapooPDA_BestellingOpnemenMenu.resx">
       <DependentUpon>ChapooPDA_BestellingOpnemenMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChapooPDA_BestellingOpnemenRegistreren.resx">
+      <DependentUpon>ChapooPDA_BestellingOpnemenRegistreren.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChapooPDA_KlaarstaandeBestellingenOverzicht.resx">
       <DependentUpon>ChapooPDA_KlaarstaandeBestellingenOverzicht.cs</DependentUpon>
