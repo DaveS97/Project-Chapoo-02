@@ -20,12 +20,14 @@ namespace ChapooUI
         const int TUSSENGERECHT = 4;
         const int DRINKEN = 5;
         private Dictionary<Bevat, Klant> klantenInfo;
+        private Dictionary<Bevat, Klant> klantenInfoGereedPanel;
         private Dictionary<Bevat, Klant> klaargezetteBestellingen;
         private Dictionary<Bevat, Klant> ids = new Dictionary<Bevat, Klant>();
         public KeukenOverzichtForm()
         {
             klantenInfo = new Dictionary<Bevat, Klant>();
             klaargezetteBestellingen = new Dictionary<Bevat, Klant>();
+            klantenInfoGereedPanel = new Dictionary<Bevat, Klant>();
             InitializeComponent();
             BestellingenVullen();
         }
@@ -91,12 +93,9 @@ namespace ChapooUI
             {
                 if (duo.Key.typeGerecht == VOORGERECHT || duo.Key.typeGerecht == TUSSENGERECHT)
                 {
-                    Bevat bevat = new Bevat();
+                    Bevat bevat = VulBevat(duo);
                     Klant klant = new Klant();
-                    bevat.bestellingID = duo.Key.bestellingID;
-                    bevat.menuItemBeschrijving = duo.Key.menuItemBeschrijving;
-                    bevat.menuItemID = duo.Key.menuItemID;
-                    bevat.typeGerecht = duo.Key.typeGerecht;
+                    
 
                     klant.ID = duo.Value.ID;
                     klant.tafelID = duo.Value.tafelID;
@@ -209,14 +208,14 @@ namespace ChapooUI
             lbl_hoofdGerechtKlaar.Text = "";
             lbl_naGerechtKlaar.Text = "";
             lbl_huidigeBestellingKlaar.Text = "";
-            klantenInfo.Clear();
+            klantenInfoGereedPanel.Clear();
             //bestellings nummer ophalen
-            string bestellingNummer = lv_Bestellingen.SelectedItems[0].SubItems[0].Text;
+            string bestellingNummer = lv_klaarstaandebestellingen.SelectedItems[0].SubItems[0].Text;
             lbl_HuidigeBestelling.Text = $"Bestelling: {bestellingNummer}";
             //service aanmaken om de beschrijving op te halen
             Bevat_Service bevat_Service = new Bevat_Service();
-            klantenInfo = bevat_Service.KrijgBeschrijving(bestellingNummer);
-            foreach (KeyValuePair<Bevat, Klant> duo in klaargezetteBestellingen)
+            klantenInfoGereedPanel = bevat_Service.KrijgBeschrijving(bestellingNummer);
+            foreach (KeyValuePair<Bevat, Klant> duo in klantenInfoGereedPanel)
             {
                 switch (duo.Key.typeGerecht)
                 {
@@ -234,6 +233,16 @@ namespace ChapooUI
                         break;
                 }
             }
+        }
+
+        private Bevat VulBevat(KeyValuePair<Bevat, Klant> duo)
+        {
+            Bevat bevat = new Bevat();
+            bevat.bestellingID = duo.Key.bestellingID;
+            bevat.menuItemBeschrijving = duo.Key.menuItemBeschrijving;
+            bevat.menuItemID = duo.Key.menuItemID;
+            bevat.typeGerecht = duo.Key.typeGerecht;
+            return bevat;
         }
     }
 }
