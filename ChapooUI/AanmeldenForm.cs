@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ChapooLogic;
+using ChapooModel;
 
 namespace ChapooUI
 {
@@ -19,7 +21,19 @@ namespace ChapooUI
 
         private void btnAanmelden_Click(object sender, EventArgs e)
         {
-
+            Werknemer_Service service = new Werknemer_Service();
+            List<Werknemer> werknemers = service.GetWerknemerPins();
+            bool CorrectPin;
+            
+            if (tbPin.Text.Length != 0)
+            {
+                int pin = int.Parse(tbPin.Text);
+                foreach (Werknemer item in werknemers)
+                {
+                    if (item.)
+                }
+            }
+            
         }
     }
 }

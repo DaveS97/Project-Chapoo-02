@@ -21,6 +21,7 @@ namespace ChapooDAL
             };
             ExecuteEditQuery(query, sqlParameters);
         }
+
         public void Write_To_db_VerwijderenWerknemer(int ID)
         {
             string query = "update Werknemers Set is_Actief=0 where werknemerID = @ID";
@@ -45,6 +46,12 @@ namespace ChapooDAL
         public List<Werknemer> DB_Krijg_Alle_Werknemers()
         {
             string query = "SELECT werknemerID, werknemerType, werknemerNaam FROM [Werknemers] Where is_Actief = 1";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<Werknemer> GetWerknemerPINs()
+        {
+            string query = "SELECT werknemerID, werknemerPin, werknemerNaam FROM [Werknemers] Where is_Actief = 1";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }

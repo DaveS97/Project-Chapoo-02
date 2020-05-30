@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbPin = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAanmelden = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tbPin
             // 
-            this.textBox1.Location = new System.Drawing.Point(62, 144);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 35);
-            this.textBox1.TabIndex = 0;
+            this.tbPin.Location = new System.Drawing.Point(62, 144);
+            this.tbPin.Multiline = true;
+            this.tbPin.Name = "tbPin";
+            this.tbPin.Size = new System.Drawing.Size(265, 35);
+            this.tbPin.TabIndex = 0;
             // 
             // label1
             // 
@@ -69,7 +69,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnAanmelden);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbPin);
             this.Name = "AanmeldenForm";
             this.Text = "AanmeldenForm";
             this.ResumeLayout(false);
@@ -79,7 +79,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbPin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAanmelden;
     }
