@@ -20,12 +20,24 @@ namespace ChapooUI
         const int TUSSENGERECHT = 4;
         const int DRINKEN = 5;
         private Dictionary<Bevat, Klant> klantenInfo;
+        private Dictionary<Bevat, Klant> klantenInfoGereedPanel;
         private Dictionary<Bevat, Klant> klaargezetteBestellingen;
         private Dictionary<Bevat, Klant> ids = new Dictionary<Bevat, Klant>();
-        public KeukenOverzichtForm()
+        private List<Klant> klanten = new List<Klant>();
+        private List<Bevat> bestellingen = new List<Bevat>();
+
+        private static KeukenOverzichtForm uniekeInstantie;
+        public static KeukenOverzichtForm GetInstance()
+        {
+            if (uniekeInstantie == null)
+                uniekeInstantie = new KeukenOverzichtForm();
+            return uniekeInstantie;
+        }
+        private KeukenOverzichtForm()
         {
             klantenInfo = new Dictionary<Bevat, Klant>();
             klaargezetteBestellingen = new Dictionary<Bevat, Klant>();
+            klantenInfoGereedPanel = new Dictionary<Bevat, Klant>();
             InitializeComponent();
             BestellingenVullen();
         }
@@ -48,6 +60,8 @@ namespace ChapooUI
                 ListViewItem li = new ListViewItem(pair.Key.bestellingID.ToString());
                 li.SubItems.Add(pair.Value.tafelID.ToString());
                 lv_Bestellingen.Items.Add(li);
+                bestellingen.Add(pair.Key);
+                klanten.Add(pair.Value);
             }
         }
 
@@ -87,69 +101,67 @@ namespace ChapooUI
 
         private void btn_voorGerechtKlaarzetten_Click(object sender, EventArgs e)
         {
+            int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].Text);
             foreach (KeyValuePair<Bevat, Klant> duo in klantenInfo)
             {
                 if (duo.Key.typeGerecht == VOORGERECHT || duo.Key.typeGerecht == TUSSENGERECHT)
                 {
-                    Bevat bevat = new Bevat();
-                    Klant klant = new Klant();
-                    bevat.bestellingID = duo.Key.bestellingID;
-                    bevat.menuItemBeschrijving = duo.Key.menuItemBeschrijving;
-                    bevat.menuItemID = duo.Key.menuItemID;
-                    bevat.typeGerecht = duo.Key.typeGerecht;
-
-                    klant.ID = duo.Value.ID;
-                    klant.tafelID = duo.Value.tafelID;
-
+                    Bevat bevat = VulBevat(duo);
+                    Klant klant = VulKlant(duo);
                     klaargezetteBestellingen.Add(bevat, klant);
+                    
                     lbl_Voorgerecht.Text = "";
                 }
             }
-            lv_Bestellingen.SelectedItems.Clear();
+            for (int i = 0; i < bestellingen.Count; i++)
+            {
+                if (bestelNummer == bestellingen[i].bestellingID)
+                {
+                    ids.Remove(bestellingen[i]);
+                }
+            }
         }
 
         private void btn_hoofdGerechtKlaarzetten_Click(object sender, EventArgs e)
         {
-
+            int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].Text);
             foreach (KeyValuePair<Bevat, Klant> duo in klantenInfo)
             {
                 if (duo.Key.typeGerecht == HOOFDGERECHT)
                 {
-                    Bevat bevat = new Bevat();
-                    Klant klant = new Klant();
-                    bevat.bestellingID = duo.Key.bestellingID;
-                    bevat.menuItemBeschrijving = duo.Key.menuItemBeschrijving;
-                    bevat.menuItemID = duo.Key.menuItemID;
-                    bevat.typeGerecht = duo.Key.typeGerecht;
-
-                    klant.ID = duo.Value.ID;
-                    klant.tafelID = duo.Value.tafelID;
-
+                    Bevat bevat = VulBevat(duo);
+                    Klant klant = VulKlant(duo);
                     klaargezetteBestellingen.Add(bevat, klant);
                     lbl_Hoofdgerecht.Text = "";
+                }
+            }
+            for (int i = 0; i < bestellingen.Count; i++)
+            {
+                if (bestelNummer == bestellingen[i].bestellingID)
+                {
+                    ids.Remove(bestellingen[i]);
                 }
             }
         }
 
         private void btn_naGerechtKlaarzetten_Click(object sender, EventArgs e)
         {
-
+            int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].Text);
             foreach (KeyValuePair<Bevat, Klant> duo in klantenInfo)
             {
                 if (duo.Key.typeGerecht == NAGERECHT)
                 {
-                    Bevat bevat = new Bevat();
-                    Klant klant = new Klant();
-                    bevat.bestellingID = duo.Key.bestellingID;
-                    bevat.menuItemBeschrijving = duo.Key.menuItemBeschrijving;
-                    bevat.menuItemID = duo.Key.menuItemID;
-                    bevat.typeGerecht = duo.Key.typeGerecht;
-
-                    klant.ID = duo.Value.ID;
-                    klant.tafelID = duo.Value.tafelID;
-
+                    Bevat bevat = VulBevat(duo);
+                    Klant klant = VulKlant(duo);
                     klaargezetteBestellingen.Add(bevat, klant);
                     lbl_Nagerecht.Text = "";
+                }
+            }
+            for (int i = 0; i < bestellingen.Count; i++)
+            {
+                if (bestelNummer == bestellingen[i].bestellingID)
+                {
+                    ids.Remove(bestellingen[i]);
                 }
             }
         }
@@ -209,14 +221,14 @@ namespace ChapooUI
             lbl_hoofdGerechtKlaar.Text = "";
             lbl_naGerechtKlaar.Text = "";
             lbl_huidigeBestellingKlaar.Text = "";
-            klantenInfo.Clear();
+            klantenInfoGereedPanel.Clear();
             //bestellings nummer ophalen
-            string bestellingNummer = lv_Bestellingen.SelectedItems[0].SubItems[0].Text;
+            string bestellingNummer = lv_klaarstaandebestellingen.SelectedItems[0].SubItems[0].Text;
             lbl_HuidigeBestelling.Text = $"Bestelling: {bestellingNummer}";
             //service aanmaken om de beschrijving op te halen
             Bevat_Service bevat_Service = new Bevat_Service();
-            klantenInfo = bevat_Service.KrijgBeschrijving(bestellingNummer);
-            foreach (KeyValuePair<Bevat, Klant> duo in klaargezetteBestellingen)
+            klantenInfoGereedPanel = bevat_Service.KrijgBeschrijving(bestellingNummer);
+            foreach (KeyValuePair<Bevat, Klant> duo in klantenInfoGereedPanel)
             {
                 switch (duo.Key.typeGerecht)
                 {
@@ -234,6 +246,39 @@ namespace ChapooUI
                         break;
                 }
             }
+        }
+
+        private Bevat VulBevat(KeyValuePair<Bevat, Klant> duo)
+        {
+            Bevat bevat = new Bevat
+            {
+                bestellingID = duo.Key.bestellingID,
+                menuItemBeschrijving = duo.Key.menuItemBeschrijving,
+                menuItemID = duo.Key.menuItemID,
+                typeGerecht = duo.Key.typeGerecht
+            };
+            return bevat;
+        }
+
+        private Klant VulKlant(KeyValuePair<Bevat, Klant> duo)
+        {
+            Klant klant = new Klant
+            {
+                ID = duo.Value.ID,
+                tafelID = duo.Value.tafelID
+            };
+            return klant;
+        }
+
+        private void test()
+        {
+            //hier kan ik me gedachten ff uiten
+        }
+
+
+        private void btn_herlaadBestellingen_Click_1(object sender, EventArgs e)
+        {
+            lv_Bestellingen.Refresh();
         }
     }
 }

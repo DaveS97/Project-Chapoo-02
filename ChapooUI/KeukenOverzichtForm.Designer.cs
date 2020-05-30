@@ -69,6 +69,7 @@
             this.lv_klaarstaandebestellingen = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_huidigeBestellingKlaar = new System.Windows.Forms.Label();
+            this.btn_herlaadBestellingen = new System.Windows.Forms.Button();
             this.MS1.SuspendLayout();
             this.pnl_klaarstaandeBestellingen.SuspendLayout();
             this.SuspendLayout();
@@ -360,7 +361,7 @@
             this.pnl_klaarstaandeBestellingen.Controls.Add(this.label4);
             this.pnl_klaarstaandeBestellingen.Location = new System.Drawing.Point(0, 32);
             this.pnl_klaarstaandeBestellingen.Name = "pnl_klaarstaandeBestellingen";
-            this.pnl_klaarstaandeBestellingen.Size = new System.Drawing.Size(1039, 520);
+            this.pnl_klaarstaandeBestellingen.Size = new System.Drawing.Size(1039, 433);
             this.pnl_klaarstaandeBestellingen.TabIndex = 23;
             // 
             // label6
@@ -475,12 +476,23 @@
             this.lbl_huidigeBestellingKlaar.TabIndex = 30;
             this.lbl_huidigeBestellingKlaar.Text = "Bestelling";
             // 
+            // btn_herlaadBestellingen
+            // 
+            this.btn_herlaadBestellingen.Location = new System.Drawing.Point(178, 490);
+            this.btn_herlaadBestellingen.Name = "btn_herlaadBestellingen";
+            this.btn_herlaadBestellingen.Size = new System.Drawing.Size(104, 48);
+            this.btn_herlaadBestellingen.TabIndex = 31;
+            this.btn_herlaadBestellingen.Text = "Herlaad bestellingen";
+            this.btn_herlaadBestellingen.UseVisualStyleBackColor = true;
+            this.btn_herlaadBestellingen.Click += new System.EventHandler(this.btn_herlaadBestellingen_Click_1);
+            // 
             // KeukenOverzichtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(1039, 550);
+            this.Controls.Add(this.btn_herlaadBestellingen);
             this.Controls.Add(this.lbl_huidigeBestellingKlaar);
             this.Controls.Add(this.pnl_klaarstaandeBestellingen);
             this.Controls.Add(this.btn_filterNaarGereed);
@@ -555,5 +567,6 @@
         private System.Windows.Forms.Label lbl_voorGerechtKlaar;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label lbl_huidigeBestellingKlaar;
+        private System.Windows.Forms.Button btn_herlaadBestellingen;
     }
 }

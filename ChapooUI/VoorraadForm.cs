@@ -32,7 +32,7 @@ namespace ChapooUI
         }
         private void keukenOverzichtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            KeukenOverzichtForm from = new KeukenOverzichtForm();
+            KeukenOverzichtForm from = KeukenOverzichtForm.GetInstance();
             from.ShowDialog();
         }
         private void MaakCollommen()
