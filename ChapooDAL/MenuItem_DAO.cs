@@ -27,8 +27,6 @@ namespace ChapooDAL
             };
             return ReadTablesBMO(ExecuteSelectQuery(query, sqlParameters));
         }
-
-       
         private List<MenuItem> ReadTablesBMO(DataTable dataTable)
         {
             List<MenuItem> bestellingen = new List<MenuItem>();
@@ -46,6 +44,12 @@ namespace ChapooDAL
             return bestellingen;
         }
         //deel van samuel begint hieronder
+        public List<MenuItem> GetMenu()
+        {
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu FROM MenuItem";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
         public List<MenuItem> GetDinkMenu()
         {
             string query = "select menuItemID, omschrijving, prijs, typeGerecht from MenuItem where menu = 3";
@@ -76,7 +80,8 @@ namespace ChapooDAL
                     ID = (int)dr["menuItemID"],
                     Beschrijving = (string)dr["omschrijving"],
                     Prijs = (decimal)dr["prijs"],
-                    typeGerecht = (int)dr["typeGerecht"]
+                    typeGerecht = (int)dr["typeGerecht"],
+                    Menu = (int)dr["menu"]
                 };
                 items.Add(menuItem);
             }

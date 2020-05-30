@@ -21,85 +21,37 @@ namespace ChapooUI
         public MenuKaartAanpassenForm()
         {
             InitializeComponent();
+            fillist();
+            panel1.Hide();
         }
         private void MaakCollommen()
         {
-            lvDrank.Columns.Add("omschrijving", 150);
+            lvDrank.Columns.Add("omschrijving", 250);
             lvDrank.Columns.Add("prijs", 50);
             lvDrank.Columns.Add("type gerecht", 50);
+            lvDrank.Columns.Add("menu kaart", 50);
+            lvDrank.Columns.Add("ID", 25);
         }
-        private void VULDranken()
+        private void fillist()
         {
             lvDrank.Clear();
             MaakCollommen();
             MenuItem_Service service = new MenuItem_Service();
-            List<MenuItem> list = service.GetDrinkMenu();
+            List<MenuItem> list = service.GetMenu();
             foreach (MenuItem item in list)
             {
                 ListViewItem li = new ListViewItem(item.Beschrijving);
                 li.SubItems.Add(item.Prijs.ToString());
                 li.SubItems.Add(item.typeGerecht.ToString());
+                li.SubItems.Add(item.Menu.ToString());
+                li.SubItems.Add(item.ID.ToString());
                 lvDrank.Items.Add(li);
             }
         }
-        private void VULLUNCH()
-        {
-            lvLunch.Clear();
-
-            lvLunch.Columns.Add("omschrijving", 200);
-            lvLunch.Columns.Add("prijs", 50);
-            lvLunch.Columns.Add("type gerecht", 50);
-
-            MenuItem_Service service = new MenuItem_Service();
-            List<MenuItem> list = service.GetLunchMenu();
-            foreach (MenuItem item in list)
-            {
-                ListViewItem li = new ListViewItem(item.Beschrijving);
-                li.SubItems.Add(item.Prijs.ToString());
-                li.SubItems.Add(item.typeGerecht.ToString());
-                lvLunch.Items.Add(li);
-            }
-        }
-        private void VULDINNER()
-        {
-            lvDinner.Clear();
-
-            lvDinner.Columns.Add("omschrijving", 200);
-            lvDinner.Columns.Add("prijs", 50);
-            lvDinner.Columns.Add("type gerecht", 50);
-
-            MenuItem_Service service = new MenuItem_Service();
-            List<MenuItem> list = service.GetDinnerMenu();
-            foreach (MenuItem item in list)
-            {
-                ListViewItem li = new ListViewItem(item.Beschrijving);
-                li.SubItems.Add(item.Prijs.ToString());
-                li.SubItems.Add(item.typeGerecht.ToString());
-                lvDinner.Items.Add(li);
-            }
-        }
-        private void MenuKaartAanpassenForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDrankOphalen_Click(object sender, EventArgs e)
         {
-            VULDranken();
+            fillist();
         }
-
-        private void btnLunchOphalen_Click(object sender, EventArgs e)
-        {
-            VULLUNCH();
-        }
-
-        private void btnDinnerOphalen_Click(object sender, EventArgs e)
-        {
-            VULDINNER();
-        }
-
-       
-
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -107,13 +59,26 @@ namespace ChapooUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DrankMenuAanpassenForm from = new DrankMenuAanpassenForm();
+            MenuAanpassenForm from = new MenuAanpassenForm();
             from.ShowDialog();
+        }
+
+        private void btnToevoegen_Click(object sender, EventArgs e)
+        {
+            panel1.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string omschrijving = tbOmschrijving.Text;
+            int type = int.Parse(tbType.Text);
+            decimal prijs = decimal.Parse(tbPrijs.Text);
+            int menu = int.Parse(tbMenu.Text);
 
+            Voorraad_Service service = new Voorraad_Service();
+            service.Write_To_db_toevoegenMenuItem(omschrijving, type, menu, prijs);
+            fillist();
+            panel1.Hide();
         }
     }
 }

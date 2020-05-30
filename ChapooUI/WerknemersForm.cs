@@ -20,8 +20,8 @@ namespace ChapooUI
         {
             InitializeComponent();
             panel1.Hide();
+            pnlToevoegen.Hide();
             WerknemersVullen();
-
         }
             
         private void WerknemersVullen()
@@ -36,7 +36,6 @@ namespace ChapooUI
             lv_Werknemers.Columns.Add("Naam", 150);
             lv_Werknemers.Columns.Add("Werknemer Nummer", 100);
             lv_Werknemers.Columns.Add("Type werknemer", 100);
-
 
             //vul de listview
             foreach (Werknemer werknemer in werknemers)
@@ -56,12 +55,6 @@ namespace ChapooUI
         {
 
         }
-
-        private void btnAanpassen_Click(object sender, EventArgs e)
-        {
-            tbNaam.Text = lv_Werknemers.SelectedItems[0].SubItems[0].Text;
-            lblID.Text = lv_Werknemers.SelectedItems[0].SubItems[1].Text;
-        }
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
             int ID = int.Parse(lblID.Text);
@@ -70,11 +63,17 @@ namespace ChapooUI
             Werknemer_Service service = new Werknemer_Service();
             service.AanpassenWerknemer(ID, naam);
             panel1.Hide();
+            WerknemersVullen();
         }
 
         private void btnVerwijder_Click(object sender, EventArgs e)
         {
-
+            int ID = int.Parse(lblID.Text);
+            Werknemer_Service service = new Werknemer_Service();
+            service.Write_to_db_verwijderenWerknemer(ID);
+            MessageBox.Show("werknemer word verwijderd");
+            WerknemersVullen();
+            panel1.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -86,6 +85,32 @@ namespace ChapooUI
         private void lv_Werknemers_SelectedIndexChanged(object sender, EventArgs e)
         {
             panel1.Show();
+            pnlToevoegen.Hide();
+            tbNaam.Text = lv_Werknemers.SelectedItems[0].SubItems[0].Text;
+            lblID.Text = lv_Werknemers.SelectedItems[0].SubItems[1].Text;
+        }
+
+        private void btnWerknemerToevoegen_Click(object sender, EventArgs e)
+        {
+            pnlToevoegen.Show();
+        }
+
+        private void btnVoegToe_Click(object sender, EventArgs e)
+        {
+            Werknemer_Service service = new Werknemer_Service();
+            string naam = tbNaamToevoegen.Text;
+            int type = int.Parse(tbTypeToevoegen.Text);
+            int pin = int.Parse(tbPinToevoegen.Text);
+            bool actief = cbIs_Actief.Checked;
+
+            service.Write_To_db_ToevoegenWerknemer(type, naam, pin, actief);
+            pnlToevoegen.Hide();
+            WerknemersVullen();
+        }
+
+        private void cbIs_Actief_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

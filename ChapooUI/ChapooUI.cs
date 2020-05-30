@@ -60,5 +60,11 @@ namespace ChapooUI
             MenuKaartAanpassenForm from = new MenuKaartAanpassenForm();
             from.ShowDialog();
         }
+
+        private void itemAanpassenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuAanpassenForm form = new MenuAanpassenForm();
+            form.Show();
+        }
     }
 }

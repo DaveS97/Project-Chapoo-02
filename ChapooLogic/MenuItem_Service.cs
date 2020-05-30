@@ -54,6 +54,25 @@ namespace ChapooLogic
                 return menuItems;
             }
         }
+        //
+        public List<MenuItem> GetMenu()
+        {
+            try
+            {
+                List<MenuItem> menuItems = menuItem_DAO.GetMenu();
+                return menuItems;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                List<MenuItem> menuItems = new List<MenuItem>();
+                MenuItem menuItem = new MenuItem();
+                menuItem.ID = 1;
+                menuItems.Add(menuItem);
+                return menuItems;
+            }
+        }
+        //
         public List<MenuItem> GetLunchMenu()
         {
             try
