@@ -32,30 +32,39 @@
             this.lblMenuItem = new System.Windows.Forms.Label();
             this.lblTafelnummer = new System.Windows.Forms.Label();
             this.pnlMenuItemRegistreren = new System.Windows.Forms.Panel();
-            this.lblTypeGerecht = new System.Windows.Forms.Label();
-            this.pnlBestellingOpnemen = new System.Windows.Forms.Panel();
             this.rbDranken = new System.Windows.Forms.RadioButton();
+            this.lblTypeGerecht = new System.Windows.Forms.Label();
             this.rbHoofdgerecht = new System.Windows.Forms.RadioButton();
             this.rbNagerecht = new System.Windows.Forms.RadioButton();
             this.rbVoorgerecht = new System.Windows.Forms.RadioButton();
+            this.pnlBestellingOpnemen = new System.Windows.Forms.Panel();
+            this.btnVoegItemToe = new System.Windows.Forms.Button();
+            this.btnOverzicht = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbAantal = new System.Windows.Forms.TextBox();
+            this.btnPlus = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlMenuItemRegistreren.SuspendLayout();
             this.pnlBestellingOpnemen.SuspendLayout();
             this.SuspendLayout();
             // 
             // ddMenuItems
             // 
+            this.ddMenuItems.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
             this.ddMenuItems.FormattingEnabled = true;
-            this.ddMenuItems.Location = new System.Drawing.Point(109, 223);
+            this.ddMenuItems.Location = new System.Drawing.Point(94, 223);
             this.ddMenuItems.Name = "ddMenuItems";
-            this.ddMenuItems.Size = new System.Drawing.Size(361, 21);
+            this.ddMenuItems.Size = new System.Drawing.Size(418, 58);
             this.ddMenuItems.TabIndex = 0;
+            this.ddMenuItems.SelectedIndexChanged += new System.EventHandler(this.ddMenuItems_SelectedIndexChanged);
             // 
             // lblMenuItem
             // 
             this.lblMenuItem.AutoSize = true;
             this.lblMenuItem.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
             this.lblMenuItem.ForeColor = System.Drawing.Color.White;
-            this.lblMenuItem.Location = new System.Drawing.Point(192, 170);
+            this.lblMenuItem.Location = new System.Drawing.Point(216, 170);
             this.lblMenuItem.Name = "lblMenuItem";
             this.lblMenuItem.Size = new System.Drawing.Size(210, 50);
             this.lblMenuItem.TabIndex = 1;
@@ -78,6 +87,12 @@
             // pnlMenuItemRegistreren
             // 
             this.pnlMenuItemRegistreren.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMenuItemRegistreren.Controls.Add(this.button1);
+            this.pnlMenuItemRegistreren.Controls.Add(this.btnPlus);
+            this.pnlMenuItemRegistreren.Controls.Add(this.tbAantal);
+            this.pnlMenuItemRegistreren.Controls.Add(this.label1);
+            this.pnlMenuItemRegistreren.Controls.Add(this.textBox1);
+            this.pnlMenuItemRegistreren.Controls.Add(this.btnVoegItemToe);
             this.pnlMenuItemRegistreren.Controls.Add(this.rbDranken);
             this.pnlMenuItemRegistreren.Controls.Add(this.lblTypeGerecht);
             this.pnlMenuItemRegistreren.Controls.Add(this.rbHoofdgerecht);
@@ -89,27 +104,6 @@
             this.pnlMenuItemRegistreren.Name = "pnlMenuItemRegistreren";
             this.pnlMenuItemRegistreren.Size = new System.Drawing.Size(625, 526);
             this.pnlMenuItemRegistreren.TabIndex = 3;
-            // 
-            // lblTypeGerecht
-            // 
-            this.lblTypeGerecht.AutoSize = true;
-            this.lblTypeGerecht.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
-            this.lblTypeGerecht.ForeColor = System.Drawing.Color.White;
-            this.lblTypeGerecht.Location = new System.Drawing.Point(179, 0);
-            this.lblTypeGerecht.Name = "lblTypeGerecht";
-            this.lblTypeGerecht.Size = new System.Drawing.Size(247, 50);
-            this.lblTypeGerecht.TabIndex = 2;
-            this.lblTypeGerecht.Text = "Type gerecht";
-            this.lblTypeGerecht.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pnlBestellingOpnemen
-            // 
-            this.pnlBestellingOpnemen.Controls.Add(this.lblTafelnummer);
-            this.pnlBestellingOpnemen.Controls.Add(this.pnlMenuItemRegistreren);
-            this.pnlBestellingOpnemen.Location = new System.Drawing.Point(12, 13);
-            this.pnlBestellingOpnemen.Name = "pnlBestellingOpnemen";
-            this.pnlBestellingOpnemen.Size = new System.Drawing.Size(680, 656);
-            this.pnlBestellingOpnemen.TabIndex = 4;
             // 
             // rbDranken
             // 
@@ -123,6 +117,18 @@
             this.rbDranken.TabStop = true;
             this.rbDranken.Text = "Dranken";
             this.rbDranken.UseVisualStyleBackColor = true;
+            // 
+            // lblTypeGerecht
+            // 
+            this.lblTypeGerecht.AutoSize = true;
+            this.lblTypeGerecht.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
+            this.lblTypeGerecht.ForeColor = System.Drawing.Color.White;
+            this.lblTypeGerecht.Location = new System.Drawing.Point(179, 0);
+            this.lblTypeGerecht.Name = "lblTypeGerecht";
+            this.lblTypeGerecht.Size = new System.Drawing.Size(247, 50);
+            this.lblTypeGerecht.TabIndex = 2;
+            this.lblTypeGerecht.Text = "Type gerecht";
+            this.lblTypeGerecht.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // rbHoofdgerecht
             // 
@@ -163,6 +169,84 @@
             this.rbVoorgerecht.Text = "Voorgerecht";
             this.rbVoorgerecht.UseVisualStyleBackColor = true;
             // 
+            // pnlBestellingOpnemen
+            // 
+            this.pnlBestellingOpnemen.Controls.Add(this.btnOverzicht);
+            this.pnlBestellingOpnemen.Controls.Add(this.lblTafelnummer);
+            this.pnlBestellingOpnemen.Controls.Add(this.pnlMenuItemRegistreren);
+            this.pnlBestellingOpnemen.Location = new System.Drawing.Point(12, 13);
+            this.pnlBestellingOpnemen.Name = "pnlBestellingOpnemen";
+            this.pnlBestellingOpnemen.Size = new System.Drawing.Size(680, 656);
+            this.pnlBestellingOpnemen.TabIndex = 4;
+            // 
+            // btnVoegItemToe
+            // 
+            this.btnVoegItemToe.Location = new System.Drawing.Point(529, 461);
+            this.btnVoegItemToe.Name = "btnVoegItemToe";
+            this.btnVoegItemToe.Size = new System.Drawing.Size(75, 40);
+            this.btnVoegItemToe.TabIndex = 8;
+            this.btnVoegItemToe.Text = "Voeg item toe";
+            this.btnVoegItemToe.UseVisualStyleBackColor = true;
+            // 
+            // btnOverzicht
+            // 
+            this.btnOverzicht.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
+            this.btnOverzicht.Location = new System.Drawing.Point(198, 585);
+            this.btnOverzicht.Name = "btnOverzicht";
+            this.btnOverzicht.Size = new System.Drawing.Size(273, 57);
+            this.btnOverzicht.TabIndex = 4;
+            this.btnOverzicht.Text = "Overzicht";
+            this.btnOverzicht.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
+            this.textBox1.Location = new System.Drawing.Point(94, 379);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(418, 57);
+            this.textBox1.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(94, 288);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 23);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Aantal:";
+            // 
+            // tbAantal
+            // 
+            this.tbAantal.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.tbAantal.Location = new System.Drawing.Point(167, 285);
+            this.tbAantal.Name = "tbAantal";
+            this.tbAantal.Size = new System.Drawing.Size(22, 29);
+            this.tbAantal.TabIndex = 11;
+            // 
+            // btnPlus
+            // 
+            this.btnPlus.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.btnPlus.ForeColor = System.Drawing.Color.Green;
+            this.btnPlus.Location = new System.Drawing.Point(195, 285);
+            this.btnPlus.Name = "btnPlus";
+            this.btnPlus.Size = new System.Drawing.Size(25, 29);
+            this.btnPlus.TabIndex = 12;
+            this.btnPlus.Text = "+";
+            this.btnPlus.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.Location = new System.Drawing.Point(225, 285);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(25, 29);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "-";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // ChapooPDA_BestellingOpnemenRegistreren
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,5 +277,12 @@
         private System.Windows.Forms.RadioButton rbDranken;
         private System.Windows.Forms.RadioButton rbHoofdgerecht;
         private System.Windows.Forms.RadioButton rbNagerecht;
+        private System.Windows.Forms.Button btnVoegItemToe;
+        private System.Windows.Forms.Button btnOverzicht;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbAantal;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPlus;
     }
 }

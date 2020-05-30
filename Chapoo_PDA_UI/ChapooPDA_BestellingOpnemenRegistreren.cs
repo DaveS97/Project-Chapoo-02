@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChapooLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Chapoo_PDA_UI
     public partial class ChapooPDA_BestellingOpnemenRegistreren : Form
     {
         private int tafelnummer;
+        private int aantal = 1;
 
         public ChapooPDA_BestellingOpnemenRegistreren(int tafelnummer)
         {
@@ -29,6 +31,24 @@ namespace Chapoo_PDA_UI
         {
             pnlBestellingOpnemen.Show();
             lblTafelnummer.Text = "Tafel " + tafelnummer;
+            tbAantal.Text = aantal.ToString();
+        }
+
+        private void ddMenuItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MenuItem_Service service = new MenuItem_Service();
+            List<ChapooModel.MenuItem> items = new List<ChapooModel.MenuItem>();
+
+            if (rbDranken.Checked)
+            {
+                items = service.GetDrinkMenu();
+            } else if (rbHoofdgerecht.Checked)
+            {
+                items = service.GetDinnerMenu();
+            } else if (rbNagerecht.Checked)
+            {
+                items = service.GetLunchMenu();
+            }
         }
     }
 }

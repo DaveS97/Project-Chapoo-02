@@ -26,10 +26,16 @@ namespace Chapoo_PDA_UI
 
         private void btnNaarBestelling_Click(object sender, EventArgs e)
         {
-            tafelnummer = int.Parse(tbTafelnummerBestellingOpnemen.Text);
-            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer);
-            Close();
-            registreren.ShowDialog();
+            try
+            {
+                tafelnummer = int.Parse(tbTafelnummerBestellingOpnemen.Text);
+                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer);
+                Close();
+                registreren.ShowDialog();
+            }catch(FormatException)
+            {
+                MessageBox.Show("Geen tafelnummer ingevoerd");
+            }
         }
     }
 }
