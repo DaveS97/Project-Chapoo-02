@@ -95,6 +95,7 @@
     <Compile Include="Rekening_DAO.cs" />
     <Compile Include="Voorraad.cs" />
     <Compile Include="Voorraad_DAO.cs" />
+    <Compile Include="Voorraad_Service.cs" />
     <Compile Include="Werknemer.cs" />
     <Compile Include="Werknemer_DAO.cs" />
     <Compile Include="Werknemer_Service.cs" />

@@ -34,10 +34,10 @@
             this.pnlMenuItemRegistreren = new System.Windows.Forms.Panel();
             this.lblTypeGerecht = new System.Windows.Forms.Label();
             this.pnlBestellingOpnemen = new System.Windows.Forms.Panel();
-            this.rbVoorgerecht = new System.Windows.Forms.RadioButton();
-            this.rbNagerecht = new System.Windows.Forms.RadioButton();
-            this.rbHoofdgerecht = new System.Windows.Forms.RadioButton();
             this.rbDranken = new System.Windows.Forms.RadioButton();
+            this.rbHoofdgerecht = new System.Windows.Forms.RadioButton();
+            this.rbNagerecht = new System.Windows.Forms.RadioButton();
+            this.rbVoorgerecht = new System.Windows.Forms.RadioButton();
             this.pnlMenuItemRegistreren.SuspendLayout();
             this.pnlBestellingOpnemen.SuspendLayout();
             this.SuspendLayout();
@@ -78,12 +78,16 @@
             // pnlMenuItemRegistreren
             // 
             this.pnlMenuItemRegistreren.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMenuItemRegistreren.Controls.Add(this.rbDranken);
             this.pnlMenuItemRegistreren.Controls.Add(this.lblTypeGerecht);
+            this.pnlMenuItemRegistreren.Controls.Add(this.rbHoofdgerecht);
             this.pnlMenuItemRegistreren.Controls.Add(this.lblMenuItem);
+            this.pnlMenuItemRegistreren.Controls.Add(this.rbNagerecht);
             this.pnlMenuItemRegistreren.Controls.Add(this.ddMenuItems);
-            this.pnlMenuItemRegistreren.Location = new System.Drawing.Point(30, 176);
+            this.pnlMenuItemRegistreren.Controls.Add(this.rbVoorgerecht);
+            this.pnlMenuItemRegistreren.Location = new System.Drawing.Point(30, 53);
             this.pnlMenuItemRegistreren.Name = "pnlMenuItemRegistreren";
-            this.pnlMenuItemRegistreren.Size = new System.Drawing.Size(625, 403);
+            this.pnlMenuItemRegistreren.Size = new System.Drawing.Size(625, 526);
             this.pnlMenuItemRegistreren.TabIndex = 3;
             // 
             // lblTypeGerecht
@@ -100,10 +104,6 @@
             // 
             // pnlBestellingOpnemen
             // 
-            this.pnlBestellingOpnemen.Controls.Add(this.rbDranken);
-            this.pnlBestellingOpnemen.Controls.Add(this.rbHoofdgerecht);
-            this.pnlBestellingOpnemen.Controls.Add(this.rbNagerecht);
-            this.pnlBestellingOpnemen.Controls.Add(this.rbVoorgerecht);
             this.pnlBestellingOpnemen.Controls.Add(this.lblTafelnummer);
             this.pnlBestellingOpnemen.Controls.Add(this.pnlMenuItemRegistreren);
             this.pnlBestellingOpnemen.Location = new System.Drawing.Point(12, 13);
@@ -111,38 +111,25 @@
             this.pnlBestellingOpnemen.Size = new System.Drawing.Size(680, 656);
             this.pnlBestellingOpnemen.TabIndex = 4;
             // 
-            // rbVoorgerecht
+            // rbDranken
             // 
-            this.rbVoorgerecht.AutoSize = true;
-            this.rbVoorgerecht.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
-            this.rbVoorgerecht.ForeColor = System.Drawing.Color.White;
-            this.rbVoorgerecht.Location = new System.Drawing.Point(140, 63);
-            this.rbVoorgerecht.Name = "rbVoorgerecht";
-            this.rbVoorgerecht.Size = new System.Drawing.Size(126, 27);
-            this.rbVoorgerecht.TabIndex = 4;
-            this.rbVoorgerecht.TabStop = true;
-            this.rbVoorgerecht.Text = "Voorgerecht";
-            this.rbVoorgerecht.UseVisualStyleBackColor = true;
-            // 
-            // rbNagerecht
-            // 
-            this.rbNagerecht.AutoSize = true;
-            this.rbNagerecht.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
-            this.rbNagerecht.ForeColor = System.Drawing.Color.White;
-            this.rbNagerecht.Location = new System.Drawing.Point(140, 116);
-            this.rbNagerecht.Name = "rbNagerecht";
-            this.rbNagerecht.Size = new System.Drawing.Size(111, 27);
-            this.rbNagerecht.TabIndex = 5;
-            this.rbNagerecht.TabStop = true;
-            this.rbNagerecht.Text = "Nagerecht";
-            this.rbNagerecht.UseVisualStyleBackColor = true;
+            this.rbDranken.AutoSize = true;
+            this.rbDranken.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.rbDranken.ForeColor = System.Drawing.Color.White;
+            this.rbDranken.Location = new System.Drawing.Point(344, 97);
+            this.rbDranken.Name = "rbDranken";
+            this.rbDranken.Size = new System.Drawing.Size(96, 27);
+            this.rbDranken.TabIndex = 7;
+            this.rbDranken.TabStop = true;
+            this.rbDranken.Text = "Dranken";
+            this.rbDranken.UseVisualStyleBackColor = true;
             // 
             // rbHoofdgerecht
             // 
             this.rbHoofdgerecht.AutoSize = true;
             this.rbHoofdgerecht.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
             this.rbHoofdgerecht.ForeColor = System.Drawing.Color.White;
-            this.rbHoofdgerecht.Location = new System.Drawing.Point(375, 63);
+            this.rbHoofdgerecht.Location = new System.Drawing.Point(344, 53);
             this.rbHoofdgerecht.Name = "rbHoofdgerecht";
             this.rbHoofdgerecht.Size = new System.Drawing.Size(140, 27);
             this.rbHoofdgerecht.TabIndex = 6;
@@ -150,18 +137,31 @@
             this.rbHoofdgerecht.Text = "Hoofdgerecht";
             this.rbHoofdgerecht.UseVisualStyleBackColor = true;
             // 
-            // rbDranken
+            // rbNagerecht
             // 
-            this.rbDranken.AutoSize = true;
-            this.rbDranken.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
-            this.rbDranken.ForeColor = System.Drawing.Color.White;
-            this.rbDranken.Location = new System.Drawing.Point(375, 116);
-            this.rbDranken.Name = "rbDranken";
-            this.rbDranken.Size = new System.Drawing.Size(96, 27);
-            this.rbDranken.TabIndex = 7;
-            this.rbDranken.TabStop = true;
-            this.rbDranken.Text = "Dranken";
-            this.rbDranken.UseVisualStyleBackColor = true;
+            this.rbNagerecht.AutoSize = true;
+            this.rbNagerecht.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.rbNagerecht.ForeColor = System.Drawing.Color.White;
+            this.rbNagerecht.Location = new System.Drawing.Point(94, 97);
+            this.rbNagerecht.Name = "rbNagerecht";
+            this.rbNagerecht.Size = new System.Drawing.Size(111, 27);
+            this.rbNagerecht.TabIndex = 5;
+            this.rbNagerecht.TabStop = true;
+            this.rbNagerecht.Text = "Nagerecht";
+            this.rbNagerecht.UseVisualStyleBackColor = true;
+            // 
+            // rbVoorgerecht
+            // 
+            this.rbVoorgerecht.AutoSize = true;
+            this.rbVoorgerecht.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.rbVoorgerecht.ForeColor = System.Drawing.Color.White;
+            this.rbVoorgerecht.Location = new System.Drawing.Point(94, 53);
+            this.rbVoorgerecht.Name = "rbVoorgerecht";
+            this.rbVoorgerecht.Size = new System.Drawing.Size(126, 27);
+            this.rbVoorgerecht.TabIndex = 4;
+            this.rbVoorgerecht.TabStop = true;
+            this.rbVoorgerecht.Text = "Voorgerecht";
+            this.rbVoorgerecht.UseVisualStyleBackColor = true;
             // 
             // ChapooPDA_BestellingOpnemenRegistreren
             // 
