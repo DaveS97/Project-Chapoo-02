@@ -130,5 +130,57 @@ namespace ChapooLogic
                 return menuItems;
             }
         }
+
+        public List<MenuItem> GetVoorgerechtMenu()
+        {
+            try
+            {
+                List<MenuItem> menuItems = menuItem_DAO.GetVoorgerechtMenu();
+                return menuItems;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                List<MenuItem> menuItems = new List<MenuItem>();
+                MenuItem menuItem = new MenuItem();
+                menuItem.ID = 1;
+                menuItems.Add(menuItem);
+                return menuItems;
+            }
+        }
+        public List<MenuItem> GetHoofdgerechtMenu()
+        {
+            try
+            {
+                List<MenuItem> menuItems = menuItem_DAO.GetHoofdgerechtMenu();
+                return menuItems;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                List<MenuItem> menuItems = new List<MenuItem>();
+                MenuItem menuItem = new MenuItem();
+                menuItem.ID = 1;
+                menuItems.Add(menuItem);
+                return menuItems;
+            }
+        }
+        public List<MenuItem> GetNagerechtMenu()
+        {
+            try
+            {
+                List<MenuItem> menuItems = menuItem_DAO.GetNagerechtMenu();
+                return menuItems;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                List<MenuItem> menuItems = new List<MenuItem>();
+                MenuItem menuItem = new MenuItem();
+                menuItem.ID = 1;
+                menuItems.Add(menuItem);
+                return menuItems;
+            }
+        }
     }
 }

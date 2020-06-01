@@ -60,21 +60,40 @@ namespace ChapooDAL
 
         public List<MenuItem> GetDinkMenu()
         {
-            string query = "select menuItemID, omschrijving, prijs, typeGerecht from MenuItem where menu = 3";
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu from MenuItem where menu = 3";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public List<MenuItem> GetLunchMenu()
         {
-            string query = "select menuItemID, omschrijving, prijs, typeGerecht from MenuItem where menu = 1";
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu from MenuItem where menu = 1";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public List<MenuItem> GetDinnerMenu()
         {
-            string query = "select menuItemID, omschrijving, prijs, typeGerecht from MenuItem where menu = 2";
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu from MenuItem where menu = 2";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public List<MenuItem> GetVoorgerechtMenu()
+        {
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu FROM MenuItem WHERE typeGerecht = 1";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<MenuItem> GetHoofdgerechtMenu()
+        {
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu FROM MenuItem WHERE typeGerecht = 2";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<MenuItem> GetNagerechtMenu()
+        {
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu FROM MenuItem WHERE typeGerecht = 3";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }

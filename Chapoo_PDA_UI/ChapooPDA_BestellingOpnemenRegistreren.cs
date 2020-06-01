@@ -15,6 +15,8 @@ namespace Chapoo_PDA_UI
     {
         private int tafelnummer;
         private int aantal = 1;
+        private string commentaar = "";
+        private List<ChapooModel.MenuItem> items = new List<ChapooModel.MenuItem>();
 
         public ChapooPDA_BestellingOpnemenRegistreren(int tafelnummer)
         {
@@ -36,19 +38,56 @@ namespace Chapoo_PDA_UI
 
         private void ddMenuItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MenuItem_Service service = new MenuItem_Service();
-            List<ChapooModel.MenuItem> items = new List<ChapooModel.MenuItem>();
+            
+        }
 
-            if (rbDranken.Checked)
+        private void ddMenuItems_DropDown(object sender, EventArgs e)
+        {
+            MenuItem_Service service = new MenuItem_Service();
+            items.Clear();
+            ddMenuItems.Items.Clear();
+
+            if (rbVoorgerecht.Checked)
             {
-                items = service.GetDrinkMenu();
+                items = service.GetVoorgerechtMenu();
             } else if (rbHoofdgerecht.Checked)
             {
-                items = service.GetDinnerMenu();
+                items = service.GetHoofdgerechtMenu();
             } else if (rbNagerecht.Checked)
             {
-                items = service.GetLunchMenu();
+                items = service.GetNagerechtMenu();
+            } else if (rbDranken.Checked)
+            {
+                items = service.GetDrinkMenu();
             }
+            
+            foreach(ChapooModel.MenuItem item in items)
+            {
+                ddMenuItems.Items.Add(item.ToString());
+            }
+        }
+
+        private void btnPlus_Click(object sender, EventArgs e)
+        {
+            if(aantal < 5)
+            {
+                aantal++;
+                tbAantal.Text = aantal.ToString();
+            }
+        }
+
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+            if(aantal > 0)
+            {
+                aantal--;
+                tbAantal.Text = aantal.ToString();
+            }
+        }
+        
+        private void btnVoegItemToe_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
