@@ -18,22 +18,63 @@ namespace ChapooUI
         {
             InitializeComponent();
         }
-
         private void btnAanmelden_Click(object sender, EventArgs e)
         {
-            Werknemer_Service service = new Werknemer_Service();
+            Werknemer_Service service = new Werknemer_Service(); 
             List<Werknemer> werknemers = service.GetWerknemerPins();
-            bool CorrectPin;
-            
+            bool CorrectPin = false;
+            string naam = "";
+
+            string types = "";
+            int type = 0; // 1=  bediener 2= barman  3= kok  4= eigenaar
+
             if (tbPin.Text.Length != 0)
             {
                 int pin = int.Parse(tbPin.Text);
                 foreach (Werknemer item in werknemers)
                 {
-                    if (item.)
+                    if (item.PIN == pin)
+                    {
+                        CorrectPin = true;
+                        naam = item.Naam;
+                        type = item.Type;
+                        break;
+                    }
+                    else
+                    {
+                        CorrectPin = false;
+                    }
                 }
             }
-            
+            if (CorrectPin)
+            {
+                switch (type)
+                {
+                    case 1:
+                        types = "bediener";
+                        break;
+                    case 2:
+                        types = "barman";
+                        break;
+                    case 3:
+                        types = "kok";
+                        break;
+                    case 4:
+                        types = "eigenaar";
+                        break;
+                    default:
+                        MessageBox.Show("error");
+                        break;
+                }
+                MessageBox.Show($"Welkom {naam} jij bent een {types} ");
+                Chapoo Form = new Chapoo();
+                Form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("voer een geldige pincode in");
+            }
+
         }
     }
 }

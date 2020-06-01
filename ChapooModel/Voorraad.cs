@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChapooModel
 {
-    class Voorraad
+    public class Voorraad
     {
 
     }

@@ -52,6 +52,12 @@
     <Compile Include="AanmeldenForm.Designer.cs">
       <DependentUpon>AanmeldenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AfmeldenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfmeldenForm.Designer.cs">
+      <DependentUpon>AfmeldenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChapooUI.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -100,6 +106,9 @@
     </Compile>
     <EmbeddedResource Include="AanmeldenForm.resx">
       <DependentUpon>AanmeldenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AfmeldenForm.resx">
+      <DependentUpon>AfmeldenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>

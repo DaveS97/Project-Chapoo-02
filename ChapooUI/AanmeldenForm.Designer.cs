@@ -35,7 +35,7 @@
             // 
             // tbPin
             // 
-            this.tbPin.Location = new System.Drawing.Point(62, 144);
+            this.tbPin.Location = new System.Drawing.Point(445, 117);
             this.tbPin.Multiline = true;
             this.tbPin.Name = "tbPin";
             this.tbPin.Size = new System.Drawing.Size(265, 35);
@@ -45,7 +45,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(56, 91);
+            this.label1.Location = new System.Drawing.Point(449, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 36);
             this.label1.TabIndex = 1;
@@ -53,7 +53,7 @@
             // 
             // btnAanmelden
             // 
-            this.btnAanmelden.Location = new System.Drawing.Point(212, 196);
+            this.btnAanmelden.Location = new System.Drawing.Point(595, 158);
             this.btnAanmelden.Name = "btnAanmelden";
             this.btnAanmelden.Size = new System.Drawing.Size(115, 36);
             this.btnAanmelden.TabIndex = 2;
@@ -66,7 +66,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1154, 450);
             this.Controls.Add(this.btnAanmelden);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbPin);
