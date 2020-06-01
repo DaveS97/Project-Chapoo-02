@@ -13,11 +13,11 @@ namespace ChapooLogic
     {
         private Werknemer_DAO werknemer = new Werknemer_DAO();
 
-        public void AanpassenWerknemer(int id, string naam)
+        public void AanpassenWerknemer(int id, string naam, int PIN)
         {
             try
             {
-                werknemer.pasWerknemerAan(id, naam);
+                werknemer.pasWerknemerAan(id, naam, PIN);
             }
             catch (Exception e)
             {

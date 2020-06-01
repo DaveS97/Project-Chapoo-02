@@ -11,13 +11,15 @@ namespace ChapooDAL
 {
     public class Werknemer_DAO : Base
     {
-        public void pasWerknemerAan(int ID, string naam)
+        public void pasWerknemerAan(int ID, string naam, int PIN)
         {
-            string query = "UPDATE Werknemers SET werknemerNaam= @naam where werknemerID =@ID";
+            string query = "UPDATE Werknemers SET werknemerNaam= @naam, werknemerPin = @PIN where werknemerID =@ID";
             SqlParameter[] sqlParameters =
             {
                 new SqlParameter("@naam", SqlDbType.VarChar) { Value = naam},
-                new SqlParameter("@ID", SqlDbType.Int) { Value = ID}
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID},
+                new SqlParameter("@PIN", SqlDbType.Int) { Value = PIN}
+
             };
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -51,11 +53,27 @@ namespace ChapooDAL
         }
         public List<Werknemer> GetWerknemerPINs()
         {
-            string query = "SELECT werknemerID, werknemerPin, werknemerNaam FROM [Werknemers] Where is_Actief = 1";
+            string query = "SELECT werknemerID, werknemerPin, werknemerNaam , werknemerType FROM [Werknemers] Where is_Actief = 1";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return ReadTables2(ExecuteSelectQuery(query, sqlParameters));
         }
+        private List<Werknemer> ReadTables2(DataTable dataTable)
+        {
+            List<Werknemer> werknemers = new List<Werknemer>();
 
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Werknemer werknemer = new Werknemer()
+                {
+                    ID = (int)dr["werknemerID"],
+                    Type = (int)dr["werknemerType"],
+                    Naam = (string)dr["werknemerNaam"],
+                    PIN = (int)dr["werknemerPin"]
+                };
+                werknemers.Add(werknemer);
+            }
+            return werknemers;
+        }
         private List<Werknemer> ReadTables(DataTable dataTable)
         {
             List<Werknemer> werknemers = new List<Werknemer>();

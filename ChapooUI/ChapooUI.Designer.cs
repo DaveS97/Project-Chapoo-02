@@ -40,6 +40,7 @@
             this.MS1I_MenuKaartOpties = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Werknemers = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_Welkom = new System.Windows.Forms.Label();
+            this.afmeldenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,8 @@
             this.MS_RO,
             this.MS_BO,
             this.MS_KO,
-            this.MS_Beheer});
+            this.MS_Beheer,
+            this.afmeldenToolStripMenuItem});
             this.MS1.Location = new System.Drawing.Point(0, 0);
             this.MS1.Name = "MS1";
             this.MS1.Size = new System.Drawing.Size(1039, 28);
@@ -151,6 +153,14 @@
             this.lbl_Welkom.TabIndex = 1;
             this.lbl_Welkom.Text = "Welkom bij het restaurant bestelsysteem van Chapoo.";
             // 
+            // afmeldenToolStripMenuItem
+            // 
+            this.afmeldenToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.afmeldenToolStripMenuItem.Name = "afmeldenToolStripMenuItem";
+            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.afmeldenToolStripMenuItem.Text = "afmelden";
+            this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
+            // 
             // Chapoo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -184,6 +194,7 @@
         private System.Windows.Forms.ToolStripMenuItem MS1I_Voorraad;
         private System.Windows.Forms.ToolStripMenuItem MS1I_MenuKaartOpties;
         private System.Windows.Forms.ToolStripMenuItem MS1I_Werknemers;
+        private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem;
     }
 }
 

@@ -59,9 +59,11 @@ namespace ChapooUI
         {
             int ID = int.Parse(lblID.Text);
             string naam = tbNaam.Text;
+            int PIN = int.Parse(tbPinAanpassenWerknemer.Text);
 
             Werknemer_Service service = new Werknemer_Service();
-            service.AanpassenWerknemer(ID, naam);
+            service.AanpassenWerknemer(ID, naam, PIN);
+            tbPinAanpassenWerknemer.Clear();
             panel1.Hide();
             WerknemersVullen();
         }
@@ -109,6 +111,11 @@ namespace ChapooUI
         }
 
         private void cbIs_Actief_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

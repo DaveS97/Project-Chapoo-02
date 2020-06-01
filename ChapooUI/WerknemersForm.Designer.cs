@@ -41,16 +41,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pnlToevoegen = new System.Windows.Forms.Panel();
-            this.tbNaamToevoegen = new System.Windows.Forms.TextBox();
-            this.tbTypeToevoegen = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnVoegToe = new System.Windows.Forms.Button();
-            this.btnWerknemerToevoegen = new System.Windows.Forms.Button();
-            this.tbPinToevoegen = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.cbIs_Actief = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbPinToevoegen = new System.Windows.Forms.TextBox();
+            this.btnVoegToe = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbTypeToevoegen = new System.Windows.Forms.TextBox();
+            this.tbNaamToevoegen = new System.Windows.Forms.TextBox();
+            this.btnWerknemerToevoegen = new System.Windows.Forms.Button();
+            this.tbPinAanpassenWerknemer = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.msp_WerknemersForm.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlToevoegen.SuspendLayout();
@@ -106,6 +108,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.tbPinAanpassenWerknemer);
             this.panel1.Controls.Add(this.tbNaam);
             this.panel1.Controls.Add(this.btnOpslaan);
             this.panel1.Controls.Add(this.btnVerwijder);
@@ -185,87 +189,10 @@
             this.pnlToevoegen.Controls.Add(this.label2);
             this.pnlToevoegen.Controls.Add(this.tbTypeToevoegen);
             this.pnlToevoegen.Controls.Add(this.tbNaamToevoegen);
-            this.pnlToevoegen.Location = new System.Drawing.Point(585, 359);
+            this.pnlToevoegen.Location = new System.Drawing.Point(574, 359);
             this.pnlToevoegen.Name = "pnlToevoegen";
             this.pnlToevoegen.Size = new System.Drawing.Size(412, 250);
             this.pnlToevoegen.TabIndex = 7;
-            // 
-            // tbNaamToevoegen
-            // 
-            this.tbNaamToevoegen.Location = new System.Drawing.Point(26, 57);
-            this.tbNaamToevoegen.Name = "tbNaamToevoegen";
-            this.tbNaamToevoegen.Size = new System.Drawing.Size(100, 22);
-            this.tbNaamToevoegen.TabIndex = 1;
-            // 
-            // tbTypeToevoegen
-            // 
-            this.tbTypeToevoegen.Location = new System.Drawing.Point(26, 113);
-            this.tbTypeToevoegen.Name = "tbTypeToevoegen";
-            this.tbTypeToevoegen.Size = new System.Drawing.Size(100, 22);
-            this.tbTypeToevoegen.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Werknemer Toevoegen";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "naam";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 93);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 17);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Type";
-            // 
-            // btnVoegToe
-            // 
-            this.btnVoegToe.Location = new System.Drawing.Point(283, 216);
-            this.btnVoegToe.Name = "btnVoegToe";
-            this.btnVoegToe.Size = new System.Drawing.Size(129, 34);
-            this.btnVoegToe.TabIndex = 6;
-            this.btnVoegToe.Text = "Voeg Toe";
-            this.btnVoegToe.UseVisualStyleBackColor = true;
-            this.btnVoegToe.Click += new System.EventHandler(this.btnVoegToe_Click);
-            // 
-            // btnWerknemerToevoegen
-            // 
-            this.btnWerknemerToevoegen.Location = new System.Drawing.Point(165, 615);
-            this.btnWerknemerToevoegen.Name = "btnWerknemerToevoegen";
-            this.btnWerknemerToevoegen.Size = new System.Drawing.Size(202, 33);
-            this.btnWerknemerToevoegen.TabIndex = 8;
-            this.btnWerknemerToevoegen.Text = "Werknemer Toevoegen";
-            this.btnWerknemerToevoegen.UseVisualStyleBackColor = true;
-            this.btnWerknemerToevoegen.Click += new System.EventHandler(this.btnWerknemerToevoegen_Click);
-            // 
-            // tbPinToevoegen
-            // 
-            this.tbPinToevoegen.Location = new System.Drawing.Point(26, 182);
-            this.tbPinToevoegen.Name = "tbPinToevoegen";
-            this.tbPinToevoegen.Size = new System.Drawing.Size(100, 22);
-            this.tbPinToevoegen.TabIndex = 7;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 159);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 17);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "PIN";
             // 
             // cbIs_Actief
             // 
@@ -277,6 +204,100 @@
             this.cbIs_Actief.Text = "is Actief";
             this.cbIs_Actief.UseVisualStyleBackColor = true;
             this.cbIs_Actief.CheckedChanged += new System.EventHandler(this.cbIs_Actief_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 159);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(30, 17);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "PIN";
+            // 
+            // tbPinToevoegen
+            // 
+            this.tbPinToevoegen.Location = new System.Drawing.Point(26, 182);
+            this.tbPinToevoegen.Name = "tbPinToevoegen";
+            this.tbPinToevoegen.Size = new System.Drawing.Size(100, 22);
+            this.tbPinToevoegen.TabIndex = 7;
+            // 
+            // btnVoegToe
+            // 
+            this.btnVoegToe.Location = new System.Drawing.Point(283, 216);
+            this.btnVoegToe.Name = "btnVoegToe";
+            this.btnVoegToe.Size = new System.Drawing.Size(129, 34);
+            this.btnVoegToe.TabIndex = 6;
+            this.btnVoegToe.Text = "Voeg Toe";
+            this.btnVoegToe.UseVisualStyleBackColor = true;
+            this.btnVoegToe.Click += new System.EventHandler(this.btnVoegToe_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(23, 93);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 17);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Type";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(23, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 17);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "naam";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(157, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Werknemer Toevoegen";
+            // 
+            // tbTypeToevoegen
+            // 
+            this.tbTypeToevoegen.Location = new System.Drawing.Point(26, 113);
+            this.tbTypeToevoegen.Name = "tbTypeToevoegen";
+            this.tbTypeToevoegen.Size = new System.Drawing.Size(100, 22);
+            this.tbTypeToevoegen.TabIndex = 2;
+            // 
+            // tbNaamToevoegen
+            // 
+            this.tbNaamToevoegen.Location = new System.Drawing.Point(26, 57);
+            this.tbNaamToevoegen.Name = "tbNaamToevoegen";
+            this.tbNaamToevoegen.Size = new System.Drawing.Size(100, 22);
+            this.tbNaamToevoegen.TabIndex = 1;
+            // 
+            // btnWerknemerToevoegen
+            // 
+            this.btnWerknemerToevoegen.Location = new System.Drawing.Point(165, 615);
+            this.btnWerknemerToevoegen.Name = "btnWerknemerToevoegen";
+            this.btnWerknemerToevoegen.Size = new System.Drawing.Size(202, 33);
+            this.btnWerknemerToevoegen.TabIndex = 8;
+            this.btnWerknemerToevoegen.Text = "Werknemer Toevoegen";
+            this.btnWerknemerToevoegen.UseVisualStyleBackColor = true;
+            this.btnWerknemerToevoegen.Click += new System.EventHandler(this.btnWerknemerToevoegen_Click);
+            // 
+            // tbPinAanpassenWerknemer
+            // 
+            this.tbPinAanpassenWerknemer.Location = new System.Drawing.Point(17, 118);
+            this.tbPinAanpassenWerknemer.Name = "tbPinAanpassenWerknemer";
+            this.tbPinAanpassenWerknemer.Size = new System.Drawing.Size(103, 22);
+            this.tbPinAanpassenWerknemer.TabIndex = 6;
+            this.tbPinAanpassenWerknemer.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 98);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(30, 17);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "PIN";
             // 
             // WerknemersForm
             // 
@@ -330,5 +351,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbPinToevoegen;
         private System.Windows.Forms.CheckBox cbIs_Actief;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbPinAanpassenWerknemer;
     }
 }
