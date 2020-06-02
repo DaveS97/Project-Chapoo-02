@@ -15,7 +15,7 @@ namespace Chapoo_PDA_UI
     {
         private int tafelnummer;
         private int aantal = 1;
-        private string commentaar = "";
+        private string commentaar = "yeeet";
         private List<ChapooModel.MenuItem> items = new List<ChapooModel.MenuItem>();
 
         public ChapooPDA_BestellingOpnemenRegistreren(int tafelnummer)
