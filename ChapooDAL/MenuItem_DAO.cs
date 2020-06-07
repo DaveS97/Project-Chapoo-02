@@ -98,6 +98,16 @@ namespace ChapooDAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        public List<MenuItem> GetMenuItemForDescription(string beschrijving)
+        {
+            string query = "SELECT menuItemID, omschrijving, prijs, typeGerecht, menu FROM MenuItem WHERE omschrijving LIKE @beschrijving";
+            SqlParameter[] sqlParameters = 
+            {
+                new SqlParameter("@beschrijving", SqlDbType.Text) {Value = beschrijving}
+            };
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
         private List<MenuItem> ReadTables(DataTable table)
         {
             List<MenuItem> items = new List<MenuItem>();

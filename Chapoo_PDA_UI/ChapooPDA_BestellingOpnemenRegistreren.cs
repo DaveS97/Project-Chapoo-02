@@ -15,8 +15,12 @@ namespace Chapoo_PDA_UI
     {
         private int tafelnummer;
         private int aantal = 1;
-        private string commentaar = "yeeet";
+        private string commentaar = "";
+        private string beschrijving = "";
+        private ChapooModel.MenuItem item = new ChapooModel.MenuItem();
         private List<ChapooModel.MenuItem> items = new List<ChapooModel.MenuItem>();
+        public List<ChapooModel.MenuItem> itemsUitDatabase = new List<ChapooModel.MenuItem>();
+        private ChapooModel.Bestelling bestelling = new ChapooModel.Bestelling();
 
         public ChapooPDA_BestellingOpnemenRegistreren(int tafelnummer)
         {
@@ -26,13 +30,14 @@ namespace Chapoo_PDA_UI
 
         private void ChapooPDA_BestellingOpnemenRegistreren_Load(object sender, EventArgs e)
         {
+            lblTafelnummer.Text = "Tafel " + tafelnummer;
+            btnOverzicht.Enabled = false;
             ShowPanelOpnemen();
         }
 
         private void ShowPanelOpnemen()
         {
             pnlBestellingOpnemen.Show();
-            lblTafelnummer.Text = "Tafel " + tafelnummer;
             tbAantal.Text = aantal.ToString();
         }
 
@@ -87,7 +92,25 @@ namespace Chapoo_PDA_UI
         
         private void btnVoegItemToe_Click(object sender, EventArgs e)
         {
+            beschrijving = ddMenuItems.Text;
+            aantal = int.Parse(tbAantal.Text);
+            commentaar = tbCommentaar.Text;
+            btnOverzicht.Enabled = true;
+            itemsUitDatabase.Add(GetItem());
+        }
 
+        private ChapooModel.MenuItem GetItem()
+        {
+            MenuItem_Service service = new MenuItem_Service();
+            List<ChapooModel.MenuItem> item = service.GetMenuItemForDescription(beschrijving);
+
+            return item[0];
+        }
+
+        private void btnOverzicht_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingenOpnemenOverzicht overzicht = new ChapooPDA_BestellingenOpnemenOverzicht(itemsUitDatabase, tafelnummer);
+            overzicht.ShowDialog();
         }
     }
 }

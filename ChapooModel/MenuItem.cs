@@ -16,7 +16,7 @@ namespace ChapooModel
 
         public override string ToString()
         {
-            return $"{Beschrijving} €{Prijs}";
+            return $"{Beschrijving}";
         }
     }
 }
