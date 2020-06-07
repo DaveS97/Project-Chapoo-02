@@ -24,7 +24,7 @@ namespace ChapooUI
 
         private void terugToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
     }
 }

@@ -13,9 +13,18 @@ namespace ChapooUI
 {
     public partial class Chapoo : Form
     {
-        public Chapoo()
+        private Chapoo()
         {
             InitializeComponent();
+        }
+        private static Chapoo Instance;
+        public static Chapoo GetInstance()
+        {
+            if (Instance == null)
+            {
+                Instance = new Chapoo();
+            }
+            return Instance;
         }
         private void MS1I_Home_Click(object sender, EventArgs e) { Show(); }
 
@@ -45,10 +54,7 @@ namespace ChapooUI
             voorraad.ShowDialog();
         }
 
-        private void Chapoo_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
         {

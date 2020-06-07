@@ -172,7 +172,6 @@
             this.MainMenuStrip = this.MS1;
             this.Name = "Chapoo";
             this.Text = "Chapoo";
-            this.Load += new System.EventHandler(this.Chapoo_Load);
             this.MS1.ResumeLayout(false);
             this.MS1.PerformLayout();
             this.ResumeLayout(false);
