@@ -280,5 +280,10 @@ namespace ChapooUI
         {
             lv_Bestellingen.Refresh();
         }
+
+        private void KeukenOverzichtForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
