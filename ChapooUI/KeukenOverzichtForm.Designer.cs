@@ -40,6 +40,8 @@
             this.MS1I_MenuKaartOpties = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Werknemers = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_klaarstaandeBestellingen = new System.Windows.Forms.Panel();
+            this.lbl_keukenOverzichtGEREED = new System.Windows.Forms.Label();
+            this.lbl_huidigeBestellingGEREED = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lbl_naGerechtKlaar = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -69,18 +71,14 @@
             this.lbl_bestellingKopje = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_KeukenOverzicht = new System.Windows.Forms.Label();
-            this.lbl_huidigeBestellingGEREED = new System.Windows.Forms.Label();
-            this.lbl_keukenOverzichtGEREED = new System.Windows.Forms.Label();
             this.pnl_barOverzicht = new System.Windows.Forms.Panel();
-            this.btn_OpenstaandeBestellingenBAR = new System.Windows.Forms.Button();
-            this.btn_bestellingGeschiedenisBAR = new System.Windows.Forms.Button();
-            this.btn_klaarstaandeBestellingenBAR = new System.Windows.Forms.Button();
-            this.btn_selectieGereedMeldenBAR = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lv_drankjes = new System.Windows.Forms.ListView();
             this.lbl_openstaandeBestellingenBAR = new System.Windows.Forms.Label();
-            this.lb_Opmerkingen = new System.Windows.Forms.ListBox();
-            this.lb_TEST = new System.Windows.Forms.ListBox();
+            this.lv_drankjes = new System.Windows.Forms.ListView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btn_toonBestellingBAR = new System.Windows.Forms.Button();
+            this.btn_VoorgerechtOngereedZetten = new System.Windows.Forms.Button();
+            this.btn_HoofdgerechtOngereedZetten = new System.Windows.Forms.Button();
+            this.btn_NagerechtOngereedZetten = new System.Windows.Forms.Button();
             this.MS1.SuspendLayout();
             this.pnl_klaarstaandeBestellingen.SuspendLayout();
             this.pnl_openstaandeBestellingen.SuspendLayout();
@@ -182,6 +180,9 @@
             // 
             // pnl_klaarstaandeBestellingen
             // 
+            this.pnl_klaarstaandeBestellingen.Controls.Add(this.btn_NagerechtOngereedZetten);
+            this.pnl_klaarstaandeBestellingen.Controls.Add(this.btn_HoofdgerechtOngereedZetten);
+            this.pnl_klaarstaandeBestellingen.Controls.Add(this.btn_VoorgerechtOngereedZetten);
             this.pnl_klaarstaandeBestellingen.Controls.Add(this.lbl_keukenOverzichtGEREED);
             this.pnl_klaarstaandeBestellingen.Controls.Add(this.lbl_huidigeBestellingGEREED);
             this.pnl_klaarstaandeBestellingen.Controls.Add(this.label6);
@@ -198,6 +199,28 @@
             this.pnl_klaarstaandeBestellingen.Name = "pnl_klaarstaandeBestellingen";
             this.pnl_klaarstaandeBestellingen.Size = new System.Drawing.Size(1039, 518);
             this.pnl_klaarstaandeBestellingen.TabIndex = 23;
+            // 
+            // lbl_keukenOverzichtGEREED
+            // 
+            this.lbl_keukenOverzichtGEREED.AutoSize = true;
+            this.lbl_keukenOverzichtGEREED.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_keukenOverzichtGEREED.ForeColor = System.Drawing.Color.White;
+            this.lbl_keukenOverzichtGEREED.Location = new System.Drawing.Point(425, 6);
+            this.lbl_keukenOverzichtGEREED.Name = "lbl_keukenOverzichtGEREED";
+            this.lbl_keukenOverzichtGEREED.Size = new System.Drawing.Size(201, 24);
+            this.lbl_keukenOverzichtGEREED.TabIndex = 51;
+            this.lbl_keukenOverzichtGEREED.Text = "KEUKEN OVERZICHT";
+            // 
+            // lbl_huidigeBestellingGEREED
+            // 
+            this.lbl_huidigeBestellingGEREED.AutoSize = true;
+            this.lbl_huidigeBestellingGEREED.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_huidigeBestellingGEREED.ForeColor = System.Drawing.Color.White;
+            this.lbl_huidigeBestellingGEREED.Location = new System.Drawing.Point(400, 50);
+            this.lbl_huidigeBestellingGEREED.Name = "lbl_huidigeBestellingGEREED";
+            this.lbl_huidigeBestellingGEREED.Size = new System.Drawing.Size(91, 24);
+            this.lbl_huidigeBestellingGEREED.TabIndex = 50;
+            this.lbl_huidigeBestellingGEREED.Text = "Bestelling";
             // 
             // label6
             // 
@@ -303,7 +326,6 @@
             // pnl_openstaandeBestellingen
             // 
             this.pnl_openstaandeBestellingen.AutoSize = true;
-            this.pnl_openstaandeBestellingen.Controls.Add(this.lb_TEST);
             this.pnl_openstaandeBestellingen.Controls.Add(this.btn_herlaadBestellingen);
             this.pnl_openstaandeBestellingen.Controls.Add(this.btn_filterNaarGereed);
             this.pnl_openstaandeBestellingen.Controls.Add(this.btn_naGerechtKlaarzetten);
@@ -324,7 +346,7 @@
             this.pnl_openstaandeBestellingen.Controls.Add(this.lbl_KeukenOverzicht);
             this.pnl_openstaandeBestellingen.Location = new System.Drawing.Point(0, 31);
             this.pnl_openstaandeBestellingen.Name = "pnl_openstaandeBestellingen";
-            this.pnl_openstaandeBestellingen.Size = new System.Drawing.Size(1039, 518);
+            this.pnl_openstaandeBestellingen.Size = new System.Drawing.Size(1039, 521);
             this.pnl_openstaandeBestellingen.TabIndex = 30;
             // 
             // btn_herlaadBestellingen
@@ -510,82 +532,37 @@
             this.lbl_KeukenOverzicht.TabIndex = 32;
             this.lbl_KeukenOverzicht.Text = "KEUKEN OVERZICHT";
             // 
-            // lbl_huidigeBestellingGEREED
-            // 
-            this.lbl_huidigeBestellingGEREED.AutoSize = true;
-            this.lbl_huidigeBestellingGEREED.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_huidigeBestellingGEREED.ForeColor = System.Drawing.Color.White;
-            this.lbl_huidigeBestellingGEREED.Location = new System.Drawing.Point(400, 50);
-            this.lbl_huidigeBestellingGEREED.Name = "lbl_huidigeBestellingGEREED";
-            this.lbl_huidigeBestellingGEREED.Size = new System.Drawing.Size(91, 24);
-            this.lbl_huidigeBestellingGEREED.TabIndex = 50;
-            this.lbl_huidigeBestellingGEREED.Text = "Bestelling";
-            // 
-            // lbl_keukenOverzichtGEREED
-            // 
-            this.lbl_keukenOverzichtGEREED.AutoSize = true;
-            this.lbl_keukenOverzichtGEREED.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_keukenOverzichtGEREED.ForeColor = System.Drawing.Color.White;
-            this.lbl_keukenOverzichtGEREED.Location = new System.Drawing.Point(425, 6);
-            this.lbl_keukenOverzichtGEREED.Name = "lbl_keukenOverzichtGEREED";
-            this.lbl_keukenOverzichtGEREED.Size = new System.Drawing.Size(201, 24);
-            this.lbl_keukenOverzichtGEREED.TabIndex = 51;
-            this.lbl_keukenOverzichtGEREED.Text = "KEUKEN OVERZICHT";
-            // 
             // pnl_barOverzicht
             // 
-            this.pnl_barOverzicht.Controls.Add(this.lb_Opmerkingen);
+            this.pnl_barOverzicht.Controls.Add(this.btn_toonBestellingBAR);
             this.pnl_barOverzicht.Controls.Add(this.lbl_openstaandeBestellingenBAR);
             this.pnl_barOverzicht.Controls.Add(this.lv_drankjes);
             this.pnl_barOverzicht.Controls.Add(this.label7);
-            this.pnl_barOverzicht.Controls.Add(this.btn_selectieGereedMeldenBAR);
-            this.pnl_barOverzicht.Controls.Add(this.btn_klaarstaandeBestellingenBAR);
-            this.pnl_barOverzicht.Controls.Add(this.btn_bestellingGeschiedenisBAR);
-            this.pnl_barOverzicht.Controls.Add(this.btn_OpenstaandeBestellingenBAR);
             this.pnl_barOverzicht.Location = new System.Drawing.Point(0, 31);
             this.pnl_barOverzicht.Name = "pnl_barOverzicht";
             this.pnl_barOverzicht.Size = new System.Drawing.Size(1039, 518);
             this.pnl_barOverzicht.TabIndex = 31;
             // 
-            // btn_OpenstaandeBestellingenBAR
+            // lbl_openstaandeBestellingenBAR
             // 
-            this.btn_OpenstaandeBestellingenBAR.Location = new System.Drawing.Point(21, 96);
-            this.btn_OpenstaandeBestellingenBAR.Name = "btn_OpenstaandeBestellingenBAR";
-            this.btn_OpenstaandeBestellingenBAR.Size = new System.Drawing.Size(205, 35);
-            this.btn_OpenstaandeBestellingenBAR.TabIndex = 0;
-            this.btn_OpenstaandeBestellingenBAR.Text = "Openstaande bestellingen\r\n";
-            this.btn_OpenstaandeBestellingenBAR.UseVisualStyleBackColor = true;
-            this.btn_OpenstaandeBestellingenBAR.Click += new System.EventHandler(this.btn_OpenstaandeBestellingenBAR_Click);
+            this.lbl_openstaandeBestellingenBAR.AutoSize = true;
+            this.lbl_openstaandeBestellingenBAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_openstaandeBestellingenBAR.ForeColor = System.Drawing.Color.White;
+            this.lbl_openstaandeBestellingenBAR.Location = new System.Drawing.Point(51, 64);
+            this.lbl_openstaandeBestellingenBAR.Name = "lbl_openstaandeBestellingenBAR";
+            this.lbl_openstaandeBestellingenBAR.Size = new System.Drawing.Size(236, 24);
+            this.lbl_openstaandeBestellingenBAR.TabIndex = 6;
+            this.lbl_openstaandeBestellingenBAR.Text = "Openstaande bestellingen:";
             // 
-            // btn_bestellingGeschiedenisBAR
+            // lv_drankjes
             // 
-            this.btn_bestellingGeschiedenisBAR.Location = new System.Drawing.Point(21, 152);
-            this.btn_bestellingGeschiedenisBAR.Name = "btn_bestellingGeschiedenisBAR";
-            this.btn_bestellingGeschiedenisBAR.Size = new System.Drawing.Size(205, 35);
-            this.btn_bestellingGeschiedenisBAR.TabIndex = 1;
-            this.btn_bestellingGeschiedenisBAR.Text = "Bestelling geschiedenis";
-            this.btn_bestellingGeschiedenisBAR.UseVisualStyleBackColor = true;
-            this.btn_bestellingGeschiedenisBAR.Click += new System.EventHandler(this.btn_bestellingGeschiedenisBAR_Click);
-            // 
-            // btn_klaarstaandeBestellingenBAR
-            // 
-            this.btn_klaarstaandeBestellingenBAR.Location = new System.Drawing.Point(21, 205);
-            this.btn_klaarstaandeBestellingenBAR.Name = "btn_klaarstaandeBestellingenBAR";
-            this.btn_klaarstaandeBestellingenBAR.Size = new System.Drawing.Size(205, 35);
-            this.btn_klaarstaandeBestellingenBAR.TabIndex = 2;
-            this.btn_klaarstaandeBestellingenBAR.Text = "Klaarstaande bestellingen";
-            this.btn_klaarstaandeBestellingenBAR.UseVisualStyleBackColor = true;
-            this.btn_klaarstaandeBestellingenBAR.Click += new System.EventHandler(this.btn_klaarstaandeBestellingenBAR_Click);
-            // 
-            // btn_selectieGereedMeldenBAR
-            // 
-            this.btn_selectieGereedMeldenBAR.Location = new System.Drawing.Point(404, 431);
-            this.btn_selectieGereedMeldenBAR.Name = "btn_selectieGereedMeldenBAR";
-            this.btn_selectieGereedMeldenBAR.Size = new System.Drawing.Size(205, 35);
-            this.btn_selectieGereedMeldenBAR.TabIndex = 3;
-            this.btn_selectieGereedMeldenBAR.Text = "Selectie gereed melden";
-            this.btn_selectieGereedMeldenBAR.UseVisualStyleBackColor = true;
-            this.btn_selectieGereedMeldenBAR.Click += new System.EventHandler(this.btn_selectieGereedMeldenBAR_Click);
+            this.lv_drankjes.HideSelection = false;
+            this.lv_drankjes.Location = new System.Drawing.Point(55, 96);
+            this.lv_drankjes.Name = "lv_drankjes";
+            this.lv_drankjes.Size = new System.Drawing.Size(304, 354);
+            this.lv_drankjes.TabIndex = 5;
+            this.lv_drankjes.UseCompatibleStateImageBehavior = false;
+            this.lv_drankjes.View = System.Windows.Forms.View.Details;
             // 
             // label7
             // 
@@ -598,46 +575,42 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "BAR OVERZICHT";
             // 
-            // lv_drankjes
+            // btn_toonBestellingBAR
             // 
-            this.lv_drankjes.HideSelection = false;
-            this.lv_drankjes.Location = new System.Drawing.Point(774, 96);
-            this.lv_drankjes.Name = "lv_drankjes";
-            this.lv_drankjes.Size = new System.Drawing.Size(232, 223);
-            this.lv_drankjes.TabIndex = 5;
-            this.lv_drankjes.UseCompatibleStateImageBehavior = false;
-            this.lv_drankjes.View = System.Windows.Forms.View.Details;
+            this.btn_toonBestellingBAR.Location = new System.Drawing.Point(55, 457);
+            this.btn_toonBestellingBAR.Name = "btn_toonBestellingBAR";
+            this.btn_toonBestellingBAR.Size = new System.Drawing.Size(104, 49);
+            this.btn_toonBestellingBAR.TabIndex = 40;
+            this.btn_toonBestellingBAR.Text = "Toon bestelling";
+            this.btn_toonBestellingBAR.UseVisualStyleBackColor = true;
+            this.btn_toonBestellingBAR.Click += new System.EventHandler(this.btn_toonBestellingBAR_Click);
             // 
-            // lbl_openstaandeBestellingenBAR
+            // btn_VoorgerechtOngereedZetten
             // 
-            this.lbl_openstaandeBestellingenBAR.AutoSize = true;
-            this.lbl_openstaandeBestellingenBAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_openstaandeBestellingenBAR.ForeColor = System.Drawing.Color.White;
-            this.lbl_openstaandeBestellingenBAR.Location = new System.Drawing.Point(770, 64);
-            this.lbl_openstaandeBestellingenBAR.Name = "lbl_openstaandeBestellingenBAR";
-            this.lbl_openstaandeBestellingenBAR.Size = new System.Drawing.Size(236, 24);
-            this.lbl_openstaandeBestellingenBAR.TabIndex = 6;
-            this.lbl_openstaandeBestellingenBAR.Text = "Openstaande bestellingen:";
+            this.btn_VoorgerechtOngereedZetten.Location = new System.Drawing.Point(601, 457);
+            this.btn_VoorgerechtOngereedZetten.Name = "btn_VoorgerechtOngereedZetten";
+            this.btn_VoorgerechtOngereedZetten.Size = new System.Drawing.Size(127, 49);
+            this.btn_VoorgerechtOngereedZetten.TabIndex = 52;
+            this.btn_VoorgerechtOngereedZetten.Text = "Voorgerecht ongereed zetten\r\n\r\n";
+            this.btn_VoorgerechtOngereedZetten.UseVisualStyleBackColor = true;
             // 
-            // lb_Opmerkingen
+            // btn_HoofdgerechtOngereedZetten
             // 
-            this.lb_Opmerkingen.FormattingEnabled = true;
-            this.lb_Opmerkingen.ItemHeight = 16;
-            this.lb_Opmerkingen.Items.AddRange(new object[] {
-            "Opmerkingen:"});
-            this.lb_Opmerkingen.Location = new System.Drawing.Point(774, 331);
-            this.lb_Opmerkingen.Name = "lb_Opmerkingen";
-            this.lb_Opmerkingen.Size = new System.Drawing.Size(232, 116);
-            this.lb_Opmerkingen.TabIndex = 7;
+            this.btn_HoofdgerechtOngereedZetten.Location = new System.Drawing.Point(756, 458);
+            this.btn_HoofdgerechtOngereedZetten.Name = "btn_HoofdgerechtOngereedZetten";
+            this.btn_HoofdgerechtOngereedZetten.Size = new System.Drawing.Size(127, 49);
+            this.btn_HoofdgerechtOngereedZetten.TabIndex = 53;
+            this.btn_HoofdgerechtOngereedZetten.Text = "Hoofdgerecht ongereed zetten";
+            this.btn_HoofdgerechtOngereedZetten.UseVisualStyleBackColor = true;
             // 
-            // lb_TEST
+            // btn_NagerechtOngereedZetten
             // 
-            this.lb_TEST.FormattingEnabled = true;
-            this.lb_TEST.ItemHeight = 16;
-            this.lb_TEST.Location = new System.Drawing.Point(744, 182);
-            this.lb_TEST.Name = "lb_TEST";
-            this.lb_TEST.Size = new System.Drawing.Size(262, 68);
-            this.lb_TEST.TabIndex = 51;
+            this.btn_NagerechtOngereedZetten.Location = new System.Drawing.Point(906, 457);
+            this.btn_NagerechtOngereedZetten.Name = "btn_NagerechtOngereedZetten";
+            this.btn_NagerechtOngereedZetten.Size = new System.Drawing.Size(127, 49);
+            this.btn_NagerechtOngereedZetten.TabIndex = 54;
+            this.btn_NagerechtOngereedZetten.Text = "Nagerecht ongereed zetten";
+            this.btn_NagerechtOngereedZetten.UseVisualStyleBackColor = true;
             // 
             // KeukenOverzichtForm
             // 
@@ -646,8 +619,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(1039, 550);
             this.Controls.Add(this.pnl_barOverzicht);
-            this.Controls.Add(this.pnl_openstaandeBestellingen);
             this.Controls.Add(this.pnl_klaarstaandeBestellingen);
+            this.Controls.Add(this.pnl_openstaandeBestellingen);
             this.Controls.Add(this.MS1);
             this.Name = "KeukenOverzichtForm";
             this.Text = "KeukenOverzichtForm";
@@ -710,14 +683,12 @@
         private System.Windows.Forms.Label lbl_keukenOverzichtGEREED;
         private System.Windows.Forms.Label lbl_huidigeBestellingGEREED;
         private System.Windows.Forms.Panel pnl_barOverzicht;
-        private System.Windows.Forms.Button btn_klaarstaandeBestellingenBAR;
-        private System.Windows.Forms.Button btn_bestellingGeschiedenisBAR;
-        private System.Windows.Forms.Button btn_OpenstaandeBestellingenBAR;
-        private System.Windows.Forms.Button btn_selectieGereedMeldenBAR;
-        private System.Windows.Forms.ListBox lb_Opmerkingen;
         private System.Windows.Forms.Label lbl_openstaandeBestellingenBAR;
         private System.Windows.Forms.ListView lv_drankjes;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListBox lb_TEST;
+        private System.Windows.Forms.Button btn_toonBestellingBAR;
+        private System.Windows.Forms.Button btn_NagerechtOngereedZetten;
+        private System.Windows.Forms.Button btn_HoofdgerechtOngereedZetten;
+        private System.Windows.Forms.Button btn_VoorgerechtOngereedZetten;
     }
 }

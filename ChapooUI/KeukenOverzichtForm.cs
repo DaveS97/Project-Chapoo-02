@@ -23,6 +23,9 @@ namespace ChapooUI
         private Dictionary<Bevat, Klant> klantenInfoGereedPanel; //de klant info en zijn bestelling in het panel gereed
         private Dictionary<Bevat, Klant> klaargezetteBestellingen;
         private Dictionary<Bevat, Klant> ids; //info klant en bestellingen
+        private Dictionary<Bevat, Klant> drankjesOpenstaand; // info klant en drankjes
+        private List<Klant> drankjesVanKlant;
+        private List<Bevat> drankjes;
         private List<Klant> klanten; //klanten 
         private List<Bevat> bestellingen; // bestellingen
 
@@ -41,6 +44,9 @@ namespace ChapooUI
             bestellingen = new List<Bevat>();
             klanten = new List<Klant>();
             ids = new Dictionary<Bevat, Klant>();
+            drankjesOpenstaand = new Dictionary<Bevat, Klant>();
+            drankjesVanKlant = new List<Klant>();
+            drankjes = new List<Bevat>();
             InitializeComponent();
             BestellingenVullen();
             BarOverzicht();
@@ -91,7 +97,6 @@ namespace ChapooUI
                 pnl_klaarstaandeBestellingen.Hide();
                 pnl_openstaandeBestellingen.Hide();
                 
-                lv_drankjes.Hide();
                 //lb_Opmerkingen.Hide();
                 lbl_openstaandeBestellingenBAR.Hide();
                 //toon juiste panel
@@ -317,9 +322,8 @@ namespace ChapooUI
             lv_drankjes.Items.Clear();
             lv_drankjes.Columns.Add("Bestelling Id", 75);
             lv_drankjes.Columns.Add("Tafel Id", 75);
-            //listbox test:
-            lb_Opmerkingen.Items.Clear();
-            lb_Opmerkingen.Items.Add("Hier zie je alle opmerkingen staan.");
+
+            //drankjesOpenstaand
         }
 
         private void btn_filterNaarGereed_Click_1(object sender, EventArgs e)
@@ -337,27 +341,9 @@ namespace ChapooUI
             ShowPanel("openstaandeBestellingen");
         }
 
-        private void btn_OpenstaandeBestellingenBAR_Click(object sender, EventArgs e)
-        {
-            lv_drankjes.Show();
-            lbl_openstaandeBestellingenBAR.Show();
-        }
-
-        private void btn_bestellingGeschiedenisBAR_Click(object sender, EventArgs e)
+        private void btn_toonBestellingBAR_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void btn_klaarstaandeBestellingenBAR_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_selectieGereedMeldenBAR_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
     }
 }
