@@ -57,15 +57,26 @@ namespace ChapooUI
         }
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            int ID = int.Parse(lblID.Text);
-            string naam = tbNaam.Text;
-            int PIN = int.Parse(tbPinAanpassenWerknemer.Text);
-
+            int PIN = 0;
+            int ID = 0;
+            string naam = "";
+            try
+            {
+                PIN = int.Parse(tbPinAanpassenWerknemer.Text);
+                ID = int.Parse(lblID.Text);
+                naam = tbNaam.Text;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("je moet eerst de geldige waarden invoeren " + ex.Message);
+            }
+            
             Werknemer_Service service = new Werknemer_Service();
             service.AanpassenWerknemer(ID, naam, PIN);
             tbPinAanpassenWerknemer.Clear();
             panel1.Hide();
             WerknemersVullen();
+            MessageBox.Show("opgeslagen");
         }
 
         private void btnVerwijder_Click(object sender, EventArgs e)
