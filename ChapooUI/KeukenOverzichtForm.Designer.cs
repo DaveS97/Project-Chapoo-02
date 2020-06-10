@@ -515,6 +515,7 @@
             this.Controls.Add(this.MS1);
             this.Name = "KeukenOverzichtForm";
             this.Text = "KeukenOverzichtForm";
+            this.Load += new System.EventHandler(this.KeukenOverzichtForm_Load);
             this.MS1.ResumeLayout(false);
             this.MS1.PerformLayout();
             this.pnl_klaarstaandeBestellingen.ResumeLayout(false);

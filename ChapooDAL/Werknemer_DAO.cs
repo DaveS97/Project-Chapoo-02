@@ -19,7 +19,6 @@ namespace ChapooDAL
                 new SqlParameter("@naam", SqlDbType.VarChar) { Value = naam},
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID},
                 new SqlParameter("@PIN", SqlDbType.Int) { Value = PIN}
-
             };
             ExecuteEditQuery(query, sqlParameters);
         }
