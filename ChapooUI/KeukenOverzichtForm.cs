@@ -24,6 +24,7 @@ namespace ChapooUI
         private Dictionary<Bevat, Klant> klantenInfoGereedPanel; //de klant info en zijn bestelling in het panel gereed
         private Dictionary<Bevat, Klant> klaargezetteBestellingen;
         private Dictionary<Bevat, Klant> ids; //info klant en bestellingen
+        private Dictionary<Bevat, Klant> idsGereed; // info klant en bestellingen van klaarstaande bestellingen
         private Dictionary<Bevat, Klant> drankjesOpenstaand; // info klant en drankjes
         private List<Klant> drankjesVanKlant;
         private List<Bevat> drankjes;
@@ -49,6 +50,7 @@ namespace ChapooUI
             bestellingen = new List<Bevat>();
             klanten = new List<Klant>();
             ids = new Dictionary<Bevat, Klant>();
+            idsGereed = new Dictionary<Bevat, Klant>();
             drankjesOpenstaand = new Dictionary<Bevat, Klant>();
             drankjesVanKlant = new List<Klant>();
             drankjes = new List<Bevat>();
@@ -131,17 +133,18 @@ namespace ChapooUI
 
         private void BestellingenGereed()
         {
+            //bestelling service aanmaken 
+            Bevat_Service bevat_Service = new Bevat_Service();
+            idsGereed = bevat_Service.KrijgBestellingEnMenuItemIDGereed();
             //eerst de listview legen.
             lv_klaarstaandebestellingen.Clear();
             //kolommen toevoegen
             lv_klaarstaandebestellingen.Columns.Add("Bestelling Id", 100);
-            lv_klaarstaandebestellingen.Columns.Add("Menu Item Id", 100);
             lv_klaarstaandebestellingen.Columns.Add("Tafel Id", 100);
             //vul de listview
-            foreach (KeyValuePair<Bevat, Klant> pair in klaargezetteBestellingen)
+            foreach (KeyValuePair<Bevat, Klant> pair in idsGereed)
             {
                 ListViewItem li = new ListViewItem(pair.Key.bestellingID.ToString());
-                li.SubItems.Add(pair.Key.menuItemID.ToString());
                 li.SubItems.Add(pair.Value.tafelID.ToString());
                 lv_klaarstaandebestellingen.Items.Add(li);
             }
@@ -277,11 +280,6 @@ namespace ChapooUI
                     lbl_Voorgerecht.Text = "";
                 }
             }
-            //for (int i = 0; i < bestellingen.Count; i++)
-            //{
-            //    if (bestelNummer == bestellingen[i].bestellingID)
-            //        ids.Remove(bestellingen[i]);
-            //}
             BestellingGereedCheck(bestelNummer);
         }
 
@@ -299,11 +297,6 @@ namespace ChapooUI
                     lbl_Hoofdgerecht.Text = "";
                 }
             }
-            //for (int i = 0; i < bestellingen.Count; i++)
-            //{
-            //    if (bestelNummer == bestellingen[i].bestellingID)
-            //        ids.Remove(bestellingen[i]);
-            //}
             BestellingGereedCheck(bestelNummer);
         }
 
@@ -321,11 +314,6 @@ namespace ChapooUI
                     lbl_Nagerecht.Text = "";
                 }
             }
-            //for (int i = 0; i < bestellingen.Count; i++)
-            //{
-            //    if (bestelNummer == bestellingen[i].bestellingID)
-            //        ids.Remove(bestellingen[i]);
-            //}
             BestellingGereedCheck(bestelNummer);
         }
         private void BestellingGereedCheck(int bestelNummer)

@@ -18,6 +18,12 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
+        public Dictionary<Bevat, Klant> KrijgIDSGereed()
+        {
+            string query = "SELECT DISTINCT Be.bestellingID, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE B.is_Gereed = 1;";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
         public void Bestelling_Gereed_Zetten(int bestelNummer)
         {
             string query = "UPDATE Bestellingen SET is_Gereed = 1 WHERE bestellingID = @bestelNummer;";

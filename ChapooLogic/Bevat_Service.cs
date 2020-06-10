@@ -30,6 +30,26 @@ namespace ChapooLogic
                 return lijst;
             }
         }
+        public Dictionary<Bevat, Klant> KrijgBestellingEnMenuItemIDGereed()
+        {
+            try
+            {
+                Dictionary<Bevat, Klant> IDs = bevat_DAO.KrijgIDSGereed();
+                return IDs;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                Dictionary<Bevat, Klant> lijst = new Dictionary<Bevat, Klant>();
+                Bevat bevat = new Bevat();
+                bevat.bestellingID = 1;
+                bevat.bestellingID = 8;
+                Klant klant = new Klant();
+                klant.tafelID = 2;
+                lijst.Add(bevat, klant);
+                return lijst;
+            }
+        }
 
         public void BestellingGereedZetten(int bestelNummer)
         {
