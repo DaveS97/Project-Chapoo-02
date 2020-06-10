@@ -21,6 +21,19 @@ namespace ChapooDAL
             };
             ExecuteEditQuery(query, sqlParameters);
         }
+
+        //verminder het aantal voorraad met hoeveel van een artikel besteld word
+        public void Write_To_DB_Set_Nieuw_Aantal(int id, int aantal)
+        {
+            string query = "UPDATE Voorraad SET aantal = aantal - @aantal WHERE voorraadID = @voorraadID";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@voorraadID", SqlDbType.Int) { Value = id},
+                new SqlParameter("@aantal", SqlDbType.Int) { Value = aantal}
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         public void Write_To_db_MenuKaart(int ID, string omschrijving, int type, int menu, decimal prijs)
         {
             string query = "UPDATE MenuItem SET omschrijving=@omschrijving, prijs =@prijs, menu =@menu ,typeGerecht=@type where menuItemID =@ID";

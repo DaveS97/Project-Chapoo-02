@@ -17,6 +17,7 @@ namespace Chapoo_PDA_UI
         private int aantal = 1;
         private string commentaar = "";
         private string beschrijving = "";
+        private List<int> aantallen = new List<int>();
         private ChapooModel.MenuItem item = new ChapooModel.MenuItem();
         private List<ChapooModel.MenuItem> items = new List<ChapooModel.MenuItem>();
         public List<ChapooModel.MenuItem> itemsUitDatabase = new List<ChapooModel.MenuItem>();
@@ -94,9 +95,11 @@ namespace Chapoo_PDA_UI
         {
             beschrijving = ddMenuItems.Text;
             aantal = int.Parse(tbAantal.Text);
+            aantallen.Add(aantal);
             commentaar = tbCommentaar.Text;
             btnOverzicht.Enabled = true;
-            itemsUitDatabase.Add(GetItem());
+            ChapooModel.MenuItem item = GetItem();
+            itemsUitDatabase.Add(item);
         }
 
         private ChapooModel.MenuItem GetItem()
@@ -109,8 +112,13 @@ namespace Chapoo_PDA_UI
 
         private void btnOverzicht_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingenOpnemenOverzicht overzicht = new ChapooPDA_BestellingenOpnemenOverzicht(itemsUitDatabase, tafelnummer);
+            ChapooPDA_BestellingenOpnemenOverzicht overzicht = new ChapooPDA_BestellingenOpnemenOverzicht(itemsUitDatabase, tafelnummer, aantallen);
             overzicht.ShowDialog();
+        }
+
+        private void lblTafelnummer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
