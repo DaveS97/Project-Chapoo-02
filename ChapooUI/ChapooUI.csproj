@@ -167,6 +167,10 @@
       <Project>{a69f100f-9fdc-4b24-89c0-ae6abfd472a4}</Project>
       <Name>ChapooModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Chapoo_PDA_UI\Chapoo_PDA_UI.csproj">
+      <Project>{3cf5671b-7cd1-4c62-8a0d-c20576a28f78}</Project>
+      <Name>Chapoo_PDA_UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

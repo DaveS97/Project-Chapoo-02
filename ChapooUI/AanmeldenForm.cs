@@ -14,9 +14,17 @@ namespace ChapooUI
 {
     public partial class AanmeldenForm : Form
     {
-        public AanmeldenForm()
+        private AanmeldenForm()
         {
             InitializeComponent();
+        }
+        private static AanmeldenForm Instance;
+        public static AanmeldenForm GetInstance()
+        {
+            if (Instance == null)
+                Instance = new AanmeldenForm();
+
+            return Instance;
         }
         private void btnAanmelden_Click(object sender, EventArgs e)
         {
@@ -24,7 +32,6 @@ namespace ChapooUI
             List<Werknemer> werknemers = service.GetWerknemerPins();
             bool CorrectPin = false;
             string naam = "";
-
             string types = "";
             int type = 0; // 1=  bediener 2= barman  3= kok  4= eigenaar
 
@@ -67,13 +74,18 @@ namespace ChapooUI
                         break;
                 }
                 MessageBox.Show($"Welkom {naam} jij bent een {types} ");
-                Chapoo Form = new Chapoo();
-                Form.ShowDialog();
+                Chapoo form = Chapoo.GetInstance();
+                form.ShowDialog();
             }
             else
             {
                 MessageBox.Show("voer een geldige pincode in");
             }
+
+        }
+
+        private void AanmeldenForm_Load(object sender, EventArgs e)
+        {
 
         }
     }

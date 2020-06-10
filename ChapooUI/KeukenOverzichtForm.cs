@@ -354,5 +354,10 @@ namespace ChapooUI
         {
 
         }
+
+        private void KeukenOverzichtForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,7 +16,14 @@ namespace Chapoo_PDA_UI
         private int tafelnummer;
         private int aantal = 1;
         private string commentaar = "";
+        private string beschrijving = "";
+        private List<int> aantallen = new List<int>();
+        private ChapooModel.MenuItem item = new ChapooModel.MenuItem();
         private List<ChapooModel.MenuItem> items = new List<ChapooModel.MenuItem>();
+        public List<ChapooModel.MenuItem> itemsUitDatabase = new List<ChapooModel.MenuItem>();
+        private ChapooModel.Bestelling bestelling = new ChapooModel.Bestelling();
+        private int teller = 0;
+
 
         public ChapooPDA_BestellingOpnemenRegistreren(int tafelnummer)
         {
@@ -26,13 +33,14 @@ namespace Chapoo_PDA_UI
 
         private void ChapooPDA_BestellingOpnemenRegistreren_Load(object sender, EventArgs e)
         {
+            lblTafelnummer.Text = "Tafel " + tafelnummer;
+            btnOverzicht.Enabled = false;
             ShowPanelOpnemen();
         }
 
         private void ShowPanelOpnemen()
         {
             pnlBestellingOpnemen.Show();
-            lblTafelnummer.Text = "Tafel " + tafelnummer;
             tbAantal.Text = aantal.ToString();
         }
 
@@ -46,6 +54,7 @@ namespace Chapoo_PDA_UI
             MenuItem_Service service = new MenuItem_Service();
             items.Clear();
             ddMenuItems.Items.Clear();
+            tbAantal.Text = "1";
 
             if (rbVoorgerecht.Checked)
             {
@@ -86,6 +95,33 @@ namespace Chapoo_PDA_UI
         }
         
         private void btnVoegItemToe_Click(object sender, EventArgs e)
+        {
+            beschrijving = ddMenuItems.Text;
+            aantal = int.Parse(tbAantal.Text);
+            aantallen.Add(aantal);
+            commentaar = tbCommentaar.Text;
+            btnOverzicht.Enabled = true;
+            ChapooModel.MenuItem item = GetItem();
+            itemsUitDatabase.Add(item);
+            MessageBox.Show($"{item.Beschrijving} is {aantal} keer toegevoegd");
+            teller++;
+        }
+
+        private ChapooModel.MenuItem GetItem()
+        {
+            MenuItem_Service service = new MenuItem_Service();
+            List<ChapooModel.MenuItem> item = service.GetMenuItemForDescription(beschrijving);
+
+            return item[0];
+        }
+
+        private void btnOverzicht_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingenOpnemenOverzicht overzicht = new ChapooPDA_BestellingenOpnemenOverzicht(itemsUitDatabase, tafelnummer, aantallen);
+            overzicht.ShowDialog();
+        }
+
+        private void lblTafelnummer_Click(object sender, EventArgs e)
         {
 
         }

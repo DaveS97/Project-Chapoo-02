@@ -1,12 +1,13 @@
-﻿using System;
+﻿using ChapooModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ChapooLogic;
+using System.Threading;
+using System.Security.Cryptography;
 
 namespace ChapooUI
 {
@@ -15,16 +16,31 @@ namespace ChapooUI
         public InkomstenForm()
         {
             InitializeComponent();
+            lvInkomsten.Columns.Add("ID", 100);
+            lvInkomsten.Columns.Add("bediener ID",100);
+            lvInkomsten.Columns.Add("BTW", 100);
+            lvInkomsten.Columns.Add("Fooi", 100);
+            lvInkomsten.Columns.Add("Totaal", 100);
         }
 
         private void InkomstenForm_Load(object sender, EventArgs e)
         {
-
+            Inkomsten_Service service = new Inkomsten_Service();
+            List<Inkomsten> bonnen = service.GetInkomsten();
+            foreach (Inkomsten item in bonnen)
+            {
+                ListViewItem li = new ListViewItem(item.BonID.ToString());
+                li.SubItems.Add(item.BedienerID.ToString());
+                li.SubItems.Add(item.BTW.ToString());
+                li.SubItems.Add(item.Fooi.ToString());
+                li.SubItems.Add(item.Totaal.ToString());
+                lvInkomsten.Items.Add(li);
+            }
         }
 
         private void terugToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
     }
 }

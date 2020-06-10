@@ -47,7 +47,7 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters =
             {
                     new SqlParameter("@bestellingID", SqlDbType.Int) { Value = bestellingID}
-                };
+               };
             return ReadTablesBMO(ExecuteSelectQuery(query, sqlParameters));
         }
 
@@ -95,6 +95,16 @@ namespace ChapooDAL
         {
             string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu FROM MenuItem WHERE typeGerecht = 3";
             SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public List<MenuItem> GetMenuItemForDescription(string beschrijving)
+        {
+            string query = "SELECT menuItemID, omschrijving, prijs, typeGerecht, menu FROM MenuItem WHERE omschrijving LIKE @beschrijving";
+            SqlParameter[] sqlParameters = 
+            {
+                new SqlParameter("@beschrijving", SqlDbType.Text) {Value = beschrijving}
+            };
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 

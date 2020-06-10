@@ -8,14 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChapooModel;
+using Chapoo_PDA_UI;
 
 namespace ChapooUI
 {
     public partial class Chapoo : Form
     {
-        public Chapoo()
+        private Chapoo()
         {
             InitializeComponent();
+        }
+        private static Chapoo Instance;
+        public static Chapoo GetInstance()
+        {
+            if (Instance == null)
+            {
+                Instance = new Chapoo();
+            }
+            return Instance;
         }
         private void MS1I_Home_Click(object sender, EventArgs e) { Show(); }
 
@@ -45,10 +55,7 @@ namespace ChapooUI
             voorraad.ShowDialog();
         }
 
-        private void Chapoo_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -71,6 +78,17 @@ namespace ChapooUI
         {
             AfmeldenForm form = new AfmeldenForm();
             form.Show();
+        }
+
+        private void openPDAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChapooPDA pda = new ChapooPDA();
+            pda.ShowDialog();
+        }
+
+        private void MS1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
 
         private void MS_BO_Click(object sender, EventArgs e)

@@ -80,5 +80,10 @@ namespace ChapooUI
             fillist();
             panel1.Hide();
         }
+
+        private void MenuKaartAanpassenForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

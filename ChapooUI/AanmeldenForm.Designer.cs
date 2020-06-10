@@ -72,6 +72,7 @@
             this.Controls.Add(this.tbPin);
             this.Name = "AanmeldenForm";
             this.Text = "AanmeldenForm";
+            this.Load += new System.EventHandler(this.AanmeldenForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

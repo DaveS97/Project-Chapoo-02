@@ -53,10 +53,11 @@
             // 
             this.ddMenuItems.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
             this.ddMenuItems.FormattingEnabled = true;
-            this.ddMenuItems.Location = new System.Drawing.Point(94, 223);
+            this.ddMenuItems.Location = new System.Drawing.Point(125, 274);
+            this.ddMenuItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ddMenuItems.MaxDropDownItems = 4;
             this.ddMenuItems.Name = "ddMenuItems";
-            this.ddMenuItems.Size = new System.Drawing.Size(418, 58);
+            this.ddMenuItems.Size = new System.Drawing.Size(556, 70);
             this.ddMenuItems.TabIndex = 0;
             this.ddMenuItems.DropDown += new System.EventHandler(this.ddMenuItems_DropDown);
             this.ddMenuItems.SelectedIndexChanged += new System.EventHandler(this.ddMenuItems_SelectedIndexChanged);
@@ -66,9 +67,10 @@
             this.lblMenuItem.AutoSize = true;
             this.lblMenuItem.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
             this.lblMenuItem.ForeColor = System.Drawing.Color.White;
-            this.lblMenuItem.Location = new System.Drawing.Point(216, 170);
+            this.lblMenuItem.Location = new System.Drawing.Point(288, 209);
+            this.lblMenuItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMenuItem.Name = "lblMenuItem";
-            this.lblMenuItem.Size = new System.Drawing.Size(210, 50);
+            this.lblMenuItem.Size = new System.Drawing.Size(265, 62);
             this.lblMenuItem.TabIndex = 1;
             this.lblMenuItem.Text = "Menu item";
             this.lblMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -79,12 +81,14 @@
             this.lblTafelnummer.AutoSize = true;
             this.lblTafelnummer.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
             this.lblTafelnummer.ForeColor = System.Drawing.Color.White;
-            this.lblTafelnummer.Location = new System.Drawing.Point(267, 0);
+            this.lblTafelnummer.Location = new System.Drawing.Point(356, 0);
+            this.lblTafelnummer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTafelnummer.Name = "lblTafelnummer";
-            this.lblTafelnummer.Size = new System.Drawing.Size(276, 50);
+            this.lblTafelnummer.Size = new System.Drawing.Size(346, 62);
             this.lblTafelnummer.TabIndex = 2;
             this.lblTafelnummer.Text = "[tafelnummer]";
             this.lblTafelnummer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTafelnummer.Click += new System.EventHandler(this.lblTafelnummer_Click);
             // 
             // pnlMenuItemRegistreren
             // 
@@ -102,18 +106,20 @@
             this.pnlMenuItemRegistreren.Controls.Add(this.rbNagerecht);
             this.pnlMenuItemRegistreren.Controls.Add(this.ddMenuItems);
             this.pnlMenuItemRegistreren.Controls.Add(this.rbVoorgerecht);
-            this.pnlMenuItemRegistreren.Location = new System.Drawing.Point(30, 53);
+            this.pnlMenuItemRegistreren.Location = new System.Drawing.Point(40, 65);
+            this.pnlMenuItemRegistreren.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlMenuItemRegistreren.Name = "pnlMenuItemRegistreren";
-            this.pnlMenuItemRegistreren.Size = new System.Drawing.Size(625, 526);
+            this.pnlMenuItemRegistreren.Size = new System.Drawing.Size(833, 647);
             this.pnlMenuItemRegistreren.TabIndex = 3;
             // 
             // btnMin
             // 
             this.btnMin.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
             this.btnMin.ForeColor = System.Drawing.Color.Red;
-            this.btnMin.Location = new System.Drawing.Point(221, 341);
+            this.btnMin.Location = new System.Drawing.Point(295, 420);
+            this.btnMin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(25, 29);
+            this.btnMin.Size = new System.Drawing.Size(33, 36);
             this.btnMin.TabIndex = 13;
             this.btnMin.Text = "-";
             this.btnMin.UseVisualStyleBackColor = true;
@@ -123,9 +129,10 @@
             // 
             this.btnPlus.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
             this.btnPlus.ForeColor = System.Drawing.Color.Green;
-            this.btnPlus.Location = new System.Drawing.Point(191, 341);
+            this.btnPlus.Location = new System.Drawing.Point(255, 420);
+            this.btnPlus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPlus.Name = "btnPlus";
-            this.btnPlus.Size = new System.Drawing.Size(25, 29);
+            this.btnPlus.Size = new System.Drawing.Size(33, 36);
             this.btnPlus.TabIndex = 12;
             this.btnPlus.Text = "+";
             this.btnPlus.UseVisualStyleBackColor = true;
@@ -135,9 +142,10 @@
             // 
             this.tbAantal.Enabled = false;
             this.tbAantal.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
-            this.tbAantal.Location = new System.Drawing.Point(163, 341);
+            this.tbAantal.Location = new System.Drawing.Point(217, 420);
+            this.tbAantal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbAantal.Name = "tbAantal";
-            this.tbAantal.Size = new System.Drawing.Size(22, 29);
+            this.tbAantal.Size = new System.Drawing.Size(28, 35);
             this.tbAantal.TabIndex = 11;
             // 
             // label1
@@ -145,25 +153,28 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(90, 344);
+            this.label1.Location = new System.Drawing.Point(120, 423);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 23);
+            this.label1.Size = new System.Drawing.Size(83, 30);
             this.label1.TabIndex = 10;
             this.label1.Text = "Aantal:";
             // 
             // tbCommentaar
             // 
             this.tbCommentaar.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
-            this.tbCommentaar.Location = new System.Drawing.Point(94, 379);
+            this.tbCommentaar.Location = new System.Drawing.Point(125, 466);
+            this.tbCommentaar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbCommentaar.Name = "tbCommentaar";
-            this.tbCommentaar.Size = new System.Drawing.Size(418, 57);
+            this.tbCommentaar.Size = new System.Drawing.Size(556, 69);
             this.tbCommentaar.TabIndex = 9;
             // 
             // btnVoegItemToe
             // 
-            this.btnVoegItemToe.Location = new System.Drawing.Point(529, 461);
+            this.btnVoegItemToe.Location = new System.Drawing.Point(705, 567);
+            this.btnVoegItemToe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVoegItemToe.Name = "btnVoegItemToe";
-            this.btnVoegItemToe.Size = new System.Drawing.Size(75, 40);
+            this.btnVoegItemToe.Size = new System.Drawing.Size(100, 49);
             this.btnVoegItemToe.TabIndex = 8;
             this.btnVoegItemToe.Text = "Voeg item toe";
             this.btnVoegItemToe.UseVisualStyleBackColor = true;
@@ -174,9 +185,10 @@
             this.rbDranken.AutoSize = true;
             this.rbDranken.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
             this.rbDranken.ForeColor = System.Drawing.Color.White;
-            this.rbDranken.Location = new System.Drawing.Point(344, 97);
+            this.rbDranken.Location = new System.Drawing.Point(459, 119);
+            this.rbDranken.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbDranken.Name = "rbDranken";
-            this.rbDranken.Size = new System.Drawing.Size(96, 27);
+            this.rbDranken.Size = new System.Drawing.Size(117, 34);
             this.rbDranken.TabIndex = 7;
             this.rbDranken.Text = "Dranken";
             this.rbDranken.UseVisualStyleBackColor = true;
@@ -186,9 +198,10 @@
             this.lblTypeGerecht.AutoSize = true;
             this.lblTypeGerecht.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
             this.lblTypeGerecht.ForeColor = System.Drawing.Color.White;
-            this.lblTypeGerecht.Location = new System.Drawing.Point(179, 0);
+            this.lblTypeGerecht.Location = new System.Drawing.Point(239, 0);
+            this.lblTypeGerecht.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTypeGerecht.Name = "lblTypeGerecht";
-            this.lblTypeGerecht.Size = new System.Drawing.Size(247, 50);
+            this.lblTypeGerecht.Size = new System.Drawing.Size(312, 62);
             this.lblTypeGerecht.TabIndex = 2;
             this.lblTypeGerecht.Text = "Type gerecht";
             this.lblTypeGerecht.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -198,9 +211,10 @@
             this.rbHoofdgerecht.AutoSize = true;
             this.rbHoofdgerecht.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
             this.rbHoofdgerecht.ForeColor = System.Drawing.Color.White;
-            this.rbHoofdgerecht.Location = new System.Drawing.Point(344, 53);
+            this.rbHoofdgerecht.Location = new System.Drawing.Point(459, 65);
+            this.rbHoofdgerecht.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbHoofdgerecht.Name = "rbHoofdgerecht";
-            this.rbHoofdgerecht.Size = new System.Drawing.Size(140, 27);
+            this.rbHoofdgerecht.Size = new System.Drawing.Size(171, 34);
             this.rbHoofdgerecht.TabIndex = 6;
             this.rbHoofdgerecht.TabStop = true;
             this.rbHoofdgerecht.Text = "Hoofdgerecht";
@@ -211,9 +225,10 @@
             this.rbNagerecht.AutoSize = true;
             this.rbNagerecht.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
             this.rbNagerecht.ForeColor = System.Drawing.Color.White;
-            this.rbNagerecht.Location = new System.Drawing.Point(94, 97);
+            this.rbNagerecht.Location = new System.Drawing.Point(125, 119);
+            this.rbNagerecht.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbNagerecht.Name = "rbNagerecht";
-            this.rbNagerecht.Size = new System.Drawing.Size(111, 27);
+            this.rbNagerecht.Size = new System.Drawing.Size(136, 34);
             this.rbNagerecht.TabIndex = 5;
             this.rbNagerecht.TabStop = true;
             this.rbNagerecht.Text = "Nagerecht";
@@ -225,9 +240,10 @@
             this.rbVoorgerecht.Checked = true;
             this.rbVoorgerecht.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
             this.rbVoorgerecht.ForeColor = System.Drawing.Color.White;
-            this.rbVoorgerecht.Location = new System.Drawing.Point(94, 53);
+            this.rbVoorgerecht.Location = new System.Drawing.Point(125, 65);
+            this.rbVoorgerecht.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbVoorgerecht.Name = "rbVoorgerecht";
-            this.rbVoorgerecht.Size = new System.Drawing.Size(126, 27);
+            this.rbVoorgerecht.Size = new System.Drawing.Size(155, 34);
             this.rbVoorgerecht.TabIndex = 4;
             this.rbVoorgerecht.TabStop = true;
             this.rbVoorgerecht.Text = "Voorgerecht";
@@ -238,28 +254,32 @@
             this.pnlBestellingOpnemen.Controls.Add(this.btnOverzicht);
             this.pnlBestellingOpnemen.Controls.Add(this.lblTafelnummer);
             this.pnlBestellingOpnemen.Controls.Add(this.pnlMenuItemRegistreren);
-            this.pnlBestellingOpnemen.Location = new System.Drawing.Point(12, 13);
+            this.pnlBestellingOpnemen.Location = new System.Drawing.Point(16, 16);
+            this.pnlBestellingOpnemen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlBestellingOpnemen.Name = "pnlBestellingOpnemen";
-            this.pnlBestellingOpnemen.Size = new System.Drawing.Size(680, 656);
+            this.pnlBestellingOpnemen.Size = new System.Drawing.Size(907, 807);
             this.pnlBestellingOpnemen.TabIndex = 4;
             // 
             // btnOverzicht
             // 
             this.btnOverzicht.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
-            this.btnOverzicht.Location = new System.Drawing.Point(198, 585);
+            this.btnOverzicht.Location = new System.Drawing.Point(264, 720);
+            this.btnOverzicht.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOverzicht.Name = "btnOverzicht";
-            this.btnOverzicht.Size = new System.Drawing.Size(273, 57);
+            this.btnOverzicht.Size = new System.Drawing.Size(364, 70);
             this.btnOverzicht.TabIndex = 4;
             this.btnOverzicht.Text = "Overzicht";
             this.btnOverzicht.UseVisualStyleBackColor = true;
+            this.btnOverzicht.Click += new System.EventHandler(this.btnOverzicht_Click);
             // 
             // ChapooPDA_BestellingOpnemenRegistreren
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(704, 681);
+            this.ClientSize = new System.Drawing.Size(939, 838);
             this.Controls.Add(this.pnlBestellingOpnemen);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ChapooPDA_BestellingOpnemenRegistreren";
             this.Text = "ChapooPDA_BestellingOpnemenRegistreren";
             this.Load += new System.EventHandler(this.ChapooPDA_BestellingOpnemenRegistreren_Load);

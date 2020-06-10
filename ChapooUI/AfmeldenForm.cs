@@ -12,6 +12,7 @@ namespace ChapooUI
 {
     public partial class AfmeldenForm : Form
     {
+
         public AfmeldenForm()
         {
             InitializeComponent();
@@ -19,9 +20,17 @@ namespace ChapooUI
 
         private void btnAfmelden_Click(object sender, EventArgs e)
         {
-
             this.Close();
-            Application.Exit();
+            Chapoo form = Chapoo.GetInstance();
+            form.Close();
+
+            AanmeldenForm form2 = AanmeldenForm.GetInstance();
+            form2.Show();
+        }
+
+        private void terugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

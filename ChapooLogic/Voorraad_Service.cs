@@ -22,7 +22,20 @@ namespace ChapooLogic
 				MessageBox.Show("Chapoo couldn't connect to the database" + e.Message);
 			}
 		}
-		public void Write_To_db_MenuKaart(int ID, string omschrijving, int type, int menu, decimal prijs)
+
+        public void Write_To_DB_Set_Nieuw_Aantal(int id, int aantal)
+        {
+            try
+            {
+                Voorraad_DAO.Write_To_DB_Set_Nieuw_Aantal(id, aantal);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database" + e.Message);
+            }
+        }
+
+        public void Write_To_db_MenuKaart(int ID, string omschrijving, int type, int menu, decimal prijs)
 		{
 			try
 			{
