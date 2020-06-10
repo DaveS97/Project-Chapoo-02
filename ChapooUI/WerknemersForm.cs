@@ -70,7 +70,6 @@ namespace ChapooUI
             {
                 MessageBox.Show("je moet eerst de geldige waarden invoeren " + ex.Message);
             }
-            
             Werknemer_Service service = new Werknemer_Service();
             service.AanpassenWerknemer(ID, naam, PIN);
             tbPinAanpassenWerknemer.Clear();

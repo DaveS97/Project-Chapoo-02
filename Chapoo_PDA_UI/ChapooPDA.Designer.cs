@@ -36,9 +36,10 @@
             // 
             // btnRestaurantOverzicht
             // 
-            this.btnRestaurantOverzicht.Location = new System.Drawing.Point(96, 142);
+            this.btnRestaurantOverzicht.Location = new System.Drawing.Point(128, 175);
+            this.btnRestaurantOverzicht.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRestaurantOverzicht.Name = "btnRestaurantOverzicht";
-            this.btnRestaurantOverzicht.Size = new System.Drawing.Size(500, 90);
+            this.btnRestaurantOverzicht.Size = new System.Drawing.Size(667, 111);
             this.btnRestaurantOverzicht.TabIndex = 0;
             this.btnRestaurantOverzicht.Text = "Restaurant overzicht";
             this.btnRestaurantOverzicht.UseVisualStyleBackColor = true;
@@ -46,9 +47,10 @@
             // 
             // btnBestellingOpnemen
             // 
-            this.btnBestellingOpnemen.Location = new System.Drawing.Point(96, 238);
+            this.btnBestellingOpnemen.Location = new System.Drawing.Point(128, 293);
+            this.btnBestellingOpnemen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBestellingOpnemen.Name = "btnBestellingOpnemen";
-            this.btnBestellingOpnemen.Size = new System.Drawing.Size(500, 90);
+            this.btnBestellingOpnemen.Size = new System.Drawing.Size(667, 111);
             this.btnBestellingOpnemen.TabIndex = 1;
             this.btnBestellingOpnemen.Text = "Bestelling opnemen";
             this.btnBestellingOpnemen.UseVisualStyleBackColor = true;
@@ -56,9 +58,10 @@
             // 
             // btnKlaarstaandeBestellingen
             // 
-            this.btnKlaarstaandeBestellingen.Location = new System.Drawing.Point(96, 334);
+            this.btnKlaarstaandeBestellingen.Location = new System.Drawing.Point(128, 411);
+            this.btnKlaarstaandeBestellingen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnKlaarstaandeBestellingen.Name = "btnKlaarstaandeBestellingen";
-            this.btnKlaarstaandeBestellingen.Size = new System.Drawing.Size(500, 90);
+            this.btnKlaarstaandeBestellingen.Size = new System.Drawing.Size(667, 111);
             this.btnKlaarstaandeBestellingen.TabIndex = 2;
             this.btnKlaarstaandeBestellingen.Text = "Klaarstaande bestellingen";
             this.btnKlaarstaandeBestellingen.UseVisualStyleBackColor = true;
@@ -66,9 +69,10 @@
             // 
             // btnAfrekenen
             // 
-            this.btnAfrekenen.Location = new System.Drawing.Point(96, 507);
+            this.btnAfrekenen.Location = new System.Drawing.Point(128, 624);
+            this.btnAfrekenen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAfrekenen.Name = "btnAfrekenen";
-            this.btnAfrekenen.Size = new System.Drawing.Size(500, 90);
+            this.btnAfrekenen.Size = new System.Drawing.Size(667, 111);
             this.btnAfrekenen.TabIndex = 3;
             this.btnAfrekenen.Text = "Afrekenen";
             this.btnAfrekenen.UseVisualStyleBackColor = true;
@@ -76,17 +80,18 @@
             // 
             // ChapooPDA
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(704, 681);
+            this.ClientSize = new System.Drawing.Size(939, 838);
             this.Controls.Add(this.btnAfrekenen);
             this.Controls.Add(this.btnKlaarstaandeBestellingen);
             this.Controls.Add(this.btnBestellingOpnemen);
             this.Controls.Add(this.btnRestaurantOverzicht);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ChapooPDA";
             this.Text = "ChapooPDA";
+            this.Load += new System.EventHandler(this.ChapooPDA_Load);
             this.ResumeLayout(false);
 
         }

@@ -39,8 +39,9 @@
             this.MS1I_Voorraad = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_MenuKaartOpties = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Werknemers = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbl_Welkom = new System.Windows.Forms.Label();
             this.afmeldenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_Welkom = new System.Windows.Forms.Label();
+            this.openPDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,12 +56,14 @@
             this.MS_BO,
             this.MS_KO,
             this.MS_Beheer,
-            this.afmeldenToolStripMenuItem});
+            this.afmeldenToolStripMenuItem,
+            this.openPDAToolStripMenuItem});
             this.MS1.Location = new System.Drawing.Point(0, 0);
             this.MS1.Name = "MS1";
             this.MS1.Size = new System.Drawing.Size(1039, 28);
             this.MS1.TabIndex = 0;
             this.MS1.Text = "menuStrip1";
+            this.MS1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MS1_ItemClicked);
             // 
             // HomeToolStripMenuItem
             // 
@@ -143,6 +146,14 @@
             this.MS1I_Werknemers.Text = "Werknemers";
             this.MS1I_Werknemers.Click += new System.EventHandler(this.MS1I_Werknemers_Click);
             // 
+            // afmeldenToolStripMenuItem
+            // 
+            this.afmeldenToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.afmeldenToolStripMenuItem.Name = "afmeldenToolStripMenuItem";
+            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.afmeldenToolStripMenuItem.Text = "afmelden";
+            this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
+            // 
             // lbl_Welkom
             // 
             this.lbl_Welkom.AutoSize = true;
@@ -153,13 +164,14 @@
             this.lbl_Welkom.TabIndex = 1;
             this.lbl_Welkom.Text = "Welkom bij het restaurant bestelsysteem van Chapoo.";
             // 
-            // afmeldenToolStripMenuItem
+            // openPDAToolStripMenuItem
             // 
-            this.afmeldenToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.afmeldenToolStripMenuItem.Name = "afmeldenToolStripMenuItem";
-            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
-            this.afmeldenToolStripMenuItem.Text = "afmelden";
-            this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
+            this.openPDAToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.openPDAToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.openPDAToolStripMenuItem.Name = "openPDAToolStripMenuItem";
+            this.openPDAToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
+            this.openPDAToolStripMenuItem.Text = "open PDA";
+            this.openPDAToolStripMenuItem.Click += new System.EventHandler(this.openPDAToolStripMenuItem_Click);
             // 
             // Chapoo
             // 
@@ -169,6 +181,7 @@
             this.ClientSize = new System.Drawing.Size(1039, 550);
             this.Controls.Add(this.lbl_Welkom);
             this.Controls.Add(this.MS1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.MainMenuStrip = this.MS1;
             this.Name = "Chapoo";
             this.Text = "Chapoo";
@@ -194,6 +207,7 @@
         private System.Windows.Forms.ToolStripMenuItem MS1I_MenuKaartOpties;
         private System.Windows.Forms.ToolStripMenuItem MS1I_Werknemers;
         private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openPDAToolStripMenuItem;
     }
 }
 

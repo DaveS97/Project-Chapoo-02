@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChapooModel;
+using Chapoo_PDA_UI;
 
 namespace ChapooUI
 {
@@ -77,6 +78,17 @@ namespace ChapooUI
         {
             AfmeldenForm form = new AfmeldenForm();
             form.Show();
+        }
+
+        private void openPDAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChapooPDA pda = new ChapooPDA();
+            pda.ShowDialog();
+        }
+
+        private void MS1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

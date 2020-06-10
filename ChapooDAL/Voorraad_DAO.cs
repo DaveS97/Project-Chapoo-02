@@ -11,6 +11,7 @@ namespace ChapooDAL
 {
     public class Voorraad_DAO : Base
     {
+        //past het aantal van de voorraad aan, in de voorraad tabel
         public void Write_To_Db_Voorraad(int id, int aantal)
         {
             string query = "UPDATE Voorraad SET aantal = @aantal where voorraadID = @voorraadID ";
@@ -21,6 +22,8 @@ namespace ChapooDAL
             };
             ExecuteEditQuery(query, sqlParameters);
         }
+        
+        //past menuKaart aan in de tabel menuItems
         public void Write_To_db_MenuKaart(int ID, string omschrijving, int type, int menu, decimal prijs)
         {
             string query = "UPDATE MenuItem SET omschrijving=@omschrijving, prijs =@prijs, menu =@menu ,typeGerecht=@type where menuItemID =@ID";
@@ -34,6 +37,8 @@ namespace ChapooDAL
             };
             ExecuteEditQuery(query, sqlParameters);
         }
+
+        //voegt item toe aan MenuItem tabel
         public void Write_To_db_ToevoegenMenuItem(string omschrijving, int type, int menu, decimal prijs)
         {
             string query = "INSERT MenuItem VALUES (@omschrijving, @prijs , @menu, @type)";
@@ -46,6 +51,7 @@ namespace ChapooDAL
             };
             ExecuteEditQuery(query, sqlParameters);
         }
+        //verwijderd een record uit de menuItem tabel
         public void Write_To_Db_verwijderenMenuItem(int ID)
         {
             string query = "DELETE FROM MenuItem WHERE (menuItemID = @ID)";

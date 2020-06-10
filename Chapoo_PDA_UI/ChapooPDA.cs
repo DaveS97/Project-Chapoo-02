@@ -40,5 +40,10 @@ namespace Chapoo_PDA_UI
             ChapooPDA_AfrekenenMenu menu = new ChapooPDA_AfrekenenMenu();
             menu.ShowDialog();
         }
+
+        private void ChapooPDA_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
