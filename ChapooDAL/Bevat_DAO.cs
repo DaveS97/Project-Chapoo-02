@@ -14,9 +14,18 @@ namespace ChapooDAL
     {
         public Dictionary<Bevat, Klant> KrijgIDS()
         {
-            string query = "SELECT DISTINCT Be.bestellingID, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID ORDER BY Be.bestellingID;";
+            string query = "SELECT DISTINCT Be.bestellingID, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE B.is_Gereed = 0;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public void Bestelling_Gereed_Zetten(int bestelNummer)
+        {
+            string query = "UPDATE Bestellingen SET is_Gereed = 1 WHERE bestellingID = @bestelNummer;";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@bestelNummer", SqlDbType.Int) { Value = bestelNummer}
+            };
+            ExecuteEditQuery(query, sqlParameters);
         }
 
         private Dictionary<Bevat, Klant> ReadTables(DataTable dataTable)

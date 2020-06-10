@@ -19,6 +19,7 @@ namespace ChapooUI
         const int NAGERECHT = 3;
         const int TUSSENGERECHT = 4;
         const int DRINKEN = 5;
+        private int Counter = 0;
         private Dictionary<Bevat, Klant> klantenInfo; //de klant info en zijn bestelling
         private Dictionary<Bevat, Klant> klantenInfoGereedPanel; //de klant info en zijn bestelling in het panel gereed
         private Dictionary<Bevat, Klant> klaargezetteBestellingen;
@@ -35,6 +36,10 @@ namespace ChapooUI
             if (uniekeInstantie == null)
                 uniekeInstantie = new KeukenOverzichtForm();
             return uniekeInstantie;
+        }
+        public void OpenBarOverzicht()
+        {
+            ShowPanel("baroverzicht");
         }
         private KeukenOverzichtForm()
         {
@@ -74,9 +79,10 @@ namespace ChapooUI
             }
         }
 
-        private void BestellingVerwijderen()
+        private void BestellingGereedMeldenDB(int bestelNummer)
         {
-            //code?
+            Bevat_Service bevat_Service = new Bevat_Service();
+            bevat_Service.BestellingGereedZetten(bestelNummer);
         }
 
         private void barOverzichtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,12 +102,12 @@ namespace ChapooUI
                 //verberg alle andere panelen
                 pnl_klaarstaandeBestellingen.Hide();
                 pnl_openstaandeBestellingen.Hide();
-                
+
                 //lb_Opmerkingen.Hide();
                 lbl_openstaandeBestellingenBAR.Hide();
                 //toon juiste panel
                 pnl_barOverzicht.Show();
-                
+
             }
             else if (panelName == "bestellingenGereed")
             {
@@ -113,7 +119,7 @@ namespace ChapooUI
                 //alle klaarstaande bestellingen in een listview opnemen
                 BestellingenGereed();
             }
-            else if(panelName == "openstaandeBestellingen")
+            else if (panelName == "openstaandeBestellingen")
             {
                 //verberg andere panels
                 pnl_klaarstaandeBestellingen.Hide();
@@ -211,7 +217,8 @@ namespace ChapooUI
 
         private void btn_herlaadBestellingen_Click(object sender, EventArgs e)
         {
-            ShowPanel("openstaandeBestellingen");
+            BestellingenVullen();
+            lbl_HuidigeBestelling.Text = "";
         }
 
         private void btn_toonBestelling_Click_1(object sender, EventArgs e)
@@ -251,12 +258,13 @@ namespace ChapooUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);                
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void btn_voorGerechtKlaarzetten_Click_1(object sender, EventArgs e)
         {
+            
             int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].Text);
             foreach (KeyValuePair<Bevat, Klant> duo in klantenInfo)
             {
@@ -265,15 +273,16 @@ namespace ChapooUI
                     Bevat bevat = VulBevat(duo);
                     Klant klant = VulKlant(duo);
                     klaargezetteBestellingen.Add(bevat, klant);
-
+                    Counter++;
                     lbl_Voorgerecht.Text = "";
                 }
             }
-            for (int i = 0; i < bestellingen.Count; i++)
-            {
-                if (bestelNummer == bestellingen[i].bestellingID)
-                    ids.Remove(bestellingen[i]);
-            }
+            //for (int i = 0; i < bestellingen.Count; i++)
+            //{
+            //    if (bestelNummer == bestellingen[i].bestellingID)
+            //        ids.Remove(bestellingen[i]);
+            //}
+            BestellingGereedCheck(bestelNummer);
         }
 
         private void btn_hoofdGerechtKlaarzetten_Click_1(object sender, EventArgs e)
@@ -286,14 +295,16 @@ namespace ChapooUI
                     Bevat bevat = VulBevat(duo);
                     Klant klant = VulKlant(duo);
                     klaargezetteBestellingen.Add(bevat, klant);
+                    Counter++;
                     lbl_Hoofdgerecht.Text = "";
                 }
             }
-            for (int i = 0; i < bestellingen.Count; i++)
-            {
-                if (bestelNummer == bestellingen[i].bestellingID)
-                    ids.Remove(bestellingen[i]);
-            }
+            //for (int i = 0; i < bestellingen.Count; i++)
+            //{
+            //    if (bestelNummer == bestellingen[i].bestellingID)
+            //        ids.Remove(bestellingen[i]);
+            //}
+            BestellingGereedCheck(bestelNummer);
         }
 
         private void btn_naGerechtKlaarzetten_Click_1(object sender, EventArgs e)
@@ -306,13 +317,23 @@ namespace ChapooUI
                     Bevat bevat = VulBevat(duo);
                     Klant klant = VulKlant(duo);
                     klaargezetteBestellingen.Add(bevat, klant);
+                    Counter++;
                     lbl_Nagerecht.Text = "";
                 }
             }
-            for (int i = 0; i < bestellingen.Count; i++)
+            //for (int i = 0; i < bestellingen.Count; i++)
+            //{
+            //    if (bestelNummer == bestellingen[i].bestellingID)
+            //        ids.Remove(bestellingen[i]);
+            //}
+            BestellingGereedCheck(bestelNummer);
+        }
+        private void BestellingGereedCheck(int bestelNummer)
+        {
+            if (klantenInfo.Count == Counter)
             {
-                if (bestelNummer == bestellingen[i].bestellingID)
-                    ids.Remove(bestellingen[i]);
+                BestellingGereedMeldenDB(bestelNummer);
+                Counter = 0;
             }
         }
 
@@ -335,7 +356,7 @@ namespace ChapooUI
         {
             ShowPanel("baroverzicht");
         }
-        
+
         private void MS_KO_Click(object sender, EventArgs e)
         {
             ShowPanel("openstaandeBestellingen");

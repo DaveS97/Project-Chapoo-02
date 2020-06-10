@@ -39,8 +39,8 @@
             this.MS1I_Voorraad = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_MenuKaartOpties = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Werknemers = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbl_Welkom = new System.Windows.Forms.Label();
             this.afmeldenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_Welkom = new System.Windows.Forms.Label();
             this.MS1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,6 +94,7 @@
             this.MS_BO.Name = "MS_BO";
             this.MS_BO.Size = new System.Drawing.Size(111, 24);
             this.MS_BO.Text = "Bar Overzicht";
+            this.MS_BO.Click += new System.EventHandler(this.MS_BO_Click);
             // 
             // MS_KO
             // 
@@ -143,6 +144,14 @@
             this.MS1I_Werknemers.Text = "Werknemers";
             this.MS1I_Werknemers.Click += new System.EventHandler(this.MS1I_Werknemers_Click);
             // 
+            // afmeldenToolStripMenuItem
+            // 
+            this.afmeldenToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.afmeldenToolStripMenuItem.Name = "afmeldenToolStripMenuItem";
+            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.afmeldenToolStripMenuItem.Text = "afmelden";
+            this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
+            // 
             // lbl_Welkom
             // 
             this.lbl_Welkom.AutoSize = true;
@@ -152,14 +161,6 @@
             this.lbl_Welkom.Size = new System.Drawing.Size(635, 31);
             this.lbl_Welkom.TabIndex = 1;
             this.lbl_Welkom.Text = "Welkom bij het restaurant bestelsysteem van Chapoo.";
-            // 
-            // afmeldenToolStripMenuItem
-            // 
-            this.afmeldenToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.afmeldenToolStripMenuItem.Name = "afmeldenToolStripMenuItem";
-            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
-            this.afmeldenToolStripMenuItem.Text = "afmelden";
-            this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
             // 
             // Chapoo
             // 

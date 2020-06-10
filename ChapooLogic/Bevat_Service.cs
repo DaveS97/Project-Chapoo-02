@@ -31,6 +31,18 @@ namespace ChapooLogic
             }
         }
 
+        public void BestellingGereedZetten(int bestelNummer)
+        {
+            try
+            {
+                bevat_DAO.Bestelling_Gereed_Zetten(bestelNummer);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+            }
+        }
+
         public Dictionary<Bevat, Klant> KrijgBeschrijving(string bestellingID)
         {
             try

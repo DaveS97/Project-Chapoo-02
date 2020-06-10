@@ -72,5 +72,13 @@ namespace ChapooUI
             AfmeldenForm form = new AfmeldenForm();
             form.Show();
         }
+
+        private void MS_BO_Click(object sender, EventArgs e)
+        {
+            KeukenOverzichtForm keukenOverzicht = KeukenOverzichtForm.GetInstance();
+            keukenOverzicht.OpenBarOverzicht();
+            keukenOverzicht.ShowDialog();
+            
+        }
     }
 }
