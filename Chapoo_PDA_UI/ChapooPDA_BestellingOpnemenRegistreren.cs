@@ -22,6 +22,8 @@ namespace Chapoo_PDA_UI
         private List<ChapooModel.MenuItem> items = new List<ChapooModel.MenuItem>();
         public List<ChapooModel.MenuItem> itemsUitDatabase = new List<ChapooModel.MenuItem>();
         private ChapooModel.Bestelling bestelling = new ChapooModel.Bestelling();
+        private int teller = 0;
+
 
         public ChapooPDA_BestellingOpnemenRegistreren(int tafelnummer)
         {
@@ -52,6 +54,7 @@ namespace Chapoo_PDA_UI
             MenuItem_Service service = new MenuItem_Service();
             items.Clear();
             ddMenuItems.Items.Clear();
+            tbAantal.Text = "1";
 
             if (rbVoorgerecht.Checked)
             {
@@ -100,6 +103,8 @@ namespace Chapoo_PDA_UI
             btnOverzicht.Enabled = true;
             ChapooModel.MenuItem item = GetItem();
             itemsUitDatabase.Add(item);
+            MessageBox.Show($"{item.Beschrijving} is {aantal} keer toegevoegd");
+            teller++;
         }
 
         private ChapooModel.MenuItem GetItem()

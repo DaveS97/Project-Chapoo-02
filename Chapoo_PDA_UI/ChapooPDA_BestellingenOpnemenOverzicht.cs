@@ -14,7 +14,7 @@ namespace Chapoo_PDA_UI
     public partial class ChapooPDA_BestellingenOpnemenOverzicht : Form
     {
         private List<ChapooModel.MenuItem> items, voorgerechten, hoofdgerechten, nagerechten, dranken;
-        private List<int> aantallen;
+        private List<int> aantallen = new List<int>();
         private int tafelnummer;
         
         public ChapooPDA_BestellingenOpnemenOverzicht(List<ChapooModel.MenuItem> items, int tafelnummer, List<int> aantallen)
@@ -50,7 +50,6 @@ namespace Chapoo_PDA_UI
             }
 
             items.Clear();
-            aantallen.Clear();
         }
 
         //splits de megekregen lijst van menu items op per type gerecht
@@ -88,52 +87,57 @@ namespace Chapoo_PDA_UI
         //vul de listviews voor het overzicht zodat de volledige bestelling zichtbaar is
         private void VulListViews()
         {
+            int teller = 0;
             lvVoorgerechten.Columns.Add("beschrijving", 100);
             lvVoorgerechten.Columns.Add("prijs", 10);
-            lvVoorgerechten.Columns.Add("Aantal", 2);
+            lvVoorgerechten.Columns.Add("Aantal", 20);
 
             foreach (ChapooModel.MenuItem item in voorgerechten)
             {
                 ListViewItem i = new ListViewItem(item.Beschrijving);
                 i.SubItems.Add("€" + item.Prijs.ToString());
-
+                i.SubItems.Add(aantallen[teller].ToString());
                 lvVoorgerechten.Items.Add(i);
+                teller++;
             }
             lvVoorgerechten.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
             lvHoofdgerechten.Columns.Add("beschrijving", 100);
             lvHoofdgerechten.Columns.Add("prijs", 10);
-            lvHoofdgerechten.Columns.Add("Aantal", 2);
+            lvHoofdgerechten.Columns.Add("Aantal", 20);
             foreach (ChapooModel.MenuItem item in hoofdgerechten)
             {
                 ListViewItem i = new ListViewItem(item.Beschrijving);
                 i.SubItems.Add("€" + item.Prijs.ToString());
-
+                i.SubItems.Add(aantallen[teller].ToString());
                 lvHoofdgerechten.Items.Add(i);
+                teller++;
             }
             lvHoofdgerechten.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
             lvNagerechten.Columns.Add("beschrijving", 100);
             lvNagerechten.Columns.Add("prijs", 10);
-            lvNagerechten.Columns.Add("Aantal", 2);
-            foreach (ChapooModel.MenuItem item in hoofdgerechten)
+            lvNagerechten.Columns.Add("Aantal", 20);
+            foreach (ChapooModel.MenuItem item in nagerechten)
             {
                 ListViewItem i = new ListViewItem(item.Beschrijving);
                 i.SubItems.Add("€" + item.Prijs.ToString());
-
+                i.SubItems.Add(aantallen[teller].ToString());
                 lvNagerechten.Items.Add(i);
+                teller++;
             }
             lvNagerechten.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
             lvDranken.Columns.Add("beschrijving", 100);
             lvDranken.Columns.Add("prijs", 10);
-            lvDranken.Columns.Add("Aantal", 2);
-            foreach (ChapooModel.MenuItem item in hoofdgerechten)
+            lvDranken.Columns.Add("Aantal", 20);
+            foreach (ChapooModel.MenuItem item in dranken)
             {
                 ListViewItem i = new ListViewItem(item.Beschrijving);
                 i.SubItems.Add("€" + item.Prijs.ToString());
-
+                i.SubItems.Add(aantallen[teller].ToString());
                 lvDranken.Items.Add(i);
+                teller++;
             }
             lvDranken.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
