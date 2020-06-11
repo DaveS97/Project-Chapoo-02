@@ -281,6 +281,11 @@ namespace ChapooUI
             lv_Bestellingen.Refresh();
         }
 
+        private void lv_klaarstaandebestellingen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void KeukenOverzichtForm_Load(object sender, EventArgs e)
         {
 

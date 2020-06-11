@@ -1,6 +1,6 @@
 ﻿namespace ChapooUI
 {
-    partial class Chapoo
+    partial class RestaurantOverzichtForm
     {
         /// <summary>
         /// Required designer variable.
@@ -40,8 +40,7 @@
             this.MS1I_MenuKaartOpties = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Werknemers = new System.Windows.Forms.ToolStripMenuItem();
             this.afmeldenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbl_Welkom = new System.Windows.Forms.Label();
-            this.openPDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.MS1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,15 +55,13 @@
             this.MS_BO,
             this.MS_KO,
             this.MS_Beheer,
-            this.afmeldenToolStripMenuItem,
-            this.openPDAToolStripMenuItem});
+            this.afmeldenToolStripMenuItem});
             this.MS1.Location = new System.Drawing.Point(0, 0);
             this.MS1.Name = "MS1";
             this.MS1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.MS1.Size = new System.Drawing.Size(779, 24);
-            this.MS1.TabIndex = 0;
+            this.MS1.Size = new System.Drawing.Size(1045, 24);
+            this.MS1.TabIndex = 1;
             this.MS1.Text = "menuStrip1";
-            this.MS1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MS1_ItemClicked);
             // 
             // HomeToolStripMenuItem
             // 
@@ -75,14 +72,12 @@
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
             this.HomeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.HomeToolStripMenuItem.Text = "Home";
-            this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
             // MS1I_Home
             // 
             this.MS1I_Home.Name = "MS1I_Home";
             this.MS1I_Home.Size = new System.Drawing.Size(107, 22);
             this.MS1I_Home.Text = "Home";
-            this.MS1I_Home.Click += new System.EventHandler(this.MS1I_Home_Click);
             // 
             // MS_RO
             // 
@@ -91,7 +86,6 @@
             this.MS_RO.Name = "MS_RO";
             this.MS_RO.Size = new System.Drawing.Size(128, 20);
             this.MS_RO.Text = "Restaurant Overzicht";
-            this.MS_RO.Click += new System.EventHandler(this.MS_RO_Click);
             // 
             // MS_BO
             // 
@@ -106,7 +100,6 @@
             this.MS_KO.Name = "MS_KO";
             this.MS_KO.Size = new System.Drawing.Size(111, 20);
             this.MS_KO.Text = "Keuken Overzicht";
-            this.MS_KO.Click += new System.EventHandler(this.MS_KO_Click);
             // 
             // MS_Beheer
             // 
@@ -125,28 +118,24 @@
             this.MS1I_Inkomsten.Name = "MS1I_Inkomsten";
             this.MS1I_Inkomsten.Size = new System.Drawing.Size(192, 22);
             this.MS1I_Inkomsten.Text = "Inkomsten";
-            this.MS1I_Inkomsten.Click += new System.EventHandler(this.MS1I_Inkomsten_Click);
             // 
             // MS1I_Voorraad
             // 
             this.MS1I_Voorraad.Name = "MS1I_Voorraad";
             this.MS1I_Voorraad.Size = new System.Drawing.Size(192, 22);
             this.MS1I_Voorraad.Text = "Voorraad";
-            this.MS1I_Voorraad.Click += new System.EventHandler(this.MS1I_Voorraad_Click);
             // 
             // MS1I_MenuKaartOpties
             // 
             this.MS1I_MenuKaartOpties.Name = "MS1I_MenuKaartOpties";
             this.MS1I_MenuKaartOpties.Size = new System.Drawing.Size(192, 22);
             this.MS1I_MenuKaartOpties.Text = "Menu kaart aanpassen";
-            this.MS1I_MenuKaartOpties.Click += new System.EventHandler(this.MS1I_MenuKaartOpties_Click);
             // 
             // MS1I_Werknemers
             // 
             this.MS1I_Werknemers.Name = "MS1I_Werknemers";
             this.MS1I_Werknemers.Size = new System.Drawing.Size(192, 22);
             this.MS1I_Werknemers.Text = "Werknemers";
-            this.MS1I_Werknemers.Click += new System.EventHandler(this.MS1I_Werknemers_Click);
             // 
             // afmeldenToolStripMenuItem
             // 
@@ -154,41 +143,26 @@
             this.afmeldenToolStripMenuItem.Name = "afmeldenToolStripMenuItem";
             this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.afmeldenToolStripMenuItem.Text = "afmelden";
-            this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
             // 
-            // lbl_Welkom
+            // listView1
             // 
-            this.lbl_Welkom.AutoSize = true;
-            this.lbl_Welkom.Font = new System.Drawing.Font("MV Boli", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Welkom.Location = new System.Drawing.Point(140, 186);
-            this.lbl_Welkom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_Welkom.Name = "lbl_Welkom";
-            this.lbl_Welkom.Size = new System.Drawing.Size(493, 25);
-            this.lbl_Welkom.TabIndex = 1;
-            this.lbl_Welkom.Text = "Welkom bij het restaurant bestelsysteem van Chapoo.";
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(12, 38);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(456, 493);
+            this.listView1.TabIndex = 2;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // openPDAToolStripMenuItem
-            // 
-            this.openPDAToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.openPDAToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.openPDAToolStripMenuItem.Name = "openPDAToolStripMenuItem";
-            this.openPDAToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
-            this.openPDAToolStripMenuItem.Text = "open PDA";
-            this.openPDAToolStripMenuItem.Click += new System.EventHandler(this.openPDAToolStripMenuItem_Click);
-            // 
-            // Chapoo
+            // RestaurantOverzichtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(779, 447);
-            this.Controls.Add(this.lbl_Welkom);
+            this.ClientSize = new System.Drawing.Size(1045, 543);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.MS1);
-            this.ForeColor = System.Drawing.Color.Black;
-            this.MainMenuStrip = this.MS1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Chapoo";
-            this.Text = "Chapoo";
+            this.Name = "RestaurantOverzichtForm";
+            this.Text = "RestaurantOverzichtForm";
             this.MS1.ResumeLayout(false);
             this.MS1.PerformLayout();
             this.ResumeLayout(false);
@@ -200,9 +174,8 @@
 
         private System.Windows.Forms.MenuStrip MS1;
         private System.Windows.Forms.ToolStripMenuItem HomeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem MS_RO;
         private System.Windows.Forms.ToolStripMenuItem MS1I_Home;
-        private System.Windows.Forms.Label lbl_Welkom;
+        private System.Windows.Forms.ToolStripMenuItem MS_RO;
         private System.Windows.Forms.ToolStripMenuItem MS_BO;
         private System.Windows.Forms.ToolStripMenuItem MS_KO;
         private System.Windows.Forms.ToolStripMenuItem MS_Beheer;
@@ -211,7 +184,6 @@
         private System.Windows.Forms.ToolStripMenuItem MS1I_MenuKaartOpties;
         private System.Windows.Forms.ToolStripMenuItem MS1I_Werknemers;
         private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openPDAToolStripMenuItem;
+        private System.Windows.Forms.ListView listView1;
     }
 }
-
