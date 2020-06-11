@@ -16,6 +16,7 @@ namespace Chapoo_PDA_UI
         private List<ChapooModel.MenuItem> items, voorgerechten, hoofdgerechten, nagerechten, dranken;
         private List<int> aantallen = new List<int>();
         private int tafelnummer;
+        private ChapooModel.Klant klant = new ChapooModel.Klant();
         
         public ChapooPDA_BestellingenOpnemenOverzicht(List<ChapooModel.MenuItem> items, int tafelnummer, List<int> aantallen)
         {
@@ -38,18 +39,33 @@ namespace Chapoo_PDA_UI
             VulListViews();
         }
         
-        /* verstuur de lijst van menu items door naar de keuken/bar
-         * verlaag de voorraad van het artikel en maak de lijsten leeg */
+        //verstuur de lijst van menu items door naar de keuken/bar en maak de lijsten leeg */
         private void btnVerstuur_Click(object sender, EventArgs e)
         {
-            Voorraad_Service service = new Voorraad_Service();
+            Bevat_Service bevat_Service = new Bevat_Service();
+            VerlaagVoorraadAantal();
+            SchrijfBestellingNaarDatabase();
+           
+            items.Clear();
+        }
 
+        //verlaag de voorraad van het artikel
+        private void VerlaagVoorraadAantal()
+        {
+            Voorraad_Service voorraad_Service = new Voorraad_Service();
             for (int i = 0; i < items.Count; i++)
             {
-                service.Write_To_DB_Set_Nieuw_Aantal(items[i].ID, aantallen[i]);
+                voorraad_Service.Write_To_DB_Set_Nieuw_Aantal(items[i].ID, aantallen[i]);
             }
+        }
 
-            items.Clear();
+        //schrijf de bestelling uit naar de database om verwerkt te kunnen worden bij bar/keuken
+        private void SchrijfBestellingNaarDatabase()
+        {
+            Bestelling_Service bestelling_Service = new Bestelling_Service();
+            Klant_Service klant_Service = new Klant_Service();
+
+            klant = klant_Service.KrijgKlantUitTafelID(tafelnummer)[0];
         }
 
         //splits de megekregen lijst van menu items op per type gerecht

@@ -32,5 +32,23 @@ namespace ChapooLogic
                 return klanten;
             }
         }
+
+        public List<Klant> KrijgKlantUitTafelID(int tafelID)
+        {
+            try
+            {
+                List<Klant> klant = klant_DAO.DB_Krijg_Klant_Uit_TafelID(tafelID);
+                return klant;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                List<Klant> klanten = new List<Klant>();
+                Klant klant1 = new Klant();
+                klant1.ID = 1;
+                klanten.Add(klant1);
+                return klanten;
+            }
+        }
     }
 }
