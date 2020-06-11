@@ -40,6 +40,9 @@
             this.MS1I_MenuKaartOpties = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Werknemers = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_klaarstaandeBestellingen = new System.Windows.Forms.Panel();
+            this.btn_NagerechtOngereedZetten = new System.Windows.Forms.Button();
+            this.btn_HoofdgerechtOngereedZetten = new System.Windows.Forms.Button();
+            this.btn_VoorgerechtOngereedZetten = new System.Windows.Forms.Button();
             this.lbl_keukenOverzichtGEREED = new System.Windows.Forms.Label();
             this.lbl_huidigeBestellingGEREED = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -72,13 +75,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_KeukenOverzicht = new System.Windows.Forms.Label();
             this.pnl_barOverzicht = new System.Windows.Forms.Panel();
+            this.btn_toonBestellingBAR = new System.Windows.Forms.Button();
             this.lbl_openstaandeBestellingenBAR = new System.Windows.Forms.Label();
             this.lv_drankjes = new System.Windows.Forms.ListView();
             this.label7 = new System.Windows.Forms.Label();
-            this.btn_toonBestellingBAR = new System.Windows.Forms.Button();
-            this.btn_VoorgerechtOngereedZetten = new System.Windows.Forms.Button();
-            this.btn_HoofdgerechtOngereedZetten = new System.Windows.Forms.Button();
-            this.btn_NagerechtOngereedZetten = new System.Windows.Forms.Button();
             this.MS1.SuspendLayout();
             this.pnl_klaarstaandeBestellingen.SuspendLayout();
             this.pnl_openstaandeBestellingen.SuspendLayout();
@@ -199,6 +199,33 @@
             this.pnl_klaarstaandeBestellingen.Name = "pnl_klaarstaandeBestellingen";
             this.pnl_klaarstaandeBestellingen.Size = new System.Drawing.Size(1039, 518);
             this.pnl_klaarstaandeBestellingen.TabIndex = 23;
+            // 
+            // btn_NagerechtOngereedZetten
+            // 
+            this.btn_NagerechtOngereedZetten.Location = new System.Drawing.Point(906, 457);
+            this.btn_NagerechtOngereedZetten.Name = "btn_NagerechtOngereedZetten";
+            this.btn_NagerechtOngereedZetten.Size = new System.Drawing.Size(127, 49);
+            this.btn_NagerechtOngereedZetten.TabIndex = 54;
+            this.btn_NagerechtOngereedZetten.Text = "Nagerecht ongereed zetten";
+            this.btn_NagerechtOngereedZetten.UseVisualStyleBackColor = true;
+            // 
+            // btn_HoofdgerechtOngereedZetten
+            // 
+            this.btn_HoofdgerechtOngereedZetten.Location = new System.Drawing.Point(756, 458);
+            this.btn_HoofdgerechtOngereedZetten.Name = "btn_HoofdgerechtOngereedZetten";
+            this.btn_HoofdgerechtOngereedZetten.Size = new System.Drawing.Size(127, 49);
+            this.btn_HoofdgerechtOngereedZetten.TabIndex = 53;
+            this.btn_HoofdgerechtOngereedZetten.Text = "Hoofdgerecht ongereed zetten";
+            this.btn_HoofdgerechtOngereedZetten.UseVisualStyleBackColor = true;
+            // 
+            // btn_VoorgerechtOngereedZetten
+            // 
+            this.btn_VoorgerechtOngereedZetten.Location = new System.Drawing.Point(601, 457);
+            this.btn_VoorgerechtOngereedZetten.Name = "btn_VoorgerechtOngereedZetten";
+            this.btn_VoorgerechtOngereedZetten.Size = new System.Drawing.Size(127, 49);
+            this.btn_VoorgerechtOngereedZetten.TabIndex = 52;
+            this.btn_VoorgerechtOngereedZetten.Text = "Voorgerecht ongereed zetten\r\n\r\n";
+            this.btn_VoorgerechtOngereedZetten.UseVisualStyleBackColor = true;
             // 
             // lbl_keukenOverzichtGEREED
             // 
@@ -543,6 +570,16 @@
             this.pnl_barOverzicht.Size = new System.Drawing.Size(1039, 518);
             this.pnl_barOverzicht.TabIndex = 31;
             // 
+            // btn_toonBestellingBAR
+            // 
+            this.btn_toonBestellingBAR.Location = new System.Drawing.Point(55, 457);
+            this.btn_toonBestellingBAR.Name = "btn_toonBestellingBAR";
+            this.btn_toonBestellingBAR.Size = new System.Drawing.Size(104, 49);
+            this.btn_toonBestellingBAR.TabIndex = 40;
+            this.btn_toonBestellingBAR.Text = "Toon bestelling";
+            this.btn_toonBestellingBAR.UseVisualStyleBackColor = true;
+            this.btn_toonBestellingBAR.Click += new System.EventHandler(this.btn_toonBestellingBAR_Click);
+            // 
             // lbl_openstaandeBestellingenBAR
             // 
             this.lbl_openstaandeBestellingenBAR.AutoSize = true;
@@ -574,43 +611,6 @@
             this.label7.Size = new System.Drawing.Size(162, 24);
             this.label7.TabIndex = 4;
             this.label7.Text = "BAR OVERZICHT";
-            // 
-            // btn_toonBestellingBAR
-            // 
-            this.btn_toonBestellingBAR.Location = new System.Drawing.Point(55, 457);
-            this.btn_toonBestellingBAR.Name = "btn_toonBestellingBAR";
-            this.btn_toonBestellingBAR.Size = new System.Drawing.Size(104, 49);
-            this.btn_toonBestellingBAR.TabIndex = 40;
-            this.btn_toonBestellingBAR.Text = "Toon bestelling";
-            this.btn_toonBestellingBAR.UseVisualStyleBackColor = true;
-            this.btn_toonBestellingBAR.Click += new System.EventHandler(this.btn_toonBestellingBAR_Click);
-            // 
-            // btn_VoorgerechtOngereedZetten
-            // 
-            this.btn_VoorgerechtOngereedZetten.Location = new System.Drawing.Point(601, 457);
-            this.btn_VoorgerechtOngereedZetten.Name = "btn_VoorgerechtOngereedZetten";
-            this.btn_VoorgerechtOngereedZetten.Size = new System.Drawing.Size(127, 49);
-            this.btn_VoorgerechtOngereedZetten.TabIndex = 52;
-            this.btn_VoorgerechtOngereedZetten.Text = "Voorgerecht ongereed zetten\r\n\r\n";
-            this.btn_VoorgerechtOngereedZetten.UseVisualStyleBackColor = true;
-            // 
-            // btn_HoofdgerechtOngereedZetten
-            // 
-            this.btn_HoofdgerechtOngereedZetten.Location = new System.Drawing.Point(756, 458);
-            this.btn_HoofdgerechtOngereedZetten.Name = "btn_HoofdgerechtOngereedZetten";
-            this.btn_HoofdgerechtOngereedZetten.Size = new System.Drawing.Size(127, 49);
-            this.btn_HoofdgerechtOngereedZetten.TabIndex = 53;
-            this.btn_HoofdgerechtOngereedZetten.Text = "Hoofdgerecht ongereed zetten";
-            this.btn_HoofdgerechtOngereedZetten.UseVisualStyleBackColor = true;
-            // 
-            // btn_NagerechtOngereedZetten
-            // 
-            this.btn_NagerechtOngereedZetten.Location = new System.Drawing.Point(906, 457);
-            this.btn_NagerechtOngereedZetten.Name = "btn_NagerechtOngereedZetten";
-            this.btn_NagerechtOngereedZetten.Size = new System.Drawing.Size(127, 49);
-            this.btn_NagerechtOngereedZetten.TabIndex = 54;
-            this.btn_NagerechtOngereedZetten.Text = "Nagerecht ongereed zetten";
-            this.btn_NagerechtOngereedZetten.UseVisualStyleBackColor = true;
             // 
             // KeukenOverzichtForm
             // 

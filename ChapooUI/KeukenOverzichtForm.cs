@@ -59,6 +59,7 @@ namespace ChapooUI
             BarOverzicht();
         }
 
+        //onderstaand methode vult lvbestellingen door bestellingen uit db te halen
         private void BestellingenVullen()
         {
             ShowPanel("openstaandeBestellingen");
@@ -81,22 +82,26 @@ namespace ChapooUI
             }
         }
 
+        //onderstaande methode zet de bestelling in de database op gereed
         private void BestellingGereedMeldenDB(int bestelNummer)
         {
             Bevat_Service bevat_Service = new Bevat_Service();
             bevat_Service.BestellingGereedZetten(bestelNummer);
         }
 
+        //tbc
         private void barOverzichtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowPanel("baroverzicht");
         }
 
+        //onderstaand methode toont openstaande bestellingen panel
         private void btn_naarBestellingenOpenstaand_Click(object sender, EventArgs e)
         {
             ShowPanel("openstaandeBestellingen");
         }
 
+        //onderstaande methode laat een panel zien
         private void ShowPanel(string panelName)
         {
             if (panelName == "baroverzicht")
@@ -131,6 +136,7 @@ namespace ChapooUI
             }
         }
 
+        //onderstaande methode haalt alle klaarstaande bestellingen op uit de database
         private void BestellingenGereed()
         {
             //bestelling service aanmaken 
@@ -150,6 +156,7 @@ namespace ChapooUI
             }
         }
 
+        //onderstaande methode toont de aangeklikte bestelling uit de listview van de klaarstaande bestellingen
         private void btn_toonBestellingGereedPanel_Click(object sender, EventArgs e)
         {
             try
@@ -191,6 +198,7 @@ namespace ChapooUI
             }
         }
 
+        //onderstaande methode is een vul methode voor bevat class
         private Bevat VulBevat(KeyValuePair<Bevat, Klant> duo)
         {
             Bevat bevat = new Bevat
@@ -203,6 +211,7 @@ namespace ChapooUI
             return bevat;
         }
 
+        //onderstaande methode is een vul methode voor klant class
         private Klant VulKlant(KeyValuePair<Bevat, Klant> duo)
         {
             Klant klant = new Klant
@@ -218,12 +227,14 @@ namespace ChapooUI
             //hier kan ik me gedachten ff uiten
         }
 
+        //onderstaande methode zorgt voor het opnieuw ophalen van openstaande bestellingen uit de db
         private void btn_herlaadBestellingen_Click(object sender, EventArgs e)
         {
             BestellingenVullen();
             lbl_HuidigeBestelling.Text = "";
         }
 
+        //onderstaande methode toont de aangeklikte bestelling uit de listview van de openstaande bestellingen
         private void btn_toonBestelling_Click_1(object sender, EventArgs e)
         {
             try
@@ -265,6 +276,7 @@ namespace ChapooUI
             }
         }
 
+        //onderstaande methode checkt of het een voorgerecht is en zet deze dan klaar
         private void btn_voorGerechtKlaarzetten_Click_1(object sender, EventArgs e)
         {
             
@@ -283,6 +295,7 @@ namespace ChapooUI
             BestellingGereedCheck(bestelNummer);
         }
 
+        //onderstaande methode checkt of het een hoofdgerecht is en zet deze dan klaar
         private void btn_hoofdGerechtKlaarzetten_Click_1(object sender, EventArgs e)
         {
             int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].Text);
@@ -300,6 +313,7 @@ namespace ChapooUI
             BestellingGereedCheck(bestelNummer);
         }
 
+        //onderstaande methode checkt of het een nagerecht is en zet deze dan klaar
         private void btn_naGerechtKlaarzetten_Click_1(object sender, EventArgs e)
         {
             int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].Text);
@@ -316,6 +330,8 @@ namespace ChapooUI
             }
             BestellingGereedCheck(bestelNummer);
         }
+
+        //onderstaande methode checkt eerst of alle gerecht van een bestelling gereed gemeld zijn, zo ja, dan wordt de hele bestelling op klaar gezet
         private void BestellingGereedCheck(int bestelNummer)
         {
             if (klantenInfo.Count == Counter)
@@ -325,6 +341,7 @@ namespace ChapooUI
             }
         }
 
+        //onderstaande methode haalt de openstaande drankjes op uit de db
         private void BarOverzicht()
         {
             //listview legen
@@ -335,6 +352,7 @@ namespace ChapooUI
             //drankjesOpenstaand
         }
 
+        //onderstaande methode filtert naar gereed staande bestellingen
         private void btn_filterNaarGereed_Click_1(object sender, EventArgs e)
         {
             ShowPanel("bestellingenGereed");
