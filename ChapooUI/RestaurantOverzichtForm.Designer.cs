@@ -40,7 +40,7 @@
             this.MS1I_MenuKaartOpties = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Werknemers = new System.Windows.Forms.ToolStripMenuItem();
             this.afmeldenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listview_TafelOverzicht = new System.Windows.Forms.ListView();
             this.MS1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,14 +144,14 @@
             this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.afmeldenToolStripMenuItem.Text = "afmelden";
             // 
-            // listView1
+            // listview_TafelOverzicht
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 38);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(456, 493);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listview_TafelOverzicht.HideSelection = false;
+            this.listview_TafelOverzicht.Location = new System.Drawing.Point(22, 41);
+            this.listview_TafelOverzicht.Name = "listview_TafelOverzicht";
+            this.listview_TafelOverzicht.Size = new System.Drawing.Size(442, 490);
+            this.listview_TafelOverzicht.TabIndex = 2;
+            this.listview_TafelOverzicht.UseCompatibleStateImageBehavior = false;
             // 
             // RestaurantOverzichtForm
             // 
@@ -159,7 +159,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(1045, 543);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listview_TafelOverzicht);
             this.Controls.Add(this.MS1);
             this.Name = "RestaurantOverzichtForm";
             this.Text = "RestaurantOverzichtForm";
@@ -184,6 +184,6 @@
         private System.Windows.Forms.ToolStripMenuItem MS1I_MenuKaartOpties;
         private System.Windows.Forms.ToolStripMenuItem MS1I_Werknemers;
         private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listview_TafelOverzicht;
     }
 }

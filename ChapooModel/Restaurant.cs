@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ChapooModel
 {
-    public class Restaurant
+    public class TafelStatus
     {
         public int tafelNummmer { get; set; } //Tafel ID
         public int bestellingId { get; set; } //Bestelling ID
-        public string bestellingStatus { get; set; } //Bestelling Status
+        public bool bestellingStatus { get; set; } //Bestelling Status
 
     }
 }
