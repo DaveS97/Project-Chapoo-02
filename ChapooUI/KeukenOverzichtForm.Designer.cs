@@ -79,6 +79,9 @@
             this.lbl_openstaandeBestellingenBAR = new System.Windows.Forms.Label();
             this.lv_drankjes = new System.Windows.Forms.ListView();
             this.label7 = new System.Windows.Forms.Label();
+            this.lbl_DrinkBestelling = new System.Windows.Forms.Label();
+            this.btn_FilterNaarGereedBAR = new System.Windows.Forms.Button();
+            this.lb_DrankjesVBestelling = new System.Windows.Forms.ListBox();
             this.MS1.SuspendLayout();
             this.pnl_klaarstaandeBestellingen.SuspendLayout();
             this.pnl_openstaandeBestellingen.SuspendLayout();
@@ -561,13 +564,16 @@
             // 
             // pnl_barOverzicht
             // 
+            this.pnl_barOverzicht.Controls.Add(this.lb_DrankjesVBestelling);
+            this.pnl_barOverzicht.Controls.Add(this.btn_FilterNaarGereedBAR);
+            this.pnl_barOverzicht.Controls.Add(this.lbl_DrinkBestelling);
             this.pnl_barOverzicht.Controls.Add(this.btn_toonBestellingBAR);
             this.pnl_barOverzicht.Controls.Add(this.lbl_openstaandeBestellingenBAR);
             this.pnl_barOverzicht.Controls.Add(this.lv_drankjes);
             this.pnl_barOverzicht.Controls.Add(this.label7);
             this.pnl_barOverzicht.Location = new System.Drawing.Point(0, 31);
             this.pnl_barOverzicht.Name = "pnl_barOverzicht";
-            this.pnl_barOverzicht.Size = new System.Drawing.Size(1039, 518);
+            this.pnl_barOverzicht.Size = new System.Drawing.Size(1039, 515);
             this.pnl_barOverzicht.TabIndex = 31;
             // 
             // btn_toonBestellingBAR
@@ -611,6 +617,36 @@
             this.label7.Size = new System.Drawing.Size(162, 24);
             this.label7.TabIndex = 4;
             this.label7.Text = "BAR OVERZICHT";
+            // 
+            // lbl_DrinkBestelling
+            // 
+            this.lbl_DrinkBestelling.AutoSize = true;
+            this.lbl_DrinkBestelling.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_DrinkBestelling.ForeColor = System.Drawing.Color.White;
+            this.lbl_DrinkBestelling.Location = new System.Drawing.Point(400, 50);
+            this.lbl_DrinkBestelling.Name = "lbl_DrinkBestelling";
+            this.lbl_DrinkBestelling.Size = new System.Drawing.Size(91, 24);
+            this.lbl_DrinkBestelling.TabIndex = 51;
+            this.lbl_DrinkBestelling.Text = "Bestelling";
+            // 
+            // btn_FilterNaarGereedBAR
+            // 
+            this.btn_FilterNaarGereedBAR.Location = new System.Drawing.Point(916, 6);
+            this.btn_FilterNaarGereedBAR.Name = "btn_FilterNaarGereedBAR";
+            this.btn_FilterNaarGereedBAR.Size = new System.Drawing.Size(99, 68);
+            this.btn_FilterNaarGereedBAR.TabIndex = 52;
+            this.btn_FilterNaarGereedBAR.Text = "Filter: Bestellingen gereed\r\n";
+            this.btn_FilterNaarGereedBAR.UseVisualStyleBackColor = true;
+            // 
+            // lb_DrankjesVBestelling
+            // 
+            this.lb_DrankjesVBestelling.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_DrankjesVBestelling.FormattingEnabled = true;
+            this.lb_DrankjesVBestelling.ItemHeight = 16;
+            this.lb_DrankjesVBestelling.Location = new System.Drawing.Point(407, 149);
+            this.lb_DrankjesVBestelling.Name = "lb_DrankjesVBestelling";
+            this.lb_DrankjesVBestelling.Size = new System.Drawing.Size(210, 194);
+            this.lb_DrankjesVBestelling.TabIndex = 53;
             // 
             // KeukenOverzichtForm
             // 
@@ -691,5 +727,8 @@
         private System.Windows.Forms.Button btn_NagerechtOngereedZetten;
         private System.Windows.Forms.Button btn_HoofdgerechtOngereedZetten;
         private System.Windows.Forms.Button btn_VoorgerechtOngereedZetten;
+        private System.Windows.Forms.Button btn_FilterNaarGereedBAR;
+        private System.Windows.Forms.Label lbl_DrinkBestelling;
+        private System.Windows.Forms.ListBox lb_DrankjesVBestelling;
     }
 }

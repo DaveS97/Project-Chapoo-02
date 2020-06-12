@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -14,13 +15,13 @@ namespace ChapooDAL
     {
         public Dictionary<Bevat, Klant> KrijgIDS()
         {
-            string query = "SELECT DISTINCT Be.bestellingID, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE B.is_Gereed = 0;";
+            string query = "SELECT DISTINCT  Be.bestellingID, B.tijdOpname, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE B.is_Gereed = 0;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
         public Dictionary<Bevat, Klant> KrijgIDSGereed()
         {
-            string query = "SELECT DISTINCT Be.bestellingID, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE B.is_Gereed = 1;";
+            string query = "SELECT DISTINCT Be.bestellingID, B.tijdOpname, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE B.is_Gereed = 1;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -43,6 +44,7 @@ namespace ChapooDAL
                 Bevat bevat = new Bevat()
                 {
                     bestellingID = (int)dr["bestellingID"],
+                    tijdOpname = (DateTime)dr["tijdOpname"],
                 };
                 Klant klant = new Klant()
                 {

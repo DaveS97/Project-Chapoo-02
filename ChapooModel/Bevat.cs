@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,5 +14,6 @@ namespace ChapooModel
         public string menuItemBeschrijving { get; set; }
         public int typeGerecht { get; set; }
         public bool is_Gereed { get; set; }
+        public DateTime tijdOpname { get; set; }
     }
 }

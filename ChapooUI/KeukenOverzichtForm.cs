@@ -69,17 +69,20 @@ namespace ChapooUI
             //leeg de kolommen eerst voordat je ze weer vult
             lv_Bestellingen.Clear();
             //maak kolommen
-            lv_Bestellingen.Columns.Add("Bestelling Id", 100);
-            lv_Bestellingen.Columns.Add("Tafel Id", 75);
+            lv_Bestellingen.Columns.Add("Bestelling Id");
+            lv_Bestellingen.Columns.Add("Tafel Id");
+            lv_Bestellingen.Columns.Add("Tijd van opname");
             //vul de listview
             foreach (KeyValuePair<Bevat, Klant> pair in ids)
             {
                 ListViewItem li = new ListViewItem(pair.Key.bestellingID.ToString());
                 li.SubItems.Add(pair.Value.tafelID.ToString());
+                li.SubItems.Add(pair.Key.tijdOpname.ToString());
                 lv_Bestellingen.Items.Add(li);
                 bestellingen.Add(pair.Key);
                 klanten.Add(pair.Value);
             }
+            lv_Bestellingen.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         //onderstaande methode zet de bestelling in de database op gereed
@@ -145,12 +148,14 @@ namespace ChapooUI
             //eerst de listview legen.
             lv_klaarstaandebestellingen.Clear();
             //kolommen toevoegen
+            lv_klaarstaandebestellingen.Columns.Add("Tijd van opname", 75);
             lv_klaarstaandebestellingen.Columns.Add("Bestelling Id", 100);
             lv_klaarstaandebestellingen.Columns.Add("Tafel Id", 100);
             //vul de listview
             foreach (KeyValuePair<Bevat, Klant> pair in idsGereed)
             {
-                ListViewItem li = new ListViewItem(pair.Key.bestellingID.ToString());
+                ListViewItem li = new ListViewItem(pair.Key.tijdOpname.ToString());
+                li.SubItems.Add(pair.Key.bestellingID.ToString());
                 li.SubItems.Add(pair.Value.tafelID.ToString());
                 lv_klaarstaandebestellingen.Items.Add(li);
             }
@@ -346,9 +351,13 @@ namespace ChapooUI
         {
             //listview legen
             lv_drankjes.Items.Clear();
+            //kolommen toevoegen
             lv_drankjes.Columns.Add("Bestelling Id", 75);
             lv_drankjes.Columns.Add("Tafel Id", 75);
-
+            lv_drankjes.Columns.Add("Tijd van opname", 75);
+            lb_DrankjesVBestelling.AutoSize = true;
+            Bevat_Service bevat_service = new Bevat_Service();
+            listbevat_service.KrijgDrankjes();
             //drankjesOpenstaand
         }
 
