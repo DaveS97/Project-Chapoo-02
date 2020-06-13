@@ -1,4 +1,5 @@
 ﻿using ChapooLogic;
+using ChapooModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace Chapoo_PDA_UI
     {
         private int tafelnummer;
         private int aantal = 1;
+        private int minimumAantal = 5;
         private string commentaar = "";
         private string beschrijving = "";
         private List<int> aantallen = new List<int>();
@@ -96,6 +98,7 @@ namespace Chapoo_PDA_UI
         
         private void btnVoegItemToe_Click(object sender, EventArgs e)
         {
+            Voorraad_Service service = new Voorraad_Service();
             beschrijving = ddMenuItems.Text;
             aantal = int.Parse(tbAantal.Text);
             aantallen.Add(aantal);
@@ -103,6 +106,16 @@ namespace Chapoo_PDA_UI
             btnOverzicht.Enabled = true;
             ChapooModel.MenuItem item = GetItem();
             itemsUitDatabase.Add(item);
+
+            Voorraad voorraadItem = service.GetVoorraadVanID(item.ID)[0];
+
+            if(voorraadItem.aantal - aantal <= minimumAantal)
+            {
+                MessageBox.Show($"Let op! {item.Beschrijving} heeft bijna geen voorraad over! Neem contact op met de voorraadbeheerder.");
+            } else if(voorraadItem.aantal - aantal <= 0)
+            {
+                MessageBox.Show($"{item.Beschrijving} heeft geen voorraad over! Neem contact op met de voorraadbeheerder.");
+            }
             MessageBox.Show($"{item.Beschrijving} is {aantal} keer toegevoegd");
             teller++;
         }
