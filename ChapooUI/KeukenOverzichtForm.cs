@@ -21,17 +21,20 @@ namespace ChapooUI
         const int DRINKEN = 5;
         private int Counter = 0;
         private Dictionary<Bevat, Klant> klantenInfo; //de klant info en zijn bestelling
+        private Dictionary<Bevat, Klant> DrinkInfo; // de klant info en zijn drinken
         private Dictionary<Bevat, Klant> klantenInfoGereedPanel; //de klant info en zijn bestelling in het panel gereed
         private Dictionary<Bevat, Klant> klaargezetteBestellingen;
+        private Dictionary<Bevat, Klant> KlaargezetteDrankjes;
         private Dictionary<Bevat, Klant> ids; //info klant en bestellingen
         private Dictionary<Bevat, Klant> idsGereed; // info klant en bestellingen van klaarstaande bestellingen
         private Dictionary<Bevat, Klant> drankjesOpenstaand; // info klant en drankjes
-        private List<Klant> drankjesVanKlant;
+        private Dictionary<Bevat, Klant> drankjesVanKlant; // info klant en drankjes
         private List<Bevat> drankjes;
         private List<Klant> klanten; //klanten 
         private List<Bevat> bestellingen; // bestellingen
 
         private static KeukenOverzichtForm uniekeInstantie;
+
         public static KeukenOverzichtForm GetInstance()
         {
             if (uniekeInstantie == null)
@@ -52,8 +55,10 @@ namespace ChapooUI
             ids = new Dictionary<Bevat, Klant>();
             idsGereed = new Dictionary<Bevat, Klant>();
             drankjesOpenstaand = new Dictionary<Bevat, Klant>();
-            drankjesVanKlant = new List<Klant>();
+            drankjesVanKlant = new Dictionary<Bevat, Klant>();
             drankjes = new List<Bevat>();
+            DrinkInfo = new Dictionary<Bevat, Klant>();
+            KlaargezetteDrankjes = new Dictionary<Bevat, Klant>();
             InitializeComponent();
             BestellingenVullen();
             BarOverzicht();
@@ -69,20 +74,22 @@ namespace ChapooUI
             //leeg de kolommen eerst voordat je ze weer vult
             lv_Bestellingen.Clear();
             //maak kolommen
+            lv_Bestellingen.Columns.Add("Tijd van opname");
             lv_Bestellingen.Columns.Add("Bestelling Id");
             lv_Bestellingen.Columns.Add("Tafel Id");
-            lv_Bestellingen.Columns.Add("Tijd van opname");
             //vul de listview
             foreach (KeyValuePair<Bevat, Klant> pair in ids)
             {
-                ListViewItem li = new ListViewItem(pair.Key.bestellingID.ToString());
+                ListViewItem li = new ListViewItem(pair.Key.tijdOpname.ToString());
+                li.SubItems.Add(pair.Key.bestellingID.ToString());
                 li.SubItems.Add(pair.Value.tafelID.ToString());
-                li.SubItems.Add(pair.Key.tijdOpname.ToString());
                 lv_Bestellingen.Items.Add(li);
                 bestellingen.Add(pair.Key);
                 klanten.Add(pair.Value);
             }
             lv_Bestellingen.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lv_Bestellingen.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
         }
 
         //onderstaande methode zet de bestelling in de database op gereed
@@ -112,9 +119,8 @@ namespace ChapooUI
                 //verberg alle andere panelen
                 pnl_klaarstaandeBestellingen.Hide();
                 pnl_openstaandeBestellingen.Hide();
+                pnl_baroverzichtKlaar.Hide();
 
-                //lb_Opmerkingen.Hide();
-                lbl_openstaandeBestellingenBAR.Hide();
                 //toon juiste panel
                 pnl_barOverzicht.Show();
 
@@ -124,6 +130,7 @@ namespace ChapooUI
                 //verberg alle andere panelen
                 pnl_barOverzicht.Hide();
                 pnl_openstaandeBestellingen.Hide();
+                pnl_baroverzichtKlaar.Hide();
                 //toon de juiste panel
                 pnl_klaarstaandeBestellingen.Show();
                 //alle klaarstaande bestellingen in een listview opnemen
@@ -134,8 +141,19 @@ namespace ChapooUI
                 //verberg andere panels
                 pnl_klaarstaandeBestellingen.Hide();
                 pnl_barOverzicht.Hide();
+                pnl_baroverzichtKlaar.Hide();
                 //toon de goede
                 pnl_openstaandeBestellingen.Show();
+            }
+            else if (panelName == "baroverzichtKlaar")
+            {
+                //verberg alle andere panels.
+                pnl_barOverzicht.Hide();
+                pnl_klaarstaandeBestellingen.Hide();
+                pnl_openstaandeBestellingen.Hide();
+                //toon de juiste panel
+                pnl_baroverzichtKlaar.Show();
+                BarOverzichtKlaar();
             }
         }
 
@@ -159,6 +177,8 @@ namespace ChapooUI
                 li.SubItems.Add(pair.Value.tafelID.ToString());
                 lv_klaarstaandebestellingen.Items.Add(li);
             }
+            lv_klaarstaandebestellingen.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lv_klaarstaandebestellingen.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         //onderstaande methode toont de aangeklikte bestelling uit de listview van de klaarstaande bestellingen
@@ -173,7 +193,7 @@ namespace ChapooUI
                 lbl_huidigeBestellingGEREED.Text = "";
                 klantenInfoGereedPanel.Clear();
                 //bestellings nummer ophalen
-                string bestellingNummer = lv_klaarstaandebestellingen.SelectedItems[0].SubItems[0].Text;
+                string bestellingNummer = lv_klaarstaandebestellingen.SelectedItems[0].SubItems[1].Text;
                 lbl_huidigeBestellingGEREED.Text = $"Bestelling: {bestellingNummer}";
                 //service aanmaken om de beschrijving op te halen
                 Bevat_Service bevat_Service = new Bevat_Service();
@@ -182,16 +202,16 @@ namespace ChapooUI
                 {
                     switch (duo.Key.typeGerecht)
                     {
-                        case 1:
+                        case VOORGERECHT:
                             lbl_voorGerechtKlaar.Text += $"{duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
                             break;
-                        case 2:
+                        case HOOFDGERECHT:
                             lbl_hoofdGerechtKlaar.Text += $"{duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
                             break;
-                        case 3:
+                        case NAGERECHT:
                             lbl_naGerechtKlaar.Text += $"{duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
                             break;
-                        case 4:
+                        case TUSSENGERECHT:
                             lbl_voorGerechtKlaar.Text += $"{duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
                             break;
                     }
@@ -211,8 +231,11 @@ namespace ChapooUI
                 bestellingID = duo.Key.bestellingID,
                 menuItemBeschrijving = duo.Key.menuItemBeschrijving,
                 menuItemID = duo.Key.menuItemID,
-                typeGerecht = duo.Key.typeGerecht
+                typeGerecht = duo.Key.typeGerecht,
+                is_Gereed = duo.Key.is_Gereed
+                
             };
+            bevat.tijdOpname = duo.Key.tijdOpname;
             return bevat;
         }
 
@@ -222,7 +245,10 @@ namespace ChapooUI
             Klant klant = new Klant
             {
                 ID = duo.Value.ID,
-                tafelID = duo.Value.tafelID
+                tafelID = duo.Value.tafelID,
+                betaalWijzeType = duo.Value.betaalWijzeType,
+                reserveringID = duo.Value.reserveringID,
+                bonID = duo.Value.bonID
             };
             return klant;
         }
@@ -251,7 +277,7 @@ namespace ChapooUI
                 lbl_HuidigeBestelling.Text = "";
                 klantenInfo.Clear();
                 //bestellings nummer ophalen
-                string bestellingNummer = lv_Bestellingen.SelectedItems[0].SubItems[0].Text;
+                string bestellingNummer = lv_Bestellingen.SelectedItems[0].SubItems[1].Text;
                 lbl_HuidigeBestelling.Text = $"Bestelling: {bestellingNummer}";
                 //service aanmaken om de beschrijving op te halen
                 Bevat_Service bevat_Service = new Bevat_Service();
@@ -260,16 +286,16 @@ namespace ChapooUI
                 {
                     switch (duo.Key.typeGerecht)
                     {
-                        case 1:
+                        case VOORGERECHT:
                             lbl_Voorgerecht.Text += $"{duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
                             break;
-                        case 2:
+                        case HOOFDGERECHT:
                             lbl_Hoofdgerecht.Text += $"{duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
                             break;
-                        case 3:
+                        case NAGERECHT:
                             lbl_Nagerecht.Text += $"{duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
                             break;
-                        case 4:
+                        case TUSSENGERECHT:
                             lbl_Voorgerecht.Text += $"{duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
                             break;
                     }
@@ -285,7 +311,7 @@ namespace ChapooUI
         private void btn_voorGerechtKlaarzetten_Click_1(object sender, EventArgs e)
         {
             
-            int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].Text);
+            int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].SubItems[1].Text);
             foreach (KeyValuePair<Bevat, Klant> duo in klantenInfo)
             {
                 if (duo.Key.typeGerecht == VOORGERECHT || duo.Key.typeGerecht == TUSSENGERECHT)
@@ -303,7 +329,7 @@ namespace ChapooUI
         //onderstaande methode checkt of het een hoofdgerecht is en zet deze dan klaar
         private void btn_hoofdGerechtKlaarzetten_Click_1(object sender, EventArgs e)
         {
-            int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].Text);
+            int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].SubItems[1].Text);
             foreach (KeyValuePair<Bevat, Klant> duo in klantenInfo)
             {
                 if (duo.Key.typeGerecht == HOOFDGERECHT)
@@ -321,7 +347,7 @@ namespace ChapooUI
         //onderstaande methode checkt of het een nagerecht is en zet deze dan klaar
         private void btn_naGerechtKlaarzetten_Click_1(object sender, EventArgs e)
         {
-            int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].Text);
+            int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].SubItems[1].Text);
             foreach (KeyValuePair<Bevat, Klant> duo in klantenInfo)
             {
                 if (duo.Key.typeGerecht == NAGERECHT)
@@ -352,13 +378,42 @@ namespace ChapooUI
             //listview legen
             lv_drankjes.Items.Clear();
             //kolommen toevoegen
+            lv_drankjes.Columns.Add("Tijd van opname", 75);
             lv_drankjes.Columns.Add("Bestelling Id", 75);
             lv_drankjes.Columns.Add("Tafel Id", 75);
-            lv_drankjes.Columns.Add("Tijd van opname", 75);
             lb_DrankjesVBestelling.AutoSize = true;
+
+            //maak een service om de drankjes uit de db te halen
             Bevat_Service bevat_service = new Bevat_Service();
-            listbevat_service.KrijgDrankjes();
+            drankjesVanKlant = bevat_service.KrijgDrankjes();
+            foreach (KeyValuePair<Bevat, Klant> pair in drankjesVanKlant)
+            {
+                ListViewItem li = new ListViewItem(pair.Key.tijdOpname.ToString());
+                li.SubItems.Add(pair.Key.bestellingID.ToString());
+                li.SubItems.Add(pair.Value.tafelID.ToString());
+                lv_drankjes.Items.Add(li);
+            }
+            lv_drankjes.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lv_drankjes.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             //drankjesOpenstaand
+        }
+
+        //onderstaande methode haalt de klaarstaande drankjes op
+        private void BarOverzichtKlaar()
+        {
+            lv_drankjesKlaar.Clear();
+            lv_drankjesKlaar.Columns.Add("Tijd van opname");
+            lv_drankjesKlaar.Columns.Add("Bestelling Id");
+            lv_drankjesKlaar.Columns.Add("Tafel Id");
+            foreach (KeyValuePair<Bevat, Klant> pair in KlaargezetteDrankjes)
+            {
+                ListViewItem li = new ListViewItem(pair.Key.tijdOpname.ToString());
+                li.SubItems.Add(pair.Key.bestellingID.ToString());
+                li.SubItems.Add(pair.Value.tafelID.ToString());
+                lv_drankjesKlaar.Items.Add(li);
+            }
+            lv_drankjesKlaar.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lv_drankjesKlaar.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         //onderstaande methode filtert naar gereed staande bestellingen
@@ -379,12 +434,67 @@ namespace ChapooUI
 
         private void btn_toonBestellingBAR_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                //eerst alle labels en de lijst leegmaken
+                lb_DrankjesVBestelling.Items.Clear();
+                DrinkInfo.Clear();
+                lbl_DrinkBestelling.Text = "";
+                //bestellings nummer ophalen
+                string bestellingNummer = lv_drankjes.SelectedItems[0].SubItems[1].Text;
+                lbl_DrinkBestelling.Text = $"Bestelling: {bestellingNummer}";
+                //service aanmaken om de beschrijving op te halen
+                Bevat_Service bevat_Service = new Bevat_Service();
+                DrinkInfo = bevat_Service.KrijgBeschrijving(bestellingNummer);
+                foreach (KeyValuePair<Bevat, Klant> duo in DrinkInfo)
+                {
+                    if (duo.Key.typeGerecht == DRINKEN)
+                    {
+                        lb_DrankjesVBestelling.Items.Add($"{duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void KeukenOverzichtForm_Load(object sender, EventArgs e)
         {
 
+        }
+        //onderstaande methode zet het drinken klaar voor de desbetreffende bestelling
+        private void btn_drinkenKlaarzetten_Click(object sender, EventArgs e)
+        {
+            int bestelNummer = int.Parse(lv_drankjes.SelectedItems[0].SubItems[1].Text);
+            foreach (KeyValuePair<Bevat, Klant> duo in DrinkInfo)
+            {
+                if (duo.Key.typeGerecht == DRINKEN)
+                {
+                    Bevat bevat = VulBevat(duo);
+                    Klant klant = VulKlant(duo);
+                    KlaargezetteDrankjes.Add(bevat, klant);
+                    lb_DrankjesVBestelling.Items.Clear();
+                }
+            }
+            //hoeft niet persee in de database klaar gezet te worden denk ik 
+            //DrinkenKlaarZettenCheck(bestelNummer);
+        }
+
+        private void DrinkenKlaarZettenCheck(int bestelNummer)
+        {
+            throw new NotImplementedException();
+        }
+        //onderstaande methode toont de panel voor gereed staande drankjes
+        private void btn_FilterNaarGereedBAR_Click(object sender, EventArgs e)
+        {
+            ShowPanel("baroverzichtKlaar");
+        }
+        //onderstaande methode toond de panel voor openstaande drankjes
+        private void btn_filterNaarOpenstaandBAR_Click(object sender, EventArgs e)
+        {
+            ShowPanel("baroverzicht");
         }
     }
 }
