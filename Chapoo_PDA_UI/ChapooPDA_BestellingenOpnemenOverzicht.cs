@@ -13,7 +13,7 @@ namespace Chapoo_PDA_UI
 {
     public partial class ChapooPDA_BestellingenOpnemenOverzicht : Form
     {
-        private List<ChapooModel.MenuItem> items, voorgerechten, hoofdgerechten, nagerechten, dranken;
+        private List<ChapooModel.MenuItem> items, voorgerechten, hoofdgerechten, nagerechten, dranken, itemsNaarDatabase;
         private List<int> aantallen = new List<int>();
         private int tafelnummer;
         private ChapooModel.Klant klant = new ChapooModel.Klant();
@@ -49,6 +49,47 @@ namespace Chapoo_PDA_UI
             items.Clear();
         }
 
+        //verwijder het geselecteerde item uit het overzicht en de lijst met items
+        private void btnVerwijderUitOverzicht_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lvVoorgerechten.Items.Count; i++)
+            {
+                if (lvVoorgerechten.Items[i].Selected)
+                {
+                    voorgerechten.Remove(voorgerechten[i]);
+                    lvVoorgerechten.Items.Remove(lvVoorgerechten.Items[i]);
+                    return;
+                }
+            }
+            for (int i = 0; i < lvHoofdgerechten.Items.Count; i++)
+            {
+                if (lvHoofdgerechten.Items[i].Selected)
+                {
+                    hoofdgerechten.Remove(hoofdgerechten[i]);
+                    lvHoofdgerechten.Items.Remove(lvHoofdgerechten.Items[i]);
+                    return;
+                }
+            }
+            for (int i = 0; i < lvNagerechten.Items.Count; i++)
+            {
+                if (lvNagerechten.Items[i].Selected)
+                {
+                    nagerechten.Remove(nagerechten[i]);
+                    lvNagerechten.Items.Remove(lvNagerechten.Items[i]);
+                    return;
+                }
+            }
+            for (int i = 0; i < lvDranken.Items.Count; i++)
+            {
+                if (lvDranken.Items[i].Selected)
+                {
+                    dranken.Remove(dranken[i]);
+                    lvDranken.Items.Remove(lvDranken.Items[i]);
+                    return;
+                }
+            }
+        }
+
         //verlaag de voorraad van het artikel
         private void VerlaagVoorraadAantal()
         {
@@ -65,7 +106,33 @@ namespace Chapoo_PDA_UI
             Bestelling_Service bestelling_Service = new Bestelling_Service();
             Klant_Service klant_Service = new Klant_Service();
 
+            itemsNaarDatabase = VulLijstVoorDatabase();
             klant = klant_Service.KrijgKlantUitTafelID(tafelnummer)[0];
+        }
+
+        //vul een nieuwe lijst met de menu items die in het overzicht staan, voor het geval dat er tussentijds items verwijderd zijn
+        private List<ChapooModel.MenuItem> VulLijstVoorDatabase()
+        {
+            items = new List<ChapooModel.MenuItem>();
+            
+            foreach(ChapooModel.MenuItem item in voorgerechten)
+            {
+                itemsNaarDatabase.Add(item);
+            }
+            foreach (ChapooModel.MenuItem item in hoofdgerechten)
+            {
+                itemsNaarDatabase.Add(item);
+            }
+            foreach (ChapooModel.MenuItem item in nagerechten)
+            {
+                itemsNaarDatabase.Add(item);
+            }
+            foreach (ChapooModel.MenuItem item in dranken)
+            {
+                itemsNaarDatabase.Add(item);
+            }
+
+            return items;
         }
 
         //splits de megekregen lijst van menu items op per type gerecht
@@ -117,6 +184,7 @@ namespace Chapoo_PDA_UI
                 teller++;
             }
             lvVoorgerechten.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvVoorgerechten.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             lvHoofdgerechten.Columns.Add("beschrijving", 100);
             lvHoofdgerechten.Columns.Add("prijs", 10);
@@ -130,6 +198,7 @@ namespace Chapoo_PDA_UI
                 teller++;
             }
             lvHoofdgerechten.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvHoofdgerechten.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             lvNagerechten.Columns.Add("beschrijving", 100);
             lvNagerechten.Columns.Add("prijs", 10);
@@ -143,6 +212,7 @@ namespace Chapoo_PDA_UI
                 teller++;
             }
             lvNagerechten.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvNagerechten.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             lvDranken.Columns.Add("beschrijving", 100);
             lvDranken.Columns.Add("prijs", 10);
@@ -156,6 +226,7 @@ namespace Chapoo_PDA_UI
                 teller++;
             }
             lvDranken.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvDranken.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
     }
 }
