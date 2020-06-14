@@ -19,6 +19,7 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
+       
         public Dictionary<Bevat, Klant> KrijgIDSGereed()
         {
             string query = "SELECT DISTINCT Be.bestellingID, B.tijdOpname, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE B.is_Gereed = 1;";
@@ -28,13 +29,22 @@ namespace ChapooDAL
 
         public Dictionary<Bevat, Klant> KrijgDrankjesOpenstaand()
         {
-            string query = "SELECT DISTINCT BE.bestellingID, B.tijdOpname, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE MI.typeGerecht = 5 AND B.is_Gereed = 0;";
+            string query = "SELECT DISTINCT BE.bestellingID, B.tijdOpname, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE MI.typeGerecht = 5;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
         public void Bestelling_Gereed_Zetten(int bestelNummer)
         {
             string query = "UPDATE Bestellingen SET is_Gereed = 1 WHERE bestellingID = @bestelNummer;";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@bestelNummer", SqlDbType.Int) { Value = bestelNummer}
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
+        public void Bestelling_Ongereed_Zetten(int bestelNummer)
+        {
+            string query = "UPDATE Bestellingen SET is_Gereed = 0 WHERE bestellingID = @bestelNummer;";
             SqlParameter[] sqlParameters =
             {
                 new SqlParameter("@bestelNummer", SqlDbType.Int) { Value = bestelNummer}

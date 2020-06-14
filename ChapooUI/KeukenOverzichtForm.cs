@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using ChapooLogic;
 using System.Threading;
 using System.Security.Cryptography;
+using System.Drawing;
 
 namespace ChapooUI
 {
@@ -27,7 +28,7 @@ namespace ChapooUI
         private Dictionary<Bevat, Klant> KlaargezetteDrankjes;
         private Dictionary<Bevat, Klant> ids; //info klant en bestellingen
         private Dictionary<Bevat, Klant> idsGereed; // info klant en bestellingen van klaarstaande bestellingen
-        private Dictionary<Bevat, Klant> drankjesOpenstaand; // info klant en drankjes
+       // private Dictionary<Bevat, Klant> drankjesOpenstaand; // info klant en drankjes
         private Dictionary<Bevat, Klant> drankjesVanKlant; // info klant en drankjes
         private List<Bevat> drankjes;
         private List<Klant> klanten; //klanten 
@@ -54,14 +55,14 @@ namespace ChapooUI
             klanten = new List<Klant>();
             ids = new Dictionary<Bevat, Klant>();
             idsGereed = new Dictionary<Bevat, Klant>();
-            drankjesOpenstaand = new Dictionary<Bevat, Klant>();
+            //drankjesOpenstaand = new Dictionary<Bevat, Klant>();
             drankjesVanKlant = new Dictionary<Bevat, Klant>();
             drankjes = new List<Bevat>();
             DrinkInfo = new Dictionary<Bevat, Klant>();
             KlaargezetteDrankjes = new Dictionary<Bevat, Klant>();
             InitializeComponent();
             BestellingenVullen();
-            BarOverzicht();
+            
         }
 
         //onderstaand methode vult lvbestellingen door bestellingen uit db te halen
@@ -119,10 +120,10 @@ namespace ChapooUI
                 //verberg alle andere panelen
                 pnl_klaarstaandeBestellingen.Hide();
                 pnl_openstaandeBestellingen.Hide();
-                pnl_baroverzichtKlaar.Hide();
 
                 //toon juiste panel
                 pnl_barOverzicht.Show();
+                BarOverzicht();
 
             }
             else if (panelName == "bestellingenGereed")
@@ -130,7 +131,6 @@ namespace ChapooUI
                 //verberg alle andere panelen
                 pnl_barOverzicht.Hide();
                 pnl_openstaandeBestellingen.Hide();
-                pnl_baroverzichtKlaar.Hide();
                 //toon de juiste panel
                 pnl_klaarstaandeBestellingen.Show();
                 //alle klaarstaande bestellingen in een listview opnemen
@@ -141,20 +141,19 @@ namespace ChapooUI
                 //verberg andere panels
                 pnl_klaarstaandeBestellingen.Hide();
                 pnl_barOverzicht.Hide();
-                pnl_baroverzichtKlaar.Hide();
                 //toon de goede
                 pnl_openstaandeBestellingen.Show();
             }
-            else if (panelName == "baroverzichtKlaar")
-            {
-                //verberg alle andere panels.
-                pnl_barOverzicht.Hide();
-                pnl_klaarstaandeBestellingen.Hide();
-                pnl_openstaandeBestellingen.Hide();
-                //toon de juiste panel
-                pnl_baroverzichtKlaar.Show();
-                BarOverzichtKlaar();
-            }
+            //else if (panelName == "baroverzichtKlaar")
+            //{
+            //    //verberg alle andere panels.
+            //    pnl_barOverzicht.Hide();
+            //    pnl_klaarstaandeBestellingen.Hide();
+            //    pnl_openstaandeBestellingen.Hide();
+            //    //toon de juiste panel
+            //    pnl_baroverzichtKlaar.Show();
+            //    BarOverzichtKlaar();
+            //}
         }
 
         //onderstaande methode haalt alle klaarstaande bestellingen op uit de database
@@ -376,7 +375,7 @@ namespace ChapooUI
         private void BarOverzicht()
         {
             //listview legen
-            lv_drankjes.Items.Clear();
+            lv_drankjes.Clear();
             //kolommen toevoegen
             lv_drankjes.Columns.Add("Tijd van opname", 75);
             lv_drankjes.Columns.Add("Bestelling Id", 75);
@@ -398,23 +397,6 @@ namespace ChapooUI
             //drankjesOpenstaand
         }
 
-        //onderstaande methode haalt de klaarstaande drankjes op
-        private void BarOverzichtKlaar()
-        {
-            lv_drankjesKlaar.Clear();
-            lv_drankjesKlaar.Columns.Add("Tijd van opname");
-            lv_drankjesKlaar.Columns.Add("Bestelling Id");
-            lv_drankjesKlaar.Columns.Add("Tafel Id");
-            foreach (KeyValuePair<Bevat, Klant> pair in KlaargezetteDrankjes)
-            {
-                ListViewItem li = new ListViewItem(pair.Key.tijdOpname.ToString());
-                li.SubItems.Add(pair.Key.bestellingID.ToString());
-                li.SubItems.Add(pair.Value.tafelID.ToString());
-                lv_drankjesKlaar.Items.Add(li);
-            }
-            lv_drankjesKlaar.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            lv_drankjesKlaar.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-        }
 
         //onderstaande methode filtert naar gereed staande bestellingen
         private void btn_filterNaarGereed_Click_1(object sender, EventArgs e)
@@ -467,7 +449,9 @@ namespace ChapooUI
         //onderstaande methode zet het drinken klaar voor de desbetreffende bestelling
         private void btn_drinkenKlaarzetten_Click(object sender, EventArgs e)
         {
-            int bestelNummer = int.Parse(lv_drankjes.SelectedItems[0].SubItems[1].Text);
+            lv_drankjes.SelectedItems[0].BackColor = Color.Red;
+            lv_drankjes.Refresh();
+            lv_drankjes.Update();
             foreach (KeyValuePair<Bevat, Klant> duo in DrinkInfo)
             {
                 if (duo.Key.typeGerecht == DRINKEN)
@@ -478,23 +462,13 @@ namespace ChapooUI
                     lb_DrankjesVBestelling.Items.Clear();
                 }
             }
-            //hoeft niet persee in de database klaar gezet te worden denk ik 
-            //DrinkenKlaarZettenCheck(bestelNummer);
+            lbl_DrinkBestelling.Text = "";
         }
-
-        private void DrinkenKlaarZettenCheck(int bestelNummer)
+        private void btn_VoorgerechtOngereedZetten_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
-        }
-        //onderstaande methode toont de panel voor gereed staande drankjes
-        private void btn_FilterNaarGereedBAR_Click(object sender, EventArgs e)
-        {
-            ShowPanel("baroverzichtKlaar");
-        }
-        //onderstaande methode toond de panel voor openstaande drankjes
-        private void btn_filterNaarOpenstaandBAR_Click(object sender, EventArgs e)
-        {
-            ShowPanel("baroverzicht");
+            int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].SubItems[1].Text);
+            Bevat_Service bevat = new Bevat_Service();
+            bevat.BestellingOngereedZetten(bestelNummer);
         }
     }
 }

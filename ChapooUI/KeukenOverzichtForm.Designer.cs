@@ -40,8 +40,6 @@
             this.MS1I_MenuKaartOpties = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Werknemers = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_klaarstaandeBestellingen = new System.Windows.Forms.Panel();
-            this.btn_NagerechtOngereedZetten = new System.Windows.Forms.Button();
-            this.btn_HoofdgerechtOngereedZetten = new System.Windows.Forms.Button();
             this.btn_VoorgerechtOngereedZetten = new System.Windows.Forms.Button();
             this.lbl_keukenOverzichtGEREED = new System.Windows.Forms.Label();
             this.lbl_huidigeBestellingGEREED = new System.Windows.Forms.Label();
@@ -79,25 +77,15 @@
             this.lbl_opmerkingenDrankjes = new System.Windows.Forms.Label();
             this.btn_drinkenKlaarzetten = new System.Windows.Forms.Button();
             this.lb_DrankjesVBestelling = new System.Windows.Forms.ListBox();
-            this.btn_FilterNaarGereedBAR = new System.Windows.Forms.Button();
             this.lbl_DrinkBestelling = new System.Windows.Forms.Label();
             this.btn_toonBestellingBAR = new System.Windows.Forms.Button();
             this.lbl_openstaandeBestellingenBAR = new System.Windows.Forms.Label();
             this.lv_drankjes = new System.Windows.Forms.ListView();
             this.label7 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.pnl_baroverzichtKlaar = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.lb_drankjesKlaar = new System.Windows.Forms.ListBox();
-            this.btn_toonDrankKlaarPanel = new System.Windows.Forms.Button();
-            this.btn_filterNaarOpenstaandBAR = new System.Windows.Forms.Button();
-            this.lv_drankjesKlaar = new System.Windows.Forms.ListView();
             this.MS1.SuspendLayout();
             this.pnl_klaarstaandeBestellingen.SuspendLayout();
             this.pnl_openstaandeBestellingen.SuspendLayout();
             this.pnl_barOverzicht.SuspendLayout();
-            this.pnl_baroverzichtKlaar.SuspendLayout();
             this.SuspendLayout();
             // 
             // MS1
@@ -195,8 +183,6 @@
             // 
             // pnl_klaarstaandeBestellingen
             // 
-            this.pnl_klaarstaandeBestellingen.Controls.Add(this.btn_NagerechtOngereedZetten);
-            this.pnl_klaarstaandeBestellingen.Controls.Add(this.btn_HoofdgerechtOngereedZetten);
             this.pnl_klaarstaandeBestellingen.Controls.Add(this.btn_VoorgerechtOngereedZetten);
             this.pnl_klaarstaandeBestellingen.Controls.Add(this.lbl_keukenOverzichtGEREED);
             this.pnl_klaarstaandeBestellingen.Controls.Add(this.lbl_huidigeBestellingGEREED);
@@ -212,35 +198,18 @@
             this.pnl_klaarstaandeBestellingen.Controls.Add(this.label4);
             this.pnl_klaarstaandeBestellingen.Location = new System.Drawing.Point(0, 31);
             this.pnl_klaarstaandeBestellingen.Name = "pnl_klaarstaandeBestellingen";
-            this.pnl_klaarstaandeBestellingen.Size = new System.Drawing.Size(1039, 521);
+            this.pnl_klaarstaandeBestellingen.Size = new System.Drawing.Size(1039, 90);
             this.pnl_klaarstaandeBestellingen.TabIndex = 23;
-            // 
-            // btn_NagerechtOngereedZetten
-            // 
-            this.btn_NagerechtOngereedZetten.Location = new System.Drawing.Point(906, 457);
-            this.btn_NagerechtOngereedZetten.Name = "btn_NagerechtOngereedZetten";
-            this.btn_NagerechtOngereedZetten.Size = new System.Drawing.Size(127, 49);
-            this.btn_NagerechtOngereedZetten.TabIndex = 54;
-            this.btn_NagerechtOngereedZetten.Text = "Nagerecht ongereed zetten";
-            this.btn_NagerechtOngereedZetten.UseVisualStyleBackColor = true;
-            // 
-            // btn_HoofdgerechtOngereedZetten
-            // 
-            this.btn_HoofdgerechtOngereedZetten.Location = new System.Drawing.Point(756, 458);
-            this.btn_HoofdgerechtOngereedZetten.Name = "btn_HoofdgerechtOngereedZetten";
-            this.btn_HoofdgerechtOngereedZetten.Size = new System.Drawing.Size(127, 49);
-            this.btn_HoofdgerechtOngereedZetten.TabIndex = 53;
-            this.btn_HoofdgerechtOngereedZetten.Text = "Hoofdgerecht ongereed zetten";
-            this.btn_HoofdgerechtOngereedZetten.UseVisualStyleBackColor = true;
             // 
             // btn_VoorgerechtOngereedZetten
             // 
-            this.btn_VoorgerechtOngereedZetten.Location = new System.Drawing.Point(601, 457);
+            this.btn_VoorgerechtOngereedZetten.Location = new System.Drawing.Point(404, 457);
             this.btn_VoorgerechtOngereedZetten.Name = "btn_VoorgerechtOngereedZetten";
-            this.btn_VoorgerechtOngereedZetten.Size = new System.Drawing.Size(127, 49);
+            this.btn_VoorgerechtOngereedZetten.Size = new System.Drawing.Size(139, 49);
             this.btn_VoorgerechtOngereedZetten.TabIndex = 52;
-            this.btn_VoorgerechtOngereedZetten.Text = "Voorgerecht ongereed zetten\r\n\r\n";
+            this.btn_VoorgerechtOngereedZetten.Text = "Bestelling Ongereed melden";
             this.btn_VoorgerechtOngereedZetten.UseVisualStyleBackColor = true;
+            this.btn_VoorgerechtOngereedZetten.Click += new System.EventHandler(this.btn_VoorgerechtOngereedZetten_Click);
             // 
             // lbl_keukenOverzichtGEREED
             // 
@@ -580,7 +549,6 @@
             this.pnl_barOverzicht.Controls.Add(this.lbl_opmerkingenDrankjes);
             this.pnl_barOverzicht.Controls.Add(this.btn_drinkenKlaarzetten);
             this.pnl_barOverzicht.Controls.Add(this.lb_DrankjesVBestelling);
-            this.pnl_barOverzicht.Controls.Add(this.btn_FilterNaarGereedBAR);
             this.pnl_barOverzicht.Controls.Add(this.lbl_DrinkBestelling);
             this.pnl_barOverzicht.Controls.Add(this.btn_toonBestellingBAR);
             this.pnl_barOverzicht.Controls.Add(this.lbl_openstaandeBestellingenBAR);
@@ -588,7 +556,7 @@
             this.pnl_barOverzicht.Controls.Add(this.label7);
             this.pnl_barOverzicht.Location = new System.Drawing.Point(0, 31);
             this.pnl_barOverzicht.Name = "pnl_barOverzicht";
-            this.pnl_barOverzicht.Size = new System.Drawing.Size(1039, 518);
+            this.pnl_barOverzicht.Size = new System.Drawing.Size(1039, 47);
             this.pnl_barOverzicht.TabIndex = 31;
             // 
             // label10
@@ -631,16 +599,6 @@
             this.lb_DrankjesVBestelling.Name = "lb_DrankjesVBestelling";
             this.lb_DrankjesVBestelling.Size = new System.Drawing.Size(210, 194);
             this.lb_DrankjesVBestelling.TabIndex = 53;
-            // 
-            // btn_FilterNaarGereedBAR
-            // 
-            this.btn_FilterNaarGereedBAR.Location = new System.Drawing.Point(916, 6);
-            this.btn_FilterNaarGereedBAR.Name = "btn_FilterNaarGereedBAR";
-            this.btn_FilterNaarGereedBAR.Size = new System.Drawing.Size(99, 68);
-            this.btn_FilterNaarGereedBAR.TabIndex = 52;
-            this.btn_FilterNaarGereedBAR.Text = "Filter: Bestellingen openstaand\r\n\r\n";
-            this.btn_FilterNaarGereedBAR.UseVisualStyleBackColor = true;
-            this.btn_FilterNaarGereedBAR.Click += new System.EventHandler(this.btn_FilterNaarGereedBAR_Click);
             // 
             // lbl_DrinkBestelling
             // 
@@ -695,97 +653,12 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "BAR OVERZICHT";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(51, 64);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(197, 24);
-            this.label11.TabIndex = 60;
-            this.label11.Text = "Klaarstaande dranken:";
-            // 
-            // pnl_baroverzichtKlaar
-            // 
-            this.pnl_baroverzichtKlaar.Controls.Add(this.label9);
-            this.pnl_baroverzichtKlaar.Controls.Add(this.label11);
-            this.pnl_baroverzichtKlaar.Controls.Add(this.button2);
-            this.pnl_baroverzichtKlaar.Controls.Add(this.lb_drankjesKlaar);
-            this.pnl_baroverzichtKlaar.Controls.Add(this.btn_toonDrankKlaarPanel);
-            this.pnl_baroverzichtKlaar.Controls.Add(this.btn_filterNaarOpenstaandBAR);
-            this.pnl_baroverzichtKlaar.Controls.Add(this.lv_drankjesKlaar);
-            this.pnl_baroverzichtKlaar.Location = new System.Drawing.Point(0, 31);
-            this.pnl_baroverzichtKlaar.Name = "pnl_baroverzichtKlaar";
-            this.pnl_baroverzichtKlaar.Size = new System.Drawing.Size(1039, 521);
-            this.pnl_baroverzichtKlaar.TabIndex = 56;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(425, 6);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(162, 24);
-            this.label9.TabIndex = 61;
-            this.label9.Text = "BAR OVERZICHT";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(404, 404);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 46);
-            this.button2.TabIndex = 59;
-            this.button2.Text = "Drinken ongereed melden\r\n\r\n";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // lb_drankjesKlaar
-            // 
-            this.lb_drankjesKlaar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_drankjesKlaar.FormattingEnabled = true;
-            this.lb_drankjesKlaar.ItemHeight = 16;
-            this.lb_drankjesKlaar.Location = new System.Drawing.Point(404, 111);
-            this.lb_drankjesKlaar.Name = "lb_drankjesKlaar";
-            this.lb_drankjesKlaar.Size = new System.Drawing.Size(210, 194);
-            this.lb_drankjesKlaar.TabIndex = 58;
-            // 
-            // btn_toonDrankKlaarPanel
-            // 
-            this.btn_toonDrankKlaarPanel.Location = new System.Drawing.Point(55, 456);
-            this.btn_toonDrankKlaarPanel.Name = "btn_toonDrankKlaarPanel";
-            this.btn_toonDrankKlaarPanel.Size = new System.Drawing.Size(104, 49);
-            this.btn_toonDrankKlaarPanel.TabIndex = 57;
-            this.btn_toonDrankKlaarPanel.Text = "Toon bestelling";
-            this.btn_toonDrankKlaarPanel.UseVisualStyleBackColor = true;
-            // 
-            // btn_filterNaarOpenstaandBAR
-            // 
-            this.btn_filterNaarOpenstaandBAR.Location = new System.Drawing.Point(916, 6);
-            this.btn_filterNaarOpenstaandBAR.Name = "btn_filterNaarOpenstaandBAR";
-            this.btn_filterNaarOpenstaandBAR.Size = new System.Drawing.Size(99, 68);
-            this.btn_filterNaarOpenstaandBAR.TabIndex = 56;
-            this.btn_filterNaarOpenstaandBAR.Text = "Filter: Bestellingen gereed\r\n";
-            this.btn_filterNaarOpenstaandBAR.UseVisualStyleBackColor = true;
-            this.btn_filterNaarOpenstaandBAR.Click += new System.EventHandler(this.btn_filterNaarOpenstaandBAR_Click);
-            // 
-            // lv_drankjesKlaar
-            // 
-            this.lv_drankjesKlaar.HideSelection = false;
-            this.lv_drankjesKlaar.Location = new System.Drawing.Point(55, 96);
-            this.lv_drankjesKlaar.Name = "lv_drankjesKlaar";
-            this.lv_drankjesKlaar.Size = new System.Drawing.Size(304, 354);
-            this.lv_drankjesKlaar.TabIndex = 6;
-            this.lv_drankjesKlaar.UseCompatibleStateImageBehavior = false;
-            this.lv_drankjesKlaar.View = System.Windows.Forms.View.Details;
-            // 
             // KeukenOverzichtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(1039, 550);
-            this.Controls.Add(this.pnl_baroverzichtKlaar);
             this.Controls.Add(this.pnl_barOverzicht);
             this.Controls.Add(this.pnl_klaarstaandeBestellingen);
             this.Controls.Add(this.pnl_openstaandeBestellingen);
@@ -801,8 +674,6 @@
             this.pnl_openstaandeBestellingen.PerformLayout();
             this.pnl_barOverzicht.ResumeLayout(false);
             this.pnl_barOverzicht.PerformLayout();
-            this.pnl_baroverzichtKlaar.ResumeLayout(false);
-            this.pnl_baroverzichtKlaar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -858,22 +729,11 @@
         private System.Windows.Forms.ListView lv_drankjes;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btn_toonBestellingBAR;
-        private System.Windows.Forms.Button btn_NagerechtOngereedZetten;
-        private System.Windows.Forms.Button btn_HoofdgerechtOngereedZetten;
         private System.Windows.Forms.Button btn_VoorgerechtOngereedZetten;
-        private System.Windows.Forms.Button btn_FilterNaarGereedBAR;
         private System.Windows.Forms.Label lbl_DrinkBestelling;
         private System.Windows.Forms.ListBox lb_DrankjesVBestelling;
         private System.Windows.Forms.Button btn_drinkenKlaarzetten;
         private System.Windows.Forms.Label lbl_opmerkingenDrankjes;
-        private System.Windows.Forms.Panel pnl_baroverzichtKlaar;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListBox lb_drankjesKlaar;
-        private System.Windows.Forms.Button btn_toonDrankKlaarPanel;
-        private System.Windows.Forms.Button btn_filterNaarOpenstaandBAR;
-        private System.Windows.Forms.ListView lv_drankjesKlaar;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label9;
     }
 }

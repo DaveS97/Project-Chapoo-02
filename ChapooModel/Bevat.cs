@@ -14,6 +14,8 @@ namespace ChapooModel
         public string menuItemBeschrijving { get; set; }
         public int typeGerecht { get; set; }
         public bool is_Gereed { get; set; }
+        public string Opmerkingen { get; set; }
+        public int Aantal { get; set; }
         public DateTime tijdOpname { get; set; }
     }
 }
