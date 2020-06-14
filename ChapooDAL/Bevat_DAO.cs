@@ -19,13 +19,15 @@ namespace ChapooDAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public void Write_To_Db_Bevat(int menuItemID, int bestellingID)
+        public void Write_To_Db_Bevat(int menuItemID, int bestellingID, string commentaar, int aantal)
         {
-            string query = "INSERT INTO Bevat VALUES (@menuItemID, @bestellingID)";
+            string query = "INSERT INTO Bevat VALUES (@menuItemID, @bestellingID, @commentaar, @aantal)";
             SqlParameter[] sqlParameters =
             {
                 new SqlParameter("@menuItemID", SqlDbType.Int) { Value = menuItemID},
-                new SqlParameter("@bestellingID", SqlDbType.Int) { Value = bestellingID}
+                new SqlParameter("@bestellingID", SqlDbType.Int) { Value = bestellingID},
+                new SqlParameter("@commentaar", SqlDbType.VarChar) {Value = commentaar},
+                new SqlParameter("@aantal", SqlDbType.Int) {Value = aantal}
             };
             ExecuteEditQuery(query, sqlParameters);
         }
