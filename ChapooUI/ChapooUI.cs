@@ -94,7 +94,7 @@ namespace ChapooUI
         private void MS_RO_Click(object sender, EventArgs e)
         {
             RestaurantOverzichtForm form = new RestaurantOverzichtForm();
-            form.Show();
+            form.Show();            
         }
 
         private void Chapoo_Load(object sender, EventArgs e)

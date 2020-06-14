@@ -15,12 +15,12 @@ namespace ChapooDAL
     {
         public List<TafelStatus> Db_Get_All_Tafels()
         {
-            string query = "SELECT t.tafelID, b.bestellingID, b.is_Gereed " +
-                "From Tafels as t " +
-                "JOIN Bestellingen as b on t.bedienerID = b.bedienerID";
+            string query = "SELECT tafelID, is_bezet " + "from Tafels";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
+
+
 
         private List<TafelStatus> ReadTables(DataTable dataTable)
         {
@@ -32,14 +32,15 @@ namespace ChapooDAL
 
                 TafelStatus tafelStatus = new TafelStatus()
                 {
-                    tafelNummmer = (int)dr["tafelID"],
-                    bestellingId = (int)dr["bestellingID"],
-                    bestellingStatus = (bool)(dr["is_Gereed"])
+                    tafelNummer = (int)dr["tafelID"],
+                    tafelBezetting = (bool)(dr["is_bezet"])
                 };
                 tafelStatuses.Add(tafelStatus);
             }
             return tafelStatuses;
 
         }
+
+       
     }
 }

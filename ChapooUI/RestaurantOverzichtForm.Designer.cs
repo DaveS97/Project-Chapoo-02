@@ -41,6 +41,7 @@
             this.MS1I_Werknemers = new System.Windows.Forms.ToolStripMenuItem();
             this.afmeldenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listview_TafelOverzicht = new System.Windows.Forms.ListView();
+            this.listview_OrderOverzicht = new System.Windows.Forms.ListView();
             this.MS1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,12 +73,14 @@
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
             this.HomeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.HomeToolStripMenuItem.Text = "Home";
+            this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
             // MS1I_Home
             // 
             this.MS1I_Home.Name = "MS1I_Home";
             this.MS1I_Home.Size = new System.Drawing.Size(107, 22);
             this.MS1I_Home.Text = "Home";
+            this.MS1I_Home.Click += new System.EventHandler(this.MS1I_Home_Click);
             // 
             // MS_RO
             // 
@@ -100,6 +103,7 @@
             this.MS_KO.Name = "MS_KO";
             this.MS_KO.Size = new System.Drawing.Size(111, 20);
             this.MS_KO.Text = "Keuken Overzicht";
+            this.MS_KO.Click += new System.EventHandler(this.MS_KO_Click);
             // 
             // MS_Beheer
             // 
@@ -152,6 +156,17 @@
             this.listview_TafelOverzicht.Size = new System.Drawing.Size(442, 490);
             this.listview_TafelOverzicht.TabIndex = 2;
             this.listview_TafelOverzicht.UseCompatibleStateImageBehavior = false;
+            this.listview_TafelOverzicht.SelectedIndexChanged += new System.EventHandler(this.listview_TafelOverzicht_SelectedIndexChanged);
+            // 
+            // listview_OrderOverzicht
+            // 
+            this.listview_OrderOverzicht.HideSelection = false;
+            this.listview_OrderOverzicht.Location = new System.Drawing.Point(578, 41);
+            this.listview_OrderOverzicht.Name = "listview_OrderOverzicht";
+            this.listview_OrderOverzicht.Size = new System.Drawing.Size(442, 490);
+            this.listview_OrderOverzicht.TabIndex = 3;
+            this.listview_OrderOverzicht.UseCompatibleStateImageBehavior = false;
+            this.listview_OrderOverzicht.SelectedIndexChanged += new System.EventHandler(this.listview_BezettingOverzicht_SelectedIndexChanged);
             // 
             // RestaurantOverzichtForm
             // 
@@ -159,6 +174,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(1045, 543);
+            this.Controls.Add(this.listview_OrderOverzicht);
             this.Controls.Add(this.listview_TafelOverzicht);
             this.Controls.Add(this.MS1);
             this.Name = "RestaurantOverzichtForm";
@@ -185,5 +201,6 @@
         private System.Windows.Forms.ToolStripMenuItem MS1I_Werknemers;
         private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem;
         private System.Windows.Forms.ListView listview_TafelOverzicht;
+        private System.Windows.Forms.ListView listview_OrderOverzicht;
     }
 }

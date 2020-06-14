@@ -25,9 +25,8 @@ namespace ChapooLogic
                 MessageBox.Show("Chapoo couldn't connect to the database " + e.ToString());
                 List<TafelStatus> tafelStatuses = new List<TafelStatus>();
                 TafelStatus tafel_1 = new TafelStatus();
-                tafel_1.tafelNummmer = 1;
-                tafel_1.bestellingId = 3;
-                tafel_1.bestellingStatus = false;
+                tafel_1.tafelNummer = 1;                
+                tafel_1.tafelBezetting = false;
                 tafelStatuses.Add(tafel_1);
                 return tafelStatuses;
             }

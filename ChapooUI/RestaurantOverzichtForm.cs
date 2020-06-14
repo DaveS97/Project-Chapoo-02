@@ -17,6 +17,7 @@ namespace ChapooUI
         {
             InitializeComponent();
             tafelOverzichtVullen();
+            orderOverzichtVullen();
         }
        
         private void tafelOverzichtVullen()
@@ -28,15 +29,51 @@ namespace ChapooUI
             listview_TafelOverzicht.Clear();
 
             listview_TafelOverzicht.Columns.Add("tafelNummmer");
-            listview_TafelOverzicht.Columns.Add("bestellingId");
-            listview_TafelOverzicht.Columns.Add("bestellingStatus");
+            listview_TafelOverzicht.Columns.Add("tafelbezetting");
 
+            string Bezet;
+            
             foreach (ChapooModel.TafelStatus s in tafellist)
             {
-                ListViewItem li = new ListViewItem(s.tafelNummmer.ToString());
+                ListViewItem li = new ListViewItem(s.tafelNummer.ToString());
+                
+                if (s.tafelBezetting == true)
+                {
+                    //li.SubItems.Add("Vrij");
+                    Bezet = "Bezet";
+                }
+                else
+                {
+                    //li.SubItems.Add("Bezet");
+                    Bezet = "Vrij";
+                }
+
+                li.SubItems.Add(Bezet);
+                listview_TafelOverzicht.Items.Add(li);
+            }
+
+            listview_TafelOverzicht.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+        }
+
+        private void orderOverzichtVullen()
+        {
+            ChapooLogic.Order_Service orderOverzicht = new ChapooLogic.Order_Service();
+            List<OrderStatus> orderlist = orderOverzicht.KrijgOrder();
+            listview_OrderOverzicht.View = View.Details;
+
+            listview_OrderOverzicht.Clear();
+
+            listview_OrderOverzicht.Columns.Add("tafelNummmer");
+            listview_OrderOverzicht.Columns.Add("bestellingId");
+            listview_OrderOverzicht.Columns.Add("bestellingStatus");
+
+            foreach (ChapooModel.OrderStatus s in orderlist)
+            {
+                ListViewItem li = new ListViewItem(s.tafelNummer.ToString());
 
                 li.SubItems.Add(s.bestellingId.ToString());
-                listview_TafelOverzicht.Items.Add(li);
+                listview_OrderOverzicht.Items.Add(li);
 
                 if (s.bestellingStatus == true)
                 {
@@ -48,7 +85,34 @@ namespace ChapooUI
                 }
             }
 
-            listview_TafelOverzicht.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listview_OrderOverzicht.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+        }
+
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MS1I_Home_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void listview_TafelOverzicht_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MS_KO_Click(object sender, EventArgs e)
+        {
+            KeukenOverzichtForm keukenOverzicht = KeukenOverzichtForm.GetInstance();
+            keukenOverzicht.ShowDialog();
+            this.Hide();
+        }
+
+        private void listview_BezettingOverzicht_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -8,9 +8,15 @@ namespace ChapooModel
 {
     public class TafelStatus
     {
-        public int tafelNummmer { get; set; } //Tafel ID
-        public int bestellingId { get; set; } //Bestelling ID
-        public bool bestellingStatus { get; set; } //Bestelling Status
+        public int tafelNummer { get; set; } //TafelID
+        public bool tafelBezetting { get; set; } //is_Bezet
+    }
+
+    public class OrderStatus
+    {
+        public int tafelNummer { get; set; } //TafelID
+        public int bestellingId { get; set; } //BestellingID
+        public bool bestellingStatus { get; set; } //is_Gereed
 
     }
 }
