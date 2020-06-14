@@ -21,11 +21,11 @@ namespace ChapooDAL
 
         public void Write_To_Db_Bevat(int menuItemID, int bestellingID)
         {
-            string query = "INSERT INTO Bestellingen VALUES (@menuItemID, @bestellingID)";
+            string query = "INSERT INTO Bevat VALUES (@menuItemID, @bestellingID)";
             SqlParameter[] sqlParameters =
             {
-                new SqlParameter("@bedienerID", SqlDbType.Int) { Value = menuItemID},
-                new SqlParameter("@klantID", SqlDbType.Int) { Value = bestellingID}
+                new SqlParameter("@menuItemID", SqlDbType.Int) { Value = menuItemID},
+                new SqlParameter("@bestellingID", SqlDbType.Int) { Value = bestellingID}
             };
             ExecuteEditQuery(query, sqlParameters);
         }

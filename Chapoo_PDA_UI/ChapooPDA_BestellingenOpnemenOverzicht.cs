@@ -112,13 +112,15 @@ namespace Chapoo_PDA_UI
             Bestelling_Service bestelling_Service = new Bestelling_Service();
             Bevat_Service bevat_Service = new Bevat_Service();
             Klant_Service klant_Service = new Klant_Service();
+            string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
 
             itemsNaarDatabase = VulLijstItemsNaarDatabase();
             aantallenNaarDatabase = VulLijstAantallenNaarDatabase();
             klant = klant_Service.KrijgKlantUitTafelID(tafelnummer)[0];
 
-            bestelling_Service.Write_To_Db_Bestelling(werknemerID, klant.ID);
-            ChapooModel.Bestelling bestelling = bestelling_Service.DB_Krijg_Bestelling_Uit_KlantID(klant.ID)[0];
+            bestelling_Service.Write_To_Db_Bestelling(werknemerID, klant.ID, dateTime);
+            ChapooModel.Bestelling bestelling = bestelling_Service.DB_Krijg_Bestelling_Uit_KlantID(klant.ID, dateTime)[0];
             foreach(ChapooModel.MenuItem item in bestelItems)
             {
                 bevat_Service.Write_To_Db_Bevat(item.ID, bestelling.bestellingID);

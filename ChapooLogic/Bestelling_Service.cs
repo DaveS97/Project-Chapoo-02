@@ -33,11 +33,11 @@ namespace ChapooLogic
             }
         }
 
-        public List<Bestelling> DB_Krijg_Bestelling_Uit_KlantID(int klantID)
+        public List<Bestelling> DB_Krijg_Bestelling_Uit_KlantID(int klantID, string dateTime)
         {
             try
             {
-                List<Bestelling> bestellingen = bestelling.DB_Krijg_Bestelling_Voor_Klant(klantID);
+                List<Bestelling> bestellingen = bestelling.DB_Krijg_Bestelling_Voor_Klant(klantID, dateTime);
                 return bestellingen;
             }
             catch (Exception e)
@@ -48,11 +48,11 @@ namespace ChapooLogic
             }
         }
 
-        public void Write_To_Db_Bestelling(int bedienerID, int klantID)
+        public void Write_To_Db_Bestelling(int bedienerID, int klantID, string dateTime)
         {
             try
             {
-                bestelling.Write_To_Db_Bestelling(bedienerID, klantID);
+                bestelling.Write_To_Db_Bestelling(bedienerID, klantID, dateTime);
             }
             catch(Exception e)
             {
