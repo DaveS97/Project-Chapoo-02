@@ -30,7 +30,6 @@
         {
             this.MS1 = new System.Windows.Forms.MenuStrip();
             this.HomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MS1I_Home = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_RO = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_BO = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_KO = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,19 +66,10 @@
             // HomeToolStripMenuItem
             // 
             this.HomeToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.HomeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MS1I_Home});
             this.HomeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
             this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.HomeToolStripMenuItem.Text = "Home";
-            // 
-            // MS1I_Home
-            // 
-            this.MS1I_Home.Name = "MS1I_Home";
-            this.MS1I_Home.Size = new System.Drawing.Size(133, 26);
-            this.MS1I_Home.Text = "Home";
-            this.MS1I_Home.Click += new System.EventHandler(this.MS1I_Home_Click);
             // 
             // MS_RO
             // 
@@ -183,6 +173,7 @@
             this.MainMenuStrip = this.MS1;
             this.Name = "Chapoo";
             this.Text = "Chapoo";
+            this.Load += new System.EventHandler(this.Chapoo_Load);
             this.MS1.ResumeLayout(false);
             this.MS1.PerformLayout();
             this.ResumeLayout(false);
@@ -195,7 +186,6 @@
         private System.Windows.Forms.MenuStrip MS1;
         private System.Windows.Forms.ToolStripMenuItem HomeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MS_RO;
-        private System.Windows.Forms.ToolStripMenuItem MS1I_Home;
         private System.Windows.Forms.Label lbl_Welkom;
         private System.Windows.Forms.ToolStripMenuItem MS_BO;
         private System.Windows.Forms.ToolStripMenuItem MS_KO;

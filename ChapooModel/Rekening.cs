@@ -9,7 +9,7 @@ namespace ChapooModel
     public class Rekening
     {
         public int tafelID { get; set; }
-        public float prijs { get; set; }
+        public decimal prijs { get; set; }
         public string omschrijving { get; set; }
     }
 }

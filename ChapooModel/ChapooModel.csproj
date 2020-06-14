@@ -45,6 +45,7 @@
     <Compile Include="BesteldMenuItem.cs" />
     <Compile Include="Bestelling.cs" />
     <Compile Include="Bevat.cs" />
+    <Compile Include="Bon.cs" />
     <Compile Include="Inkomsten.cs" />
     <Compile Include="Klant.cs" />
     <Compile Include="MenuItem.cs" />

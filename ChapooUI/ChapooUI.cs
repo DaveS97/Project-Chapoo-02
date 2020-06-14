@@ -80,8 +80,9 @@ namespace ChapooUI
             pda.ShowDialog();
         }
 
-        
+        private void Chapoo_Load(object sender, EventArgs e)
+        {
 
-        
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace ChapooUI
 
         private void InkomstenForm_Load(object sender, EventArgs e)
         {
-            //haalt uit de BON tabel
+            //haalt data uit de BON tabel
             Inkomsten_Service service = new Inkomsten_Service();
             List<Inkomsten> bonnen = service.GetInkomsten();
             foreach (Inkomsten item in bonnen)

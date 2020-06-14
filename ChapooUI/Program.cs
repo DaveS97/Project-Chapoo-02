@@ -17,6 +17,8 @@ namespace ChapooUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(AanmeldenForm.GetInstance());
+            //Application.Run(new MenuKaartAanpassenForm());
+
         }
     }
 }

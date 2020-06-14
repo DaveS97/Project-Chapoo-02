@@ -59,14 +59,14 @@
             this.terugToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1187, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1187, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // terugToolStripMenuItem
             // 
             this.terugToolStripMenuItem.Name = "terugToolStripMenuItem";
-            this.terugToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.terugToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
             this.terugToolStripMenuItem.Text = "Home";
             this.terugToolStripMenuItem.Click += new System.EventHandler(this.terugToolStripMenuItem_Click);
             // 
@@ -87,9 +87,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(13, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(314, 36);
+            this.label1.Size = new System.Drawing.Size(223, 36);
             this.label1.TabIndex = 2;
-            this.label1.Text = "menu kaart aanpassen";
+            this.label1.Text = "Item aanpassen";
             // 
             // panel1
             // 
