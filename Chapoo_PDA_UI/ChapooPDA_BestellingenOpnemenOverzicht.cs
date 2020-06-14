@@ -15,6 +15,7 @@ namespace Chapoo_PDA_UI
     {
         private List<ChapooModel.MenuItem> items, voorgerechten, hoofdgerechten, nagerechten, dranken, itemsNaarDatabase;
         private List<int> aantallen = new List<int>();
+        private List<int> aantallenNaarDatabase, aantallenVoorgerechten, aantallenHoofdgerechten, aantallenNagerechten, aantallenDranken;
         private int tafelnummer;
         private ChapooModel.Klant klant = new ChapooModel.Klant();
         
@@ -39,13 +40,14 @@ namespace Chapoo_PDA_UI
             VulListViews();
         }
         
-        //verstuur de lijst van menu items door naar de keuken/bar en maak de lijsten leeg */
+        //verstuur de lijst van menu items door naar de keuken/bar en maak de lijsten leeg
         private void btnVerstuur_Click(object sender, EventArgs e)
         {
             Bevat_Service bevat_Service = new Bevat_Service();
-            VerlaagVoorraadAantal();
+            
             SchrijfBestellingNaarDatabase();
-           
+            VerlaagVoorraadAantal();
+
             items.Clear();
         }
 
@@ -57,6 +59,7 @@ namespace Chapoo_PDA_UI
                 if (lvVoorgerechten.Items[i].Selected)
                 {
                     voorgerechten.Remove(voorgerechten[i]);
+
                     lvVoorgerechten.Items.Remove(lvVoorgerechten.Items[i]);
                     return;
                 }
@@ -106,33 +109,60 @@ namespace Chapoo_PDA_UI
             Bestelling_Service bestelling_Service = new Bestelling_Service();
             Klant_Service klant_Service = new Klant_Service();
 
-            itemsNaarDatabase = VulLijstVoorDatabase();
+            itemsNaarDatabase = VulLijstItemsNaarDatabase();
+            aantallenNaarDatabase = VulLijstAantallenNaarDatabase();
             klant = klant_Service.KrijgKlantUitTafelID(tafelnummer)[0];
         }
 
         //vul een nieuwe lijst met de menu items die in het overzicht staan, voor het geval dat er tussentijds items verwijderd zijn
-        private List<ChapooModel.MenuItem> VulLijstVoorDatabase()
+        private List<ChapooModel.MenuItem> VulLijstItemsNaarDatabase()
         {
-            items = new List<ChapooModel.MenuItem>();
+            MenuItem_Service service = new MenuItem_Service();
+            List<ChapooModel.MenuItem> itemsVoorDatabase = new List<ChapooModel.MenuItem>();
             
             foreach(ChapooModel.MenuItem item in voorgerechten)
             {
-                itemsNaarDatabase.Add(item);
+                itemsVoorDatabase.Add(item);
             }
             foreach (ChapooModel.MenuItem item in hoofdgerechten)
             {
-                itemsNaarDatabase.Add(item);
+                itemsVoorDatabase.Add(item);
             }
             foreach (ChapooModel.MenuItem item in nagerechten)
             {
-                itemsNaarDatabase.Add(item);
+                itemsVoorDatabase.Add(item);
             }
             foreach (ChapooModel.MenuItem item in dranken)
             {
-                itemsNaarDatabase.Add(item);
+                itemsVoorDatabase.Add(item);
             }
 
-            return items;
+            return itemsVoorDatabase;
+        }
+
+        //vul een nieuwe lijst met de aantallen die in het overzicht staan, voor het geval dat er tussentijds items verwijderd zijn
+        private List<int> VulLijstAantallenNaarDatabase()
+        {
+            List<int> aantallenVoorDatabase = new List<int>();
+
+            for (int i = 0; i < lvVoorgerechten.Items.Count; i++)
+            {
+                aantallenVoorDatabase.Add(int.Parse(lvVoorgerechten.Items[i].SubItems[2].Text));
+            }
+            for (int i = 0; i < lvHoofdgerechten.Items.Count; i++)
+            {
+                aantallenVoorDatabase.Add(int.Parse(lvHoofdgerechten.Items[i].SubItems[2].Text));
+            }
+            for (int i = 0; i < lvNagerechten.Items.Count; i++)
+            {
+                aantallenVoorDatabase.Add(int.Parse(lvNagerechten.Items[i].SubItems[2].Text));
+            }
+            for (int i = 0; i < lvDranken.Items.Count; i++)
+            {
+                aantallenVoorDatabase.Add(int.Parse(lvDranken.Items[i].SubItems[2].Text));
+            }
+
+            return aantallenVoorDatabase;
         }
 
         //splits de megekregen lijst van menu items op per type gerecht
