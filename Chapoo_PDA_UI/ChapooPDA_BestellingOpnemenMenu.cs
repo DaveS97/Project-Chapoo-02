@@ -29,12 +29,17 @@ namespace Chapoo_PDA_UI
             try
             {
                 tafelnummer = int.Parse(tbTafelnummerBestellingOpnemen.Text);
-                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer);
-                Close();
-                registreren.ShowDialog();
-            }catch(FormatException)
+
+                if (tafelnummer != 2 || tafelnummer != 3 || tafelnummer != 8 || tafelnummer >= 0 || tafelnummer <= 14)
+                {
+                    ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer);
+                    Close();
+                    registreren.ShowDialog();
+                } else throw new FormatException();  
+            }
+            catch (FormatException)
             {
-                MessageBox.Show("Geen tafelnummer ingevoerd");
+                MessageBox.Show("Geen tafelnummer of een foutief tafelnummer ingevoerd");
             }
         }
     }
