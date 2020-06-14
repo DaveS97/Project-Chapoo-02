@@ -32,5 +32,32 @@ namespace ChapooLogic
                 return bestellingen;
             }
         }
+
+        public List<Bestelling> DB_Krijg_Bestelling_Uit_KlantID(int klantID, string dateTime)
+        {
+            try
+            {
+                List<Bestelling> bestellingen = bestelling.DB_Krijg_Bestelling_Voor_Klant(klantID, dateTime);
+                return bestellingen;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                List<Bestelling> bestellingen = new List<Bestelling>();
+                return bestellingen;
+            }
+        }
+
+        public void Write_To_Db_Bestelling(int bedienerID, int klantID, string dateTime)
+        {
+            try
+            {
+                bestelling.Write_To_Db_Bestelling(bedienerID, klantID, dateTime);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+            }
+        }
     }
 }

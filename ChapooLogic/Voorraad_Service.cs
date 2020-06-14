@@ -1,4 +1,5 @@
 ﻿using ChapooDAL;
+using ChapooModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,20 @@ namespace ChapooLogic
 				MessageBox.Show("Chapoo couldn't connect to the database" + e.Message);
 			}
 		}
+
+        public List<Voorraad> GetVoorraadVanID(int id)
+        {
+            try
+            {
+                return Voorraad_DAO.GetVoorraadVanID(id);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database" + e.Message);
+                List<Voorraad> voorraad = new List<Voorraad>();
+                return voorraad;
+            }
+        }
 
         public void Write_To_DB_Set_Nieuw_Aantal(int id, int aantal)
         {

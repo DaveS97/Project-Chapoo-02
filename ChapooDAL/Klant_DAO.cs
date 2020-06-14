@@ -18,6 +18,14 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
+
+        public List<Klant> DB_Krijg_Klant_Uit_TafelID(int tafelID)
+        {
+            string query = $"SELECT klantID, tafelID FROM Klanten WHERE tafelID = {tafelID}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
         private List<Klant> ReadTables(DataTable dataTable)
         {
             List<Klant> klanten = new List<Klant>();

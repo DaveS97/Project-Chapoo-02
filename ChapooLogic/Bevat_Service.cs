@@ -113,5 +113,17 @@ namespace ChapooLogic
                 return klantenInfo;
             }
         }
+
+        public void Write_To_Db_Bevat(int menuItemID, int bestellingID)
+        {
+            try
+            {
+                bevat_DAO.Write_To_Db_Bevat(menuItemID, bestellingID);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+            }
+        }
     }
 }
