@@ -14,9 +14,11 @@ namespace Chapoo_PDA_UI
     {
         private int tafelnummer;
 
-        public ChapooPDA_BestellingOpnemenMenu()
+        private int ID;
+        public ChapooPDA_BestellingOpnemenMenu(int ID)
         {
             InitializeComponent();
+            this.ID = ID;
         }
 
         private void tbTafelnummerBestellingOpnemen_TextChanged(object sender, EventArgs e)
