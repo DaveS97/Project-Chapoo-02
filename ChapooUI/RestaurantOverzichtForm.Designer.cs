@@ -96,6 +96,7 @@
             this.MS_BO.Name = "MS_BO";
             this.MS_BO.Size = new System.Drawing.Size(89, 20);
             this.MS_BO.Text = "Bar Overzicht";
+            this.MS_BO.Click += new System.EventHandler(this.MS_BO_Click);
             // 
             // MS_KO
             // 
@@ -122,24 +123,28 @@
             this.MS1I_Inkomsten.Name = "MS1I_Inkomsten";
             this.MS1I_Inkomsten.Size = new System.Drawing.Size(192, 22);
             this.MS1I_Inkomsten.Text = "Inkomsten";
+            this.MS1I_Inkomsten.Click += new System.EventHandler(this.MS1I_Inkomsten_Click);
             // 
             // MS1I_Voorraad
             // 
             this.MS1I_Voorraad.Name = "MS1I_Voorraad";
             this.MS1I_Voorraad.Size = new System.Drawing.Size(192, 22);
             this.MS1I_Voorraad.Text = "Voorraad";
+            this.MS1I_Voorraad.Click += new System.EventHandler(this.MS1I_Voorraad_Click);
             // 
             // MS1I_MenuKaartOpties
             // 
             this.MS1I_MenuKaartOpties.Name = "MS1I_MenuKaartOpties";
             this.MS1I_MenuKaartOpties.Size = new System.Drawing.Size(192, 22);
             this.MS1I_MenuKaartOpties.Text = "Menu kaart aanpassen";
+            this.MS1I_MenuKaartOpties.Click += new System.EventHandler(this.MS1I_MenuKaartOpties_Click);
             // 
             // MS1I_Werknemers
             // 
             this.MS1I_Werknemers.Name = "MS1I_Werknemers";
             this.MS1I_Werknemers.Size = new System.Drawing.Size(192, 22);
             this.MS1I_Werknemers.Text = "Werknemers";
+            this.MS1I_Werknemers.Click += new System.EventHandler(this.MS1I_Werknemers_Click);
             // 
             // afmeldenToolStripMenuItem
             // 
@@ -147,6 +152,7 @@
             this.afmeldenToolStripMenuItem.Name = "afmeldenToolStripMenuItem";
             this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.afmeldenToolStripMenuItem.Text = "afmelden";
+            this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
             // 
             // listview_TafelOverzicht
             // 

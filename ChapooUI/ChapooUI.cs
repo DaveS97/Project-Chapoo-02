@@ -111,9 +111,10 @@ namespace ChapooUI
             form.Show();            
         }
 
-        private void Chapoo_Load(object sender, EventArgs e)
+        private void MS_Beheer_Click(object sender, EventArgs e)
         {
 
         }
+        
     }
 }
