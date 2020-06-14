@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AanmeldenPDAForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AanmeldenPDAForm.Designer.cs">
+      <DependentUpon>AanmeldenPDAForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChapooPDA.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AanmeldenPDAForm.resx">
+      <DependentUpon>AanmeldenPDAForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChapooPDA.resx">
       <DependentUpon>ChapooPDA.cs</DependentUpon>
     </EmbeddedResource>
