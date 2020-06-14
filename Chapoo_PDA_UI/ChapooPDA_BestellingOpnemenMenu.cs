@@ -14,9 +14,11 @@ namespace Chapoo_PDA_UI
     {
         private int tafelnummer;
 
-        public ChapooPDA_BestellingOpnemenMenu()
+        private int ID;
+        public ChapooPDA_BestellingOpnemenMenu(int ID)
         {
             InitializeComponent();
+            this.ID = ID;
         }
 
         private void tbTafelnummerBestellingOpnemen_TextChanged(object sender, EventArgs e)
@@ -29,7 +31,7 @@ namespace Chapoo_PDA_UI
             try
             {
                 tafelnummer = int.Parse(tbTafelnummerBestellingOpnemen.Text);
-                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer);
+                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer, ID);
                 Close();
                 registreren.ShowDialog();
             }catch(FormatException)
