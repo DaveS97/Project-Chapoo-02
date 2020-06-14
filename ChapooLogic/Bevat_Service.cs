@@ -114,11 +114,11 @@ namespace ChapooLogic
             }
         }
 
-        public void Write_To_Db_Bevat(int menuItemID, int bestellingID)
+        public void Write_To_Db_Bevat(int menuItemID, int bestellingID, string commentaar, int aantal)
         {
             try
             {
-                bevat_DAO.Write_To_Db_Bevat(menuItemID, bestellingID);
+                bevat_DAO.Write_To_Db_Bevat(menuItemID, bestellingID, commentaar, aantal);
             }
             catch (Exception e)
             {
