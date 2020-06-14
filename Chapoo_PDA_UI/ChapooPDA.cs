@@ -33,7 +33,7 @@ namespace Chapoo_PDA_UI
 
         private void btnBestellingOpnemen_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingOpnemenMenu menu = new ChapooPDA_BestellingOpnemenMenu(ID);
+            ChapooPDA_BestellingOpnemenMenu menu = new ChapooPDA_BestellingOpnemenMenu(werknemerID);
             menu.ShowDialog();
         }
 

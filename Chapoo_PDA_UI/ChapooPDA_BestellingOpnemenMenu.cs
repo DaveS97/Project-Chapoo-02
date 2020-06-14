@@ -34,7 +34,7 @@ namespace Chapoo_PDA_UI
 
                 if (tafelnummer != 2 || tafelnummer != 3 || tafelnummer != 8 || tafelnummer >= 0 || tafelnummer <= 14)
                 {
-                    ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer);
+                    ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer, ID);
                     Close();
                     registreren.ShowDialog();
                 } else throw new FormatException();  

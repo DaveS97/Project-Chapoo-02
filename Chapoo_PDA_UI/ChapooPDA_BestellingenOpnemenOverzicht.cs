@@ -15,11 +15,12 @@ namespace Chapoo_PDA_UI
     {
         private List<ChapooModel.MenuItem> items, voorgerechten, hoofdgerechten, nagerechten, dranken, itemsNaarDatabase;
         private List<int> aantallen = new List<int>();
+        private ChapooModel.Klant klant = new ChapooModel.Klant();
         private List<int> aantallenNaarDatabase;
+
         private int tafelnummer;
         int werknemerID;
 
-        
         public ChapooPDA_BestellingenOpnemenOverzicht(List<ChapooModel.MenuItem> items, int tafelnummer, List<int> aantallen, int werknemerID)
         {
             InitializeComponent();
