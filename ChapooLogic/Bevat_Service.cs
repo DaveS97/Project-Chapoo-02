@@ -10,6 +10,26 @@ namespace ChapooLogic
     {
         private Bevat_DAO bevat_DAO = new Bevat_DAO();
 
+        public Dictionary<Bevat, Klant> KrijgDrankjes()
+        {
+            try
+            {
+                Dictionary<Bevat, Klant> drankjesEnInfoKlant = bevat_DAO.KrijgDrankjesOpenstaand();
+                return drankjesEnInfoKlant;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                Dictionary<Bevat, Klant> lijst = new Dictionary<Bevat, Klant>();
+                Bevat bevat = new Bevat();
+                bevat.bestellingID = 1;
+                bevat.bestellingID = 8;
+                Klant klant = new Klant();
+                klant.tafelID = 2;
+                lijst.Add(bevat, klant);
+                return lijst;
+            }
+        }
         public Dictionary<Bevat, Klant> KrijgBestellingEnMenuItemID()
         {
             try
@@ -30,6 +50,49 @@ namespace ChapooLogic
                 return lijst;
             }
         }
+        public Dictionary<Bevat, Klant> KrijgBestellingEnMenuItemIDGereed()
+        {
+            try
+            {
+                Dictionary<Bevat, Klant> IDs = bevat_DAO.KrijgIDSGereed();
+                return IDs;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                Dictionary<Bevat, Klant> lijst = new Dictionary<Bevat, Klant>();
+                Bevat bevat = new Bevat();
+                bevat.bestellingID = 1;
+                bevat.bestellingID = 8;
+                Klant klant = new Klant();
+                klant.tafelID = 2;
+                lijst.Add(bevat, klant);
+                return lijst;
+            }
+        }
+
+        public void BestellingGereedZetten(int bestelNummer)
+        {
+            try
+            {
+                bevat_DAO.Bestelling_Gereed_Zetten(bestelNummer);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+            }
+        }
+        public void BestellingOngereedZetten(int bestelNummer)
+        {
+            try
+            {
+                bevat_DAO.Bestelling_Ongereed_Zetten(bestelNummer);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+            }
+        }
 
         public Dictionary<Bevat, Klant> KrijgBeschrijving(string bestellingID)
         {
@@ -48,6 +111,18 @@ namespace ChapooLogic
                 klant.ID = 1;
                 klantenInfo.Add(info, klant);
                 return klantenInfo;
+            }
+        }
+
+        public void Write_To_Db_Bevat(int menuItemID, int bestellingID)
+        {
+            try
+            {
+                bevat_DAO.Write_To_Db_Bevat(menuItemID, bestellingID);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
             }
         }
     }

@@ -8,6 +8,7 @@ namespace ChapooModel
 {
     public class Voorraad
     {
-
+        public int ID { get; set; }
+        public int aantal { get; set; }
     }
 }

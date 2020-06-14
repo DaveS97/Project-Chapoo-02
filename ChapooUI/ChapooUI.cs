@@ -39,6 +39,7 @@ namespace ChapooUI
 
         private void MS_KO_Click(object sender, EventArgs e)
         {
+            //singleton patern toegepast
             KeukenOverzichtForm keukenOverzicht = KeukenOverzichtForm.GetInstance();
             keukenOverzicht.ShowDialog();
         }
@@ -71,24 +72,37 @@ namespace ChapooUI
         private void itemAanpassenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MenuAanpassenForm form = new MenuAanpassenForm();
-            form.Show();
+            form.ShowDialog();
         }
 
         private void afmeldenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AfmeldenForm form = new AfmeldenForm();
-            form.Show();
+            form.ShowDialog();
         }
 
         private void openPDAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChapooPDA pda = new ChapooPDA();
+            AanmeldenPDAForm pda = new AanmeldenPDAForm();
             pda.ShowDialog();
         }
 
         private void MS1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void Chapoo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MS_BO_Click(object sender, EventArgs e)
+        {
+            KeukenOverzichtForm keukenOverzicht = KeukenOverzichtForm.GetInstance();
+            keukenOverzicht.OpenBarOverzicht();
+            keukenOverzicht.ShowDialog();
+            
         }
 
         private void MS_RO_Click(object sender, EventArgs e)
