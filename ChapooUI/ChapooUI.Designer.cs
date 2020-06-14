@@ -40,8 +40,8 @@
             this.MS1I_MenuKaartOpties = new System.Windows.Forms.ToolStripMenuItem();
             this.MS1I_Werknemers = new System.Windows.Forms.ToolStripMenuItem();
             this.afmeldenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbl_Welkom = new System.Windows.Forms.Label();
             this.openPDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_Welkom = new System.Windows.Forms.Label();
             this.MS1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,6 +154,15 @@
             this.afmeldenToolStripMenuItem.Text = "afmelden";
             this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
             // 
+            // openPDAToolStripMenuItem
+            // 
+            this.openPDAToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.openPDAToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.openPDAToolStripMenuItem.Name = "openPDAToolStripMenuItem";
+            this.openPDAToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
+            this.openPDAToolStripMenuItem.Text = "open PDA";
+            this.openPDAToolStripMenuItem.Click += new System.EventHandler(this.openPDAToolStripMenuItem_Click);
+            // 
             // lbl_Welkom
             // 
             this.lbl_Welkom.AutoSize = true;
@@ -163,15 +172,6 @@
             this.lbl_Welkom.Size = new System.Drawing.Size(635, 31);
             this.lbl_Welkom.TabIndex = 1;
             this.lbl_Welkom.Text = "Welkom bij het restaurant bestelsysteem van Chapoo.";
-            // 
-            // openPDAToolStripMenuItem
-            // 
-            this.openPDAToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.openPDAToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.openPDAToolStripMenuItem.Name = "openPDAToolStripMenuItem";
-            this.openPDAToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
-            this.openPDAToolStripMenuItem.Text = "open PDA";
-            this.openPDAToolStripMenuItem.Click += new System.EventHandler(this.openPDAToolStripMenuItem_Click);
             // 
             // Chapoo
             // 
@@ -185,6 +185,7 @@
             this.MainMenuStrip = this.MS1;
             this.Name = "Chapoo";
             this.Text = "Chapoo";
+            this.Load += new System.EventHandler(this.Chapoo_Load);
             this.MS1.ResumeLayout(false);
             this.MS1.PerformLayout();
             this.ResumeLayout(false);

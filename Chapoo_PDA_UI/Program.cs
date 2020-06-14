@@ -16,7 +16,7 @@ namespace Chapoo_PDA_UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ChapooPDA());
+            Application.Run(new AanmeldenPDAForm());
         }
     }
 }

@@ -37,7 +37,6 @@ namespace Chapoo_PDA_UI
             btnOverzicht.Enabled = false;
             ShowPanelOpnemen();
         }
-
         private void ShowPanelOpnemen()
         {
             pnlBestellingOpnemen.Show();
