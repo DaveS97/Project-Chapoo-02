@@ -26,13 +26,13 @@ namespace Chapoo_PDA_UI
         public List<ChapooModel.MenuItem> itemsUitDatabase = new List<ChapooModel.MenuItem>();
         private ChapooModel.Bestelling bestelling = new ChapooModel.Bestelling();
         private int teller = 0;
-        private int werknemerID;
+        private int bedienerID;
 
 
-        public ChapooPDA_BestellingOpnemenRegistreren(int tafelnummer, int werknemerID)
+        public ChapooPDA_BestellingOpnemenRegistreren(int tafelnummer, int bedienerID)
         {
             this.tafelnummer = tafelnummer;
-            this.werknemerID = werknemerID;
+            this.bedienerID = bedienerID;
             InitializeComponent();
         }
 
@@ -120,7 +120,7 @@ namespace Chapoo_PDA_UI
                 MessageBox.Show($"{item.Beschrijving} heeft geen voorraad over! Neem contact op met de voorraadbeheerder.");
             }
             MessageBox.Show($"{item.Beschrijving} {commentaar} is {aantal} keer toegevoegd");
-            teller++;
+            //teller++;
             beschrijving = "";
             aantal = 1;
             commentaar = "";
@@ -140,7 +140,7 @@ namespace Chapoo_PDA_UI
 
         private void btnOverzicht_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingenOpnemenOverzicht overzicht = new ChapooPDA_BestellingenOpnemenOverzicht(itemsUitDatabase, tafelnummer, aantallen, commentaren, werknemerID);
+            ChapooPDA_BestellingenOpnemenOverzicht overzicht = new ChapooPDA_BestellingenOpnemenOverzicht(itemsUitDatabase, tafelnummer, aantallen, commentaren, bedienerID);
             overzicht.ShowDialog();
             this.Close();
         }

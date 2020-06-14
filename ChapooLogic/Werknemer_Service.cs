@@ -80,5 +80,19 @@ namespace ChapooLogic
                 return werknemers;
             }
         }
+        public List<Bediener> GetBedienersVanWerknemerID(int werknemerID)
+        {
+            try
+            {
+                List<Bediener> bedieners = werknemer.GetBedienersVanWerknemerID(werknemerID);
+                return bedieners;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database" + e.Message);
+                List<Bediener> bedieners = new List<Bediener>();
+                return bedieners;
+            }
+        }
     }
 }
