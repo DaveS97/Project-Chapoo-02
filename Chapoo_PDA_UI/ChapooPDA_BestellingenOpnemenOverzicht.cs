@@ -13,7 +13,7 @@ namespace Chapoo_PDA_UI
 {
     public partial class ChapooPDA_BestellingenOpnemenOverzicht : Form
     {
-        private List<ChapooModel.MenuItem> items, voorgerechten, hoofdgerechten, nagerechten, dranken, itemsNaarDatabase;
+        private List<ChapooModel.MenuItem> bestelItems, voorgerechten, hoofdgerechten, nagerechten, dranken, itemsNaarDatabase;
         private List<int> aantallen = new List<int>();
         private ChapooModel.Klant klant = new ChapooModel.Klant();
         private List<int> aantallenNaarDatabase;
@@ -24,7 +24,7 @@ namespace Chapoo_PDA_UI
         public ChapooPDA_BestellingenOpnemenOverzicht(List<ChapooModel.MenuItem> items, int tafelnummer, List<int> aantallen, int werknemerID)
         {
             InitializeComponent();
-            this.items = items;
+            this.bestelItems = items;
             this.tafelnummer = tafelnummer;
             this.aantallen = aantallen;
             this.werknemerID = werknemerID;
@@ -51,7 +51,7 @@ namespace Chapoo_PDA_UI
             SchrijfBestellingNaarDatabase();
             VerlaagVoorraadAantal();
 
-            items.Clear();
+            bestelItems.Clear();
         }
 
         //verwijder het geselecteerde item uit het overzicht en de lijst met items
@@ -100,9 +100,9 @@ namespace Chapoo_PDA_UI
         private void VerlaagVoorraadAantal()
         {
             Voorraad_Service voorraad_Service = new Voorraad_Service();
-            for (int i = 0; i < items.Count; i++)
+            for (int i = 0; i < bestelItems.Count; i++)
             {
-                voorraad_Service.Write_To_DB_Set_Nieuw_Aantal(items[i].ID, aantallen[i]);
+                voorraad_Service.Write_To_DB_Set_Nieuw_Aantal(bestelItems[i].ID, aantallen[i]);
             }
         }
 
@@ -116,6 +116,13 @@ namespace Chapoo_PDA_UI
             itemsNaarDatabase = VulLijstItemsNaarDatabase();
             aantallenNaarDatabase = VulLijstAantallenNaarDatabase();
             klant = klant_Service.KrijgKlantUitTafelID(tafelnummer)[0];
+
+            bestelling_Service.Write_To_Db_Bestelling(werknemerID, klant.ID);
+            ChapooModel.Bestelling bestelling = bestelling_Service.DB_Krijg_Bestelling_Uit_KlantID(klant.ID)[0];
+            foreach(ChapooModel.MenuItem item in bestelItems)
+            {
+                bevat_Service.Write_To_Db_Bevat(item.ID, bestelling.bestellingID);
+            }
         }
 
         //vul een nieuwe lijst met de menu items die in het overzicht staan, voor het geval dat er tussentijds items verwijderd zijn
@@ -177,7 +184,7 @@ namespace Chapoo_PDA_UI
             nagerechten = new List<ChapooModel.MenuItem>();
             dranken = new List<ChapooModel.MenuItem>();
 
-            foreach (ChapooModel.MenuItem item in items)
+            foreach (ChapooModel.MenuItem item in bestelItems)
             {
                 switch (item.typeGerecht)
                 {
