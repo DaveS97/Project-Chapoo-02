@@ -15,7 +15,7 @@ namespace Chapoo_PDA_UI
     {
         private List<ChapooModel.MenuItem> items, voorgerechten, hoofdgerechten, nagerechten, dranken, itemsNaarDatabase;
         private List<int> aantallen = new List<int>();
-        private List<int> aantallenNaarDatabase, aantallenVoorgerechten, aantallenHoofdgerechten, aantallenNagerechten, aantallenDranken;
+        private List<int> aantallenNaarDatabase;
         private int tafelnummer;
         private ChapooModel.Klant klant = new ChapooModel.Klant();
         
@@ -107,6 +107,7 @@ namespace Chapoo_PDA_UI
         private void SchrijfBestellingNaarDatabase()
         {
             Bestelling_Service bestelling_Service = new Bestelling_Service();
+            Bevat_Service bevat_Service = new Bevat_Service();
             Klant_Service klant_Service = new Klant_Service();
 
             itemsNaarDatabase = VulLijstItemsNaarDatabase();
