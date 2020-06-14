@@ -78,6 +78,8 @@ namespace Chapoo_PDA_UI
                 }
                 MessageBox.Show($"Welkom {naam} jij bent een {types}\nID: {ID}");
                 ChapooPDA pda = new ChapooPDA(ID);
+
+                this.Hide();
                 pda.ShowDialog();
             }
             else

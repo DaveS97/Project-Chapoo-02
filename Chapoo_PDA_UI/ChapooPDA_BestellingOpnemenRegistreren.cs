@@ -20,6 +20,7 @@ namespace Chapoo_PDA_UI
         private string commentaar = "";
         private string beschrijving = "";
         private List<int> aantallen = new List<int>();
+        private List<string> commentaren = new List<string>();
         private ChapooModel.MenuItem item = new ChapooModel.MenuItem();
         private List<ChapooModel.MenuItem> items = new List<ChapooModel.MenuItem>();
         public List<ChapooModel.MenuItem> itemsUitDatabase = new List<ChapooModel.MenuItem>();
@@ -104,6 +105,7 @@ namespace Chapoo_PDA_UI
             aantal = int.Parse(tbAantal.Text);
             aantallen.Add(aantal);
             commentaar = tbCommentaar.Text;
+            commentaren.Add(commentaar);
             btnOverzicht.Enabled = true;
             ChapooModel.MenuItem item = GetItem();
             itemsUitDatabase.Add(item);
@@ -117,8 +119,15 @@ namespace Chapoo_PDA_UI
             {
                 MessageBox.Show($"{item.Beschrijving} heeft geen voorraad over! Neem contact op met de voorraadbeheerder.");
             }
-            MessageBox.Show($"{item.Beschrijving} is {aantal} keer toegevoegd");
+            MessageBox.Show($"{item.Beschrijving} {commentaar} is {aantal} keer toegevoegd");
             teller++;
+            beschrijving = "";
+            aantal = 1;
+            commentaar = "";
+
+            ddMenuItems.Text = "";
+            tbAantal.Text = aantal.ToString();
+            tbCommentaar.Text = "";
         }
 
         private ChapooModel.MenuItem GetItem()
@@ -131,8 +140,9 @@ namespace Chapoo_PDA_UI
 
         private void btnOverzicht_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingenOpnemenOverzicht overzicht = new ChapooPDA_BestellingenOpnemenOverzicht(itemsUitDatabase, tafelnummer, aantallen, werknemerID);
+            ChapooPDA_BestellingenOpnemenOverzicht overzicht = new ChapooPDA_BestellingenOpnemenOverzicht(itemsUitDatabase, tafelnummer, aantallen, commentaren, werknemerID);
             overzicht.ShowDialog();
+            this.Close();
         }
 
         private void lblTafelnummer_Click(object sender, EventArgs e)
