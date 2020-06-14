@@ -80,6 +80,7 @@ namespace ChapooUI
 
         private void btnVerwijder_Click(object sender, EventArgs e)
         {
+            //verwijderd werknemer uit werknemers
             int ID = int.Parse(lblID.Text);
             Werknemer_Service service = new Werknemer_Service();
             service.Write_to_db_verwijderenWerknemer(ID);
@@ -96,19 +97,29 @@ namespace ChapooUI
 
         private void lv_Werknemers_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //vult items vanuit tabel naar pannel. 
             panel1.Show();
             pnlToevoegen.Hide();
-            tbNaam.Text = lv_Werknemers.SelectedItems[0].SubItems[0].Text;
-            lblID.Text = lv_Werknemers.SelectedItems[0].SubItems[1].Text;
+            try
+            {
+                tbNaam.Text = lv_Werknemers.SelectedItems[0].SubItems[0].Text;
+                lblID.Text = lv_Werknemers.SelectedItems[0].SubItems[1].Text;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnWerknemerToevoegen_Click(object sender, EventArgs e)
         {
+            panel1.Hide();
             pnlToevoegen.Show();
         }
 
         private void btnVoegToe_Click(object sender, EventArgs e)
         {
+            //schrijft hier naar de database tabel werkenemers, en voegt een werknemer toe
             Werknemer_Service service = new Werknemer_Service();
             string naam = tbNaamToevoegen.Text;
             int type = int.Parse(tbTypeToevoegen.Text);
@@ -128,6 +139,11 @@ namespace ChapooUI
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

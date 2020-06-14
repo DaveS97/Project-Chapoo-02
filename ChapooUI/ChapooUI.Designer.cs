@@ -63,7 +63,6 @@
             this.MS1.Size = new System.Drawing.Size(1039, 28);
             this.MS1.TabIndex = 0;
             this.MS1.Text = "menuStrip1";
-            this.MS1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MS1_ItemClicked);
             // 
             // HomeToolStripMenuItem
             // 
@@ -74,7 +73,6 @@
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
             this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.HomeToolStripMenuItem.Text = "Home";
-            this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
             // MS1I_Home
             // 
@@ -185,7 +183,6 @@
             this.MainMenuStrip = this.MS1;
             this.Name = "Chapoo";
             this.Text = "Chapoo";
-            this.Load += new System.EventHandler(this.Chapoo_Load);
             this.MS1.ResumeLayout(false);
             this.MS1.PerformLayout();
             this.ResumeLayout(false);

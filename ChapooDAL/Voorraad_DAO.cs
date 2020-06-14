@@ -11,6 +11,7 @@ namespace ChapooDAL
 {
     public class Voorraad_DAO : Base
     {
+        //vorraad word handmatig aangepast en opgeslagen in tabel voorraad
         public void Write_To_Db_Voorraad(int id, int aantal)
         {
             string query = "UPDATE Voorraad SET aantal = @aantal where voorraadID = @voorraadID ";
@@ -34,6 +35,7 @@ namespace ChapooDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        //slaat wijzigging aan menuKaart op in MenuItem tabel
         public void Write_To_db_MenuKaart(int ID, string omschrijving, int type, int menu, decimal prijs)
         {
             string query = "UPDATE MenuItem SET omschrijving=@omschrijving, prijs =@prijs, menu =@menu ,typeGerecht=@type where menuItemID =@ID";

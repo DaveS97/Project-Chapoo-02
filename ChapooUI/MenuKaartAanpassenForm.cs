@@ -59,6 +59,7 @@ namespace ChapooUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //hier kan een aanpassing gedaan worden op een menu Item
             MenuAanpassenForm from = new MenuAanpassenForm();
             from.ShowDialog();
         }
@@ -70,15 +71,25 @@ namespace ChapooUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string omschrijving = tbOmschrijving.Text;
-            int type = int.Parse(tbType.Text);
-            decimal prijs = decimal.Parse(tbPrijs.Text);
-            int menu = int.Parse(tbMenu.Text);
+            
+            try
+            {
+                //slaat user data op
+                string omschrijving = tbOmschrijving.Text;
+                int type = int.Parse(tbType.Text);
+                decimal prijs = decimal.Parse(tbPrijs.Text);
+                int menu = int.Parse(tbMenu.Text);
 
-            Voorraad_Service service = new Voorraad_Service();
-            service.Write_To_db_toevoegenMenuItem(omschrijving, type, menu, prijs);
-            fillist();
-            panel1.Hide();
+                //schrijft user data op in tabel MenuItem
+                Voorraad_Service service = new Voorraad_Service();
+                service.Write_To_db_toevoegenMenuItem(omschrijving, type, menu, prijs);
+                fillist();
+                panel1.Hide();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
 
         private void MenuKaartAanpassenForm_Load(object sender, EventArgs e)

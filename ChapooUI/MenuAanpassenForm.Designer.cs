@@ -33,20 +33,20 @@
             this.lvDranken = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbMenu = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbType = new System.Windows.Forms.TextBox();
+            this.lblID = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnVerwijder = new System.Windows.Forms.Button();
             this.btnOpslaan = new System.Windows.Forms.Button();
             this.lblOmschrijving = new System.Windows.Forms.Label();
             this.tbPrijs = new System.Windows.Forms.TextBox();
             this.tbOmschrijving = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
-            this.tbType = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbMenu = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,15 +59,15 @@
             this.terugToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1187, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1187, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // terugToolStripMenuItem
             // 
             this.terugToolStripMenuItem.Name = "terugToolStripMenuItem";
-            this.terugToolStripMenuItem.Size = new System.Drawing.Size(58, 26);
-            this.terugToolStripMenuItem.Text = "terug";
+            this.terugToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.terugToolStripMenuItem.Text = "Home";
             this.terugToolStripMenuItem.Click += new System.EventHandler(this.terugToolStripMenuItem_Click);
             // 
             // lvDranken
@@ -111,6 +111,75 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(491, 422);
             this.panel1.TabIndex = 3;
+            // 
+            // tbMenu
+            // 
+            this.tbMenu.Location = new System.Drawing.Point(48, 284);
+            this.tbMenu.Name = "tbMenu";
+            this.tbMenu.Size = new System.Drawing.Size(100, 22);
+            this.tbMenu.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(396, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 17);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "ID";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(45, 264);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 17);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "menu kaart";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(44, 198);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 17);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "type gerecht";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // tbType
+            // 
+            this.tbType.Location = new System.Drawing.Point(45, 218);
+            this.tbType.Name = "tbType";
+            this.tbType.Size = new System.Drawing.Size(100, 22);
+            this.tbType.TabIndex = 9;
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(445, 17);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(21, 17);
+            this.lblID.TabIndex = 8;
+            this.lblID.Text = "ID";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(45, 123);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 17);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "prijs";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(45, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "omschrijving";
             // 
             // btnVerwijder
             // 
@@ -164,75 +233,6 @@
             this.button1.Text = "opnieuw laden";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 17);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "omschrijving";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 123);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "prijs";
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(445, 17);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(21, 17);
-            this.lblID.TabIndex = 8;
-            this.lblID.Text = "ID";
-            // 
-            // tbType
-            // 
-            this.tbType.Location = new System.Drawing.Point(45, 218);
-            this.tbType.Name = "tbType";
-            this.tbType.Size = new System.Drawing.Size(100, 22);
-            this.tbType.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 198);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 17);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "type gerecht";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(45, 264);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 17);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "menu";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(396, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 17);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "ID";
-            // 
-            // tbMenu
-            // 
-            this.tbMenu.Location = new System.Drawing.Point(48, 284);
-            this.tbMenu.Name = "tbMenu";
-            this.tbMenu.Size = new System.Drawing.Size(100, 22);
-            this.tbMenu.TabIndex = 13;
             // 
             // MenuAanpassenForm
             // 
