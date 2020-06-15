@@ -25,13 +25,11 @@ namespace ChapooUI
         private Dictionary<Bevat, Klant> klantenInfo; //de klant info en zijn bestelling
         private Dictionary<Bevat, Klant> DrinkInfo; // de klant info en zijn drinken
         private Dictionary<Bevat, Klant> klantenInfoGereedPanel; //de klant info en zijn bestelling in het panel gereed
-        private Dictionary<Bevat, Klant> klaargezetteBestellingen;
         private Dictionary<Bevat, Klant> KlaargezetteDrankjes;
         private Dictionary<Bevat, Klant> ids; //info klant en bestellingen
         private Dictionary<Bevat, Klant> idsGereed; // info klant en bestellingen van klaarstaande bestellingen
        // private Dictionary<Bevat, Klant> drankjesOpenstaand; // info klant en drankjes
         private Dictionary<Bevat, Klant> drankjesVanKlant; // info klant en drankjes
-        private List<Bevat> drankjes;
         private List<Klant> klanten; //klanten 
         private List<Bevat> bestellingen; // bestellingen
 
@@ -50,15 +48,12 @@ namespace ChapooUI
         private KeukenOverzichtForm()
         {
             klantenInfo = new Dictionary<Bevat, Klant>();
-            klaargezetteBestellingen = new Dictionary<Bevat, Klant>();
             klantenInfoGereedPanel = new Dictionary<Bevat, Klant>();
             bestellingen = new List<Bevat>();
             klanten = new List<Klant>();
             ids = new Dictionary<Bevat, Klant>();
             idsGereed = new Dictionary<Bevat, Klant>();
-            //drankjesOpenstaand = new Dictionary<Bevat, Klant>();
             drankjesVanKlant = new Dictionary<Bevat, Klant>();
-            drankjes = new List<Bevat>();
             DrinkInfo = new Dictionary<Bevat, Klant>();
             KlaargezetteDrankjes = new Dictionary<Bevat, Klant>();
             InitializeComponent();
@@ -417,6 +412,7 @@ namespace ChapooUI
             try
             {
                 lbl_Drinken.Show();
+                lbl_opmerkingenDrankjes.Show();
                 //eerst alle labels en de lijst leegmaken
                 DrinkInfo.Clear();
                 lbl_DrinkBestelling.Text = "";
@@ -445,20 +441,39 @@ namespace ChapooUI
         //onderstaande methode zet het drinken klaar voor de desbetreffende bestelling
         private void btn_drinkenKlaarzetten_Click(object sender, EventArgs e)
         {
-            lv_drankjes.SelectedItems[0].BackColor = Color.Red;
-            lv_drankjes.Refresh();
-            lv_drankjes.Update();
-            foreach (KeyValuePair<Bevat, Klant> duo in DrinkInfo)
+            try
             {
-                if (duo.Key.typeGerecht == DRINKEN)
+                lv_drankjes.SelectedItems[0].BackColor = Color.Red;
+                lv_drankjes.Refresh();
+                lv_drankjes.Update();
+                foreach (KeyValuePair<Bevat, Klant> duo in DrinkInfo)
                 {
-                    lbl_Drinken.Text = "";
+                    if (duo.Key.typeGerecht == DRINKEN)
+                    {
+                        lbl_Drinken.Text = "";
+                        KlaargezetteDrankjes.Add(duo.Key, duo.Value);
+                        DrankjesDoorsturen(duo.Key, duo.Value);
+                    }
                 }
+                lbl_DrinkBestelling.Text = "";
+                lbl_opmerkingenDrankjes.Text = "";
             }
-            lbl_DrinkBestelling.Text = "";
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} De listview kan pas herladen worden als een drankje gereed gezet is.");
+            }
+            
         }
+
+        //onderstaande methode stuurt te klaargezette drankjes door
+        private void DrankjesDoorsturen(Bevat drankje, Klant klant)
+        {
+            ChapooPDA_KlaarstaandeBestellingenOverzicht klaarstaandeBestellingen_service = ChapooPDA_KlaarstaandeBestellingenOverzicht.GetInstance();
+            klaarstaandeBestellingen_service.DrankjesOntvangen(drankje, klant);
+        }
+
         //onderstaande methode zet de bestelling niet klaar
-        private void btn_VoorgerechtOngereedZetten_Click(object sender, EventArgs e)
+        private void btn_bestellingOngereedZetten_Click(object sender, EventArgs e)
         {
             lbl_voorGerechtKlaar.Text = "";
             lbl_hoofdGerechtKlaar.Text = "";
