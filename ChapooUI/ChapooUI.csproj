@@ -66,6 +66,10 @@
       <DependentUpon>ChapooUI.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="MenuAanpassenForm.cs" />
+    <Compile Include="MenuAanpassenForm.Designer.cs">
+      <DependentUpon>MenuAanpassenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InkomstenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InkomstenForm.resx">
       <DependentUpon>InkomstenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuAanpassenForm.resx">
+      <DependentUpon>MenuAanpassenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KeukenOverzichtForm.resx">
       <DependentUpon>KeukenOverzichtForm.cs</DependentUpon>

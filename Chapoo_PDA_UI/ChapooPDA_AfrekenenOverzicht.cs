@@ -41,7 +41,7 @@ namespace Chapoo_PDA_UI
         private void btnVerstuurRekening_Click(object sender, EventArgs e)
         {
             
-            menuItem_Service.
+            
 
             rekeningService.Update_Db_Rekening(klant.ID, datum, totaalPrijs, fooi, totaalBTW, );
 
