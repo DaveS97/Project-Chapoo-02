@@ -29,7 +29,7 @@ namespace ChapooDAL
                     ID = (int)dr["rekeningID"],
                     Datum = (DateTime)dr["datum"],
                     KlantID = (int)dr["kID"],
-                    fooi = (decimal)dr["fooi"],
+                    Fooi = (decimal)dr["fooi"],
                     BTW = (decimal)dr["btw"],
                     TotaalPrijs = (decimal)dr["totaal"],
                 };
