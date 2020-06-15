@@ -107,9 +107,9 @@ namespace ChapooUI
         private void MS_KO_Click(object sender, EventArgs e)
         {
             //singleton patern toegepast
-            KeukenOverzichtForm keukenOverzicht = KeukenOverzichtForm.GetInstance();
-            keukenOverzicht.ShowDialog();
             this.Hide();
+            KeukenOverzichtForm keukenOverzicht = KeukenOverzichtForm.GetInstance();
+            keukenOverzicht.ShowDialog();            
         }
 
         private void listview_BezettingOverzicht_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,44 +119,44 @@ namespace ChapooUI
 
         private void MS_BO_Click(object sender, EventArgs e)
         {
+            this.Hide();
             KeukenOverzichtForm keukenOverzicht = KeukenOverzichtForm.GetInstance();
             keukenOverzicht.OpenBarOverzicht();
             keukenOverzicht.ShowDialog();
-            this.Hide();
         }
 
         private void MS1I_Inkomsten_Click(object sender, EventArgs e)
         {
+            this.Hide();
             InkomstenForm inkomsten = new InkomstenForm();
             inkomsten.ShowDialog();
-            this.Hide();
         }
 
         private void MS1I_Voorraad_Click(object sender, EventArgs e)
         {
+            this.Hide();
             VoorraadForm voorraad = new VoorraadForm();
             voorraad.ShowDialog();
-            this.Hide();
         }
 
         private void MS1I_MenuKaartOpties_Click(object sender, EventArgs e)
         {
+            this.Hide();
             MenuKaartAanpassenForm from = new MenuKaartAanpassenForm();
             from.ShowDialog();
-            this.Hide();
         }
 
         private void MS1I_Werknemers_Click(object sender, EventArgs e)
         {
+            this.Hide();
             WerknemersForm werknemersForm = new WerknemersForm();
             werknemersForm.ShowDialog();
-            this.Hide();
         }
 
         private void afmeldenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AfmeldenForm form = new AfmeldenForm();
             this.Hide();
+            AfmeldenForm form = new AfmeldenForm();
         }
     }
 }
