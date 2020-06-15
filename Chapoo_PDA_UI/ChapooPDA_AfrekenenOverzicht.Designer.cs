@@ -77,7 +77,7 @@
             this.lbl_Betalingswijze.AutoSize = true;
             this.lbl_Betalingswijze.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Betalingswijze.ForeColor = System.Drawing.Color.White;
-            this.lbl_Betalingswijze.Location = new System.Drawing.Point(20, 525);
+            this.lbl_Betalingswijze.Location = new System.Drawing.Point(121, 527);
             this.lbl_Betalingswijze.Name = "lbl_Betalingswijze";
             this.lbl_Betalingswijze.Size = new System.Drawing.Size(142, 25);
             this.lbl_Betalingswijze.TabIndex = 3;
@@ -88,7 +88,7 @@
             // 
             this.cb_Contant.AutoSize = true;
             this.cb_Contant.ForeColor = System.Drawing.Color.White;
-            this.cb_Contant.Location = new System.Drawing.Point(168, 525);
+            this.cb_Contant.Location = new System.Drawing.Point(269, 527);
             this.cb_Contant.Name = "cb_Contant";
             this.cb_Contant.Size = new System.Drawing.Size(63, 17);
             this.cb_Contant.TabIndex = 3;
@@ -99,7 +99,7 @@
             // 
             this.cb_Digitaal.AutoSize = true;
             this.cb_Digitaal.ForeColor = System.Drawing.Color.White;
-            this.cb_Digitaal.Location = new System.Drawing.Point(168, 548);
+            this.cb_Digitaal.Location = new System.Drawing.Point(269, 550);
             this.cb_Digitaal.Name = "cb_Digitaal";
             this.cb_Digitaal.Size = new System.Drawing.Size(61, 17);
             this.cb_Digitaal.TabIndex = 4;
@@ -111,7 +111,7 @@
             this.lbl_Fooi.AutoSize = true;
             this.lbl_Fooi.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Fooi.ForeColor = System.Drawing.Color.White;
-            this.lbl_Fooi.Location = new System.Drawing.Point(324, 525);
+            this.lbl_Fooi.Location = new System.Drawing.Point(388, 526);
             this.lbl_Fooi.Name = "lbl_Fooi";
             this.lbl_Fooi.Size = new System.Drawing.Size(56, 25);
             this.lbl_Fooi.TabIndex = 5;
@@ -119,7 +119,7 @@
             // 
             // txtbx_Fooi
             // 
-            this.txtbx_Fooi.Location = new System.Drawing.Point(386, 529);
+            this.txtbx_Fooi.Location = new System.Drawing.Point(450, 532);
             this.txtbx_Fooi.Name = "txtbx_Fooi";
             this.txtbx_Fooi.Size = new System.Drawing.Size(108, 20);
             this.txtbx_Fooi.TabIndex = 6;
