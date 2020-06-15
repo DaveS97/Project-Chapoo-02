@@ -23,7 +23,6 @@ namespace ChapooUI
        
         private void MaakCollommen()
         {
-            //collommen worden gemaakt
             lvDranken.Columns.Add("omschrijving", 250);
             lvDranken.Columns.Add("prijs", 50);
             lvDranken.Columns.Add("type gerecht", 50);
@@ -33,8 +32,6 @@ namespace ChapooUI
         }
         private void vullijst()
         {
-            //lijst word gevuld
-
             lvDranken.Clear();
             MaakCollommen();
             MenuItem_Service service = new MenuItem_Service();
@@ -52,7 +49,7 @@ namespace ChapooUI
 
         private void terugToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void DrankMenuAanpassenForm_Load(object sender, EventArgs e)
@@ -63,20 +60,17 @@ namespace ChapooUI
         private void lvDranken_SelectedIndexChanged(object sender, EventArgs e)
         {
             panel1.Show();
-            try
-            {
-                lblOmschrijving.Text = lvDranken.SelectedItems[0].SubItems[0].Text;
-                tbOmschrijving.Text = lvDranken.SelectedItems[0].SubItems[0].Text;
-                tbPrijs.Text = lvDranken.SelectedItems[0].SubItems[1].Text;
-                tbType.Text = lvDranken.SelectedItems[0].SubItems[2].Text;
-                tbMenu.Text = lvDranken.SelectedItems[0].SubItems[3].Text;
-                lblID.Text = lvDranken.SelectedItems[0].SubItems[4].Text;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-           
+            
+            lblOmschrijving.Text = lvDranken.SelectedItems[0].SubItems[0].Text;
+            tbOmschrijving.Text = lvDranken.SelectedItems[0].SubItems[0].Text;
+
+            tbPrijs.Text = lvDranken.SelectedItems[0].SubItems[1].Text;
+            
+            tbType.Text = lvDranken.SelectedItems[0].SubItems[2].Text;
+
+            tbMenu.Text = lvDranken.SelectedItems[0].SubItems[3].Text;
+
+            lblID.Text =  lvDranken.SelectedItems[0].SubItems[4].Text;
         }
 
         private void btnOpslaan_Click(object sender, EventArgs e)
@@ -94,7 +88,6 @@ namespace ChapooUI
 
         private void btnVerwijder_Click(object sender, EventArgs e)
         {
-            //verwijderd record uit de tabel menuItems
             int ID = int.Parse(lblID.Text);
             Voorraad_Service service = new Voorraad_Service();
             service.Write_To_db_VerwijderenMenuItem(ID);

@@ -20,7 +20,6 @@ namespace ChapooUI
 
         private void btnAfmelden_Click(object sender, EventArgs e)
         {
-            //sluit het huidige venster en het home scherm, laat het oude aanmelden form zien.
             this.Close();
             Chapoo form = Chapoo.GetInstance();
             form.Close();

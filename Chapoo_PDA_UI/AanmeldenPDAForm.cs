@@ -29,8 +29,7 @@ namespace Chapoo_PDA_UI
             List<Werknemer> werknemers = service.GetWerknemerPins();
             bool CorrectPin = false;
             string naam = "";
-            int wID = 0;
-            int bID = 0;
+            int ID = 0;
             string types = "";
             int type = 0; // 1=  bediener 2= barman  3= kok  4= eigenaar
 
@@ -42,7 +41,7 @@ namespace Chapoo_PDA_UI
                     if (item.PIN == pin)
                     {
                         CorrectPin = true;
-                        wID = item.ID;
+                        ID = item.ID;
                         naam = item.Naam;
                         type = item.Type;
                         break;
@@ -59,12 +58,26 @@ namespace Chapoo_PDA_UI
                 {
                     MessageBox.Show("jij bent geen bediener dus hier hoef je niet aan te melden");
                 }
-
-                Bediener huidigeBediener = service.GetBedienersVanWerknemerID(wID)[0];
-                bID = huidigeBediener.BedienerID;
-
-                MessageBox.Show($"Welkom {naam}\nID: {wID}");
-                ChapooPDA pda = new ChapooPDA(bID);
+                switch (type)
+                {
+                    case 1:
+                        types = "bediener";
+                        break;
+                    case 2:
+                        types = "barman";
+                        break;
+                    case 3:
+                        types = "kok";
+                        break;
+                    case 4:
+                        types = "eigenaar";
+                        break;
+                    default:
+                        MessageBox.Show("error");
+                        break;
+                }
+                MessageBox.Show($"Welkom {naam} jij bent een {types}\nID: {ID}");
+                ChapooPDA pda = new ChapooPDA(ID);
 
                 this.Hide();
                 pda.ShowDialog();

@@ -8,9 +8,8 @@ namespace ChapooModel
 {
     public class Rekening
     {
-        public int ID { get; set; }
-        public int KlantID { get; set; }
-        public DateTime Datum { get; set; }
-        public decimal TotaalPrijs { get; set; }
+        public int tafelID { get; set; }
+        public float prijs { get; set; }
+        public string omschrijving { get; set; }
     }
 }
