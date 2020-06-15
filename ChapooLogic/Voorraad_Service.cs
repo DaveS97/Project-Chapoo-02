@@ -62,11 +62,11 @@ namespace ChapooLogic
 
 			}
 		}
-		public void Write_To_db_toevoegenMenuItem(string omschrijving, int type, int menu, decimal prijs)
+		public void Write_To_db_toevoegenMenuItem(string omschrijving, int type, int menu, decimal prijs, bool isAlcoholisch)
 		{
 			try
 			{
-				Voorraad_DAO.Write_To_db_ToevoegenMenuItem(omschrijving, type, menu, prijs);
+				Voorraad_DAO.Write_To_db_ToevoegenMenuItem(omschrijving, type, menu, prijs, isAlcoholisch);
 			}
 			catch (Exception e)
 			{

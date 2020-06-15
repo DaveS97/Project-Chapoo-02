@@ -62,11 +62,7 @@ namespace ChapooUI
             from.ShowDialog();
         }
 
-        private void itemAanpassenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MenuAanpassenForm form = new MenuAanpassenForm();
-            form.ShowDialog();
-        }
+       
 
         private void afmeldenToolStripMenuItem_Click(object sender, EventArgs e)
         {
