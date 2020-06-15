@@ -14,7 +14,7 @@ namespace ChapooDAL
     {
         public List<Rekening> GetBonnen()
         {
-            string query = "SELECT rekeningID, kID, datum, totaal, fooi, btw FROM Rekening";
+            string query = "SELECT rekeningID, kID, datum, totaal, fooi, btw FROM Rekening WHERE totaal IS NOT NULL";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -29,13 +29,13 @@ namespace ChapooDAL
                     ID = (int)dr["rekeningID"],
                     Datum = (DateTime)dr["datum"],
                     KlantID = (int)dr["kID"],
-                    fooi = (decimal)dr["fooi"],
+                    Fooi = (decimal)dr["fooi"],
                     BTW = (decimal)dr["btw"],
                     TotaalPrijs = (decimal)dr["totaal"],
                 };
-                bonnen.Add(bon);
+                rekeningen.Add(rekening);
             }
-            return bonnen;
+            return rekeningen;
         }
   
 

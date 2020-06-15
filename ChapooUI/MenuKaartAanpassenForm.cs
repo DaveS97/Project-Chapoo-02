@@ -33,6 +33,10 @@ namespace ChapooUI
             lvMenuKaartAanpassen.Columns.Add("menu kaart", 50);
             lvMenuKaartAanpassen.Columns.Add("ID", 25);
         }
+        private void btnOpnieuwLaden_Click(object sender, EventArgs e)
+        {
+            fillist();
+        }
         private void fillist()
         {
             lvMenuKaartAanpassen.Clear();
@@ -150,6 +154,6 @@ namespace ChapooUI
             this.Hide();
         }
 
-        
+
     }
 }
