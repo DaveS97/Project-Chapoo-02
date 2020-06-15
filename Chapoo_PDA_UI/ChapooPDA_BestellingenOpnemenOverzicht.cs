@@ -45,11 +45,14 @@ namespace Chapoo_PDA_UI
          * verlaag de voorraad van het artikel en maak de lijsten leeg */
         private void btnVerstuur_Click(object sender, EventArgs e)
         {
-            Voorraad_Service service = new Voorraad_Service();
+            Voorraad_Service voorraadService = new Voorraad_Service();
+            RekeningService rekeningService = new RekeningService();
+            RekeningItem_Service rekeningItem_Service = new RekeningItem_Service();
 
             for (int i = 0; i < items.Count; i++)
             {
-                service.Write_To_DB_Set_Nieuw_Aantal(items[i].ID, aantallen[i]);
+                voorraadService.Write_To_DB_Set_Nieuw_Aantal(items[i].ID, aantallen[i]);
+                rekeningItem_Service.Write_To_Db_RekeningItem(rekeningID, items[i].ID);
             }
 
             items.Clear();
