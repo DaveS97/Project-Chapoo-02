@@ -12,20 +12,18 @@ namespace ChapooLogic
     public class RekeningService
     {
         public Rekening_DAO rekening_DAO = new Rekening_DAO();
-        public List<Bon>GetRekenings(int tafelID)
+        public List<Rekening>GetRekening(int klantID)
         {
             try
             {
-                List<Bon> rekeningen = rekening_DAO.DB_Krijg_Alle_Rekeningen(tafelID);
+                List<Rekening> rekeningen = rekening_DAO.DB_Krijg_Rekeningen(klantID);
                 return rekeningen;
             }
             catch (Exception e)
             {
-                List<Bon> rekenings = new List<Bon>();
-                Bon rekening = new Bon();
+                List<Rekening> rekenings = new List<Rekening>();
                 
-                rekenings.Add(rekening);
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Chapoo couldn't connect to the database! " + e.Message);
                 return rekenings;
             }
         }

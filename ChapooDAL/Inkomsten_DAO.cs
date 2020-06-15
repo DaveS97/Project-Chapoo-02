@@ -26,7 +26,7 @@ namespace ChapooDAL
             {
                 Inkomsten rekening = new Inkomsten()
                 {
-                    BonID = (int)dr["bonID"],
+                    RekeningID = (int)dr["bonID"],
                     BedienerID = (int)dr["bedienerID"],
                     Fooi = (int)dr["fooi"],
                     BTW = (int)dr["btw"],

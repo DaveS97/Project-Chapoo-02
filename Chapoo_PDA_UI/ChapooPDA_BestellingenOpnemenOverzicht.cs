@@ -70,15 +70,28 @@ namespace Chapoo_PDA_UI
         private void btnVerstuur_Click(object sender, EventArgs e)
         {
             Bevat_Service bevat_Service = new Bevat_Service();
+            Voorraad_Service voorraadService = new Voorraad_Service();
             
             SchrijfBestellingNaarDatabase();
             VerlaagVoorraadAantal();
+
+
+            RekeningService rekeningService = new RekeningService();
+            RekeningItem_Service rekeningItem_Service = new RekeningItem_Service();
+
+            ChapooModel.Rekening rekening = rekeningService.GetRekening(klant.ID)[0];
+
+            for (int i = 0; i < bestelItems.Count; i++)
+            {
+                rekeningItem_Service.Write_To_Db_RekeningItem(rekening.ID, bestelItems[i].ID);
+            }
 
             MessageBox.Show("Bestelling is verzonden!");
 
             bestelItems.Clear();
             this.Hide();
             ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer, bedienerID);
+
             registreren.ShowDialog();
         }
 
@@ -128,6 +141,7 @@ namespace Chapoo_PDA_UI
         private void VerlaagVoorraadAantal()
         {
             Voorraad_Service voorraad_Service = new Voorraad_Service();
+
             for (int i = 0; i < bestelItems.Count; i++)
             {
                 voorraad_Service.Write_To_DB_Set_Nieuw_Aantal(bestelItems[i].ID, aantallen[i]);

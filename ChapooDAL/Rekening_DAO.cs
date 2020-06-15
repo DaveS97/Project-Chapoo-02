@@ -11,7 +11,7 @@ namespace ChapooDAL
 {
     public class Rekening_DAO : Base
     {
-        public List<Rekening> DB_Krijg_Alle_Rekeningen(int klantID)
+        public List<Rekening> DB_Krijg_Rekeningen(int klantID)
         {
             string query = "";
 
@@ -23,17 +23,14 @@ namespace ChapooDAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public List<Bon> ReadTables(DataTable dataTable)
+        public List<Rekening> ReadTables(DataTable dataTable)
         {
-            List<Bon> rekeningen = new List<Bon>();
+            List<Rekening> rekeningen = new List<Rekening>();
 
             foreach(DataRow dr in dataTable.Rows)
             {
-                Bon bon = new Bon()
+                Rekening rekening = new Rekening()
                 {
-                    Prijs = (decimal)dr["prijs"],
-                    Omschrijving = (string)dr["omschrijving"],
-
                     
                 };
             }

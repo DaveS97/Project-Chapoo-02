@@ -1,4 +1,5 @@
 ﻿using ChapooDAL;
+using ChapooModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,23 @@ namespace ChapooLogic
             catch (Exception e)
             {
                 MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+            }
+        }
+
+        public List<RekeningItem> GetRekeningItemsVoorRekeningID(int rekeningID)
+        {
+            try
+            {
+                List<RekeningItem> items = rekeningItem.GetRekeningItemsVoorRekeningID(rekeningID);
+
+                return items;
+            }
+            catch (Exception e)
+            {
+                List<RekeningItem> items = new List<RekeningItem>();
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+
+                return items;
             }
         }
     }
