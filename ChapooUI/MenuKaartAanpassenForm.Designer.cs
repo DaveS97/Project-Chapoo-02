@@ -30,12 +30,12 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lvDrank = new System.Windows.Forms.ListView();
-            this.btnDrankOphalen = new System.Windows.Forms.Button();
+            this.lvMenuKaartAanpassen = new System.Windows.Forms.ListView();
+            this.btnOpnieuwLaden = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnItemAanpassen = new System.Windows.Forms.Button();
             this.btnToevoegen = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlItemToevoegen = new System.Windows.Forms.Panel();
             this.btnVoegToe = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -62,7 +62,8 @@
             this.tbomschrijvingitem = new System.Windows.Forms.TextBox();
             this.cbIsalcoholisch = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlItemToevoegen.SuspendLayout();
+            this.pnlItemAanpassen.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -84,25 +85,26 @@
             this.homeToolStripMenuItem.Text = "home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
-            // lvDrank
+            // lvMenuKaartAanpassen
             // 
-            this.lvDrank.HideSelection = false;
-            this.lvDrank.Location = new System.Drawing.Point(32, 176);
-            this.lvDrank.Name = "lvDrank";
-            this.lvDrank.Size = new System.Drawing.Size(594, 444);
-            this.lvDrank.TabIndex = 1;
-            this.lvDrank.UseCompatibleStateImageBehavior = false;
-            this.lvDrank.View = System.Windows.Forms.View.Details;
+            this.lvMenuKaartAanpassen.HideSelection = false;
+            this.lvMenuKaartAanpassen.Location = new System.Drawing.Point(32, 176);
+            this.lvMenuKaartAanpassen.Name = "lvMenuKaartAanpassen";
+            this.lvMenuKaartAanpassen.Size = new System.Drawing.Size(594, 444);
+            this.lvMenuKaartAanpassen.TabIndex = 1;
+            this.lvMenuKaartAanpassen.UseCompatibleStateImageBehavior = false;
+            this.lvMenuKaartAanpassen.View = System.Windows.Forms.View.Details;
+            this.lvMenuKaartAanpassen.SelectedIndexChanged += new System.EventHandler(this.lvMenuKaartAanpassen_SelectedIndexChanged);
             // 
-            // btnDrankOphalen
+            // btnOpnieuwLaden
             // 
-            this.btnDrankOphalen.Location = new System.Drawing.Point(495, 626);
-            this.btnDrankOphalen.Name = "btnDrankOphalen";
-            this.btnDrankOphalen.Size = new System.Drawing.Size(131, 28);
-            this.btnDrankOphalen.TabIndex = 7;
-            this.btnDrankOphalen.Text = "opnieuw laden";
-            this.btnDrankOphalen.UseVisualStyleBackColor = true;
-            this.btnDrankOphalen.Click += new System.EventHandler(this.btnDrankOphalen_Click);
+            this.btnOpnieuwLaden.Location = new System.Drawing.Point(495, 626);
+            this.btnOpnieuwLaden.Name = "btnOpnieuwLaden";
+            this.btnOpnieuwLaden.Size = new System.Drawing.Size(131, 28);
+            this.btnOpnieuwLaden.TabIndex = 7;
+            this.btnOpnieuwLaden.Text = "opnieuw laden";
+            this.btnOpnieuwLaden.UseVisualStyleBackColor = true;
+            this.btnOpnieuwLaden.Click += new System.EventHandler(this.btnOpnieuwLaden_Click);
             // 
             // label4
             // 
@@ -110,19 +112,19 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(26, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(318, 36);
+            this.label4.Size = new System.Drawing.Size(326, 36);
             this.label4.TabIndex = 10;
-            this.label4.Text = "MenuKaart Aanpassen";
+            this.label4.Text = "Menu Kaart Aanpassen";
             // 
-            // button1
+            // btnItemAanpassen
             // 
-            this.button1.Location = new System.Drawing.Point(448, 142);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 28);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "item aanpassen";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnItemAanpassen.Location = new System.Drawing.Point(448, 142);
+            this.btnItemAanpassen.Name = "btnItemAanpassen";
+            this.btnItemAanpassen.Size = new System.Drawing.Size(178, 28);
+            this.btnItemAanpassen.TabIndex = 11;
+            this.btnItemAanpassen.Text = "item aanpassen";
+            this.btnItemAanpassen.UseVisualStyleBackColor = true;
+            this.btnItemAanpassen.Click += new System.EventHandler(this.btnItemAanpassen_Click);
             // 
             // btnToevoegen
             // 
@@ -134,7 +136,7 @@
             this.btnToevoegen.UseVisualStyleBackColor = true;
             this.btnToevoegen.Click += new System.EventHandler(this.btnToevoegen_Click);
             // 
-            // panel1
+            // pnlItemToevoegen
             // 
             this.pnlItemToevoegen.BackColor = System.Drawing.Color.White;
             this.pnlItemToevoegen.Controls.Add(this.cbIsalcoholisch);
@@ -384,12 +386,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(1094, 723);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlItemAanpassen);
+            this.Controls.Add(this.pnlItemToevoegen);
             this.Controls.Add(this.btnToevoegen);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnItemAanpassen);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnDrankOphalen);
-            this.Controls.Add(this.lvDrank);
+            this.Controls.Add(this.btnOpnieuwLaden);
+            this.Controls.Add(this.lvMenuKaartAanpassen);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuKaartAanpassenForm";
@@ -397,8 +400,10 @@
             this.Load += new System.EventHandler(this.MenuKaartAanpassenForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlItemToevoegen.ResumeLayout(false);
+            this.pnlItemToevoegen.PerformLayout();
+            this.pnlItemAanpassen.ResumeLayout(false);
+            this.pnlItemAanpassen.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,12 +413,12 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.ListView lvDrank;
-        private System.Windows.Forms.Button btnDrankOphalen;
+        private System.Windows.Forms.ListView lvMenuKaartAanpassen;
+        private System.Windows.Forms.Button btnOpnieuwLaden;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnItemAanpassen;
         private System.Windows.Forms.Button btnToevoegen;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlItemToevoegen;
         private System.Windows.Forms.Button btnVoegToe;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
