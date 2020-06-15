@@ -11,5 +11,7 @@ namespace ChapooModel
         public int bestellingID { get; set; }
         public int bedienerID { get; set; }
         public int klantID { get; set; }
+
+
     }
 }

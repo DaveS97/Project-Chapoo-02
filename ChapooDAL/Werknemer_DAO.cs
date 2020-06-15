@@ -62,6 +62,13 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables2(ExecuteSelectQuery(query, sqlParameters));
         }
+
+        public List<Bediener> GetBedienersVanWerknemerID(int werknemerID)
+        {
+            string query = "SELECT bedienerID FROM Bedieners WHERE werknemerID = " + werknemerID;
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTablesBediener(ExecuteSelectQuery(query, sqlParameters));
+        }
         private List<Werknemer> ReadTables2(DataTable dataTable)
         {
             List<Werknemer> werknemers = new List<Werknemer>();
@@ -94,6 +101,20 @@ namespace ChapooDAL
                 werknemers.Add(werknemer);
             }
             return werknemers;
+        }
+        private List<Bediener> ReadTablesBediener(DataTable dataTable)
+        {
+            List<Bediener> bedieners = new List<Bediener>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Bediener bediener = new Bediener()
+                {
+                    BedienerID = (int)dr["bedienerID"]
+                };
+                bedieners.Add(bediener);
+            }
+            return bedieners;
         }
     }
 }

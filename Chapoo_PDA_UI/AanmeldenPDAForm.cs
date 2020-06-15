@@ -26,10 +26,14 @@ namespace Chapoo_PDA_UI
         private void btnAanmelden_Click(object sender, EventArgs e)
         {
             Werknemer_Service service = new Werknemer_Service();
-            List<Werknemer> werknemers = service.GetBedienerrPins();
+            List<Werknemer> werknemers = service.GetWerknemerPins();
             bool CorrectPin = false;
             string naam = "";
-            int ID = 0;
+            int wID = 0;
+            int bID = 0;
+            string types = "";
+            int type = 0; // 1=  bediener 2= barman  3= kok  4= eigenaar
+
             if (tbPin.Text.Length != 0)
             {
                 int pin = int.Parse(tbPin.Text);
@@ -38,8 +42,9 @@ namespace Chapoo_PDA_UI
                     if (item.PIN == pin)
                     {
                         CorrectPin = true;
-                        ID = item.ID;
+                        wID = item.ID;
                         naam = item.Naam;
+                        type = item.Type;
                         break;
                     }
                     else
@@ -50,13 +55,23 @@ namespace Chapoo_PDA_UI
             }
             if (CorrectPin)
             {
-                MessageBox.Show($"Welkom {naam} ID: {ID}");
-                ChapooPDA pda = new ChapooPDA(ID);
+                if (type != 1)
+                {
+                    MessageBox.Show("jij bent geen bediener dus hier hoef je niet aan te melden");
+                }
+
+                Bediener huidigeBediener = service.GetBedienersVanWerknemerID(wID)[0];
+                bID = huidigeBediener.BedienerID;
+
+                MessageBox.Show($"Welkom {naam}\nID: {wID}");
+                ChapooPDA pda = new ChapooPDA(bID);
+
+                this.Hide();
                 pda.ShowDialog();
             }
             else
             {
-                MessageBox.Show("voer een geldige pincode in (alleen bedieners kunnen hier inloggen)");
+                MessageBox.Show("voer een geldige pincode in");
             }
 
 
