@@ -19,10 +19,8 @@ namespace ChapooDAL
             {
                     new SqlParameter("@kID", SqlDbType.Int) { Value = klantID}
             };
-
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-
         public List<Rekening> ReadTables(DataTable dataTable)
         {
             List<Rekening> rekeningen = new List<Rekening>();

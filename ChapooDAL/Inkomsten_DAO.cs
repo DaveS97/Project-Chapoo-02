@@ -14,7 +14,7 @@ namespace ChapooDAL
     {
         public List<Rekening> GetBonnen()
         {
-            string query = "SELECT rekeningID, kID, datum, totaal, fooi, btw FROM Rekening";
+            string query = "SELECT rekeningID, kID, datum, totaal, fooi, btw FROM Rekening WHERE totaal IS NOT NULL";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
