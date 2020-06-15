@@ -12,5 +12,8 @@ namespace ChapooModel
         public int KlantID { get; set; }
         public DateTime Datum { get; set; }
         public decimal TotaalPrijs { get; set; }
+        public decimal fooi { get; set; }
+        public decimal BTW { get; set; }
+
     }
 }

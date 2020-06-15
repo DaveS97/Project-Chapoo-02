@@ -60,6 +60,7 @@
             this.lblOmschrijving = new System.Windows.Forms.Label();
             this.tbprijsitem = new System.Windows.Forms.TextBox();
             this.tbomschrijvingitem = new System.Windows.Forms.TextBox();
+            this.cbIsalcoholisch = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.pnlItemToevoegen.SuspendLayout();
             this.pnlItemAanpassen.SuspendLayout();
@@ -138,6 +139,7 @@
             // pnlItemToevoegen
             // 
             this.pnlItemToevoegen.BackColor = System.Drawing.Color.White;
+            this.pnlItemToevoegen.Controls.Add(this.cbIsalcoholisch);
             this.pnlItemToevoegen.Controls.Add(this.btnVoegToe);
             this.pnlItemToevoegen.Controls.Add(this.label6);
             this.pnlItemToevoegen.Controls.Add(this.label5);
@@ -252,7 +254,7 @@
             this.pnlItemAanpassen.Controls.Add(this.lblOmschrijving);
             this.pnlItemAanpassen.Controls.Add(this.tbprijsitem);
             this.pnlItemAanpassen.Controls.Add(this.tbomschrijvingitem);
-            this.pnlItemAanpassen.Location = new System.Drawing.Point(647, 173);
+            this.pnlItemAanpassen.Location = new System.Drawing.Point(644, 176);
             this.pnlItemAanpassen.Name = "pnlItemAanpassen";
             this.pnlItemAanpassen.Size = new System.Drawing.Size(413, 444);
             this.pnlItemAanpassen.TabIndex = 14;
@@ -368,6 +370,16 @@
             this.tbomschrijvingitem.Size = new System.Drawing.Size(279, 22);
             this.tbomschrijvingitem.TabIndex = 14;
             // 
+            // cbIsalcoholisch
+            // 
+            this.cbIsalcoholisch.AutoSize = true;
+            this.cbIsalcoholisch.Location = new System.Drawing.Point(16, 391);
+            this.cbIsalcoholisch.Name = "cbIsalcoholisch";
+            this.cbIsalcoholisch.Size = new System.Drawing.Size(101, 21);
+            this.cbIsalcoholisch.TabIndex = 27;
+            this.cbIsalcoholisch.Text = "Alcoholisch";
+            this.cbIsalcoholisch.UseVisualStyleBackColor = true;
+            // 
             // MenuKaartAanpassenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -431,5 +443,6 @@
         private System.Windows.Forms.Button btnVerwijder;
         private System.Windows.Forms.Button btnOpslaan;
         private System.Windows.Forms.Label lbltitel;
+        private System.Windows.Forms.CheckBox cbIsalcoholisch;
     }
 }
