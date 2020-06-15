@@ -13,11 +13,11 @@ namespace ChapooLogic
     {
         RekeningItem_DAO rekeningItem = new RekeningItem_DAO();
 
-        public void Write_To_Db_RekeningItem(int rekeningID, int menuItemID)
+        public void Write_To_Db_RekeningItem(int rekeningID, int menuItemID, int aantal)
         {
             try
             {
-                rekeningItem.Write_To_Db_RekeningItem(rekeningID, menuItemID);
+                rekeningItem.Write_To_Db_RekeningItem(rekeningID, menuItemID, aantal);
             }
             catch (Exception e)
             {

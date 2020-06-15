@@ -11,14 +11,16 @@ namespace ChapooDAL
 {
     public class RekeningItem_DAO : Base
     {
-        public void Write_To_Db_RekeningItem(int rekeningID, int menuItemID)
+        public void Write_To_Db_RekeningItem(int rekeningID, int menuItemID, int aantal)
         {
-            string query = "INSERT INTO RekeningItem VALUES (@rekeningID, @menuItemID)";
+            string query = "INSERT INTO RekeningItem VALUES (@rekeningID, @menuItemID, @aantal)";
             SqlParameter[] sqlParameters =
             {
                 new SqlParameter("@rekeningID", SqlDbType.Int) { Value = rekeningID},
-                new SqlParameter("@menuItemID", SqlDbType.Int) { Value = menuItemID}
+                new SqlParameter("@menuItemID", SqlDbType.Int) { Value = menuItemID},
+                new SqlParameter("@aantal", SqlDbType.Int) { Value = aantal}
             };
+            ExecuteEditQuery(query, sqlParameters);
         }
 
         public List<RekeningItem> GetRekeningItemsVoorRekeningID(int rekeningID)

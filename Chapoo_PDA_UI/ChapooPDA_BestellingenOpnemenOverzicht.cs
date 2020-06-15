@@ -83,7 +83,7 @@ namespace Chapoo_PDA_UI
 
             for (int i = 0; i < bestelItems.Count; i++)
             {
-                rekeningItem_Service.Write_To_Db_RekeningItem(rekening.ID, bestelItems[i].ID);
+                rekeningItem_Service.Write_To_Db_RekeningItem(rekening.ID, bestelItems[i].ID, aantallen[i]);
             }
 
             MessageBox.Show("Bestelling is verzonden!");
