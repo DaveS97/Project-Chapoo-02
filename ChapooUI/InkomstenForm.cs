@@ -33,7 +33,7 @@ namespace ChapooUI
             {
                 ListViewItem li = new ListViewItem(item.ID.ToString());
                 li.SubItems.Add(item.BTW.ToString());
-                li.SubItems.Add(item.fooi.ToString());
+                li.SubItems.Add(item.Fooi.ToString());
                 li.SubItems.Add(item.TotaalPrijs.ToString());
                 li.SubItems.Add(item.Datum.ToString());
                 lvInkomsten.Items.Add(li);

@@ -11,15 +11,17 @@ namespace ChapooDAL
 {
     public class Rekening_DAO : Base
     {
-        public List<Rekening> DB_Krijg_Rekeningen(int klantID)
+        public List<Rekening> DB_Krijg_Rekeningen(int klantID, DateTime datum)
         {
             string query = "SELECT rekeningID, kID, datum, totaal, fooi, btw " +
                 "FROM Rekening " +
-                "WHERE kID = @klantID";
+                "WHERE kID = @klantID " +
+                "AND datum = @datum";
 
             SqlParameter[] sqlParameters =
             {
-                    new SqlParameter("@klantID", SqlDbType.Int) { Value = klantID}
+                    new SqlParameter("@klantID", SqlDbType.Int) { Value = klantID},
+                    new SqlParameter("@datum", SqlDbType.DateTime) { Value = datum}
             };
 
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
@@ -32,7 +34,7 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters =
             {
                     new SqlParameter("@klantID", SqlDbType.Int) { Value = klantID},
-                    new SqlParameter("@datum", SqlDbType.Date) { Value = datum}
+                    new SqlParameter("@datum", SqlDbType.DateTime) { Value = datum}
             };
 
             ExecuteEditQuery(query, sqlParameters);
@@ -40,15 +42,19 @@ namespace ChapooDAL
 
         public void Update_Db_Rekening(int klantID, DateTime datum, decimal totaalPrijs, decimal fooi, decimal BTW)
         {
-            string query = "UPDATE Rekening VALUES (@klantID, @datum, @totaalPrijs, @fooi, @btw) WHERE klantID = @klantID AND datum = @datum";
+            string query = "UPDATE Rekening SET kID = @klantID, " +
+                "datum = @datum, totaal = @totaalPrijs, " +
+                "fooi = @fooi," +
+                "btw = @btw " +
+                "WHERE kID = @klantID AND datum = @datum";
 
             SqlParameter[] sqlParameters =
             {
                     new SqlParameter("@klantID", SqlDbType.Int) { Value = klantID},
-                    new SqlParameter("@datum", SqlDbType.Date) { Value = datum},
-                    new SqlParameter("@totaalPrijs", SqlDbType.Date) { Value = totaalPrijs},
-                    new SqlParameter("@fooi", SqlDbType.Date) { Value = fooi},
-                    new SqlParameter("@btw", SqlDbType.Date) { Value = BTW}
+                    new SqlParameter("@datum", SqlDbType.DateTime) { Value = datum},
+                    new SqlParameter("@totaalPrijs", SqlDbType.Decimal) { Value = totaalPrijs},
+                    new SqlParameter("@fooi", SqlDbType.Decimal) { Value = fooi},
+                    new SqlParameter("@btw", SqlDbType.Decimal) { Value = BTW}
             };
 
             ExecuteEditQuery(query, sqlParameters);

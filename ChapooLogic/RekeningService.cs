@@ -12,11 +12,11 @@ namespace ChapooLogic
     public class RekeningService
     {
         public Rekening_DAO rekening_DAO = new Rekening_DAO();
-        public List<Rekening>GetRekening(int klantID)
+        public List<Rekening>GetRekening(int klantID, DateTime datum)
         {
             try
             {
-                List<Rekening> rekeningen = rekening_DAO.DB_Krijg_Rekeningen(klantID);
+                List<Rekening> rekeningen = rekening_DAO.DB_Krijg_Rekeningen(klantID, datum);
                 return rekeningen;
             }
             catch (Exception e)
