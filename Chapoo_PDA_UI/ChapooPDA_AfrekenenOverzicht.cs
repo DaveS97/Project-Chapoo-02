@@ -43,5 +43,10 @@ namespace Chapoo_PDA_UI
         {
 
         }
+
+        private void lbl_Betalingswijze_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
