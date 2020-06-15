@@ -13,11 +13,11 @@ namespace ChapooDAL
     {
         public List<Rekening> DB_Krijg_Rekeningen(int klantID)
         {
-            string query = "";
+            string query = "geeft 1 rekening terug met een bepaald klat id";
 
             SqlParameter[] sqlParameters =
             {
-                    new SqlParameter("@tafelID", SqlDbType.Int) { Value = klantID}
+                    new SqlParameter("@kID", SqlDbType.Int) { Value = klantID}
             };
 
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
@@ -31,7 +31,12 @@ namespace ChapooDAL
             {
                 Rekening rekening = new Rekening()
                 {
-                    
+                    ID = (int)dr[""],
+                    KlantID = (int)dr[""],
+                    Datum = (DateTime)dr[""],
+                    TotaalPrijs = (decimal)dr[""],
+                    fooi = (decimal)dr[""],
+                    BTW = (decimal)dr[""],
                 };
             }
             return rekeningen;

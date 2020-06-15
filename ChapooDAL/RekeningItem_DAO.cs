@@ -20,6 +20,20 @@ namespace ChapooDAL
                 new SqlParameter("@menuItemID", SqlDbType.Int) { Value = menuItemID}
             };
         }
+        public List<RekeningItem> DB_Get_Rekeningitems(int klantID)
+        {
+            string query = "SELECT RI.aantal, M.prijs, M.isAlcoholisch " +
+                "from RekeningItem as RI " +
+                "join MenuItem as M on M.menuItemID = RI.mItemID " +
+                "where kID = @kID";
+
+            SqlParameter[] sqlParameters =
+            {
+                    new SqlParameter("@kID", SqlDbType.Int) { Value = klantID}
+            };
+
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
 
         public List<RekeningItem> GetRekeningItemsVoorRekeningID(int rekeningID)
         {
@@ -40,6 +54,9 @@ namespace ChapooDAL
             {
                 RekeningItem rekeningItem = new RekeningItem()
                 {
+                    ID = (int)dr[""],
+                    RekeningID = (int)dr[""],
+                    MenuItemID = (int)dr[""]
 
                 };
             }

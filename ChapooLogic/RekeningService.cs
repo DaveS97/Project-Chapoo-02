@@ -12,7 +12,7 @@ namespace ChapooLogic
     public class RekeningService
     {
         public Rekening_DAO rekening_DAO = new Rekening_DAO();
-        public List<Rekening>GetRekening(int klantID)
+        public List<Rekening> GetRekening(int klantID)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace ChapooLogic
             catch (Exception e)
             {
                 List<Rekening> rekenings = new List<Rekening>();
-                
+
                 MessageBox.Show("Chapoo couldn't connect to the database! " + e.Message);
                 return rekenings;
             }
