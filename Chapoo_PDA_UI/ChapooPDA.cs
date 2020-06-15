@@ -27,7 +27,7 @@ namespace Chapoo_PDA_UI
 
         private void btnKlaarstaandeBestellingen_Click(object sender, EventArgs e)
         {
-            ChapooPDA_KlaarstaandeBestellingenOverzicht overzicht = new ChapooPDA_KlaarstaandeBestellingenOverzicht();
+            ChapooPDA_KlaarstaandeBestellingenOverzicht overzicht = ChapooPDA_KlaarstaandeBestellingenOverzicht.GetInstance();
             overzicht.ShowDialog();
         }
 
