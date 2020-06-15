@@ -34,7 +34,6 @@ namespace ChapooUI
             string naam = "";
             string types = "";
             int type = 0; // 1=  bediener 2= barman  3= kok  4= eigenaar
-
             if (tbPin.Text.Length != 0)
             {
                 int pin = int.Parse(tbPin.Text);
