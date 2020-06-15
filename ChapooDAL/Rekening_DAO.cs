@@ -33,7 +33,8 @@ namespace ChapooDAL
                 {
                     Prijs = (decimal)dr["prijs"],
                     Omschrijving = (string)dr["omschrijving"],
-                    mm = (string)dr["omschrijving"]
+
+                    
                 };
             }
             return rekeningen;
