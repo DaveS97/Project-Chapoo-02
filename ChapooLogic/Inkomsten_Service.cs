@@ -25,7 +25,7 @@ namespace ChapooLogic
                 List < Inkomsten > bonnen = new List<Inkomsten>();
                 Inkomsten inkomsten = new Inkomsten();
                 inkomsten.BedienerID = 1;
-                inkomsten.BonID = 1;
+                inkomsten.RekeningID = 1;
                 inkomsten.BTW = 1.5;
                 inkomsten.Fooi = 10;
                 inkomsten.Totaal = 100;

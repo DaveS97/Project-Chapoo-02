@@ -12,6 +12,6 @@ namespace ChapooModel
         public int tafelID { get; set; }
         public string betaalWijzeType { get; set; } 
         public int reserveringID { get; set; }
-        public int bonID { get; set; }
+        public int RekeningID { get; set; }
     }
 }

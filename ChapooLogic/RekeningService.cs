@@ -28,5 +28,28 @@ namespace ChapooLogic
             }
         }
 
+        public void Write_To_Db_Rekening(int klantID, DateTime datum)
+        {
+            try
+            {
+                rekening_DAO.Write_To_Db_Rekening(klantID, datum);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database! " + e.Message);
+            }
+        }
+
+        public void Update_Db_Rekening(int klantID, DateTime datum, decimal totaalPrijs, decimal fooi, decimal BTW)
+        {
+            try
+            {
+                rekening_DAO.Update_Db_Rekening(klantID, datum, totaalPrijs, fooi, BTW);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database! " + e.Message);
+            }
+        }
     }
 }

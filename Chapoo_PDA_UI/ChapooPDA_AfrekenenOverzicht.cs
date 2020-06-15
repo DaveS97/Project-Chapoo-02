@@ -15,6 +15,10 @@ namespace Chapoo_PDA_UI
     public partial class ChapooPDA_AfrekenenOverzicht : Form
     {
         private int tafelnummer;
+        private RekeningService rekeningService = new RekeningService();
+        private MenuItem_Service menuItem_Service = new MenuItem_Service();
+        private RekeningItem_Service rekeningItem_Service = new RekeningItem_Service();
+        private Klant_Service klant_Service = new Klant_Service();
 
         public ChapooPDA_AfrekenenOverzicht(int tafelnummer)
         {
@@ -36,7 +40,12 @@ namespace Chapoo_PDA_UI
         }
         private void btnVerstuurRekening_Click(object sender, EventArgs e)
         {
-           //tafel id menITem prijs, omschrijving
+            
+            menuItem_Service.
+
+            rekeningService.Update_Db_Rekening(klant.ID, datum, totaalPrijs, fooi, totaalBTW, );
+
+            //tafel id menITem prijs, omschrijving
         }
 
         public void vullistview()
@@ -45,18 +54,17 @@ namespace Chapoo_PDA_UI
             lvRekeningOverzicht.Columns.Add("aantal keer besteld", 150);
             lvRekeningOverzicht.Columns.Add("prijs", 50);
 
-            RekeningService rekeningService = new RekeningService();
-            RekeningItem_Service rekeningItem_Service = new RekeningItem_Service();
-
-            Rekening rekening = rekeningService.GetRekening(tafelnummer)[0];
+            Klant klant = klant_Service.KrijgKlantUitTafelID(tafelnummer)[0];
+            Rekening rekening = rekeningService.GetRekening(klant.ID)[0];
             List<RekeningItem> rekeningItems = rekeningItem_Service.GetRekeningItemsVoorRekeningID(rekening.ID);
+
 
             foreach (RekeningItem item in rekeningItems)
             {
-                //ListViewItem li = new ListViewItem(rekeningen.Omschrijving.ToString());
-                //li.SubItems.Add(bon.Prijs.ToString());
-                //li.SubItems.Add(bon.Aantal.ToString());
-                //lvRekeningOverzicht.Items.Add(li);
+                ListViewItem li = new ListViewItem(item.Omschrijving.ToString());
+                li.SubItems.Add(item.Aantal.ToString());
+                li.SubItems.Add(item.Prijs.ToString());
+                lvRekeningOverzicht.Items.Add(li);
             }
         }
 

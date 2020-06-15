@@ -20,6 +20,8 @@ namespace Chapoo_PDA_UI
         private ChapooModel.Klant klant = new ChapooModel.Klant();
         private List<int> aantallenNaarDatabase;
         private List<string> commentarenNaarDatabase;
+        private decimal totaalPrijs = 0;
+        private decimal totaalBTW = 0;
 
         private int tafelnummer;
         int bedienerID;
@@ -79,10 +81,16 @@ namespace Chapoo_PDA_UI
             RekeningService rekeningService = new RekeningService();
             RekeningItem_Service rekeningItem_Service = new RekeningItem_Service();
 
-            ChapooModel.Rekening rekening = rekeningService.GetRekening(klant.ID)[0];
-
+            //maak een nieuwe rekening aan
+            DateTime datum = DateTime.Now;
+            ChapooModel.Rekening rekening = new ChapooModel.Rekening();
+            rekeningService.Write_To_Db_Rekening(klant.ID, datum);
+            rekening = rekeningService.GetRekening(klant.ID)[0];
+            
             for (int i = 0; i < bestelItems.Count; i++)
             {
+                totaalPrijs += bestelItems[i].Prijs;
+                totaalBTW += bestelItems[i].BTW;
                 rekeningItem_Service.Write_To_Db_RekeningItem(rekening.ID, bestelItems[i].ID, aantallen[i]);
             }
 

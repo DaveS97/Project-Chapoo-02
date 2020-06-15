@@ -31,7 +31,7 @@ namespace ChapooUI
             List<Inkomsten> bonnen = service.GetInkomsten();
             foreach (Inkomsten item in bonnen)
             {
-                ListViewItem li = new ListViewItem(item.BonID.ToString());
+                ListViewItem li = new ListViewItem(item.RekeningID.ToString());
                 li.SubItems.Add(item.BedienerID.ToString());
                 li.SubItems.Add(item.BTW.ToString());
                 li.SubItems.Add(item.Fooi.ToString());
