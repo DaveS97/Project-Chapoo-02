@@ -80,10 +80,12 @@ namespace ChapooUI
                 int type = int.Parse(tbType.Text);
                 decimal prijs = decimal.Parse(tbPrijs.Text);
                 int menu = int.Parse(tbMenu.Text);
+                bool isAlcoholisch = cbIsalcoholisch.Checked;
+
 
                 //schrijft user data op in tabel MenuItem
                 Voorraad_Service service = new Voorraad_Service();
-                service.Write_To_db_toevoegenMenuItem(omschrijving, type, menu, prijs);
+                service.Write_To_db_toevoegenMenuItem(omschrijving, type, menu, prijs, isAlcoholisch);
                 fillist();
                 pnlItemToevoegen.Hide();
                 MessageBox.Show("item toegevogd");

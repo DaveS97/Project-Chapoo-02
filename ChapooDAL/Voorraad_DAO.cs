@@ -57,15 +57,18 @@ namespace ChapooDAL
             };
             ExecuteEditQuery(query, sqlParameters);
         }
-        public void Write_To_db_ToevoegenMenuItem(string omschrijving, int type, int menu, decimal prijs)
+
+        public void Write_To_db_ToevoegenMenuItem(string omschrijving, int type, int menu, decimal prijs, bool isAlcolholisch)
         {
-            string query = "INSERT MenuItem VALUES (@omschrijving, @prijs , @menu, @type)";
+            string query = "INSERT MenuItem VALUES (@omschrijving, @prijs , @menu, @type, @isAlcolholisch)";
             SqlParameter[] sqlParameters =
             {
                 new SqlParameter("@omschrijving", SqlDbType.Text) { Value = omschrijving},
                 new SqlParameter("@type", SqlDbType.Int) { Value = type},
                 new SqlParameter("@menu", SqlDbType.Int) { Value = menu},
-                new SqlParameter("@prijs", SqlDbType.Decimal) { Value = prijs}
+                new SqlParameter("@prijs", SqlDbType.Decimal) { Value = prijs},
+                new SqlParameter("@isAlcolholisch", SqlDbType.Bit) { Value = isAlcolholisch}
+
             };
             ExecuteEditQuery(query, sqlParameters);
         }

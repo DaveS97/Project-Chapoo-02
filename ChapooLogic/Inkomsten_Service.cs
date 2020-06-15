@@ -12,24 +12,19 @@ namespace ChapooLogic
     public class Inkomsten_Service
     {
         Inkomsten_DAO dao = new Inkomsten_DAO();
-        public List<Inkomsten> GetInkomsten()
+        public List<Rekening> GetInkomsten()
         {
             try
             {
-                List<Inkomsten> bonnen = dao.GetBonnen();
-                return bonnen;
+                List<Rekening> rekeningen = dao.GetBonnen();
+                return rekeningen;
             }
             catch (Exception e)
             {
                 MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
-                List < Inkomsten > bonnen = new List<Inkomsten>();
-                Inkomsten inkomsten = new Inkomsten();
-                inkomsten.BedienerID = 1;
-                inkomsten.RekeningID = 1;
-                inkomsten.BTW = 1.5;
-                inkomsten.Fooi = 10;
-                inkomsten.Totaal = 100;
-                return bonnen;
+                List < Rekening > rekeningen = new List<Rekening>();
+              
+                return rekeningen;
             }
         }
     }

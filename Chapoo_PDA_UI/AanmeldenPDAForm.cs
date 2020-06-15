@@ -31,7 +31,6 @@ namespace Chapoo_PDA_UI
             string naam = "";
             int wID = 0;
             int bID = 0;
-            string types = "";
             int type = 0; // 1=  bediener 2= barman  3= kok  4= eigenaar
 
             if (tbPin.Text.Length != 0)

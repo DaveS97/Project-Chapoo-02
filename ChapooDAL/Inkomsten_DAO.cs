@@ -12,25 +12,26 @@ namespace ChapooDAL
 {
     public class Inkomsten_DAO : Base
     {
-        public List<Inkomsten> GetBonnen()
+        public List<Rekening> GetBonnen()
         {
-            string query = "select rekeningID, kID, datum, totaal from Rekening";
+            string query = "SELECT rekeningID, kID, datum, totaal, fooi, btw FROM Rekening";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        private List<Inkomsten> ReadTables(DataTable dataTable)
+        private List<Rekening> ReadTables(DataTable dataTable)
         {
-            List<Inkomsten> rekeningen = new List<Inkomsten>();
+            List<Rekening> rekeningen = new List<Rekening>();
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                Inkomsten rekening = new Inkomsten()
+                Rekening rekening = new Rekening()
                 {
-                    RekeningID = (int)dr["bonID"],
-                    BedienerID = (int)dr["bedienerID"],
-                    Fooi = (int)dr["fooi"],
-                    BTW = (int)dr["btw"],
-                    Totaal = (int)dr["totaal"],
+                    ID = (int)dr["rekeningID"],
+                    Datum = (DateTime)dr["datum"],
+                    KlantID = (int)dr["kID"],
+                    fooi = (decimal)dr["fooi"],
+                    BTW = (decimal)dr["btw"],
+                    TotaalPrijs = (decimal)dr["totaal"],
                 };
                 rekeningen.Add(rekening);
             }
