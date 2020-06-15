@@ -84,5 +84,13 @@ namespace ChapooUI
         {
 
         }
+
+        private void MS_BO_Click(object sender, EventArgs e)
+        {
+            KeukenOverzichtForm keukenOverzicht = KeukenOverzichtForm.GetInstance();
+            keukenOverzicht.OpenBarOverzicht();
+            keukenOverzicht.ShowDialog();
+            
+        }
     }
 }

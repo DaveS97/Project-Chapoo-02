@@ -85,6 +85,7 @@
             this.MS_BO.Name = "MS_BO";
             this.MS_BO.Size = new System.Drawing.Size(111, 24);
             this.MS_BO.Text = "Bar Overzicht";
+            this.MS_BO.Click += new System.EventHandler(this.MS_BO_Click);
             // 
             // MS_KO
             // 

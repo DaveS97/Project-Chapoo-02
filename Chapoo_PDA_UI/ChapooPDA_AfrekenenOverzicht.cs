@@ -45,17 +45,14 @@ namespace Chapoo_PDA_UI
             lvRekeningOverzicht.Columns.Add("aantal keer besteld", 150);
             lvRekeningOverzicht.Columns.Add("prijs", 50);
 
-
-
             RekeningService service = new RekeningService();
             List<Bon>  bonnen = service.GetRekenings(tafelnummer);
 
             foreach (Bon bon in bonnen)
             {
-                ListViewItem li = new ListViewItem(bon.omschrijving.ToString());
-                li.SubItems.Add(bon.prijs.ToString());
+                ListViewItem li = new ListViewItem(bon.Omschrijving.ToString());
+                li.SubItems.Add(bon.Prijs.ToString());
                 li.SubItems.Add(bon.Aantal.ToString());
-
                 lvRekeningOverzicht.Items.Add(li);
             }
         }

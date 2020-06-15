@@ -1,4 +1,5 @@
 ﻿using ChapooLogic;
+using ChapooModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,21 +16,23 @@ namespace Chapoo_PDA_UI
     {
         private int tafelnummer;
         private int aantal = 1;
+        private int minimumAantal = 5;
         private string commentaar = "";
         private string beschrijving = "";
         private List<int> aantallen = new List<int>();
+        private List<string> commentaren = new List<string>();
         private ChapooModel.MenuItem item = new ChapooModel.MenuItem();
         private List<ChapooModel.MenuItem> items = new List<ChapooModel.MenuItem>();
         public List<ChapooModel.MenuItem> itemsUitDatabase = new List<ChapooModel.MenuItem>();
         private ChapooModel.Bestelling bestelling = new ChapooModel.Bestelling();
         private int teller = 0;
-        private int werknemerID;
+        private int bedienerID;
 
 
-        public ChapooPDA_BestellingOpnemenRegistreren(int tafelnummer, int werknemerID)
+        public ChapooPDA_BestellingOpnemenRegistreren(int tafelnummer, int bedienerID)
         {
             this.tafelnummer = tafelnummer;
-            this.werknemerID = werknemerID;
+            this.bedienerID = bedienerID;
             InitializeComponent();
         }
 
@@ -97,15 +100,34 @@ namespace Chapoo_PDA_UI
         
         private void btnVoegItemToe_Click(object sender, EventArgs e)
         {
+            Voorraad_Service service = new Voorraad_Service();
             beschrijving = ddMenuItems.Text;
             aantal = int.Parse(tbAantal.Text);
             aantallen.Add(aantal);
             commentaar = tbCommentaar.Text;
+            commentaren.Add(commentaar);
             btnOverzicht.Enabled = true;
             ChapooModel.MenuItem item = GetItem();
             itemsUitDatabase.Add(item);
-            MessageBox.Show($"{item.Beschrijving} is {aantal} keer toegevoegd");
-            teller++;
+
+            Voorraad voorraadItem = service.GetVoorraadVanID(item.ID)[0];
+
+            if(voorraadItem.aantal - aantal <= minimumAantal)
+            {
+                MessageBox.Show($"Let op! {item.Beschrijving} heeft bijna geen voorraad over! Neem contact op met de voorraadbeheerder.");
+            } else if(voorraadItem.aantal - aantal <= 0)
+            {
+                MessageBox.Show($"{item.Beschrijving} heeft geen voorraad over! Neem contact op met de voorraadbeheerder.");
+            }
+            MessageBox.Show($"{item.Beschrijving} {commentaar} is {aantal} keer toegevoegd");
+            //teller++;
+            beschrijving = "";
+            aantal = 1;
+            commentaar = "";
+
+            ddMenuItems.Text = "";
+            tbAantal.Text = aantal.ToString();
+            tbCommentaar.Text = "";
         }
 
         private ChapooModel.MenuItem GetItem()
@@ -118,8 +140,9 @@ namespace Chapoo_PDA_UI
 
         private void btnOverzicht_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingenOpnemenOverzicht overzicht = new ChapooPDA_BestellingenOpnemenOverzicht(itemsUitDatabase, tafelnummer, aantallen, werknemerID);
+            ChapooPDA_BestellingenOpnemenOverzicht overzicht = new ChapooPDA_BestellingenOpnemenOverzicht(itemsUitDatabase, tafelnummer, aantallen, commentaren, bedienerID);
             overzicht.ShowDialog();
+            this.Close();
         }
 
         private void lblTafelnummer_Click(object sender, EventArgs e)

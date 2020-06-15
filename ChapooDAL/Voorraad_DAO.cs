@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChapooModel;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -21,6 +22,13 @@ namespace ChapooDAL
                 new SqlParameter("@voorraadID", SqlDbType.Int) { Value = id}
             };
             ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public List<Voorraad> GetVoorraadVanID(int id)
+        {
+            string query = "SELECT voorraadID, aantal FROM Voorraad WHERE voorraadID = " + id;
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
         //verminder het aantal voorraad met hoeveel van een artikel besteld word
@@ -71,7 +79,21 @@ namespace ChapooDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        private List<Voorraad> ReadTables(DataTable dataTable)
+        {
+            List<Voorraad> voorraad = new List<Voorraad>();
 
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Voorraad item = new Voorraad()
+                {
+                    ID = (int)dr["voorraadID"],
+                    aantal = (int)dr["aantal"]
+                };
+                voorraad.Add(item);
+            }
+            return voorraad;
+        }
     }
     
 }

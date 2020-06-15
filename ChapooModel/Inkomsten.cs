@@ -12,6 +12,6 @@ namespace ChapooModel
         public int BedienerID { get; set; }
         public double Fooi { get; set; } 
         public double BTW { get; set; } 
-        public double Totaal { get; set; }
+        public double Totaal { get; set; } 
     }
 }
