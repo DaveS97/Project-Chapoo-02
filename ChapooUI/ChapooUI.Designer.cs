@@ -30,7 +30,6 @@
         {
             this.MS1 = new System.Windows.Forms.MenuStrip();
             this.HomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MS1I_Home = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_RO = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_BO = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_KO = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,20 +63,14 @@
             this.MS1.Size = new System.Drawing.Size(779, 24);
             this.MS1.TabIndex = 0;
             this.MS1.Text = "menuStrip1";
-            this.MS1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MS1_ItemClicked);
             // 
             // HomeToolStripMenuItem
             // 
             this.HomeToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.HomeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MS1I_Home});
             this.HomeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
             this.HomeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.HomeToolStripMenuItem.Text = "Home";
-            this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
-            // 
-            // MS1I_Home
             // 
             this.MS1I_Home.Name = "MS1I_Home";
             this.MS1I_Home.Size = new System.Drawing.Size(107, 22);
@@ -204,7 +197,6 @@
         private System.Windows.Forms.MenuStrip MS1;
         private System.Windows.Forms.ToolStripMenuItem HomeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MS_RO;
-        private System.Windows.Forms.ToolStripMenuItem MS1I_Home;
         private System.Windows.Forms.Label lbl_Welkom;
         private System.Windows.Forms.ToolStripMenuItem MS_BO;
         private System.Windows.Forms.ToolStripMenuItem MS_KO;

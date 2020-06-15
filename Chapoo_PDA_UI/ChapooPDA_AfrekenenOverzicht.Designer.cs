@@ -37,9 +37,10 @@
             // btnVerstuurRekening
             // 
             this.btnVerstuurRekening.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerstuurRekening.Location = new System.Drawing.Point(185, 600);
+            this.btnVerstuurRekening.Location = new System.Drawing.Point(238, 669);
+            this.btnVerstuurRekening.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVerstuurRekening.Name = "btnVerstuurRekening";
-            this.btnVerstuurRekening.Size = new System.Drawing.Size(321, 69);
+            this.btnVerstuurRekening.Size = new System.Drawing.Size(428, 85);
             this.btnVerstuurRekening.TabIndex = 1;
             this.btnVerstuurRekening.Text = "Doorsturen naar kassa";
             this.btnVerstuurRekening.UseVisualStyleBackColor = true;
@@ -48,28 +49,32 @@
             // pnlAfrekenenOverzicht
             // 
             this.pnlAfrekenenOverzicht.Controls.Add(this.lvRekeningOverzicht);
-            this.pnlAfrekenenOverzicht.Location = new System.Drawing.Point(12, 12);
+            this.pnlAfrekenenOverzicht.Location = new System.Drawing.Point(16, 15);
+            this.pnlAfrekenenOverzicht.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlAfrekenenOverzicht.Name = "pnlAfrekenenOverzicht";
-            this.pnlAfrekenenOverzicht.Size = new System.Drawing.Size(680, 582);
+            this.pnlAfrekenenOverzicht.Size = new System.Drawing.Size(907, 635);
             this.pnlAfrekenenOverzicht.TabIndex = 2;
             // 
             // lvRekeningOverzicht
             // 
             this.lvRekeningOverzicht.HideSelection = false;
-            this.lvRekeningOverzicht.Location = new System.Drawing.Point(0, 0);
+            this.lvRekeningOverzicht.Location = new System.Drawing.Point(95, 27);
+            this.lvRekeningOverzicht.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lvRekeningOverzicht.Name = "lvRekeningOverzicht";
-            this.lvRekeningOverzicht.Size = new System.Drawing.Size(680, 579);
+            this.lvRekeningOverzicht.Size = new System.Drawing.Size(700, 562);
             this.lvRekeningOverzicht.TabIndex = 0;
             this.lvRekeningOverzicht.UseCompatibleStateImageBehavior = false;
+            this.lvRekeningOverzicht.View = System.Windows.Forms.View.Details;
             // 
             // ChapooPDA_AfrekenenOverzicht
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(704, 681);
+            this.ClientSize = new System.Drawing.Size(939, 838);
             this.Controls.Add(this.pnlAfrekenenOverzicht);
             this.Controls.Add(this.btnVerstuurRekening);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ChapooPDA_AfrekenenOverzicht";
             this.Text = "ChapooPDA_AfrekenenOverzicht";
             this.pnlAfrekenenOverzicht.ResumeLayout(false);
