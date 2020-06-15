@@ -14,8 +14,6 @@ namespace ChapooModel
         public int Aantal { get; set; }
         public bool Alcoholisch { get; set; }
         public int BedienerID { get; set; }
-        public int BestellingID { get; set; }
-        public int BekeningID { get; set; }
 
     }
 }

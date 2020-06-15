@@ -13,12 +13,7 @@ namespace ChapooDAL
     {
         public List<Bon> DB_Krijg_Alle_Rekeningen(int tafelID)
         {
-            string query = "SELECT T.tafelID, BE.menuItemID, MI.prijs, MI.omschrijving " +
-                "FROM Tafels AS T JOIN Klanten AS K ON K.TafelID = T.tafelID  " +
-                "JOIN Bestellingen AS B ON B.bestellingID = K.klantID " +
-                "JOIN Bevat AS BE ON BE.bestellingID = B.bestellingID " +
-                "JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID " +
-                "WHERE K.tafelID = @tafelID";
+            string query = "";
 
             SqlParameter[] sqlParameters =
             {
@@ -36,10 +31,9 @@ namespace ChapooDAL
             {
                 Bon bon = new Bon()
                 {
-                    prijs = (decimal)dr["prijs"],
-                    omschrijving = (string)dr["omschrijving"],
-
-                    
+                    Prijs = (decimal)dr["prijs"],
+                    Omschrijving = (string)dr["omschrijving"],
+                    mm = (string)dr["omschrijving"]
                 };
             }
             return rekeningen;

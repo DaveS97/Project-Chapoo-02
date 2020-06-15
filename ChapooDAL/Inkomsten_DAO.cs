@@ -14,17 +14,17 @@ namespace ChapooDAL
     {
         public List<Inkomsten> GetBonnen()
         {
-            string query = "SELECT bonID, bedienerID, fooi, btw, totaal From Bon";
+            string query = "select rekeningID, kID, datum, totaal from Rekening";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
         private List<Inkomsten> ReadTables(DataTable dataTable)
         {
-            List<Inkomsten> bonnen = new List<Inkomsten>();
+            List<Inkomsten> rekeningen = new List<Inkomsten>();
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                Inkomsten bon = new Inkomsten()
+                Inkomsten rekening = new Inkomsten()
                 {
                     BonID = (int)dr["bonID"],
                     BedienerID = (int)dr["bedienerID"],
@@ -32,9 +32,9 @@ namespace ChapooDAL
                     BTW = (int)dr["btw"],
                     Totaal = (int)dr["totaal"],
                 };
-                bonnen.Add(bon);
+                rekeningen.Add(rekening);
             }
-            return bonnen;
+            return rekeningen;
         }
   
 

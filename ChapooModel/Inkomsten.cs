@@ -9,9 +9,9 @@ namespace ChapooModel
     public class Inkomsten
     {
         public int BonID { get; set; } 
-        public int BedienerID { get; set; }
+        public int BedienerID { get; set; } 
         public double Fooi { get; set; } 
         public double BTW { get; set; } 
-        public double Totaal { get; set; }
+        public double Totaal { get; set; } 
     }
 }

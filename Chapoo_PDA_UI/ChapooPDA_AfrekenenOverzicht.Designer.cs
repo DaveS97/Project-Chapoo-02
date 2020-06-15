@@ -58,7 +58,7 @@
             // lvRekeningOverzicht
             // 
             this.lvRekeningOverzicht.HideSelection = false;
-            this.lvRekeningOverzicht.Location = new System.Drawing.Point(99, 30);
+            this.lvRekeningOverzicht.Location = new System.Drawing.Point(95, 27);
             this.lvRekeningOverzicht.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lvRekeningOverzicht.Name = "lvRekeningOverzicht";
             this.lvRekeningOverzicht.Size = new System.Drawing.Size(700, 562);
