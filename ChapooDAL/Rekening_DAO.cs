@@ -36,8 +36,8 @@ namespace ChapooDAL
             {
                 Bon bon = new Bon()
                 {
-                    prijs = (decimal)dr["prijs"],
-                    omschrijving = (string)dr["omschrijving"],
+                    Prijs = (decimal)dr["prijs"],
+                    Omschrijving = (string)dr["omschrijving"],
 
                     
                 };
