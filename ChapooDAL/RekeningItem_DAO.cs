@@ -40,7 +40,9 @@ namespace ChapooDAL
             {
                 RekeningItem rekeningItem = new RekeningItem()
                 {
-
+                    ID = (int)dr["rekeningItemID"],
+                    RekeningID = (int)dr["rID"],
+                    MenuItemID = (int)dr["mItemID"]
                 };
             }
             return rekeningItems;
