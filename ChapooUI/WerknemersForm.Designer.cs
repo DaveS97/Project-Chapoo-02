@@ -30,10 +30,10 @@
         {
             this.msp_WerknemersForm = new System.Windows.Forms.MenuStrip();
             this.HomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mts_HomeWerknemersForm = new System.Windows.Forms.ToolStripMenuItem();
-            this.klantenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.lv_Werknemers = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbPinAanpassenWerknemer = new System.Windows.Forms.TextBox();
             this.tbNaam = new System.Windows.Forms.TextBox();
             this.btnOpslaan = new System.Windows.Forms.Button();
             this.btnVerwijder = new System.Windows.Forms.Button();
@@ -51,8 +51,6 @@
             this.tbTypeToevoegen = new System.Windows.Forms.TextBox();
             this.tbNaamToevoegen = new System.Windows.Forms.TextBox();
             this.btnWerknemerToevoegen = new System.Windows.Forms.Button();
-            this.tbPinAanpassenWerknemer = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.msp_WerknemersForm.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlToevoegen.SuspendLayout();
@@ -63,8 +61,7 @@
             this.msp_WerknemersForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(79)))), ((int)(((byte)(110)))));
             this.msp_WerknemersForm.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.msp_WerknemersForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.HomeToolStripMenuItem,
-            this.klantenToolStripMenuItem1});
+            this.HomeToolStripMenuItem});
             this.msp_WerknemersForm.Location = new System.Drawing.Point(0, 0);
             this.msp_WerknemersForm.Name = "msp_WerknemersForm";
             this.msp_WerknemersForm.Size = new System.Drawing.Size(1039, 28);
@@ -73,26 +70,11 @@
             // 
             // HomeToolStripMenuItem
             // 
-            this.HomeToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.HomeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mts_HomeWerknemersForm});
+            this.HomeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(79)))), ((int)(((byte)(110)))));
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
             this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.HomeToolStripMenuItem.Text = "Home";
-            // 
-            // mts_HomeWerknemersForm
-            // 
-            this.mts_HomeWerknemersForm.Name = "mts_HomeWerknemersForm";
-            this.mts_HomeWerknemersForm.Size = new System.Drawing.Size(133, 26);
-            this.mts_HomeWerknemersForm.Text = "Home";
-            this.mts_HomeWerknemersForm.Click += new System.EventHandler(this.mts_HomeWerknemersForm_Click);
-            // 
-            // klantenToolStripMenuItem1
-            // 
-            this.klantenToolStripMenuItem1.BackColor = System.Drawing.Color.White;
-            this.klantenToolStripMenuItem1.Name = "klantenToolStripMenuItem1";
-            this.klantenToolStripMenuItem1.Size = new System.Drawing.Size(159, 24);
-            this.klantenToolStripMenuItem1.Text = "Restaurant Overzicht";
+            this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
             // lv_Werknemers
             // 
@@ -118,6 +100,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(401, 250);
             this.panel1.TabIndex = 4;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 98);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(30, 17);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "PIN";
+            // 
+            // tbPinAanpassenWerknemer
+            // 
+            this.tbPinAanpassenWerknemer.Location = new System.Drawing.Point(17, 118);
+            this.tbPinAanpassenWerknemer.Name = "tbPinAanpassenWerknemer";
+            this.tbPinAanpassenWerknemer.Size = new System.Drawing.Size(103, 22);
+            this.tbPinAanpassenWerknemer.TabIndex = 6;
+            this.tbPinAanpassenWerknemer.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tbNaam
             // 
@@ -282,23 +281,6 @@
             this.btnWerknemerToevoegen.UseVisualStyleBackColor = true;
             this.btnWerknemerToevoegen.Click += new System.EventHandler(this.btnWerknemerToevoegen_Click);
             // 
-            // tbPinAanpassenWerknemer
-            // 
-            this.tbPinAanpassenWerknemer.Location = new System.Drawing.Point(17, 118);
-            this.tbPinAanpassenWerknemer.Name = "tbPinAanpassenWerknemer";
-            this.tbPinAanpassenWerknemer.Size = new System.Drawing.Size(103, 22);
-            this.tbPinAanpassenWerknemer.TabIndex = 6;
-            this.tbPinAanpassenWerknemer.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 98);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(30, 17);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "PIN";
-            // 
             // WerknemersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -330,8 +312,6 @@
 
         private System.Windows.Forms.MenuStrip msp_WerknemersForm;
         private System.Windows.Forms.ToolStripMenuItem HomeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mts_HomeWerknemersForm;
-        private System.Windows.Forms.ToolStripMenuItem klantenToolStripMenuItem1;
         private System.Windows.Forms.ListView lv_Werknemers;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblID;
