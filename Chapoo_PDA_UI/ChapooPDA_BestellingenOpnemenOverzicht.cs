@@ -83,7 +83,7 @@ namespace Chapoo_PDA_UI
             DateTime datum = DateTime.Now;
             ChapooModel.Rekening rekening = new ChapooModel.Rekening();
             rekeningService.Write_To_Db_Rekening(klant.ID, datum);
-            rekening = rekeningService.GetRekening(klant.ID)[0];
+            //rekening = rekeningService.GetRekening(klant.ID)[0];
             
             for (int i = 0; i < bestelItems.Count; i++)
             {

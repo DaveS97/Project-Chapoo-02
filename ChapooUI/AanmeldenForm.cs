@@ -80,7 +80,7 @@ namespace ChapooUI
             {
                 MessageBox.Show("voer een geldige pincode in");
             }
-
+            this.Hide();
         }
 
         private void AanmeldenForm_Load(object sender, EventArgs e)

@@ -42,7 +42,7 @@ namespace Chapoo_PDA_UI
         private void ToonRekening()
         {
             klant = klant_Service.KrijgKlantUitTafelID(tafelnummer)[0];
-            rekening = rekeningService.GetRekening(klant.ID)[0];
+            //rekening = rekeningService.GetRekening(klant.ID)[0];
             rekeningItems = rekeningItem_Service.GetRekeningItemsVoorRekeningID(rekening.ID);
 
             try

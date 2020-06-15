@@ -88,5 +88,12 @@ namespace ChapooUI
             keukenOverzicht.ShowDialog();
             
         }
+
+        private void MS_RO_Click(object sender, EventArgs e)
+        {
+            RestaurantOverzichtForm form = new RestaurantOverzichtForm();
+            form.Show();
+            this.Hide();
+        }
     }
 }

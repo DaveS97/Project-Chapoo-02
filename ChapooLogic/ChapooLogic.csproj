@@ -48,9 +48,11 @@
     <Compile Include="Klant_Service.cs" />
     <Compile Include="MenuItem2_Service.cs" />
     <Compile Include="MenuItem_Service.cs" />
+    <Compile Include="Order_Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RekeningItem_Service.cs" />
     <Compile Include="RekeningService.cs" />
+    <Compile Include="Restaurant_Service.cs" />
     <Compile Include="Voorraad_Service.cs" />
     <Compile Include="Werknemer_Service.cs" />
   </ItemGroup>
