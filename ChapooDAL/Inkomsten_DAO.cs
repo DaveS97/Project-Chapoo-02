@@ -33,9 +33,9 @@ namespace ChapooDAL
                     BTW = (decimal)dr["btw"],
                     TotaalPrijs = (decimal)dr["totaal"],
                 };
-                rekeningen.Add(rekening);
+                bonnen.Add(bon);
             }
-            return rekeningen;
+            return bonnen;
         }
   
 

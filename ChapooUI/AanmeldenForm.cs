@@ -76,6 +76,7 @@ namespace ChapooUI
                 MessageBox.Show($"Welkom {naam} jij bent een {types} ");
                 Chapoo form = Chapoo.GetInstance();
                 form.ShowDialog();
+                this.Hide();
             }
             else
             {

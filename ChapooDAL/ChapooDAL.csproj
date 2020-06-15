@@ -45,13 +45,14 @@
     <Compile Include="Base.cs" />
     <Compile Include="Bestelling_DAO.cs" />
     <Compile Include="Bevat_DAO.cs" />
+    <Compile Include="OrderOverzicht_DAO.cs" />
     <Compile Include="Inkomsten_DAO.cs" />
     <Compile Include="Klant_DAO.cs" />
     <Compile Include="MenuItem2_DAO.cs" />
     <Compile Include="MenuItem_DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RekeningItem_DAO.cs" />
     <Compile Include="Rekening_DAO.cs" />
+    <Compile Include="Restaurant_DAO.cs" />
     <Compile Include="Voorraad_DAO.cs" />
     <Compile Include="Werknemer_DAO.cs" />
   </ItemGroup>

@@ -63,24 +63,6 @@ namespace ChapooLogic
                 return werknemers;
             }
         }
-        public List<Werknemer> GetBedienerrPins()
-        {
-            try
-            {
-                List<Werknemer> bedieners = werknemer.GetBedienerPINs();
-                return bedieners;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Chapoo couldn't connect to the database" + e.Message);
-                List<Werknemer> werknemers = new List<Werknemer>();
-                Werknemer werknemer = new Werknemer();
-                werknemer.ID = 1;
-                werknemers.Add(werknemer);
-                return werknemers;
-            }
-        }
-
         public List<Werknemer> KrijgWerknemers()
         {
             try
@@ -96,20 +78,6 @@ namespace ChapooLogic
                 werknemer.ID = 1;
                 werknemers.Add(werknemer);
                 return werknemers;
-            }
-        }
-        public List<Bediener> GetBedienersVanWerknemerID(int werknemerID)
-        {
-            try
-            {
-                List<Bediener> bedieners = werknemer.GetBedienersVanWerknemerID(werknemerID);
-                return bedieners;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Chapoo couldn't connect to the database" + e.Message);
-                List<Bediener> bedieners = new List<Bediener>();
-                return bedieners;
             }
         }
     }

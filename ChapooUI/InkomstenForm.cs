@@ -16,7 +16,6 @@ namespace ChapooUI
         public InkomstenForm()
         {
             InitializeComponent();
-            //colommen worden gemaakt
             lvInkomsten.Columns.Add("ID", 100);
             lvInkomsten.Columns.Add("BTW", 100);
             lvInkomsten.Columns.Add("Fooi", 100);
@@ -26,7 +25,6 @@ namespace ChapooUI
 
         private void InkomstenForm_Load(object sender, EventArgs e)
         {
-            //haalt data uit de BON tabel
             Inkomsten_Service service = new Inkomsten_Service();
             List<Rekening> rekeningen = service.GetInkomsten();
             foreach (Rekening item in rekeningen)

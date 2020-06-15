@@ -26,18 +26,9 @@ namespace ChapooUI
         private void lvVoorraad_SelectedIndexChanged(object sender, EventArgs e)
         {
             pnlVoorraad.Show();
-
-            try
-            {
-                lblID.Text = lvVoorraad.SelectedItems[0].SubItems[1].Text;
-                lblOmschrijving.Text = lvVoorraad.SelectedItems[0].SubItems[0].Text;
-                tbAantal.Text = lvVoorraad.SelectedItems[0].SubItems[3].Text;
-            }
-            catch (Exception f)
-            {
-                MessageBox.Show(f.Message);     
-            }
-            
+            lblID.Text = lvVoorraad.SelectedItems[0].SubItems[1].Text;
+            lblOmschrijving.Text = lvVoorraad.SelectedItems[0].SubItems[0].Text;
+            tbAantal.Text = lvVoorraad.SelectedItems[0].SubItems[3].Text;
         }
         private void keukenOverzichtToolStripMenuItem_Click(object sender, EventArgs e)
         {

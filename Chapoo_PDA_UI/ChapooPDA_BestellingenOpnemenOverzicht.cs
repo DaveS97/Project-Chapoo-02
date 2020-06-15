@@ -13,26 +13,24 @@ namespace Chapoo_PDA_UI
 {
     public partial class ChapooPDA_BestellingenOpnemenOverzicht : Form
     {
-        private List<ChapooModel.MenuItem> bestelItems, itemsNaarDatabase;
+        private List<ChapooModel.MenuItem> bestelItems, voorgerechten, hoofdgerechten, nagerechten, dranken, itemsNaarDatabase;
         private List<int> aantallen = new List<int>();
-        private List<string> commentaren = new List<string>(); 
-        private List<ChapooModel.BesteldMenuItem> besteldeMenuItems, voorgerechten, hoofdgerechten, nagerechten, dranken;
+        private List<string> commentaren = new List<string>();
         private ChapooModel.Klant klant = new ChapooModel.Klant();
         private List<int> aantallenNaarDatabase;
         private List<string> commentarenNaarDatabase;
 
         private int tafelnummer;
-        int bedienerID;
+        int werknemerID;
 
-        public ChapooPDA_BestellingenOpnemenOverzicht(List<ChapooModel.MenuItem> items, int tafelnummer, List<int> aantallen, List<string> commentaren, int bedienerID)
+        public ChapooPDA_BestellingenOpnemenOverzicht(List<ChapooModel.MenuItem> items, int tafelnummer, List<int> aantallen, List<string> commentaren, int werknemerID)
         {
             InitializeComponent();
             this.bestelItems = items;
             this.tafelnummer = tafelnummer;
             this.aantallen = aantallen;
             this.commentaren = commentaren;
-            this.bedienerID = bedienerID;
-            besteldeMenuItems = VulLijstBesteldeMenuItems();
+            this.werknemerID = werknemerID;
         }
 
         private void ChapooPDA_BestellingenOpnemenOverzicht_Load(object sender, EventArgs e)
@@ -47,51 +45,20 @@ namespace Chapoo_PDA_UI
             VulLists();
             VulListViews();
         }
-
-        private List<ChapooModel.BesteldMenuItem> VulLijstBesteldeMenuItems()
-        {
-            List<ChapooModel.BesteldMenuItem> list = new List<ChapooModel.BesteldMenuItem>();
-
-            for (int i = 0; i < bestelItems.Count; i++)
-            {
-                ChapooModel.BesteldMenuItem bestelItem = new ChapooModel.BesteldMenuItem();
-
-                bestelItem.item = bestelItems[i];
-                bestelItem.commentaar = commentaren[i];
-                bestelItem.aantal = aantallen[i];
-
-                list.Add(bestelItem);
-            }
-
-            return list;
-        }
         
         //verstuur de lijst van menu items door naar de keuken/bar en maak de lijsten leeg
         private void btnVerstuur_Click(object sender, EventArgs e)
         {
             Bevat_Service bevat_Service = new Bevat_Service();
-            Voorraad_Service voorraadService = new Voorraad_Service();
             
             SchrijfBestellingNaarDatabase();
             VerlaagVoorraadAantal();
-
-
-            RekeningService rekeningService = new RekeningService();
-            RekeningItem_Service rekeningItem_Service = new RekeningItem_Service();
-
-            ChapooModel.Rekening rekening = rekeningService.GetRekening(klant.ID)[0];
-
-            for (int i = 0; i < bestelItems.Count; i++)
-            {
-                rekeningItem_Service.Write_To_Db_RekeningItem(rekening.ID, bestelItems[i].ID);
-            }
 
             MessageBox.Show("Bestelling is verzonden!");
 
             bestelItems.Clear();
             this.Hide();
-            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer, bedienerID);
-
+            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer, werknemerID);
             registreren.ShowDialog();
         }
 
@@ -141,7 +108,6 @@ namespace Chapoo_PDA_UI
         private void VerlaagVoorraadAantal()
         {
             Voorraad_Service voorraad_Service = new Voorraad_Service();
-
             for (int i = 0; i < bestelItems.Count; i++)
             {
                 voorraad_Service.Write_To_DB_Set_Nieuw_Aantal(bestelItems[i].ID, aantallen[i]);
@@ -161,7 +127,7 @@ namespace Chapoo_PDA_UI
             commentarenNaarDatabase = VulLijstCommentarenNaarDatabase();
             klant = klant_Service.KrijgKlantUitTafelID(tafelnummer)[0];
 
-            bestelling_Service.Write_To_Db_Bestelling(bedienerID, klant.ID, dateTime);
+            bestelling_Service.Write_To_Db_Bestelling(werknemerID, klant.ID, dateTime);
             ChapooModel.Bestelling bestelling = bestelling_Service.DB_Krijg_Bestelling_Uit_KlantID(klant.ID, dateTime)[0];
 
             for (int i = 0; i < bestelItems.Count; i++)
@@ -176,21 +142,21 @@ namespace Chapoo_PDA_UI
             MenuItem_Service service = new MenuItem_Service();
             List<ChapooModel.MenuItem> itemsVoorDatabase = new List<ChapooModel.MenuItem>();
             
-            foreach(ChapooModel.BesteldMenuItem i in voorgerechten)
+            foreach(ChapooModel.MenuItem item in voorgerechten)
             {
-                itemsVoorDatabase.Add(i.item);
+                itemsVoorDatabase.Add(item);
             }
-            foreach (ChapooModel.BesteldMenuItem i in hoofdgerechten)
+            foreach (ChapooModel.MenuItem item in hoofdgerechten)
             {
-                itemsVoorDatabase.Add(i.item);
+                itemsVoorDatabase.Add(item);
             }
-            foreach (ChapooModel.BesteldMenuItem i in nagerechten)
+            foreach (ChapooModel.MenuItem item in nagerechten)
             {
-                itemsVoorDatabase.Add(i.item);
+                itemsVoorDatabase.Add(item);
             }
-            foreach (ChapooModel.BesteldMenuItem i in dranken)
+            foreach (ChapooModel.MenuItem item in dranken)
             {
-                itemsVoorDatabase.Add(i.item);
+                itemsVoorDatabase.Add(item);
             }
 
             return itemsVoorDatabase;
@@ -248,29 +214,29 @@ namespace Chapoo_PDA_UI
         //splits de megekregen lijst van menu items op per type gerecht
         private void VulLists()
         {
-            voorgerechten = new List<ChapooModel.BesteldMenuItem>();
-            hoofdgerechten = new List<ChapooModel.BesteldMenuItem>();
-            nagerechten = new List<ChapooModel.BesteldMenuItem>();
-            dranken = new List<ChapooModel.BesteldMenuItem>();
+            voorgerechten = new List<ChapooModel.MenuItem>();
+            hoofdgerechten = new List<ChapooModel.MenuItem>();
+            nagerechten = new List<ChapooModel.MenuItem>();
+            dranken = new List<ChapooModel.MenuItem>();
 
-            foreach (ChapooModel.BesteldMenuItem i in besteldeMenuItems)
+            foreach (ChapooModel.MenuItem item in bestelItems)
             {
-                switch (i.item.typeGerecht)
+                switch (item.typeGerecht)
                 {
                     case 1:
-                        voorgerechten.Add(i);
+                        voorgerechten.Add(item);
                         break;
                     case 2:
-                        hoofdgerechten.Add(i);
+                        hoofdgerechten.Add(item);
                         break;
                     case 3:
-                        nagerechten.Add(i);
+                        nagerechten.Add(item);
                         break;
                     case 4:
-                        hoofdgerechten.Add(i);
+                        hoofdgerechten.Add(item);
                         break;
                     case 5:
-                        dranken.Add(i);
+                        dranken.Add(item);
                         break;
                     default: break;
                 }
@@ -285,12 +251,12 @@ namespace Chapoo_PDA_UI
             lvVoorgerechten.Columns.Add("prijs", 10);
             lvVoorgerechten.Columns.Add("Aantal", 20);
             lvVoorgerechten.Columns.Add("Opmerking", 64);
-            foreach (ChapooModel.BesteldMenuItem item in voorgerechten)
+            foreach (ChapooModel.MenuItem item in voorgerechten)
             {
-                ListViewItem i = new ListViewItem(item.item.Beschrijving);
-                i.SubItems.Add("€" + item.item.Prijs.ToString());
-                i.SubItems.Add(item.aantal.ToString());
-                i.SubItems.Add(item.commentaar.ToString());
+                ListViewItem i = new ListViewItem(item.Beschrijving);
+                i.SubItems.Add("€" + item.Prijs.ToString());
+                i.SubItems.Add(aantallen[teller].ToString());
+                i.SubItems.Add(commentaren[teller].ToString());
                 lvVoorgerechten.Items.Add(i);
                 teller++;
             }
@@ -301,12 +267,12 @@ namespace Chapoo_PDA_UI
             lvHoofdgerechten.Columns.Add("prijs", 10);
             lvHoofdgerechten.Columns.Add("Aantal", 20);
             lvHoofdgerechten.Columns.Add("Opmerking", 64);
-            foreach (ChapooModel.BesteldMenuItem item in hoofdgerechten)
+            foreach (ChapooModel.MenuItem item in hoofdgerechten)
             {
-                ListViewItem i = new ListViewItem(item.item.Beschrijving);
-                i.SubItems.Add("€" + item.item.Prijs.ToString());
-                i.SubItems.Add(item.aantal.ToString());
-                i.SubItems.Add(item.commentaar.ToString());
+                ListViewItem i = new ListViewItem(item.Beschrijving);
+                i.SubItems.Add("€" + item.Prijs.ToString());
+                i.SubItems.Add(aantallen[teller].ToString());
+                i.SubItems.Add(commentaren[teller].ToString());
                 lvHoofdgerechten.Items.Add(i);
                 teller++;
             }
@@ -317,12 +283,12 @@ namespace Chapoo_PDA_UI
             lvNagerechten.Columns.Add("prijs", 10);
             lvNagerechten.Columns.Add("Aantal", 20);
             lvNagerechten.Columns.Add("Opmerking", 64);
-            foreach (ChapooModel.BesteldMenuItem item in nagerechten)
+            foreach (ChapooModel.MenuItem item in nagerechten)
             {
-                ListViewItem i = new ListViewItem(item.item.Beschrijving);
-                i.SubItems.Add("€" + item.item.Prijs.ToString());
-                i.SubItems.Add(item.aantal.ToString());
-                i.SubItems.Add(item.commentaar.ToString());
+                ListViewItem i = new ListViewItem(item.Beschrijving);
+                i.SubItems.Add("€" + item.Prijs.ToString());
+                i.SubItems.Add(aantallen[teller].ToString());
+                i.SubItems.Add(commentaren[teller].ToString());
                 lvNagerechten.Items.Add(i);
                 teller++;
             }
@@ -333,12 +299,12 @@ namespace Chapoo_PDA_UI
             lvDranken.Columns.Add("prijs", 10);
             lvDranken.Columns.Add("Aantal", 20);
             lvDranken.Columns.Add("Opmerking", 64);
-            foreach (ChapooModel.BesteldMenuItem item in dranken)
+            foreach (ChapooModel.MenuItem item in dranken)
             {
-                ListViewItem i = new ListViewItem(item.item.Beschrijving);
-                i.SubItems.Add("€" + item.item.Prijs.ToString());
-                i.SubItems.Add(item.aantal.ToString());
-                i.SubItems.Add(item.commentaar.ToString());
+                ListViewItem i = new ListViewItem(item.Beschrijving);
+                i.SubItems.Add("€" + item.Prijs.ToString());
+                i.SubItems.Add(aantallen[teller].ToString());
+                i.SubItems.Add(commentaren[teller].ToString());
                 lvDranken.Items.Add(i);
                 teller++;
             }
