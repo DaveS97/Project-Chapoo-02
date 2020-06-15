@@ -12,7 +12,7 @@ namespace ChapooLogic
     public class RekeningService
     {
         public Rekening_DAO rekening_DAO = new Rekening_DAO();
-        public List<Rekening>GetRekenings(int tafelID)
+        public List<Rekening>GetRekenings(int klantID)
         {
             try
             {

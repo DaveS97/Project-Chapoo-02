@@ -11,7 +11,7 @@ namespace ChapooDAL
 {
     public class Rekening_DAO : Base
     {
-        public List<Bon> DB_Krijg_Alle_Rekeningen(int tafelID)
+        public List<Rekening> DB_Krijg_Alle_Rekeningen(int klantID)
         {
             string query = "SELECT T.tafelID, BE.menuItemID, MI.prijs, MI.omschrijving " +
                 "FROM Tafels AS T JOIN Klanten AS K ON K.TafelID = T.tafelID  " +
@@ -22,7 +22,7 @@ namespace ChapooDAL
 
             SqlParameter[] sqlParameters =
             {
-                    new SqlParameter("@tafelID", SqlDbType.Int) { Value = tafelID}
+                    new SqlParameter("@tafelID", SqlDbType.Int) { Value = klantID}
             };
 
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
