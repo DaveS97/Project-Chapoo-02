@@ -64,12 +64,6 @@
     <Compile Include="ChapooPDA_AfrekenenMenu.Designer.cs">
       <DependentUpon>ChapooPDA_AfrekenenMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChapooPDA_AfrekenenOverzicht.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChapooPDA_AfrekenenOverzicht.Designer.cs">
-      <DependentUpon>ChapooPDA_AfrekenenOverzicht.cs</DependentUpon>
-    </Compile>
     <Compile Include="ChapooPDA_BestellingenOpnemenOverzicht.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,9 +104,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChapooPDA_AfrekenenMenu.resx">
       <DependentUpon>ChapooPDA_AfrekenenMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChapooPDA_AfrekenenOverzicht.resx">
-      <DependentUpon>ChapooPDA_AfrekenenOverzicht.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChapooPDA_BestellingenOpnemenOverzicht.resx">
       <DependentUpon>ChapooPDA_BestellingenOpnemenOverzicht.cs</DependentUpon>
