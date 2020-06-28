@@ -20,34 +20,33 @@ namespace ChapooLogic
             catch (Exception e)
             {
                 MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
-                Dictionary<Bevat, Klant> lijst = new Dictionary<Bevat, Klant>();
-                Bevat bevat = new Bevat();
-                bevat.bestellingID = 1;
-                bevat.bestellingID = 8;
-                Klant klant = new Klant();
-                klant.tafelID = 2;
-                lijst.Add(bevat, klant);
-                return lijst;
+                return new Dictionary<Bevat, Klant>();
+            }
+        }
+        public Dictionary<Bevat,Klant> AutoBestellingLaden()
+        {
+            try
+            {
+                Dictionary<Bevat, Klant> Bestellingen = bevat_DAO.KrijgBestellingen();
+                return Bestellingen;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
+                return new Dictionary<Bevat, Klant>();
             }
         }
         public Dictionary<Bevat, Klant> KrijgBestellingEnMenuItemID()
         {
             try
             {
-                Dictionary<Bevat, Klant> IDs = bevat_DAO.KrijgIDS();
+                Dictionary<Bevat, Klant> IDs = bevat_DAO.KrijgBestellingenEnKlantInfo();
                 return IDs;
             }
             catch (Exception e)
             {
                 MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
-                Dictionary<Bevat, Klant> lijst = new Dictionary<Bevat, Klant>();
-                Bevat bevat = new Bevat();
-                bevat.bestellingID = 1;
-                bevat.bestellingID = 8;
-                Klant klant = new Klant();
-                klant.tafelID = 2;
-                lijst.Add(bevat, klant);
-                return lijst;
+                return new Dictionary<Bevat, Klant>();
             }
         }
         public Dictionary<Bevat, Klant> KrijgBestellingEnMenuItemIDGereed()
@@ -60,14 +59,7 @@ namespace ChapooLogic
             catch (Exception e)
             {
                 MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
-                Dictionary<Bevat, Klant> lijst = new Dictionary<Bevat, Klant>();
-                Bevat bevat = new Bevat();
-                bevat.bestellingID = 1;
-                bevat.bestellingID = 8;
-                Klant klant = new Klant();
-                klant.tafelID = 2;
-                lijst.Add(bevat, klant);
-                return lijst;
+                return new Dictionary<Bevat, Klant>();
             }
         }
 
@@ -104,13 +96,7 @@ namespace ChapooLogic
             catch (Exception e)
             {
                 MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
-                Dictionary<Bevat, Klant> klantenInfo = new Dictionary<Bevat, Klant>();
-                Bevat info = new Bevat();
-                info.bestellingID = 1;
-                Klant klant = new Klant();
-                klant.ID = 1;
-                klantenInfo.Add(info, klant);
-                return klantenInfo;
+                return new Dictionary<Bevat, Klant>();
             }
         }
 

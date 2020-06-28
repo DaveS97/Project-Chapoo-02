@@ -13,23 +13,30 @@ namespace ChapooDAL
 {
     public class Bevat_DAO : Base
     {
-        public Dictionary<Bevat, Klant> KrijgIDS()
+        public Dictionary<Bevat, Klant> KrijgBestellingen()
         {
-            string query = "SELECT DISTINCT B.tijdOpname, B.bestellingID, K.tafelID  FROM Bestellingen AS B JOIN Klanten AS K ON K.klantID = B.klantID JOIN Bevat AS BE ON BE.bestellingID = B.bestellingID JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID WHERE B.is_Gereed = 0 AND MI.typeGerecht != 5;";
+            string query = "SELECT B.bestellingID, B.tijdOpname, BE.menuItemID, MI.omschrijving, MI.typeGerecht, BE.commentaar, BE.aantal, K.tafelID FROM Bestellingen AS B JOIN Klanten AS K ON K.klantID = B.klantID JOIN Bevat AS BE ON BE.bestellingID = B.bestellingID JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID WHERE B.is_Gereed = 0 AND MI.typeGerecht != 5 ORDER BY B.tijdOpname DESC;";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTablesAutoLoad(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public Dictionary<Bevat, Klant> KrijgBestellingenEnKlantInfo() 
+        {
+            //BE.menuItemID, MI.omschrijving, MI.typeGerecht, BE.commentaar, BE.aantal,     moet er nog bij
+            string query = "SELECT DISTINCT B.bestellingID, B.tijdOpname, K.tafelID FROM Bestellingen AS B JOIN Klanten AS K ON K.klantID = B.klantID JOIN Bevat AS BE ON BE.bestellingID = B.bestellingID JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID WHERE B.is_Gereed = 0 AND MI.typeGerecht != 5 ORDER BY B.tijdOpname DESC;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
        
-        public Dictionary<Bevat, Klant> KrijgIDSGereed()
+        public Dictionary<Bevat, Klant> KrijgIDSGereed() //geef betere naam
         {
-            string query = "SELECT DISTINCT B.tijdOpname, B.bestellingID, K.tafelID  FROM Bestellingen AS B JOIN Klanten AS K ON K.klantID = B.klantID JOIN Bevat AS BE ON BE.bestellingID = B.bestellingID JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID WHERE B.is_Gereed = 1 AND MI.typeGerecht != 5;";
+            string query = "SELECT DISTINCT B.tijdOpname, B.bestellingID, K.tafelID  FROM Bestellingen AS B JOIN Klanten AS K ON K.klantID = B.klantID JOIN Bevat AS BE ON BE.bestellingID = B.bestellingID JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID WHERE B.is_Gereed = 1 AND MI.typeGerecht != 5 ORDER BY B.tijdOpname DESC;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public Dictionary<Bevat, Klant> KrijgDrankjesOpenstaand()
         {
-            string query = "SELECT DISTINCT BE.bestellingID, B.tijdOpname, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE MI.typeGerecht = 5;";
+            string query = "SELECT DISTINCT BE.bestellingID, B.tijdOpname, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE MI.typeGerecht = 5 ORDER BY B.tijdOpname DESC;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -75,6 +82,11 @@ namespace ChapooDAL
                 {
                     bestellingID = (int)dr["bestellingID"],
                     tijdOpname = (DateTime)dr["tijdOpname"],
+                    //menuItemID = (int)dr["menuItemID"],
+                    //menuItemBeschrijving = (string)dr["omschrijving"],
+                    //typeGerecht = (int)dr["typeGerecht"],
+                    //Opmerkingen = (string)dr["commentaar"],
+                    //Aantal = (int)dr["aantal"]
                 };
                 Klant klant = new Klant()
                 {
@@ -84,7 +96,30 @@ namespace ChapooDAL
             }
             return ids;
         }
+        private Dictionary<Bevat, Klant> ReadTablesAutoLoad(DataTable dataTable)
+        {
+            Dictionary<Bevat, Klant> ids = new Dictionary<Bevat, Klant>();
 
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Bevat bevat = new Bevat()
+                {
+                    bestellingID = (int)dr["bestellingID"],
+                    tijdOpname = (DateTime)dr["tijdOpname"],
+                    menuItemID = (int)dr["menuItemID"],
+                    menuItemBeschrijving = (string)dr["omschrijving"],
+                    typeGerecht = (int)dr["typeGerecht"],
+                    Opmerkingen = (string)dr["commentaar"],
+                    Aantal = (int)dr["aantal"]
+                };
+                Klant klant = new Klant()
+                {
+                    tafelID = (int)dr["tafelID"]
+                };
+                ids.Add(bevat, klant);
+            }
+            return ids;
+        }
         public Dictionary<Bevat, Klant> Krijg_Bestelling_Beschrijving(string bestellingID)
         {
             string query = "SELECT BE.menuItemID, MI.omschrijving, MI.typeGerecht, BE.bestellingID, B.tijdOpname, BE.commentaar, BE.aantal, K.tafelID, K.klantID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE BE.bestellingID = @bestellingID;";

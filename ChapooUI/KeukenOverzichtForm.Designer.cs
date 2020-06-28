@@ -111,7 +111,7 @@
             this.openPDAToolStripMenuItem});
             this.MS1.Location = new System.Drawing.Point(0, 0);
             this.MS1.Name = "MS1";
-            this.MS1.Size = new System.Drawing.Size(1039, 28);
+            this.MS1.Size = new System.Drawing.Size(1039, 30);
             this.MS1.TabIndex = 1;
             this.MS1.Text = "menuStrip1";
             // 
@@ -122,7 +122,7 @@
             this.MS1I_Home});
             this.HomeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
-            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
             this.HomeToolStripMenuItem.Text = "Home";
             // 
             // MS1I_Home
@@ -136,14 +136,14 @@
             this.MS_RO.BackColor = System.Drawing.Color.White;
             this.MS_RO.ForeColor = System.Drawing.Color.Black;
             this.MS_RO.Name = "MS_RO";
-            this.MS_RO.Size = new System.Drawing.Size(159, 24);
+            this.MS_RO.Size = new System.Drawing.Size(159, 26);
             this.MS_RO.Text = "Restaurant Overzicht";
             // 
             // MS_BO
             // 
             this.MS_BO.BackColor = System.Drawing.Color.White;
             this.MS_BO.Name = "MS_BO";
-            this.MS_BO.Size = new System.Drawing.Size(111, 24);
+            this.MS_BO.Size = new System.Drawing.Size(111, 26);
             this.MS_BO.Text = "Bar Overzicht";
             this.MS_BO.Click += new System.EventHandler(this.MS_BO_Click);
             // 
@@ -151,7 +151,7 @@
             // 
             this.MS_KO.BackColor = System.Drawing.Color.White;
             this.MS_KO.Name = "MS_KO";
-            this.MS_KO.Size = new System.Drawing.Size(137, 24);
+            this.MS_KO.Size = new System.Drawing.Size(137, 26);
             this.MS_KO.Text = "Keuken Overzicht";
             this.MS_KO.Click += new System.EventHandler(this.MS_KO_Click);
             // 
@@ -164,7 +164,7 @@
             this.MS1I_MenuKaartOpties,
             this.MS1I_Werknemers});
             this.MS_Beheer.Name = "MS_Beheer";
-            this.MS_Beheer.Size = new System.Drawing.Size(69, 24);
+            this.MS_Beheer.Size = new System.Drawing.Size(69, 26);
             this.MS_Beheer.Text = "Beheer";
             // 
             // MS1I_Inkomsten
@@ -195,7 +195,7 @@
             // 
             this.afmeldenToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.afmeldenToolStripMenuItem.Name = "afmeldenToolStripMenuItem";
-            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(88, 26);
             this.afmeldenToolStripMenuItem.Text = "Afmelden";
             this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
             // 
@@ -203,7 +203,7 @@
             // 
             this.openPDAToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.openPDAToolStripMenuItem.Name = "openPDAToolStripMenuItem";
-            this.openPDAToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
+            this.openPDAToolStripMenuItem.Size = new System.Drawing.Size(92, 26);
             this.openPDAToolStripMenuItem.Text = "Open PDA";
             this.openPDAToolStripMenuItem.Click += new System.EventHandler(this.openPDAToolStripMenuItem_Click);
             // 
@@ -722,9 +722,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(1039, 550);
+            this.Controls.Add(this.pnl_openstaandeBestellingen);
             this.Controls.Add(this.pnl_barOverzicht);
             this.Controls.Add(this.pnl_klaarstaandeBestellingen);
-            this.Controls.Add(this.pnl_openstaandeBestellingen);
             this.Controls.Add(this.MS1);
             this.Name = "KeukenOverzichtForm";
             this.Text = "KeukenOverzichtForm";

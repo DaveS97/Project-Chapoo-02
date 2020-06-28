@@ -32,7 +32,7 @@ namespace ChapooUI
                                                     // private Dictionary<Bevat, Klant> drankjesOpenstaand; // info klant en drankjes
         private Dictionary<Bevat, Klant> drankjesVanKlant; // info klant en drankjes
         private List<Klant> klanten; //klanten 
-        private List<Bevat> bestellingen; // bestellingen
+        private Dictionary<Bevat, Klant> bestellingen; // bestellingen
 
         private static KeukenOverzichtForm uniekeInstantie;
 
@@ -50,7 +50,7 @@ namespace ChapooUI
         {
             klantenInfo = new Dictionary<Bevat, Klant>();
             klantenInfoGereedPanel = new Dictionary<Bevat, Klant>();
-            bestellingen = new List<Bevat>();
+            bestellingen = new Dictionary<Bevat, Klant>();
             klanten = new List<Klant>();
             ids = new Dictionary<Bevat, Klant>();
             idsGereed = new Dictionary<Bevat, Klant>();
@@ -69,6 +69,7 @@ namespace ChapooUI
             //bestelling service aanmaken 
             ChapooLogic.Bevat_Service bevat_Service = new ChapooLogic.Bevat_Service();
             ids = bevat_Service.KrijgBestellingEnMenuItemID();
+            bestellingen = bevat_Service.AutoBestellingLaden();
             //leeg de kolommen eerst voordat je ze weer vult
             lv_Bestellingen.Clear();
             //maak kolommen
@@ -82,14 +83,53 @@ namespace ChapooUI
                 li.SubItems.Add(pair.Key.bestellingID.ToString());
                 li.SubItems.Add(pair.Value.tafelID.ToString());
                 lv_Bestellingen.Items.Add(li);
-                bestellingen.Add(pair.Key);
-                klanten.Add(pair.Value);
+                //klanten.Add(pair.Value);
             }
             lv_Bestellingen.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             lv_Bestellingen.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            AutoLaadBestelling();
 
         }
-
+        private void AutoLaadBestelling()
+        {
+            lbl_Voorgerecht.Text = "";
+            lbl_Hoofdgerecht.Text = "";
+            lbl_Nagerecht.Text = "";
+            lbl_HuidigeBestelling.Text = "";
+            List<Bevat> b = new List<Bevat>();
+            foreach (KeyValuePair<Bevat, Klant> duo in bestellingen)
+            {
+                b.Add(duo.Key);
+            }
+            klantenInfo.Add(b[0], null);
+            switch (b[0].typeGerecht)
+            {
+                case VOORGERECHT:
+                    lbl_Voorgerecht.Text += $"{b[0].Aantal}x {b[0].menuItemID} {b[0].menuItemBeschrijving}\n";
+                    lbl_opmerkingVoorgerecht.Text += $"{b[0].Opmerkingen}\n";
+                    break;
+                case HOOFDGERECHT:
+                    lbl_Hoofdgerecht.Text += $"{b[0].Aantal}x {b[0].menuItemID} {b[0].menuItemBeschrijving}\n";
+                    lbl_opmerkingHoofdgerecht.Text += $"{b[0].Opmerkingen}\n";
+                    break;
+                case TUSSENGERECHT:
+                    lbl_Voorgerecht.Text += $"{b[0].Aantal}x {b[0].menuItemID} {b[0].menuItemBeschrijving}\n";
+                    lbl_opmerkingVoorgerecht.Text += $"{b[0].Opmerkingen}\n";
+                    break;
+                case NAGERECHT:
+                    lbl_Nagerecht.Text += $"{b[0].Aantal}x {b[0].menuItemID} {b[0].menuItemBeschrijving}\n";
+                    lbl_opmerkingNagerecht.Text += $"{b[0].Opmerkingen}\n";
+                    break;
+                default:
+                    MessageBox.Show("Er ging wat mis met het ophalen van de bestellingen");
+                    break;
+            }
+            lbl_HuidigeBestelling.Text = $"Bestelling: {b[0].bestellingID}";
+            lbl_opmerkingVoorgerecht.Show();
+            lbl_opmerkingHoofdgerecht.Show();
+            lbl_opmerkingNagerecht.Show();
+            lbl_HuidigeBestelling.Show();
+        }
         //onderstaande methode zet de bestelling in de database op gereed
         private void BestellingGereedMeldenDB(int bestelNummer)
         {
@@ -190,20 +230,23 @@ namespace ChapooUI
                     switch (duo.Key.typeGerecht)
                     {
                         case VOORGERECHT:
-                            lbl_voorGerechtKlaar.Text += $"{duo.Key.Aantal}x {duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
+                            lbl_voorGerechtKlaar.Text += VulDeLabels(duo);
                             lbl_opmerkingVoorKLAAR.Text += $"{duo.Key.Opmerkingen}\n";
                             break;
                         case HOOFDGERECHT:
-                            lbl_hoofdGerechtKlaar.Text += $"{duo.Key.Aantal}x {duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
+                            lbl_hoofdGerechtKlaar.Text += VulDeLabels(duo);
                             lbl_opmerkingHoofdKLAAR.Text += $"{duo.Key.Opmerkingen}\n";
                             break;
                         case NAGERECHT:
-                            lbl_naGerechtKlaar.Text += $" {duo.Key.Aantal}x {duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
+                            lbl_naGerechtKlaar.Text += VulDeLabels(duo);
                             lbl_opmerkingNaKLAAR.Text += $"{duo.Key.Opmerkingen}\n";
                             break;
                         case TUSSENGERECHT:
-                            lbl_voorGerechtKlaar.Text += $"{duo.Key.Aantal}x {duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
+                            lbl_voorGerechtKlaar.Text += VulDeLabels(duo);
                             lbl_opmerkingVoorKLAAR.Text += $"{duo.Key.Opmerkingen}\n";
+                            break;
+                        default:
+                            MessageBox.Show("kan niet verbinden met de database");
                             break;
                     }
                 }
@@ -212,6 +255,12 @@ namespace ChapooUI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private string VulDeLabels(KeyValuePair<Bevat, Klant> duo)
+        {
+            string tekst = $"{duo.Key.Aantal}x {duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
+            return tekst;
         }
         private void LeegmakenLabelsKlaarstaand()
         {
@@ -223,11 +272,6 @@ namespace ChapooUI
             lbl_naGerechtKlaar.Text = "";
             lbl_huidigeBestellingGEREED.Text = "";
             klantenInfoGereedPanel.Clear();
-        }
-
-        private void test()
-        {
-            //hier kan ik me gedachten ff uiten
         }
 
         //onderstaande methode zorgt voor het opnieuw ophalen van openstaande bestellingen uit de db
@@ -256,20 +300,25 @@ namespace ChapooUI
                     switch (duo.Key.typeGerecht)
                     {
                         case VOORGERECHT:
-                            lbl_Voorgerecht.Text += $"{duo.Key.Aantal}x {duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
+                            lbl_Voorgerecht.Text += VulDeLabels(duo);
                             lbl_opmerkingVoorgerecht.Text += $"{duo.Key.Opmerkingen}\n";
                             break;
                         case HOOFDGERECHT:
-                            lbl_Hoofdgerecht.Text += $"{duo.Key.Aantal}x {duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
+                            lbl_Hoofdgerecht.Text += VulDeLabels(duo);
                             lbl_opmerkingHoofdgerecht.Text += $"{duo.Key.Opmerkingen}\n";
                             break;
                         case NAGERECHT:
-                            lbl_Nagerecht.Text += $"{duo.Key.Aantal}x {duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
+                            lbl_Nagerecht.Text += VulDeLabels(duo);
                             lbl_opmerkingNagerecht.Text += $"{duo.Key.Opmerkingen}\n";
                             break;
                         case TUSSENGERECHT:
-                            lbl_Voorgerecht.Text += $"{duo.Key.Aantal}x {duo.Key.menuItemID} {duo.Key.menuItemBeschrijving}\n";
+                            lbl_Voorgerecht.Text += VulDeLabels(duo);
                             lbl_opmerkingVoorgerecht.Text += $"{duo.Key.Opmerkingen}\n";
+                            break;
+                        default:
+                            {
+                                MessageBox.Show("kan niet verbinden met de database");
+                            }
                             break;
                     }
                 }
@@ -309,17 +358,24 @@ namespace ChapooUI
         //onderstaande methode checkt of het een voorgerecht is en zet deze dan klaar
         private void btn_voorGerechtKlaarzetten_Click_1(object sender, EventArgs e)
         {
-
-            int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].SubItems[1].Text);
-            foreach (KeyValuePair<Bevat, Klant> duo in klantenInfo)
+            try
             {
-                if (duo.Key.typeGerecht == VOORGERECHT || duo.Key.typeGerecht == TUSSENGERECHT)
+                int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].SubItems[1].Text);
+                foreach (KeyValuePair<Bevat, Klant> duo in klantenInfo)
                 {
-                    Counter++;
-                    lbl_Voorgerecht.Text = "";
+                    if (duo.Key.typeGerecht == VOORGERECHT || duo.Key.typeGerecht == TUSSENGERECHT)
+                    {
+                        Counter++;
+                        lbl_Voorgerecht.Text = "";
+                    }
                 }
+                BestellingGereedCheck(bestelNummer);
             }
-            BestellingGereedCheck(bestelNummer);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "Klik eerst de bestelling in de lijst aan");
+            }
+            
         }
 
         //onderstaande methode checkt of het een hoofdgerecht is en zet deze dan klaar

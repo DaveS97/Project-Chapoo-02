@@ -67,28 +67,44 @@ namespace Chapoo_PDA_UI
         }
         private void btnVerstuurRekening_Click(object sender, EventArgs e)
         {
-            rekeningService.Update_Db_Rekening(klant.ID, rekening.Datum, totaalPrijs, fooi, totaalBTW);
+            try
+            {
+                rekeningService.Update_Db_Rekening(klant.ID, rekening.Datum, totaalPrijs, fooi, totaalBTW);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
 
             //tafel id menITem prijs, omschrijving
         }
 
         public void vullistview()
         {
-            lvRekeningOverzicht.Columns.Add("omschrijving", 150);
-            lvRekeningOverzicht.Columns.Add("aantal keer besteld", 150);
-            lvRekeningOverzicht.Columns.Add("prijs", 50);
-
-            klant = klant_Service.KrijgKlantUitTafelID(tafelnummer)[0];
-            rekening = rekeningService.GetRekening(klant.ID, datum)[0];
-            rekeningItems = rekeningItem_Service.GetRekeningItemsVoorRekeningID(rekening.ID);
-
-            foreach (RekeningItem item in rekeningItems)
+            try
             {
-                ListViewItem li = new ListViewItem(item.Omschrijving.ToString());
-                li.SubItems.Add(item.Aantal.ToString());
-                li.SubItems.Add(item.Prijs.ToString());
-                lvRekeningOverzicht.Items.Add(li);
+                lvRekeningOverzicht.Columns.Add("omschrijving", 150);
+                lvRekeningOverzicht.Columns.Add("aantal keer besteld", 150);
+                lvRekeningOverzicht.Columns.Add("prijs", 50);
+
+                klant = klant_Service.KrijgKlantUitTafelID(tafelnummer)[0];
+                rekening = rekeningService.GetRekening(klant.ID, datum)[0];
+                rekeningItems = rekeningItem_Service.GetRekeningItemsVoorRekeningID(rekening.ID);
+
+                foreach (RekeningItem item in rekeningItems)
+                {
+                    ListViewItem li = new ListViewItem(item.Omschrijving.ToString());
+                    li.SubItems.Add(item.Aantal.ToString());
+                    li.SubItems.Add(item.Prijs.ToString());
+                    lvRekeningOverzicht.Items.Add(li);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void lvRekeningOverzicht_SelectedIndexChanged(object sender, EventArgs e)
