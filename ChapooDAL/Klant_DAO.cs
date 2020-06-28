@@ -21,11 +21,8 @@ namespace ChapooDAL
 
         public List<Klant> DB_Krijg_Klant_Uit_TafelID(int tafelID)
         {
-            string query = "SELECT klantID, tafelID FROM Klanten WHERE tafelID = @tafelID";
-            SqlParameter[] sqlParameters = 
-            {
-                new SqlParameter("@tafelID", SqlDbType.Int) { Value = tafelID}
-            };
+            string query = $"SELECT klantID, tafelID FROM Klanten WHERE tafelID = {tafelID}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 

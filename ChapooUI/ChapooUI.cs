@@ -56,6 +56,13 @@ namespace ChapooUI
             voorraad.ShowDialog();
         }
 
+        
+
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void MS1I_MenuKaartOpties_Click(object sender, EventArgs e)
         {
             MenuKaartAanpassenForm from = new MenuKaartAanpassenForm();
@@ -76,6 +83,11 @@ namespace ChapooUI
             pda.ShowDialog();
         }
 
+        private void MS1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
         private void Chapoo_Load(object sender, EventArgs e)
         {
 
@@ -92,8 +104,13 @@ namespace ChapooUI
         private void MS_RO_Click(object sender, EventArgs e)
         {
             RestaurantOverzichtForm form = new RestaurantOverzichtForm();
-            form.Show();
-            this.Hide();
+            form.Show();            
         }
+
+        private void MS_Beheer_Click(object sender, EventArgs e)
+        {
+
+        }
+        
     }
 }

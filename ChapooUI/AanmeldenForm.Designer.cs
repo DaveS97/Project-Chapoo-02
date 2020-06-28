@@ -35,12 +35,9 @@
             // 
             // tbPin
             // 
-            this.tbPin.ForeColor = System.Drawing.Color.Black;
             this.tbPin.Location = new System.Drawing.Point(445, 117);
-            this.tbPin.MaxLength = 4;
             this.tbPin.Multiline = true;
             this.tbPin.Name = "tbPin";
-            this.tbPin.PasswordChar = '*';
             this.tbPin.Size = new System.Drawing.Size(265, 35);
             this.tbPin.TabIndex = 0;
             // 

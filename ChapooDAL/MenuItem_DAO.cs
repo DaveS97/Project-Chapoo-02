@@ -43,11 +43,7 @@ namespace ChapooDAL
 
         public Dictionary<Bevat, Klant> Krijg_Bestelling_Beschrijving(string bestellingID)
         {
-            string query = "SELECT BE.menuItemID, MI.omschrijving, MI.typeGerecht, BE.bestellingID, K.tafelID, K.klantID " +
-                "FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID " +
-                "JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID " +
-                "JOIN Klanten AS K ON K.klantID = B.klantID " +
-                "WHERE BE.bestellingID = @bestellingID;";
+            string query = "SELECT BE.menuItemID, MI.omschrijving, MI.typeGerecht, BE.bestellingID, K.tafelID, K.klantID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE BE.bestellingID = @bestellingID;";
             SqlParameter[] sqlParameters =
             {
                     new SqlParameter("@bestellingID", SqlDbType.Int) { Value = bestellingID}
@@ -57,54 +53,54 @@ namespace ChapooDAL
 
         public List<MenuItem> GetMenu()
         {
-            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu, isAlcoholisch FROM MenuItem";
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu FROM MenuItem";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public List<MenuItem> GetDinkMenu()
         {
-            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu, isAlcoholisch from MenuItem where menu = 3";
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu from MenuItem where menu = 3";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public List<MenuItem> GetLunchMenu()
         {
-            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu, isAlcoholisch from MenuItem where menu = 1";
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu from MenuItem where menu = 1";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public List<MenuItem> GetDinnerMenu()
         {
-            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu, isAlcoholisch from MenuItem where menu = 2";
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu from MenuItem where menu = 2";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public List<MenuItem> GetVoorgerechtMenu()
         {
-            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu, isAlcoholisch FROM MenuItem WHERE typeGerecht = 1";
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu FROM MenuItem WHERE typeGerecht = 1";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
         public List<MenuItem> GetHoofdgerechtMenu()
         {
-            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu, isAlcoholisch FROM MenuItem WHERE typeGerecht = 2";
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu FROM MenuItem WHERE typeGerecht = 2";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
         public List<MenuItem> GetNagerechtMenu()
         {
-            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu, isAlcoholisch FROM MenuItem WHERE typeGerecht = 3";
+            string query = "select menuItemID, omschrijving, prijs, typeGerecht, menu FROM MenuItem WHERE typeGerecht = 3";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public List<MenuItem> GetMenuItemForDescription(string beschrijving)
         {
-            string query = "SELECT menuItemID, omschrijving, prijs, typeGerecht, menu, isAlcoholisch FROM MenuItem WHERE omschrijving LIKE @beschrijving";
+            string query = "SELECT menuItemID, omschrijving, prijs, typeGerecht, menu FROM MenuItem WHERE omschrijving LIKE @beschrijving";
             SqlParameter[] sqlParameters = 
             {
                 new SqlParameter("@beschrijving", SqlDbType.Text) {Value = beschrijving}
@@ -124,8 +120,7 @@ namespace ChapooDAL
                     Beschrijving = (string)dr["omschrijving"],
                     Prijs = (decimal)dr["prijs"],
                     typeGerecht = (int)dr["typeGerecht"],
-                    Menu = (int)dr["menu"],
-                    IsAlcoholisch = (bool)dr["isAlcoholisch"]
+                    Menu = (int)dr["menu"]
                 };
                 items.Add(menuItem);
             }

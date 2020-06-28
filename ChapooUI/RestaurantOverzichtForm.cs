@@ -19,7 +19,7 @@ namespace ChapooUI
             tafelOverzichtVullen();
             orderOverzichtVullen();
         }
-
+       
         private void tafelOverzichtVullen()
         {
             ChapooLogic.Restaurant_Service tafelOverzicht = new ChapooLogic.Restaurant_Service();
@@ -32,11 +32,11 @@ namespace ChapooUI
             listview_TafelOverzicht.Columns.Add("tafelbezetting");
 
             string Bezet;
-
+            
             foreach (ChapooModel.TafelStatus s in tafellist)
             {
                 ListViewItem li = new ListViewItem(s.tafelNummer.ToString());
-
+                
                 if (s.tafelBezetting == true)
                 {
                     //li.SubItems.Add("Vrij");
@@ -91,14 +91,12 @@ namespace ChapooUI
 
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void MS1I_Home_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Chapoo chapoo = Chapoo.GetInstance();
-            chapoo.ShowDialog();
+            this.Hide();
         }
 
         private void listview_TafelOverzicht_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,7 +109,7 @@ namespace ChapooUI
             //singleton patern toegepast
             this.Hide();
             KeukenOverzichtForm keukenOverzicht = KeukenOverzichtForm.GetInstance();
-            keukenOverzicht.ShowDialog();
+            keukenOverzicht.ShowDialog();            
         }
 
         private void listview_BezettingOverzicht_SelectedIndexChanged(object sender, EventArgs e)

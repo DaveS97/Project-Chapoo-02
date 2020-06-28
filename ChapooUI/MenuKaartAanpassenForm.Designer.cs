@@ -104,7 +104,7 @@
             this.btnOpnieuwLaden.TabIndex = 7;
             this.btnOpnieuwLaden.Text = "opnieuw laden";
             this.btnOpnieuwLaden.UseVisualStyleBackColor = true;
-            this.btnOpnieuwLaden.Click += new System.EventHandler(this.btnOpnieuwLaden_Click);
+            //this.btnOpnieuwLaden.Click += new System.EventHandler(this.btnOpnieuwLaden_Click);                                                //button uitge-commend voor error
             // 
             // label4
             // 

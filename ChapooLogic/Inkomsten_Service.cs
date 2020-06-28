@@ -22,7 +22,8 @@ namespace ChapooLogic
             catch (Exception e)
             {
                 MessageBox.Show("Chapoo couldn't connect to the database " + e.Message);
-                List<Rekening> rekeningen = new List<Rekening>();
+                List < Rekening > rekeningen = new List<Rekening>();
+              
                 return rekeningen;
             }
         }

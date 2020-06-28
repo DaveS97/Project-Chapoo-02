@@ -14,11 +14,11 @@ namespace Chapoo_PDA_UI
     {
         private int tafelnummer;
 
-        private int bedienerID;
-        public ChapooPDA_BestellingOpnemenMenu(int bedienerID)
+        private int ID;
+        public ChapooPDA_BestellingOpnemenMenu(int ID)
         {
             InitializeComponent();
-            this.bedienerID = bedienerID;
+            this.ID = ID;
         }
 
         private void tbTafelnummerBestellingOpnemen_TextChanged(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace Chapoo_PDA_UI
 
                 if (tafelnummer != 2 || tafelnummer != 3 || tafelnummer != 8 || tafelnummer >= 0 || tafelnummer <= 14)
                 {
-                    ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer, bedienerID);
+                    ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer, ID);
                     Close();
                     registreren.ShowDialog();
                 } else throw new FormatException();  

@@ -22,18 +22,6 @@ namespace ChapooUI
             lvInkomsten.Columns.Add("Fooi", 100);
             lvInkomsten.Columns.Add("Totaal", 100);
             lvInkomsten.Columns.Add("datum", 150);
-            //haalt data uit de rekening tabel
-            Inkomsten_Service service = new Inkomsten_Service();
-            List<Rekening> rekeningen = service.GetInkomsten();
-            foreach (Rekening item in rekeningen)
-            {
-                ListViewItem li = new ListViewItem(item.ID.ToString());
-                li.SubItems.Add(item.BTW.ToString());
-                li.SubItems.Add(item.Fooi.ToString());
-                li.SubItems.Add(item.TotaalPrijs.ToString());
-                li.SubItems.Add(item.Datum.ToString());
-                lvInkomsten.Items.Add(li);
-            }
         }
 
         private void InkomstenForm_Load(object sender, EventArgs e)

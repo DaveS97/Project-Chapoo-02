@@ -15,14 +15,14 @@ namespace ChapooDAL
     {
         public Dictionary<Bevat, Klant> KrijgIDS()
         {
-            string query = "SELECT DISTINCT B.tijdOpname, B.bestellingID, K.tafelID  FROM Bestellingen AS B JOIN Klanten AS K ON K.klantID = B.klantID JOIN Bevat AS BE ON BE.bestellingID = B.bestellingID JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID WHERE B.is_Gereed = 0 AND MI.typeGerecht != 5;";
+            string query = "SELECT DISTINCT  Be.bestellingID, B.tijdOpname, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE MI.typeGerecht != 5 AND B.is_Gereed = 0;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
        
         public Dictionary<Bevat, Klant> KrijgIDSGereed()
         {
-            string query = "SELECT DISTINCT B.tijdOpname, B.bestellingID, K.tafelID  FROM Bestellingen AS B JOIN Klanten AS K ON K.klantID = B.klantID JOIN Bevat AS BE ON BE.bestellingID = B.bestellingID JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID WHERE B.is_Gereed = 1 AND MI.typeGerecht != 5;";
+            string query = "SELECT DISTINCT Be.bestellingID, B.tijdOpname, K.tafelID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE B.is_Gereed = 1;";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -87,7 +87,7 @@ namespace ChapooDAL
 
         public Dictionary<Bevat, Klant> Krijg_Bestelling_Beschrijving(string bestellingID)
         {
-            string query = "SELECT BE.menuItemID, MI.omschrijving, MI.typeGerecht, BE.bestellingID, B.tijdOpname, BE.commentaar, BE.aantal, K.tafelID, K.klantID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE BE.bestellingID = @bestellingID;";
+            string query = "SELECT BE.menuItemID, MI.omschrijving, MI.typeGerecht, BE.bestellingID, B.tijdOpname, K.tafelID, K.klantID FROM Bevat AS BE JOIN MenuItem AS MI ON MI.menuItemID = BE.menuItemID JOIN Bestellingen AS B ON B.bestellingID = BE.bestellingID JOIN Klanten AS K ON K.klantID = B.klantID WHERE BE.bestellingID = @bestellingID;";
             SqlParameter[] sqlParameters =
             {
                 new SqlParameter("@bestellingID", SqlDbType.Int) { Value = bestellingID}
@@ -106,9 +106,7 @@ namespace ChapooDAL
                     menuItemBeschrijving = (string)dr["omschrijving"],
                     typeGerecht = (int)dr["typeGerecht"],
                     bestellingID = (int)dr["bestellingID"],
-                    tijdOpname = (DateTime)dr["tijdOpname"],
-                    Opmerkingen = (string)dr["commentaar"],
-                    Aantal = (int)dr["aantal"]
+                    tijdOpname = (DateTime)dr["tijdOpname"]
                 };
                 Klant klant = new Klant()
                 {
