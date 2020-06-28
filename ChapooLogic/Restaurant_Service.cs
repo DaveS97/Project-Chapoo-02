@@ -31,5 +31,17 @@ namespace ChapooLogic
                 return tafelStatuses;
             }
         }
+
+        public void Write_To_Db_Set_Status(bool status, int tafelnummer)
+        {
+            try
+            {
+                restaurant_DAO.Write_To_Db_Set_Status(status, tafelnummer);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chapoo couldn't connect to the database " + e.ToString());
+            }
+        }
     }
 }

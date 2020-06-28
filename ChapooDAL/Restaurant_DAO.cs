@@ -20,7 +20,16 @@ namespace ChapooDAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-
+        public void Write_To_Db_Set_Status(bool status, int tafelnummer)
+        {
+            string query = "UPDATE Tafels SET is_Bezet = @status WHERE tafelID = @tafelnummer";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@status", SqlDbType.Bit) { Value = status },
+                new SqlParameter("@tafelnummer", SqlDbType.Int) { Value = tafelnummer }
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
 
         private List<TafelStatus> ReadTables(DataTable dataTable)
         {
