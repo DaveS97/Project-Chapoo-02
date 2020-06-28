@@ -25,7 +25,7 @@ namespace Chapoo_PDA_UI
             SetStatus();
         }
 
-        //Zet de status van een tafel op bezet of niet bezet
+        //Synchroniseer de tafelstatus met de database
         private void SetStatus()
         {
             foreach (TafelStatus status in tafelStatuses)
