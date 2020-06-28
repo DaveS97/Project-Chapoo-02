@@ -34,7 +34,6 @@ namespace ChapooUI
             string naam = "";
             string types = "";
             int type = 0; // 1=  bediener 2= barman  3= kok  4= eigenaar
-
             if (tbPin.Text.Length != 0)
             {
                 int pin = int.Parse(tbPin.Text);
@@ -76,13 +75,12 @@ namespace ChapooUI
                 MessageBox.Show($"Welkom {naam} jij bent een {types} ");
                 Chapoo form = Chapoo.GetInstance();
                 form.ShowDialog();
-                this.Hide();
             }
             else
             {
                 MessageBox.Show("voer een geldige pincode in");
             }
-
+            this.Hide();
         }
 
         private void AanmeldenForm_Load(object sender, EventArgs e)

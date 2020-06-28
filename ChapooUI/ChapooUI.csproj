@@ -132,9 +132,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RestaurantOverzichtForm.resx">
-      <DependentUpon>RestaurantOverzichtForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="VoorraadForm.resx">
       <DependentUpon>VoorraadForm.cs</DependentUpon>
     </EmbeddedResource>

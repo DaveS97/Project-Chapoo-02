@@ -12,11 +12,11 @@ namespace Chapoo_PDA_UI
 {
     public partial class ChapooPDA : Form
     {
-        private int werknemerID;
-        public ChapooPDA(int werknemerID)
+        private int bedienerID;
+        public ChapooPDA(int bedienerID)
         {
             InitializeComponent();
-            this.werknemerID = werknemerID;
+            this.bedienerID = bedienerID;
         }
 
         private void btnRestaurantOverzicht_Click(object sender, EventArgs e)
@@ -27,13 +27,13 @@ namespace Chapoo_PDA_UI
 
         private void btnKlaarstaandeBestellingen_Click(object sender, EventArgs e)
         {
-            ChapooPDA_KlaarstaandeBestellingenOverzicht overzicht = new ChapooPDA_KlaarstaandeBestellingenOverzicht();
+            ChapooPDA_KlaarstaandeBestellingenOverzicht overzicht = ChapooPDA_KlaarstaandeBestellingenOverzicht.GetInstance();
             overzicht.ShowDialog();
         }
 
         private void btnBestellingOpnemen_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingOpnemenMenu menu = new ChapooPDA_BestellingOpnemenMenu(werknemerID);
+            ChapooPDA_BestellingOpnemenMenu menu = new ChapooPDA_BestellingOpnemenMenu(bedienerID);
             menu.ShowDialog();
         }
 

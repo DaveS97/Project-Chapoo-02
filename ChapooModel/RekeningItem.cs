@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace ChapooModel
 {
-    public class Klant
+    public class RekeningItem
     {
         public int ID { get; set; }
-        public int tafelID { get; set; }
-        public string betaalWijzeType { get; set; } 
-        public int reserveringID { get; set; }
         public int RekeningID { get; set; }
+        public int MenuItemID { get; set; }
+        public int Aantal { get; set; }
+        public string Omschrijving { get; set; }
+        public decimal Prijs { get; set; }
     }
 }
