@@ -33,6 +33,7 @@
             this.btnKlaarstaandeBestellingen = new System.Windows.Forms.Button();
             this.btnAfrekenen = new System.Windows.Forms.Button();
             this.lblBedienernaam = new System.Windows.Forms.Label();
+            this.btnAfmelden = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRestaurantOverzicht
@@ -87,12 +88,23 @@
             this.lblBedienernaam.TabIndex = 4;
             this.lblBedienernaam.Text = "Welkom";
             // 
+            // btnAfmelden
+            // 
+            this.btnAfmelden.Location = new System.Drawing.Point(13, 13);
+            this.btnAfmelden.Name = "btnAfmelden";
+            this.btnAfmelden.Size = new System.Drawing.Size(85, 37);
+            this.btnAfmelden.TabIndex = 5;
+            this.btnAfmelden.Text = "Afmelden";
+            this.btnAfmelden.UseVisualStyleBackColor = true;
+            this.btnAfmelden.Click += new System.EventHandler(this.btnAfmelden_Click);
+            // 
             // ChapooPDA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(704, 681);
+            this.Controls.Add(this.btnAfmelden);
             this.Controls.Add(this.lblBedienernaam);
             this.Controls.Add(this.btnAfrekenen);
             this.Controls.Add(this.btnKlaarstaandeBestellingen);
@@ -114,6 +126,7 @@
         private System.Windows.Forms.Button btnKlaarstaandeBestellingen;
         private System.Windows.Forms.Button btnAfrekenen;
         private System.Windows.Forms.Label lblBedienernaam;
+        private System.Windows.Forms.Button btnAfmelden;
     }
 }
 

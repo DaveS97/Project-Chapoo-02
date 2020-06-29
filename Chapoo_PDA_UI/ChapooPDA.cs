@@ -52,5 +52,12 @@ namespace Chapoo_PDA_UI
         {
 
         }
+
+        private void btnAfmelden_Click(object sender, EventArgs e)
+        {
+            AanmeldenPDAForm aanmelden =  new AanmeldenPDAForm();
+            aanmelden.Show();
+            Close();
+        }
     }
 }

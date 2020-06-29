@@ -77,5 +77,11 @@ namespace Chapoo_PDA_UI
 
             
         }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            
+            Hide();
+        }
     }
 }
