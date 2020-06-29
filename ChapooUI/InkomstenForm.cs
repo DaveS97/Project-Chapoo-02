@@ -54,7 +54,9 @@ namespace ChapooUI
 
         private void terugToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Chapoo chapoo = Chapoo.GetInstance();
             this.Close();
+            chapoo.Show();
         }
     }
 }
