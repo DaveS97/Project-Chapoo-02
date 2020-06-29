@@ -33,13 +33,13 @@ namespace ChapooUI
             bool CorrectPin = false;
             string naam = "";
             string types = "";
-            int type = 0; // 1=  bediener 2= barman  3= kok  4= eigenaar
+            int type = 0; // 1=  bediener 2= barman  3= kok  4= eigenaar                                    //4365
             if (tbPin.Text.Length != 0)
             {
                 int pin = int.Parse(tbPin.Text);
                 foreach (Werknemer item in werknemers)
                 {
-                    if (item.PIN == pin)
+                    if (item.PIN == pin && item.Type !=1) //alleen bedieners kunnen niet inloggen
                     {
                         CorrectPin = true;
                         naam = item.Naam;
@@ -75,7 +75,7 @@ namespace ChapooUI
                 MessageBox.Show($"Welkom {naam} jij bent een {types} ");
                 Chapoo form = Chapoo.GetInstance();
                 Hide();
-                form.ShowDialog();
+                form.Show();
             }
             else
             {

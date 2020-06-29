@@ -50,7 +50,28 @@ namespace ChapooUI
             lvVoorraad.Columns.Add("ID", 50);
             lvVoorraad.Columns.Add("prijs", 50);
             lvVoorraad.Columns.Add("aantal", 50);
-            lvVoorraad.Columns.Add("menu kaart", 50);
+            lvVoorraad.Columns.Add("menu kaart", 100);
+        }
+        string Format(MenuItem2 menuItem)
+        {
+            //1 = lunch 2 = dinner 3 = drank
+            string format = "";
+            switch (menuItem.menu)
+            {
+                case 1:
+                    format = "lunch";
+                    break;
+                case 2:
+                    format = "dinner";
+                    break;
+                case 3:
+                    format = "dranken";
+                    break;
+                default:
+                    MessageBox.Show("error");
+                    break;
+            }
+            return format;
         }
         private void VulListView()
         {
@@ -67,7 +88,8 @@ namespace ChapooUI
                     li.SubItems.Add(menuItem.ID.ToString());
                     li.SubItems.Add(menuItem.Prijs.ToString());
                     li.SubItems.Add(menuItem.Aantal.ToString());
-                    li.SubItems.Add(menuItem.menu.ToString());
+                    string format = Format(menuItem);
+                    li.SubItems.Add(format);
                     lvVoorraad.Items.Add(li);
                 }
             }
@@ -82,7 +104,8 @@ namespace ChapooUI
                     li.SubItems.Add(menuItem.ID.ToString());
                     li.SubItems.Add(menuItem.Prijs.ToString());
                     li.SubItems.Add(menuItem.Aantal.ToString());
-                    li.SubItems.Add(menuItem.menu.ToString());
+                    string format = Format(menuItem);
+                    li.SubItems.Add(format);
                     lvVoorraad.Items.Add(li);
                 }
             }
@@ -97,7 +120,8 @@ namespace ChapooUI
                     li.SubItems.Add(menuItem.ID.ToString());
                     li.SubItems.Add(menuItem.Prijs.ToString());
                     li.SubItems.Add(menuItem.Aantal.ToString());
-                    li.SubItems.Add(menuItem.menu.ToString());
+                    string format = Format(menuItem);
+                    li.SubItems.Add(format);
                     lvVoorraad.Items.Add(li);
                 }
             }
@@ -112,7 +136,8 @@ namespace ChapooUI
                     li.SubItems.Add(menuItem.ID.ToString());
                     li.SubItems.Add(menuItem.Prijs.ToString());
                     li.SubItems.Add(menuItem.Aantal.ToString());
-                    li.SubItems.Add(menuItem.menu.ToString());
+                    string format = Format(menuItem);
+                    li.SubItems.Add(format);
                     lvVoorraad.Items.Add(li);
                 }
             }
@@ -147,6 +172,8 @@ namespace ChapooUI
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
+            Chapoo chapoo = Chapoo.GetInstance();
+            chapoo.Show();
         }
     }
 }
