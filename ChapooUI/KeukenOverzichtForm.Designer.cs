@@ -42,7 +42,6 @@
             this.afmeldenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openPDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_klaarstaandeBestellingen = new System.Windows.Forms.Panel();
-            this.btn_HerlaadKlaarstaandeBestellingen = new System.Windows.Forms.Button();
             this.lbl_opmerkingNaKLAAR = new System.Windows.Forms.Label();
             this.lbl_opmerkingHoofdKLAAR = new System.Windows.Forms.Label();
             this.lbl_opmerkingVoorKLAAR = new System.Windows.Forms.Label();
@@ -63,7 +62,6 @@
             this.lbl_opmerkingNagerecht = new System.Windows.Forms.Label();
             this.lbl_opmerkingHoofdgerecht = new System.Windows.Forms.Label();
             this.lbl_opmerkingVoorgerecht = new System.Windows.Forms.Label();
-            this.btn_herlaadBestellingen = new System.Windows.Forms.Button();
             this.btn_filterNaarGereed = new System.Windows.Forms.Button();
             this.btn_naGerechtKlaarzetten = new System.Windows.Forms.Button();
             this.btn_hoofdGerechtKlaarzetten = new System.Windows.Forms.Button();
@@ -214,7 +212,6 @@
             // 
             // pnl_klaarstaandeBestellingen
             // 
-            this.pnl_klaarstaandeBestellingen.Controls.Add(this.btn_HerlaadKlaarstaandeBestellingen);
             this.pnl_klaarstaandeBestellingen.Controls.Add(this.lbl_opmerkingNaKLAAR);
             this.pnl_klaarstaandeBestellingen.Controls.Add(this.lbl_opmerkingHoofdKLAAR);
             this.pnl_klaarstaandeBestellingen.Controls.Add(this.lbl_opmerkingVoorKLAAR);
@@ -235,16 +232,6 @@
             this.pnl_klaarstaandeBestellingen.Name = "pnl_klaarstaandeBestellingen";
             this.pnl_klaarstaandeBestellingen.Size = new System.Drawing.Size(1039, 521);
             this.pnl_klaarstaandeBestellingen.TabIndex = 23;
-            // 
-            // btn_HerlaadKlaarstaandeBestellingen
-            // 
-            this.btn_HerlaadKlaarstaandeBestellingen.Location = new System.Drawing.Point(178, 459);
-            this.btn_HerlaadKlaarstaandeBestellingen.Name = "btn_HerlaadKlaarstaandeBestellingen";
-            this.btn_HerlaadKlaarstaandeBestellingen.Size = new System.Drawing.Size(104, 48);
-            this.btn_HerlaadKlaarstaandeBestellingen.TabIndex = 56;
-            this.btn_HerlaadKlaarstaandeBestellingen.Text = "Herlaad bestellingen";
-            this.btn_HerlaadKlaarstaandeBestellingen.UseVisualStyleBackColor = true;
-            this.btn_HerlaadKlaarstaandeBestellingen.Click += new System.EventHandler(this.btn_HerlaadKlaarstaandeBestellingen_Click);
             // 
             // lbl_opmerkingNaKLAAR
             // 
@@ -403,7 +390,6 @@
             this.pnl_openstaandeBestellingen.Controls.Add(this.lbl_opmerkingNagerecht);
             this.pnl_openstaandeBestellingen.Controls.Add(this.lbl_opmerkingHoofdgerecht);
             this.pnl_openstaandeBestellingen.Controls.Add(this.lbl_opmerkingVoorgerecht);
-            this.pnl_openstaandeBestellingen.Controls.Add(this.btn_herlaadBestellingen);
             this.pnl_openstaandeBestellingen.Controls.Add(this.btn_filterNaarGereed);
             this.pnl_openstaandeBestellingen.Controls.Add(this.btn_naGerechtKlaarzetten);
             this.pnl_openstaandeBestellingen.Controls.Add(this.btn_hoofdGerechtKlaarzetten);
@@ -445,16 +431,6 @@
             this.lbl_opmerkingVoorgerecht.Name = "lbl_opmerkingVoorgerecht";
             this.lbl_opmerkingVoorgerecht.Size = new System.Drawing.Size(173, 47);
             this.lbl_opmerkingVoorgerecht.TabIndex = 51;
-            // 
-            // btn_herlaadBestellingen
-            // 
-            this.btn_herlaadBestellingen.Location = new System.Drawing.Point(178, 458);
-            this.btn_herlaadBestellingen.Name = "btn_herlaadBestellingen";
-            this.btn_herlaadBestellingen.Size = new System.Drawing.Size(104, 48);
-            this.btn_herlaadBestellingen.TabIndex = 50;
-            this.btn_herlaadBestellingen.Text = "Herlaad bestellingen";
-            this.btn_herlaadBestellingen.UseVisualStyleBackColor = true;
-            this.btn_herlaadBestellingen.Click += new System.EventHandler(this.btn_herlaadBestellingen_Click);
             // 
             // btn_filterNaarGereed
             // 
@@ -627,7 +603,7 @@
             this.pnl_barOverzicht.Controls.Add(this.label7);
             this.pnl_barOverzicht.Location = new System.Drawing.Point(0, 31);
             this.pnl_barOverzicht.Name = "pnl_barOverzicht";
-            this.pnl_barOverzicht.Size = new System.Drawing.Size(1039, 521);
+            this.pnl_barOverzicht.Size = new System.Drawing.Size(1039, 518);
             this.pnl_barOverzicht.TabIndex = 31;
             // 
             // lbl_Drinken
@@ -759,7 +735,6 @@
         private System.Windows.Forms.Label lbl_voorGerechtKlaar;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Panel pnl_openstaandeBestellingen;
-        private System.Windows.Forms.Button btn_herlaadBestellingen;
         private System.Windows.Forms.Button btn_filterNaarGereed;
         private System.Windows.Forms.Button btn_naGerechtKlaarzetten;
         private System.Windows.Forms.Button btn_hoofdGerechtKlaarzetten;
@@ -794,7 +769,6 @@
         private System.Windows.Forms.Label lbl_opmerkingNaKLAAR;
         private System.Windows.Forms.Label lbl_opmerkingHoofdKLAAR;
         private System.Windows.Forms.Label lbl_Drinken;
-        private System.Windows.Forms.Button btn_HerlaadKlaarstaandeBestellingen;
         private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openPDAToolStripMenuItem;
     }
