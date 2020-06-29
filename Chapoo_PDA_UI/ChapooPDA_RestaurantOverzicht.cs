@@ -188,72 +188,112 @@ namespace Chapoo_PDA_UI
 
         private void btnOpnemen1_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(1, bedienerID);
-            Hide();
-            registreren.ShowDialog();
+            if (tafelStatuses[0].tafelBezetting)
+            {
+                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(1, bedienerID);
+                Hide();
+                registreren.ShowDialog();
+            }
+            else MessageBox.Show("Tafel 1 is nog niet bezet!");            
         }
 
         private void btnOpnemen2_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(4, bedienerID);
-            Hide();
-            registreren.ShowDialog();
+            if (tafelStatuses[1].tafelBezetting)
+            {
+                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(4, bedienerID);
+                Hide();
+                registreren.ShowDialog();
+            }
+            else MessageBox.Show("Tafel 2 is nog niet bezet!");
         }
 
         private void btnOpnemen3_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(5, bedienerID);
-            Hide();
-            registreren.ShowDialog();
+            if (tafelStatuses[2].tafelBezetting)
+            {
+                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(5, bedienerID);
+                Hide();
+                registreren.ShowDialog();
+            }
+            else MessageBox.Show("Tafel 3 is nog niet bezet!");
         }
 
         private void btnOpnemen4_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(6, bedienerID);
-            Hide();
-            registreren.ShowDialog();
+            if (tafelStatuses[3].tafelBezetting)
+            {
+                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(6, bedienerID);
+                Hide();
+                registreren.ShowDialog();
+            }
+            else MessageBox.Show("Tafel 4 is nog niet bezet!");
         }
 
         private void btnOpnemen5_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(7, bedienerID);
-            Hide();
-            registreren.ShowDialog();
+            if (tafelStatuses[4].tafelBezetting)
+            {
+                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(7, bedienerID);
+                Hide();
+                registreren.ShowDialog();
+            }
+            else MessageBox.Show("Tafel 5 is nog niet bezet!");
         }
 
         private void btnOpnemen6_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(9, bedienerID);
-            Hide();
-            registreren.ShowDialog();
+            if (tafelStatuses[5].tafelBezetting)
+            {
+                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(9, bedienerID);
+                Hide();
+                registreren.ShowDialog();
+            }
+            else MessageBox.Show("Tafel 6 is nog niet bezet!");
         }
 
         private void btnOpnemen7_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(10, bedienerID);
-            Hide();
-            registreren.ShowDialog();
+            if (tafelStatuses[6].tafelBezetting)
+            {
+                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(10, bedienerID);
+                Hide();
+                registreren.ShowDialog();
+            }
+            else MessageBox.Show("Tafel 7 is nog niet bezet!");
         }
 
         private void btnOpnemen8_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(11, bedienerID);
-            Hide();
-            registreren.ShowDialog();
+            if (tafelStatuses[7].tafelBezetting)
+            {
+                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(11, bedienerID);
+                Hide();
+                registreren.ShowDialog();
+            }
+            else MessageBox.Show("Tafel 8 is nog niet bezet!");
         }
 
         private void btnOpnemen9_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(12, bedienerID);
-            Hide();
-            registreren.ShowDialog();
+            if (tafelStatuses[8].tafelBezetting)
+            {
+                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(12, bedienerID);
+                Hide();
+                registreren.ShowDialog();
+            }
+            else MessageBox.Show("Tafel 9 is nog niet bezet!");
         }
 
         private void btnOpnemen10_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(13, bedienerID);
-            Hide();
-            registreren.ShowDialog();
+            if (tafelStatuses[9].tafelBezetting)
+            {
+                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(13, bedienerID);
+                Hide();
+                registreren.ShowDialog();
+            }
+            else MessageBox.Show("Tafel 10 is nog niet bezet!");
         }
     }
 }
