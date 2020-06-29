@@ -32,6 +32,7 @@
             this.btnBestellingOpnemen = new System.Windows.Forms.Button();
             this.btnKlaarstaandeBestellingen = new System.Windows.Forms.Button();
             this.btnAfrekenen = new System.Windows.Forms.Button();
+            this.lblBedienernaam = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnRestaurantOverzicht
@@ -46,6 +47,7 @@
             // 
             // btnBestellingOpnemen
             // 
+            this.btnBestellingOpnemen.Enabled = false;
             this.btnBestellingOpnemen.Location = new System.Drawing.Point(96, 238);
             this.btnBestellingOpnemen.Name = "btnBestellingOpnemen";
             this.btnBestellingOpnemen.Size = new System.Drawing.Size(500, 90);
@@ -66,6 +68,7 @@
             // 
             // btnAfrekenen
             // 
+            this.btnAfrekenen.Enabled = false;
             this.btnAfrekenen.Location = new System.Drawing.Point(96, 507);
             this.btnAfrekenen.Name = "btnAfrekenen";
             this.btnAfrekenen.Size = new System.Drawing.Size(500, 90);
@@ -74,21 +77,33 @@
             this.btnAfrekenen.UseVisualStyleBackColor = true;
             this.btnAfrekenen.Click += new System.EventHandler(this.btnAfrekenen_Click);
             // 
+            // lblBedienernaam
+            // 
+            this.lblBedienernaam.AutoSize = true;
+            this.lblBedienernaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lblBedienernaam.Location = new System.Drawing.Point(512, 9);
+            this.lblBedienernaam.Name = "lblBedienernaam";
+            this.lblBedienernaam.Size = new System.Drawing.Size(84, 25);
+            this.lblBedienernaam.TabIndex = 4;
+            this.lblBedienernaam.Text = "Welkom";
+            // 
             // ChapooPDA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(704, 681);
+            this.Controls.Add(this.lblBedienernaam);
             this.Controls.Add(this.btnAfrekenen);
             this.Controls.Add(this.btnKlaarstaandeBestellingen);
             this.Controls.Add(this.btnBestellingOpnemen);
             this.Controls.Add(this.btnRestaurantOverzicht);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ChapooPDA";
             this.Text = "ChapooPDA";
             this.Load += new System.EventHandler(this.ChapooPDA_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -98,6 +113,7 @@
         private System.Windows.Forms.Button btnBestellingOpnemen;
         private System.Windows.Forms.Button btnKlaarstaandeBestellingen;
         private System.Windows.Forms.Button btnAfrekenen;
+        private System.Windows.Forms.Label lblBedienernaam;
     }
 }
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ChapooLogic;
+using ChapooModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +15,13 @@ namespace Chapoo_PDA_UI
     public partial class ChapooPDA : Form
     {
         private int bedienerID;
+        Werknemer_Service service = new Werknemer_Service();
         public ChapooPDA(int bedienerID)
         {
             InitializeComponent();
             this.bedienerID = bedienerID;
+            Werknemer werknemer = service.GetWerknemerVanBedienerID(bedienerID)[0];
+            lblBedienernaam.Text = "Welkom " + werknemer.Naam;
         }
 
         private void btnRestaurantOverzicht_Click(object sender, EventArgs e)
