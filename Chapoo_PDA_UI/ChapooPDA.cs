@@ -21,7 +21,7 @@ namespace Chapoo_PDA_UI
 
         private void btnRestaurantOverzicht_Click(object sender, EventArgs e)
         {
-            ChapooPDA_RestaurantOverzicht overzicht = new ChapooPDA_RestaurantOverzicht();
+            ChapooPDA_RestaurantOverzicht overzicht = new ChapooPDA_RestaurantOverzicht(bedienerID);
             overzicht.ShowDialog();
         }
 

@@ -14,7 +14,7 @@ namespace Chapoo_PDA_UI
 {
     public partial class ChapooPDA_BestellingOpnemenRegistreren : Form
     {
-        private int tafelnummer;
+        private int tafelnummer, tafelnummerLabel;
         private int aantal = 1;
         private int minimumAantal = 5;
         private string commentaar = "";
@@ -32,13 +32,14 @@ namespace Chapoo_PDA_UI
         public ChapooPDA_BestellingOpnemenRegistreren(int tafelnummer, int bedienerID)
         {
             this.tafelnummer = tafelnummer;
+            tafelnummerLabel = ParseerTafelnummer(tafelnummer);
             this.bedienerID = bedienerID;
             InitializeComponent();
         }
 
         private void ChapooPDA_BestellingOpnemenRegistreren_Load(object sender, EventArgs e)
         {
-            lblTafelnummer.Text = "Tafel " + tafelnummer;
+            lblTafelnummer.Text = "Tafel " + tafelnummerLabel;
             btnOverzicht.Enabled = false;
             ShowPanelOpnemen();
         }
@@ -46,11 +47,6 @@ namespace Chapoo_PDA_UI
         {
             pnlBestellingOpnemen.Show();
             tbAantal.Text = aantal.ToString();
-        }
-
-        private void ddMenuItems_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void ddMenuItems_DropDown(object sender, EventArgs e)
@@ -140,14 +136,50 @@ namespace Chapoo_PDA_UI
 
         private void btnOverzicht_Click(object sender, EventArgs e)
         {
-            ChapooPDA_BestellingenOpnemenOverzicht overzicht = new ChapooPDA_BestellingenOpnemenOverzicht(itemsUitDatabase, tafelnummer, aantallen, commentaren, bedienerID);
+            ChapooPDA_BestellingenOpnemenOverzicht overzicht = new ChapooPDA_BestellingenOpnemenOverzicht(itemsUitDatabase, tafelnummer, tafelnummerLabel, aantallen, commentaren, bedienerID);
             overzicht.ShowDialog();
             this.Close();
         }
 
-        private void lblTafelnummer_Click(object sender, EventArgs e)
+        private int ParseerTafelnummer(int tafelnummer)
         {
+            int n = 0;
 
+            switch (tafelnummer)
+            {
+                case 1:
+                    n = 1;
+                    break;
+                case 4:
+                    n = 2;
+                    break;
+                case 5:
+                    n = 3;
+                    break;
+                case 6:
+                    n = 4;
+                    break;
+                case 7:
+                    n = 5;
+                    break;
+                case 9:
+                    n = 6;
+                    break;
+                case 10:
+                    n = 7;
+                    break;
+                case 11:
+                    n = 8;
+                    break;
+                case 12:
+                    n = 9;
+                    break;
+                case 13:
+                    n = 10;
+                    break;
+                default: break;
+            }
+            return n;
         }
     }
 }

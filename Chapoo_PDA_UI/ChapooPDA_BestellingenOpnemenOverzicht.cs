@@ -21,14 +21,15 @@ namespace Chapoo_PDA_UI
         private List<int> aantallenNaarDatabase;
         private List<string> commentarenNaarDatabase;
 
-        private int tafelnummer;
+        private int tafelnummer, tafelnummerLabel;
         int bedienerID;
 
-        public ChapooPDA_BestellingenOpnemenOverzicht(List<ChapooModel.MenuItem> items, int tafelnummer, List<int> aantallen, List<string> commentaren, int bedienerID)
+        public ChapooPDA_BestellingenOpnemenOverzicht(List<ChapooModel.MenuItem> items, int tafelnummer, int tafelnummerLabel, List<int> aantallen, List<string> commentaren, int bedienerID)
         {
             InitializeComponent();
             this.bestelItems = items;
             this.tafelnummer = tafelnummer;
+            this.tafelnummerLabel = tafelnummerLabel;
             this.aantallen = aantallen;
             this.commentaren = commentaren;
             this.bedienerID = bedienerID;
@@ -37,7 +38,7 @@ namespace Chapoo_PDA_UI
 
         private void ChapooPDA_BestellingenOpnemenOverzicht_Load(object sender, EventArgs e)
         {
-            lblTafelnummer.Text = "Tafel " + tafelnummer;
+            lblTafelnummer.Text = "Tafel " + tafelnummerLabel;
             ShowPanelOverzicht();
         }
 

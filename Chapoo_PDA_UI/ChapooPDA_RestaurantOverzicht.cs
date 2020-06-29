@@ -16,10 +16,12 @@ namespace Chapoo_PDA_UI
     {
         Restaurant_Service service = new Restaurant_Service();
         List<TafelStatus> tafelStatuses = new List<TafelStatus>();
+        private int bedienerID;
 
-        public ChapooPDA_RestaurantOverzicht()
+        public ChapooPDA_RestaurantOverzicht(int bedienerID)
         {
             InitializeComponent();
+            this.bedienerID = bedienerID;
             tafelStatuses = service.KrijgTafels();
 
             SetStatus();
@@ -81,7 +83,7 @@ namespace Chapoo_PDA_UI
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
         }
 
         private void btnSetBezet1_Click(object sender, EventArgs e)
@@ -182,6 +184,76 @@ namespace Chapoo_PDA_UI
             }
             else tafelStatuses[9].tafelBezetting = false;
             SetStatus();
+        }
+
+        private void btnOpnemen1_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(1, bedienerID);
+            Hide();
+            registreren.ShowDialog();
+        }
+
+        private void btnOpnemen2_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(4, bedienerID);
+            Hide();
+            registreren.ShowDialog();
+        }
+
+        private void btnOpnemen3_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(5, bedienerID);
+            Hide();
+            registreren.ShowDialog();
+        }
+
+        private void btnOpnemen4_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(6, bedienerID);
+            Hide();
+            registreren.ShowDialog();
+        }
+
+        private void btnOpnemen5_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(7, bedienerID);
+            Hide();
+            registreren.ShowDialog();
+        }
+
+        private void btnOpnemen6_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(9, bedienerID);
+            Hide();
+            registreren.ShowDialog();
+        }
+
+        private void btnOpnemen7_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(10, bedienerID);
+            Hide();
+            registreren.ShowDialog();
+        }
+
+        private void btnOpnemen8_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(11, bedienerID);
+            Hide();
+            registreren.ShowDialog();
+        }
+
+        private void btnOpnemen9_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(12, bedienerID);
+            Hide();
+            registreren.ShowDialog();
+        }
+
+        private void btnOpnemen10_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(13, bedienerID);
+            Hide();
+            registreren.ShowDialog();
         }
     }
 }

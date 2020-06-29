@@ -30,30 +30,39 @@
         {
             this.pnlOverzicht = new System.Windows.Forms.Panel();
             this.pnlTafel10 = new System.Windows.Forms.Panel();
+            this.btnSetBezet10 = new System.Windows.Forms.Button();
             this.btnOpnemen10 = new System.Windows.Forms.Button();
             this.lblTafel10 = new System.Windows.Forms.Label();
             this.pnlTafel8 = new System.Windows.Forms.Panel();
+            this.btnSetBezet8 = new System.Windows.Forms.Button();
             this.btnOpnemen8 = new System.Windows.Forms.Button();
             this.lblTafel8 = new System.Windows.Forms.Label();
             this.pnlTafel6 = new System.Windows.Forms.Panel();
+            this.btnSetBezet6 = new System.Windows.Forms.Button();
             this.btnOpnemen6 = new System.Windows.Forms.Button();
             this.lblTafel6 = new System.Windows.Forms.Label();
             this.pnlTafel4 = new System.Windows.Forms.Panel();
+            this.btnSetBezet4 = new System.Windows.Forms.Button();
             this.btnOpnemen4 = new System.Windows.Forms.Button();
             this.lblTafel4 = new System.Windows.Forms.Label();
             this.pnlTafel2 = new System.Windows.Forms.Panel();
+            this.btnSetBezet2 = new System.Windows.Forms.Button();
             this.btnOpnemen2 = new System.Windows.Forms.Button();
             this.lblTafel2 = new System.Windows.Forms.Label();
             this.pnlTafel9 = new System.Windows.Forms.Panel();
+            this.btnSetBezet9 = new System.Windows.Forms.Button();
             this.btnOpnemen9 = new System.Windows.Forms.Button();
             this.lblTafel9 = new System.Windows.Forms.Label();
             this.pnlTafel7 = new System.Windows.Forms.Panel();
+            this.btnSetBezet7 = new System.Windows.Forms.Button();
             this.btnOpnemen7 = new System.Windows.Forms.Button();
             this.lblTafel7 = new System.Windows.Forms.Label();
             this.pnlTafel5 = new System.Windows.Forms.Panel();
+            this.btnSetBezet5 = new System.Windows.Forms.Button();
             this.btnOpnemen5 = new System.Windows.Forms.Button();
             this.lblTafel5 = new System.Windows.Forms.Label();
             this.pnlTafel3 = new System.Windows.Forms.Panel();
+            this.btnSetBezet3 = new System.Windows.Forms.Button();
             this.btnOpnemen3 = new System.Windows.Forms.Button();
             this.lblTafel3 = new System.Windows.Forms.Label();
             this.pnlTafel1 = new System.Windows.Forms.Panel();
@@ -62,15 +71,6 @@
             this.btnOpnemen1 = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSetBezet2 = new System.Windows.Forms.Button();
-            this.btnSetBezet3 = new System.Windows.Forms.Button();
-            this.btnSetBezet4 = new System.Windows.Forms.Button();
-            this.btnSetBezet5 = new System.Windows.Forms.Button();
-            this.btnSetBezet6 = new System.Windows.Forms.Button();
-            this.btnSetBezet7 = new System.Windows.Forms.Button();
-            this.btnSetBezet8 = new System.Windows.Forms.Button();
-            this.btnSetBezet9 = new System.Windows.Forms.Button();
-            this.btnSetBezet10 = new System.Windows.Forms.Button();
             this.pnlOverzicht.SuspendLayout();
             this.pnlTafel10.SuspendLayout();
             this.pnlTafel8.SuspendLayout();
@@ -112,6 +112,16 @@
             this.pnlTafel10.Size = new System.Drawing.Size(224, 110);
             this.pnlTafel10.TabIndex = 4;
             // 
+            // btnSetBezet10
+            // 
+            this.btnSetBezet10.Location = new System.Drawing.Point(119, 51);
+            this.btnSetBezet10.Name = "btnSetBezet10";
+            this.btnSetBezet10.Size = new System.Drawing.Size(102, 56);
+            this.btnSetBezet10.TabIndex = 11;
+            this.btnSetBezet10.Text = "Bezet";
+            this.btnSetBezet10.UseVisualStyleBackColor = true;
+            this.btnSetBezet10.Click += new System.EventHandler(this.btnSetBezet10_Click);
+            // 
             // btnOpnemen10
             // 
             this.btnOpnemen10.Location = new System.Drawing.Point(3, 51);
@@ -120,6 +130,7 @@
             this.btnOpnemen10.TabIndex = 10;
             this.btnOpnemen10.Text = "Opnemen";
             this.btnOpnemen10.UseVisualStyleBackColor = true;
+            this.btnOpnemen10.Click += new System.EventHandler(this.btnOpnemen10_Click);
             // 
             // lblTafel10
             // 
@@ -142,6 +153,16 @@
             this.pnlTafel8.Size = new System.Drawing.Size(224, 110);
             this.pnlTafel8.TabIndex = 3;
             // 
+            // btnSetBezet8
+            // 
+            this.btnSetBezet8.Location = new System.Drawing.Point(119, 51);
+            this.btnSetBezet8.Name = "btnSetBezet8";
+            this.btnSetBezet8.Size = new System.Drawing.Size(102, 56);
+            this.btnSetBezet8.TabIndex = 9;
+            this.btnSetBezet8.Text = "Bezet";
+            this.btnSetBezet8.UseVisualStyleBackColor = true;
+            this.btnSetBezet8.Click += new System.EventHandler(this.btnSetBezet8_Click);
+            // 
             // btnOpnemen8
             // 
             this.btnOpnemen8.Location = new System.Drawing.Point(3, 51);
@@ -150,6 +171,7 @@
             this.btnOpnemen8.TabIndex = 8;
             this.btnOpnemen8.Text = "Opnemen";
             this.btnOpnemen8.UseVisualStyleBackColor = true;
+            this.btnOpnemen8.Click += new System.EventHandler(this.btnOpnemen8_Click);
             // 
             // lblTafel8
             // 
@@ -172,6 +194,16 @@
             this.pnlTafel6.Size = new System.Drawing.Size(224, 110);
             this.pnlTafel6.TabIndex = 2;
             // 
+            // btnSetBezet6
+            // 
+            this.btnSetBezet6.Location = new System.Drawing.Point(119, 51);
+            this.btnSetBezet6.Name = "btnSetBezet6";
+            this.btnSetBezet6.Size = new System.Drawing.Size(102, 56);
+            this.btnSetBezet6.TabIndex = 7;
+            this.btnSetBezet6.Text = "Bezet";
+            this.btnSetBezet6.UseVisualStyleBackColor = true;
+            this.btnSetBezet6.Click += new System.EventHandler(this.btnSetBezet6_Click);
+            // 
             // btnOpnemen6
             // 
             this.btnOpnemen6.Location = new System.Drawing.Point(3, 51);
@@ -180,6 +212,7 @@
             this.btnOpnemen6.TabIndex = 6;
             this.btnOpnemen6.Text = "Opnemen";
             this.btnOpnemen6.UseVisualStyleBackColor = true;
+            this.btnOpnemen6.Click += new System.EventHandler(this.btnOpnemen6_Click);
             // 
             // lblTafel6
             // 
@@ -202,6 +235,16 @@
             this.pnlTafel4.Size = new System.Drawing.Size(224, 110);
             this.pnlTafel4.TabIndex = 1;
             // 
+            // btnSetBezet4
+            // 
+            this.btnSetBezet4.Location = new System.Drawing.Point(119, 51);
+            this.btnSetBezet4.Name = "btnSetBezet4";
+            this.btnSetBezet4.Size = new System.Drawing.Size(102, 56);
+            this.btnSetBezet4.TabIndex = 5;
+            this.btnSetBezet4.Text = "Bezet";
+            this.btnSetBezet4.UseVisualStyleBackColor = true;
+            this.btnSetBezet4.Click += new System.EventHandler(this.btnSetBezet4_Click);
+            // 
             // btnOpnemen4
             // 
             this.btnOpnemen4.Location = new System.Drawing.Point(3, 51);
@@ -210,6 +253,7 @@
             this.btnOpnemen4.TabIndex = 4;
             this.btnOpnemen4.Text = "Opnemen";
             this.btnOpnemen4.UseVisualStyleBackColor = true;
+            this.btnOpnemen4.Click += new System.EventHandler(this.btnOpnemen4_Click);
             // 
             // lblTafel4
             // 
@@ -232,6 +276,16 @@
             this.pnlTafel2.Size = new System.Drawing.Size(224, 110);
             this.pnlTafel2.TabIndex = 1;
             // 
+            // btnSetBezet2
+            // 
+            this.btnSetBezet2.Location = new System.Drawing.Point(119, 51);
+            this.btnSetBezet2.Name = "btnSetBezet2";
+            this.btnSetBezet2.Size = new System.Drawing.Size(102, 56);
+            this.btnSetBezet2.TabIndex = 3;
+            this.btnSetBezet2.Text = "Bezet";
+            this.btnSetBezet2.UseVisualStyleBackColor = true;
+            this.btnSetBezet2.Click += new System.EventHandler(this.btnSetBezet2_Click);
+            // 
             // btnOpnemen2
             // 
             this.btnOpnemen2.Location = new System.Drawing.Point(3, 51);
@@ -240,6 +294,7 @@
             this.btnOpnemen2.TabIndex = 2;
             this.btnOpnemen2.Text = "Opnemen";
             this.btnOpnemen2.UseVisualStyleBackColor = true;
+            this.btnOpnemen2.Click += new System.EventHandler(this.btnOpnemen2_Click);
             // 
             // lblTafel2
             // 
@@ -262,6 +317,16 @@
             this.pnlTafel9.Size = new System.Drawing.Size(224, 110);
             this.pnlTafel9.TabIndex = 1;
             // 
+            // btnSetBezet9
+            // 
+            this.btnSetBezet9.Location = new System.Drawing.Point(119, 51);
+            this.btnSetBezet9.Name = "btnSetBezet9";
+            this.btnSetBezet9.Size = new System.Drawing.Size(102, 56);
+            this.btnSetBezet9.TabIndex = 10;
+            this.btnSetBezet9.Text = "Bezet";
+            this.btnSetBezet9.UseVisualStyleBackColor = true;
+            this.btnSetBezet9.Click += new System.EventHandler(this.btnSetBezet9_Click);
+            // 
             // btnOpnemen9
             // 
             this.btnOpnemen9.Location = new System.Drawing.Point(4, 51);
@@ -270,6 +335,7 @@
             this.btnOpnemen9.TabIndex = 9;
             this.btnOpnemen9.Text = "Opnemen";
             this.btnOpnemen9.UseVisualStyleBackColor = true;
+            this.btnOpnemen9.Click += new System.EventHandler(this.btnOpnemen9_Click);
             // 
             // lblTafel9
             // 
@@ -292,6 +358,16 @@
             this.pnlTafel7.Size = new System.Drawing.Size(224, 110);
             this.pnlTafel7.TabIndex = 1;
             // 
+            // btnSetBezet7
+            // 
+            this.btnSetBezet7.Location = new System.Drawing.Point(119, 51);
+            this.btnSetBezet7.Name = "btnSetBezet7";
+            this.btnSetBezet7.Size = new System.Drawing.Size(102, 56);
+            this.btnSetBezet7.TabIndex = 8;
+            this.btnSetBezet7.Text = "Bezet";
+            this.btnSetBezet7.UseVisualStyleBackColor = true;
+            this.btnSetBezet7.Click += new System.EventHandler(this.btnSetBezet7_Click);
+            // 
             // btnOpnemen7
             // 
             this.btnOpnemen7.Location = new System.Drawing.Point(3, 51);
@@ -300,6 +376,7 @@
             this.btnOpnemen7.TabIndex = 7;
             this.btnOpnemen7.Text = "Opnemen";
             this.btnOpnemen7.UseVisualStyleBackColor = true;
+            this.btnOpnemen7.Click += new System.EventHandler(this.btnOpnemen7_Click);
             // 
             // lblTafel7
             // 
@@ -322,6 +399,16 @@
             this.pnlTafel5.Size = new System.Drawing.Size(224, 110);
             this.pnlTafel5.TabIndex = 1;
             // 
+            // btnSetBezet5
+            // 
+            this.btnSetBezet5.Location = new System.Drawing.Point(119, 51);
+            this.btnSetBezet5.Name = "btnSetBezet5";
+            this.btnSetBezet5.Size = new System.Drawing.Size(102, 56);
+            this.btnSetBezet5.TabIndex = 6;
+            this.btnSetBezet5.Text = "Bezet";
+            this.btnSetBezet5.UseVisualStyleBackColor = true;
+            this.btnSetBezet5.Click += new System.EventHandler(this.btnSetBezet5_Click);
+            // 
             // btnOpnemen5
             // 
             this.btnOpnemen5.Location = new System.Drawing.Point(4, 51);
@@ -330,6 +417,7 @@
             this.btnOpnemen5.TabIndex = 5;
             this.btnOpnemen5.Text = "Opnemen";
             this.btnOpnemen5.UseVisualStyleBackColor = true;
+            this.btnOpnemen5.Click += new System.EventHandler(this.btnOpnemen5_Click);
             // 
             // lblTafel5
             // 
@@ -352,6 +440,16 @@
             this.pnlTafel3.Size = new System.Drawing.Size(224, 110);
             this.pnlTafel3.TabIndex = 1;
             // 
+            // btnSetBezet3
+            // 
+            this.btnSetBezet3.Location = new System.Drawing.Point(119, 51);
+            this.btnSetBezet3.Name = "btnSetBezet3";
+            this.btnSetBezet3.Size = new System.Drawing.Size(102, 56);
+            this.btnSetBezet3.TabIndex = 4;
+            this.btnSetBezet3.Text = "Bezet";
+            this.btnSetBezet3.UseVisualStyleBackColor = true;
+            this.btnSetBezet3.Click += new System.EventHandler(this.btnSetBezet3_Click);
+            // 
             // btnOpnemen3
             // 
             this.btnOpnemen3.Location = new System.Drawing.Point(4, 51);
@@ -360,6 +458,7 @@
             this.btnOpnemen3.TabIndex = 3;
             this.btnOpnemen3.Text = "Opnemen";
             this.btnOpnemen3.UseVisualStyleBackColor = true;
+            this.btnOpnemen3.Click += new System.EventHandler(this.btnOpnemen3_Click);
             // 
             // lblTafel3
             // 
@@ -410,6 +509,7 @@
             this.btnOpnemen1.TabIndex = 0;
             this.btnOpnemen1.Text = "Opnemen";
             this.btnOpnemen1.UseVisualStyleBackColor = true;
+            this.btnOpnemen1.Click += new System.EventHandler(this.btnOpnemen1_Click);
             // 
             // btnHome
             // 
@@ -431,96 +531,6 @@
             this.label2.Size = new System.Drawing.Size(385, 50);
             this.label2.TabIndex = 6;
             this.label2.Text = "Restaurant Overzicht";
-            // 
-            // btnSetBezet2
-            // 
-            this.btnSetBezet2.Location = new System.Drawing.Point(119, 51);
-            this.btnSetBezet2.Name = "btnSetBezet2";
-            this.btnSetBezet2.Size = new System.Drawing.Size(102, 56);
-            this.btnSetBezet2.TabIndex = 3;
-            this.btnSetBezet2.Text = "Bezet";
-            this.btnSetBezet2.UseVisualStyleBackColor = true;
-            this.btnSetBezet2.Click += new System.EventHandler(this.btnSetBezet2_Click);
-            // 
-            // btnSetBezet3
-            // 
-            this.btnSetBezet3.Location = new System.Drawing.Point(119, 51);
-            this.btnSetBezet3.Name = "btnSetBezet3";
-            this.btnSetBezet3.Size = new System.Drawing.Size(102, 56);
-            this.btnSetBezet3.TabIndex = 4;
-            this.btnSetBezet3.Text = "Bezet";
-            this.btnSetBezet3.UseVisualStyleBackColor = true;
-            this.btnSetBezet3.Click += new System.EventHandler(this.btnSetBezet3_Click);
-            // 
-            // btnSetBezet4
-            // 
-            this.btnSetBezet4.Location = new System.Drawing.Point(119, 51);
-            this.btnSetBezet4.Name = "btnSetBezet4";
-            this.btnSetBezet4.Size = new System.Drawing.Size(102, 56);
-            this.btnSetBezet4.TabIndex = 5;
-            this.btnSetBezet4.Text = "Bezet";
-            this.btnSetBezet4.UseVisualStyleBackColor = true;
-            this.btnSetBezet4.Click += new System.EventHandler(this.btnSetBezet4_Click);
-            // 
-            // btnSetBezet5
-            // 
-            this.btnSetBezet5.Location = new System.Drawing.Point(119, 51);
-            this.btnSetBezet5.Name = "btnSetBezet5";
-            this.btnSetBezet5.Size = new System.Drawing.Size(102, 56);
-            this.btnSetBezet5.TabIndex = 6;
-            this.btnSetBezet5.Text = "Bezet";
-            this.btnSetBezet5.UseVisualStyleBackColor = true;
-            this.btnSetBezet5.Click += new System.EventHandler(this.btnSetBezet5_Click);
-            // 
-            // btnSetBezet6
-            // 
-            this.btnSetBezet6.Location = new System.Drawing.Point(119, 51);
-            this.btnSetBezet6.Name = "btnSetBezet6";
-            this.btnSetBezet6.Size = new System.Drawing.Size(102, 56);
-            this.btnSetBezet6.TabIndex = 7;
-            this.btnSetBezet6.Text = "Bezet";
-            this.btnSetBezet6.UseVisualStyleBackColor = true;
-            this.btnSetBezet6.Click += new System.EventHandler(this.btnSetBezet6_Click);
-            // 
-            // btnSetBezet7
-            // 
-            this.btnSetBezet7.Location = new System.Drawing.Point(119, 51);
-            this.btnSetBezet7.Name = "btnSetBezet7";
-            this.btnSetBezet7.Size = new System.Drawing.Size(102, 56);
-            this.btnSetBezet7.TabIndex = 8;
-            this.btnSetBezet7.Text = "Bezet";
-            this.btnSetBezet7.UseVisualStyleBackColor = true;
-            this.btnSetBezet7.Click += new System.EventHandler(this.btnSetBezet7_Click);
-            // 
-            // btnSetBezet8
-            // 
-            this.btnSetBezet8.Location = new System.Drawing.Point(119, 51);
-            this.btnSetBezet8.Name = "btnSetBezet8";
-            this.btnSetBezet8.Size = new System.Drawing.Size(102, 56);
-            this.btnSetBezet8.TabIndex = 9;
-            this.btnSetBezet8.Text = "Bezet";
-            this.btnSetBezet8.UseVisualStyleBackColor = true;
-            this.btnSetBezet8.Click += new System.EventHandler(this.btnSetBezet8_Click);
-            // 
-            // btnSetBezet9
-            // 
-            this.btnSetBezet9.Location = new System.Drawing.Point(119, 51);
-            this.btnSetBezet9.Name = "btnSetBezet9";
-            this.btnSetBezet9.Size = new System.Drawing.Size(102, 56);
-            this.btnSetBezet9.TabIndex = 10;
-            this.btnSetBezet9.Text = "Bezet";
-            this.btnSetBezet9.UseVisualStyleBackColor = true;
-            this.btnSetBezet9.Click += new System.EventHandler(this.btnSetBezet9_Click);
-            // 
-            // btnSetBezet10
-            // 
-            this.btnSetBezet10.Location = new System.Drawing.Point(119, 51);
-            this.btnSetBezet10.Name = "btnSetBezet10";
-            this.btnSetBezet10.Size = new System.Drawing.Size(102, 56);
-            this.btnSetBezet10.TabIndex = 11;
-            this.btnSetBezet10.Text = "Bezet";
-            this.btnSetBezet10.UseVisualStyleBackColor = true;
-            this.btnSetBezet10.Click += new System.EventHandler(this.btnSetBezet10_Click);
             // 
             // ChapooPDA_RestaurantOverzicht
             // 
