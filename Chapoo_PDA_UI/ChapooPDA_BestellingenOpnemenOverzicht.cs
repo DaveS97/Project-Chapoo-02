@@ -84,7 +84,7 @@ namespace Chapoo_PDA_UI
             DateTime datum = DateTime.Now;
             ChapooModel.Rekening rekening = new ChapooModel.Rekening();
             rekeningService.Write_To_Db_Rekening(klant.ID, datum);
-            //rekening = rekeningService.GetRekening(klant.ID)[0];
+            rekening = rekeningService.GetRekening(klant.ID, datum)[0];
             
             for (int i = 0; i < bestelItems.Count; i++)
             {
@@ -97,7 +97,7 @@ namespace Chapoo_PDA_UI
             this.Hide();
             ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(tafelnummer, bedienerID);
 
-            registreren.ShowDialog();
+            registreren.Show();
         }
 
         //verwijder het geselecteerde item uit het overzicht en de lijst met items
@@ -107,6 +107,8 @@ namespace Chapoo_PDA_UI
             {
                 if (lvVoorgerechten.Items[i].Selected)
                 {
+                    besteldeMenuItems.Remove(voorgerechten[i]);
+
                     voorgerechten.Remove(voorgerechten[i]);
 
                     lvVoorgerechten.Items.Remove(lvVoorgerechten.Items[i]);
@@ -117,6 +119,8 @@ namespace Chapoo_PDA_UI
             {
                 if (lvHoofdgerechten.Items[i].Selected)
                 {
+                    besteldeMenuItems.Remove(hoofdgerechten[i]);
+
                     hoofdgerechten.Remove(hoofdgerechten[i]);
                     lvHoofdgerechten.Items.Remove(lvHoofdgerechten.Items[i]);
                     return;
@@ -126,6 +130,8 @@ namespace Chapoo_PDA_UI
             {
                 if (lvNagerechten.Items[i].Selected)
                 {
+                    besteldeMenuItems.Remove(nagerechten[i]);
+
                     nagerechten.Remove(nagerechten[i]);
                     lvNagerechten.Items.Remove(lvNagerechten.Items[i]);
                     return;
@@ -135,6 +141,8 @@ namespace Chapoo_PDA_UI
             {
                 if (lvDranken.Items[i].Selected)
                 {
+                    besteldeMenuItems.Remove(dranken[i]);
+
                     dranken.Remove(dranken[i]);
                     lvDranken.Items.Remove(lvDranken.Items[i]);
                     return;
@@ -157,8 +165,16 @@ namespace Chapoo_PDA_UI
         {
             ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(tafelnummer, bedienerID);
             registreren.itemsUitDatabase.Clear();
-            itemsNaarDatabase = VulLijstItemsNaarDatabase();
-            registreren.itemsUitDatabase = itemsNaarDatabase;
+            registreren.aantallen.Clear();
+            registreren.commentaren.Clear();
+
+            for (int i = 0; i < besteldeMenuItems.Count; i++)
+            {
+                registreren.itemsUitDatabase.Add(besteldeMenuItems[i].item);
+                registreren.aantallen.Add(besteldeMenuItems[i].aantal);
+                registreren.commentaren.Add(besteldeMenuItems[i].commentaar);
+            }
+
             registreren.Show();
             Hide();
         }

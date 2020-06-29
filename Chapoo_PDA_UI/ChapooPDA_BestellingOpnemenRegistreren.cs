@@ -19,8 +19,8 @@ namespace Chapoo_PDA_UI
         private int minimumAantal = 5;
         private string commentaar = "";
         private string beschrijving = "";
-        private List<int> aantallen = new List<int>();
-        private List<string> commentaren = new List<string>();
+        public List<int> aantallen = new List<int>();
+        public List<string> commentaren = new List<string>();
         private ChapooModel.MenuItem item = new ChapooModel.MenuItem();
         private List<ChapooModel.MenuItem> items = new List<ChapooModel.MenuItem>();
         public List<ChapooModel.MenuItem> itemsUitDatabase = new List<ChapooModel.MenuItem>();
