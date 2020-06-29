@@ -276,7 +276,6 @@ namespace ChapooUI
         private void btn_herlaadBestellingen_Click(object sender, EventArgs e)
         {
             BestellingenVullen();
-            //lbl_HuidigeBestelling.Text = "";
         }
 
         //onderstaande methode toont de aangeklikte bestelling uit de listview van de openstaande bestellingen
@@ -356,7 +355,12 @@ namespace ChapooUI
         {
             try
             {
-                int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].SubItems[1].Text);
+                int bestelNummer;
+                if (lv_Bestellingen.SelectedItems.Count == 0)
+                    bestelNummer = klanten[0].bestellingID;
+                else
+                    bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].SubItems[1].Text);
+
                 foreach (KeyValuePair<Bevat, Klant> duo in klantenInfo)
                 {
                     if (duo.Key.typeGerecht == VOORGERECHT || duo.Key.typeGerecht == TUSSENGERECHT)
@@ -371,7 +375,6 @@ namespace ChapooUI
             {
                 MessageBox.Show(ex.Message + "Klik eerst de bestelling in de lijst aan");
             }
-
         }
 
         //onderstaande methode checkt of het een hoofdgerecht is en zet deze dan klaar
@@ -379,7 +382,11 @@ namespace ChapooUI
         {
             try
             {
-                int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].SubItems[1].Text);
+                int bestelNummer;
+                if (lv_Bestellingen.SelectedItems.Count == 0)
+                    bestelNummer = klanten[0].bestellingID;
+                else
+                    bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].SubItems[1].Text);
                 foreach (KeyValuePair<Bevat, Klant> duo in klantenInfo)
                 {
                     if (duo.Key.typeGerecht == HOOFDGERECHT)
@@ -394,7 +401,6 @@ namespace ChapooUI
             {
                 MessageBox.Show(ex.Message + "Klik eerst de bestelling in de lijst aan");
             }
-
         }
 
         //onderstaande methode checkt of het een nagerecht is en zet deze dan klaar
@@ -402,7 +408,11 @@ namespace ChapooUI
         {
             try
             {
-                int bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].SubItems[1].Text);
+                int bestelNummer;
+                if (lv_Bestellingen.SelectedItems.Count == 0)
+                    bestelNummer = klanten[0].bestellingID;
+                else
+                    bestelNummer = int.Parse(lv_Bestellingen.SelectedItems[0].SubItems[1].Text);
                 foreach (KeyValuePair<Bevat, Klant> duo in klantenInfo)
                 {
                     if (duo.Key.typeGerecht == NAGERECHT)
@@ -569,7 +579,20 @@ namespace ChapooUI
         private void openPDAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AanmeldenPDAForm pda = new AanmeldenPDAForm();
+            Hide();
             pda.ShowDialog();
+        }
+
+        private void MS1I_Home_Click(object sender, EventArgs e)
+        {
+            Chapoo chapoo = Chapoo.GetInstance();
+            Hide();
+            chapoo.ShowDialog();
+        }
+
+        private void MS_RO_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -74,13 +74,13 @@ namespace ChapooUI
                 }
                 MessageBox.Show($"Welkom {naam} jij bent een {types} ");
                 Chapoo form = Chapoo.GetInstance();
+                Hide();
                 form.ShowDialog();
             }
             else
             {
                 MessageBox.Show("voer een geldige pincode in");
             }
-            this.Hide();
         }
 
         private void AanmeldenForm_Load(object sender, EventArgs e)

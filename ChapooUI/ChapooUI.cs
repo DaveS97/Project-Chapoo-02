@@ -32,6 +32,7 @@ namespace ChapooUI
         private void MS1I_Werknemers_Click(object sender, EventArgs e)
         {
             WerknemersForm werknemersForm = new WerknemersForm();
+            Hide();
             werknemersForm.ShowDialog();
             
             //als we nog een form hiervan moeten aanmaken, kunnen we de singlepattern misschien toepassen
@@ -41,24 +42,28 @@ namespace ChapooUI
         {
             //singleton patern toegepast
             KeukenOverzichtForm keukenOverzicht = KeukenOverzichtForm.GetInstance();
+            Hide();
             keukenOverzicht.ShowDialog();
         }
 
         private void MS1I_Inkomsten_Click(object sender, EventArgs e)
         {
             InkomstenForm inkomsten = new InkomstenForm();
+            Hide();
             inkomsten.ShowDialog();
         }
 
         private void MS1I_Voorraad_Click(object sender, EventArgs e)
         {
             VoorraadForm voorraad = new VoorraadForm();
+            Hide();
             voorraad.ShowDialog();
         }
 
         private void MS1I_MenuKaartOpties_Click(object sender, EventArgs e)
         {
             MenuKaartAanpassenForm from = new MenuKaartAanpassenForm();
+            Hide();
             from.ShowDialog();
         }
 
@@ -67,23 +72,22 @@ namespace ChapooUI
         private void afmeldenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AfmeldenForm form = new AfmeldenForm();
+            Hide();
             form.ShowDialog();
         }
 
         private void openPDAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AanmeldenPDAForm pda = new AanmeldenPDAForm();
+            Hide();
             pda.ShowDialog();
         }
 
-        private void Chapoo_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void MS_BO_Click(object sender, EventArgs e)
         {
             KeukenOverzichtForm keukenOverzicht = KeukenOverzichtForm.GetInstance();
+            Hide();
             keukenOverzicht.OpenBarOverzicht();
             keukenOverzicht.ShowDialog();
             
