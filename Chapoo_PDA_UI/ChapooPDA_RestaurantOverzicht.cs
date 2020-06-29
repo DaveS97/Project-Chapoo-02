@@ -190,7 +190,7 @@ namespace Chapoo_PDA_UI
         {
             if (tafelStatuses[0].tafelBezetting)
             {
-                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(1, bedienerID);
+                ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(1, bedienerID);
                 Hide();
                 registreren.ShowDialog();
             }
@@ -201,7 +201,7 @@ namespace Chapoo_PDA_UI
         {
             if (tafelStatuses[1].tafelBezetting)
             {
-                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(4, bedienerID);
+                ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(4, bedienerID);
                 Hide();
                 registreren.ShowDialog();
             }
@@ -212,7 +212,7 @@ namespace Chapoo_PDA_UI
         {
             if (tafelStatuses[2].tafelBezetting)
             {
-                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(5, bedienerID);
+                ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(5, bedienerID);
                 Hide();
                 registreren.ShowDialog();
             }
@@ -223,7 +223,7 @@ namespace Chapoo_PDA_UI
         {
             if (tafelStatuses[3].tafelBezetting)
             {
-                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(6, bedienerID);
+                ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(6, bedienerID);
                 Hide();
                 registreren.ShowDialog();
             }
@@ -234,7 +234,7 @@ namespace Chapoo_PDA_UI
         {
             if (tafelStatuses[4].tafelBezetting)
             {
-                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(7, bedienerID);
+                ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(7, bedienerID);
                 Hide();
                 registreren.ShowDialog();
             }
@@ -245,7 +245,7 @@ namespace Chapoo_PDA_UI
         {
             if (tafelStatuses[5].tafelBezetting)
             {
-                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(9, bedienerID);
+                ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(9, bedienerID);
                 Hide();
                 registreren.ShowDialog();
             }
@@ -256,7 +256,7 @@ namespace Chapoo_PDA_UI
         {
             if (tafelStatuses[6].tafelBezetting)
             {
-                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(10, bedienerID);
+                ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(10, bedienerID);
                 Hide();
                 registreren.ShowDialog();
             }
@@ -267,7 +267,7 @@ namespace Chapoo_PDA_UI
         {
             if (tafelStatuses[7].tafelBezetting)
             {
-                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(11, bedienerID);
+                ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(11, bedienerID);
                 Hide();
                 registreren.ShowDialog();
             }
@@ -278,7 +278,7 @@ namespace Chapoo_PDA_UI
         {
             if (tafelStatuses[8].tafelBezetting)
             {
-                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(12, bedienerID);
+                ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(12, bedienerID);
                 Hide();
                 registreren.ShowDialog();
             }
@@ -289,7 +289,7 @@ namespace Chapoo_PDA_UI
         {
             if (tafelStatuses[9].tafelBezetting)
             {
-                ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(13, bedienerID);
+                ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(13, bedienerID);
                 Hide();
                 registreren.ShowDialog();
             }

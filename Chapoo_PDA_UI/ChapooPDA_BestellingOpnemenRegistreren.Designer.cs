@@ -51,12 +51,12 @@
             // 
             // ddMenuItems
             // 
-            this.ddMenuItems.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
+            this.ddMenuItems.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.ddMenuItems.FormattingEnabled = true;
-            this.ddMenuItems.Location = new System.Drawing.Point(94, 223);
+            this.ddMenuItems.Location = new System.Drawing.Point(15, 223);
             this.ddMenuItems.MaxDropDownItems = 4;
             this.ddMenuItems.Name = "ddMenuItems";
-            this.ddMenuItems.Size = new System.Drawing.Size(418, 58);
+            this.ddMenuItems.Size = new System.Drawing.Size(589, 45);
             this.ddMenuItems.TabIndex = 0;
             this.ddMenuItems.DropDown += new System.EventHandler(this.ddMenuItems_DropDown);
             // 
@@ -171,11 +171,11 @@
             // rbDranken
             // 
             this.rbDranken.AutoSize = true;
-            this.rbDranken.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.rbDranken.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.rbDranken.ForeColor = System.Drawing.Color.White;
-            this.rbDranken.Location = new System.Drawing.Point(344, 97);
+            this.rbDranken.Location = new System.Drawing.Point(344, 100);
             this.rbDranken.Name = "rbDranken";
-            this.rbDranken.Size = new System.Drawing.Size(96, 27);
+            this.rbDranken.Size = new System.Drawing.Size(143, 41);
             this.rbDranken.TabIndex = 7;
             this.rbDranken.Text = "Dranken";
             this.rbDranken.UseVisualStyleBackColor = true;
@@ -185,7 +185,7 @@
             this.lblTypeGerecht.AutoSize = true;
             this.lblTypeGerecht.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
             this.lblTypeGerecht.ForeColor = System.Drawing.Color.White;
-            this.lblTypeGerecht.Location = new System.Drawing.Point(179, 0);
+            this.lblTypeGerecht.Location = new System.Drawing.Point(182, -1);
             this.lblTypeGerecht.Name = "lblTypeGerecht";
             this.lblTypeGerecht.Size = new System.Drawing.Size(247, 50);
             this.lblTypeGerecht.TabIndex = 2;
@@ -195,11 +195,11 @@
             // rbHoofdgerecht
             // 
             this.rbHoofdgerecht.AutoSize = true;
-            this.rbHoofdgerecht.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.rbHoofdgerecht.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.rbHoofdgerecht.ForeColor = System.Drawing.Color.White;
             this.rbHoofdgerecht.Location = new System.Drawing.Point(344, 53);
             this.rbHoofdgerecht.Name = "rbHoofdgerecht";
-            this.rbHoofdgerecht.Size = new System.Drawing.Size(140, 27);
+            this.rbHoofdgerecht.Size = new System.Drawing.Size(215, 41);
             this.rbHoofdgerecht.TabIndex = 6;
             this.rbHoofdgerecht.TabStop = true;
             this.rbHoofdgerecht.Text = "Hoofdgerecht";
@@ -208,11 +208,11 @@
             // rbNagerecht
             // 
             this.rbNagerecht.AutoSize = true;
-            this.rbNagerecht.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.rbNagerecht.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.rbNagerecht.ForeColor = System.Drawing.Color.White;
-            this.rbNagerecht.Location = new System.Drawing.Point(94, 97);
+            this.rbNagerecht.Location = new System.Drawing.Point(94, 100);
             this.rbNagerecht.Name = "rbNagerecht";
-            this.rbNagerecht.Size = new System.Drawing.Size(111, 27);
+            this.rbNagerecht.Size = new System.Drawing.Size(169, 41);
             this.rbNagerecht.TabIndex = 5;
             this.rbNagerecht.TabStop = true;
             this.rbNagerecht.Text = "Nagerecht";
@@ -222,11 +222,11 @@
             // 
             this.rbVoorgerecht.AutoSize = true;
             this.rbVoorgerecht.Checked = true;
-            this.rbVoorgerecht.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.rbVoorgerecht.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.rbVoorgerecht.ForeColor = System.Drawing.Color.White;
             this.rbVoorgerecht.Location = new System.Drawing.Point(94, 53);
             this.rbVoorgerecht.Name = "rbVoorgerecht";
-            this.rbVoorgerecht.Size = new System.Drawing.Size(126, 27);
+            this.rbVoorgerecht.Size = new System.Drawing.Size(194, 41);
             this.rbVoorgerecht.TabIndex = 4;
             this.rbVoorgerecht.TabStop = true;
             this.rbVoorgerecht.Text = "Voorgerecht";

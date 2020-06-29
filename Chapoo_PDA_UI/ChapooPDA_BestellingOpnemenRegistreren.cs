@@ -25,16 +25,25 @@ namespace Chapoo_PDA_UI
         private List<ChapooModel.MenuItem> items = new List<ChapooModel.MenuItem>();
         public List<ChapooModel.MenuItem> itemsUitDatabase = new List<ChapooModel.MenuItem>();
         private ChapooModel.Bestelling bestelling = new ChapooModel.Bestelling();
+        private static ChapooPDA_BestellingOpnemenRegistreren uniqueOpnemenRegistreren;
         private int teller = 0;
         private int bedienerID;
 
 
-        public ChapooPDA_BestellingOpnemenRegistreren(int tafelnummer, int bedienerID)
+        private ChapooPDA_BestellingOpnemenRegistreren(int tafelnummer, int bedienerID)
         {
             this.tafelnummer = tafelnummer;
             tafelnummerLabel = ParseerTafelnummer(tafelnummer);
             this.bedienerID = bedienerID;
             InitializeComponent();
+        }
+
+        public static ChapooPDA_BestellingOpnemenRegistreren GetInstance(int tafelnummer, int bedienerID)
+        {
+            if (uniqueOpnemenRegistreren == null)
+                uniqueOpnemenRegistreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer, bedienerID);
+
+            return uniqueOpnemenRegistreren;
         }
 
         private void ChapooPDA_BestellingOpnemenRegistreren_Load(object sender, EventArgs e)
@@ -137,8 +146,8 @@ namespace Chapoo_PDA_UI
         private void btnOverzicht_Click(object sender, EventArgs e)
         {
             ChapooPDA_BestellingenOpnemenOverzicht overzicht = new ChapooPDA_BestellingenOpnemenOverzicht(itemsUitDatabase, tafelnummer, tafelnummerLabel, aantallen, commentaren, bedienerID);
+            
             overzicht.ShowDialog();
-            this.Close();
         }
 
         private int ParseerTafelnummer(int tafelnummer)

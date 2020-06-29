@@ -20,14 +20,14 @@ namespace Chapoo_PDA_UI
         private ChapooModel.Klant klant = new ChapooModel.Klant();
         private List<int> aantallenNaarDatabase;
         private List<string> commentarenNaarDatabase;
-
+        private static ChapooPDA_BestellingenOpnemenOverzicht uniqueOpnemenOverzicht;
         private int tafelnummer, tafelnummerLabel;
         int bedienerID;
 
         public ChapooPDA_BestellingenOpnemenOverzicht(List<ChapooModel.MenuItem> items, int tafelnummer, int tafelnummerLabel, List<int> aantallen, List<string> commentaren, int bedienerID)
         {
             InitializeComponent();
-            this.bestelItems = items;
+            bestelItems = items;
             this.tafelnummer = tafelnummer;
             this.tafelnummerLabel = tafelnummerLabel;
             this.aantallen = aantallen;
@@ -95,7 +95,7 @@ namespace Chapoo_PDA_UI
 
             bestelItems.Clear();
             this.Hide();
-            ChapooPDA_BestellingOpnemenRegistreren registreren = new ChapooPDA_BestellingOpnemenRegistreren(tafelnummer, bedienerID);
+            ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(tafelnummer, bedienerID);
 
             registreren.ShowDialog();
         }
@@ -151,6 +151,16 @@ namespace Chapoo_PDA_UI
             {
                 voorraad_Service.Write_To_DB_Set_Nieuw_Aantal(bestelItems[i].ID, aantallen[i]);
             }
+        }
+
+        private void btnTerug_Click(object sender, EventArgs e)
+        {
+            ChapooPDA_BestellingOpnemenRegistreren registreren = ChapooPDA_BestellingOpnemenRegistreren.GetInstance(tafelnummer, bedienerID);
+            registreren.itemsUitDatabase.Clear();
+            itemsNaarDatabase = VulLijstItemsNaarDatabase();
+            registreren.itemsUitDatabase = itemsNaarDatabase;
+            registreren.Show();
+            Hide();
         }
 
         //schrijf de bestelling uit naar de database om verwerkt te kunnen worden bij bar/keuken

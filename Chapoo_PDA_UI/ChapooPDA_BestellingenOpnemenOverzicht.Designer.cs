@@ -40,6 +40,7 @@
             this.lblNagerechten = new System.Windows.Forms.Label();
             this.lblHoofdgerechten = new System.Windows.Forms.Label();
             this.lblVoorgerechten = new System.Windows.Forms.Label();
+            this.btnTerug = new System.Windows.Forms.Button();
             this.pnlOverzicht.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -181,12 +182,23 @@
             this.lblVoorgerechten.TabIndex = 0;
             this.lblVoorgerechten.Text = "Voorgerechten";
             // 
+            // btnTerug
+            // 
+            this.btnTerug.Location = new System.Drawing.Point(12, 13);
+            this.btnTerug.Name = "btnTerug";
+            this.btnTerug.Size = new System.Drawing.Size(75, 23);
+            this.btnTerug.TabIndex = 5;
+            this.btnTerug.Text = "Terug";
+            this.btnTerug.UseVisualStyleBackColor = true;
+            this.btnTerug.Click += new System.EventHandler(this.btnTerug_Click);
+            // 
             // ChapooPDA_BestellingenOpnemenOverzicht
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(704, 681);
+            this.Controls.Add(this.btnTerug);
             this.Controls.Add(this.pnlOverzicht);
             this.Controls.Add(this.lblTafelnummer);
             this.Controls.Add(this.btnVerwijderUitOverzicht);
@@ -214,5 +226,6 @@
         private System.Windows.Forms.ListView lvNagerechten;
         private System.Windows.Forms.ListView lvHoofdgerechten;
         private System.Windows.Forms.ListView lvVoorgerechten;
+        private System.Windows.Forms.Button btnTerug;
     }
 }
