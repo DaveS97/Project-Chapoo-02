@@ -82,7 +82,6 @@
             this.lbl_KeukenOverzicht = new System.Windows.Forms.Label();
             this.pnl_barOverzicht = new System.Windows.Forms.Panel();
             this.lbl_Drinken = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.lbl_opmerkingenDrankjes = new System.Windows.Forms.Label();
             this.btn_drinkenKlaarzetten = new System.Windows.Forms.Button();
             this.lbl_DrinkBestelling = new System.Windows.Forms.Label();
@@ -122,7 +121,7 @@
             this.MS1I_Home});
             this.HomeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
-            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
             this.HomeToolStripMenuItem.Text = "Home";
             // 
             // MS1I_Home
@@ -130,20 +129,22 @@
             this.MS1I_Home.Name = "MS1I_Home";
             this.MS1I_Home.Size = new System.Drawing.Size(133, 26);
             this.MS1I_Home.Text = "Home";
+            this.MS1I_Home.Click += new System.EventHandler(this.MS1I_Home_Click);
             // 
             // MS_RO
             // 
             this.MS_RO.BackColor = System.Drawing.Color.White;
             this.MS_RO.ForeColor = System.Drawing.Color.Black;
             this.MS_RO.Name = "MS_RO";
-            this.MS_RO.Size = new System.Drawing.Size(159, 24);
+            this.MS_RO.Size = new System.Drawing.Size(159, 26);
             this.MS_RO.Text = "Restaurant Overzicht";
+            this.MS_RO.Click += new System.EventHandler(this.MS_RO_Click);
             // 
             // MS_BO
             // 
             this.MS_BO.BackColor = System.Drawing.Color.White;
             this.MS_BO.Name = "MS_BO";
-            this.MS_BO.Size = new System.Drawing.Size(111, 24);
+            this.MS_BO.Size = new System.Drawing.Size(111, 26);
             this.MS_BO.Text = "Bar Overzicht";
             this.MS_BO.Click += new System.EventHandler(this.MS_BO_Click);
             // 
@@ -151,7 +152,7 @@
             // 
             this.MS_KO.BackColor = System.Drawing.Color.White;
             this.MS_KO.Name = "MS_KO";
-            this.MS_KO.Size = new System.Drawing.Size(137, 24);
+            this.MS_KO.Size = new System.Drawing.Size(137, 26);
             this.MS_KO.Text = "Keuken Overzicht";
             this.MS_KO.Click += new System.EventHandler(this.MS_KO_Click);
             // 
@@ -170,32 +171,36 @@
             // MS1I_Inkomsten
             // 
             this.MS1I_Inkomsten.Name = "MS1I_Inkomsten";
-            this.MS1I_Inkomsten.Size = new System.Drawing.Size(215, 26);
+            this.MS1I_Inkomsten.Size = new System.Drawing.Size(224, 26);
             this.MS1I_Inkomsten.Text = "Inkomsten";
+            this.MS1I_Inkomsten.Click += new System.EventHandler(this.MS1I_Inkomsten_Click);
             // 
             // MS1I_Voorraad
             // 
             this.MS1I_Voorraad.Name = "MS1I_Voorraad";
-            this.MS1I_Voorraad.Size = new System.Drawing.Size(215, 26);
+            this.MS1I_Voorraad.Size = new System.Drawing.Size(224, 26);
             this.MS1I_Voorraad.Text = "Voorraad";
+            this.MS1I_Voorraad.Click += new System.EventHandler(this.MS1I_Voorraad_Click);
             // 
             // MS1I_MenuKaartOpties
             // 
             this.MS1I_MenuKaartOpties.Name = "MS1I_MenuKaartOpties";
-            this.MS1I_MenuKaartOpties.Size = new System.Drawing.Size(215, 26);
+            this.MS1I_MenuKaartOpties.Size = new System.Drawing.Size(224, 26);
             this.MS1I_MenuKaartOpties.Text = "Menu Kaart Opties";
+            this.MS1I_MenuKaartOpties.Click += new System.EventHandler(this.MS1I_MenuKaartOpties_Click);
             // 
             // MS1I_Werknemers
             // 
             this.MS1I_Werknemers.Name = "MS1I_Werknemers";
-            this.MS1I_Werknemers.Size = new System.Drawing.Size(215, 26);
+            this.MS1I_Werknemers.Size = new System.Drawing.Size(224, 26);
             this.MS1I_Werknemers.Text = "Werknemers";
+            this.MS1I_Werknemers.Click += new System.EventHandler(this.MS1I_Werknemers_Click);
             // 
             // afmeldenToolStripMenuItem
             // 
             this.afmeldenToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.afmeldenToolStripMenuItem.Name = "afmeldenToolStripMenuItem";
-            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(88, 26);
             this.afmeldenToolStripMenuItem.Text = "Afmelden";
             this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
             // 
@@ -203,7 +208,7 @@
             // 
             this.openPDAToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.openPDAToolStripMenuItem.Name = "openPDAToolStripMenuItem";
-            this.openPDAToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
+            this.openPDAToolStripMenuItem.Size = new System.Drawing.Size(92, 26);
             this.openPDAToolStripMenuItem.Text = "Open PDA";
             this.openPDAToolStripMenuItem.Click += new System.EventHandler(this.openPDAToolStripMenuItem_Click);
             // 
@@ -613,7 +618,6 @@
             // pnl_barOverzicht
             // 
             this.pnl_barOverzicht.Controls.Add(this.lbl_Drinken);
-            this.pnl_barOverzicht.Controls.Add(this.label10);
             this.pnl_barOverzicht.Controls.Add(this.lbl_opmerkingenDrankjes);
             this.pnl_barOverzicht.Controls.Add(this.btn_drinkenKlaarzetten);
             this.pnl_barOverzicht.Controls.Add(this.lbl_DrinkBestelling);
@@ -633,17 +637,6 @@
             this.lbl_Drinken.Name = "lbl_Drinken";
             this.lbl_Drinken.Size = new System.Drawing.Size(265, 146);
             this.lbl_Drinken.TabIndex = 56;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(400, 50);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 24);
-            this.label10.TabIndex = 52;
-            this.label10.Text = "Bestelling";
             // 
             // lbl_opmerkingenDrankjes
             // 
@@ -723,8 +716,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(1039, 550);
             this.Controls.Add(this.pnl_barOverzicht);
-            this.Controls.Add(this.pnl_klaarstaandeBestellingen);
             this.Controls.Add(this.pnl_openstaandeBestellingen);
+            this.Controls.Add(this.pnl_klaarstaandeBestellingen);
             this.Controls.Add(this.MS1);
             this.Name = "KeukenOverzichtForm";
             this.Text = "KeukenOverzichtForm";
@@ -794,7 +787,6 @@
         private System.Windows.Forms.Label lbl_DrinkBestelling;
         private System.Windows.Forms.Button btn_drinkenKlaarzetten;
         private System.Windows.Forms.Label lbl_opmerkingenDrankjes;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lbl_opmerkingVoorgerecht;
         private System.Windows.Forms.Label lbl_opmerkingNagerecht;
         private System.Windows.Forms.Label lbl_opmerkingHoofdgerecht;

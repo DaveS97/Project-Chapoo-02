@@ -40,9 +40,28 @@ namespace ChapooUI
             //vul de listview
             foreach (Werknemer werknemer in werknemers)
             {
+                string type = "";
+                switch (werknemer.Type) // 1=  bediener 2= barman  3= kok  4= eigenaar
+                {
+                    case 1:
+                        type = "bediener";
+                        break;
+                    case 2:
+                        type = "barman";
+                        break;
+                    case 3:
+                        type = "kok";
+                        break;
+                    case 4:
+                        type = "eigenaar";
+                        break;
+                    default:
+                        MessageBox.Show("error");
+                        break;
+                }
                 ListViewItem li = new ListViewItem(werknemer.Naam.ToString());
                 li.SubItems.Add(werknemer.ID.ToString());
-                li.SubItems.Add(werknemer.Type.ToString());
+                li.SubItems.Add(type);
                 lv_Werknemers.Items.Add(li);
             }
         }
@@ -122,11 +141,30 @@ namespace ChapooUI
             //schrijft hier naar de database tabel werkenemers, en voegt een werknemer toe
             Werknemer_Service service = new Werknemer_Service();
             string naam = tbNaamToevoegen.Text;
-            int type = int.Parse(tbTypeToevoegen.Text);
+            string type = tbTypeToevoegen.Text;
             int pin = int.Parse(tbPinToevoegen.Text);
             bool actief = cbIs_Actief.Checked;
 
-            service.Write_To_db_ToevoegenWerknemer(type, naam, pin, actief);
+            int werknemertype = 0;
+            switch (type) // 1=  bediener 2= barman  3= kok  4= eigenaar
+            {
+                case "bediener":
+                    werknemertype = 1;
+                    break;
+                case "barman":
+                    werknemertype = 2;
+                    break;
+                case "kok":
+                    werknemertype = 3;
+                    break;
+                case "eigenaar":
+                    werknemertype = 4;
+                    break;
+                default:
+                    MessageBox.Show("error");
+                    break;
+            }
+            service.Write_To_db_ToevoegenWerknemer(werknemertype, naam, pin, actief);
             pnlToevoegen.Hide();
             WerknemersVullen();
         }
@@ -143,7 +181,9 @@ namespace ChapooUI
 
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Chapoo chapoo = Chapoo.GetInstance();
             this.Close();
+            chapoo.Show();
         }
     }
 }
