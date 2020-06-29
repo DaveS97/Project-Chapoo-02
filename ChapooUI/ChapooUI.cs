@@ -79,7 +79,6 @@ namespace ChapooUI
         private void openPDAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AanmeldenPDAForm pda = new AanmeldenPDAForm();
-            Hide();
             pda.ShowDialog();
         }
 
